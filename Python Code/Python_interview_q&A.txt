@@ -1,0 +1,3206 @@
+﻿Python Details
+
+
+What is Python ?
+Python is high level,interactive,interpreted and object oriented scripting language.
+
+1.interactive-We directly interact with interpreter
+interpreted-it directly interpret the code without compiling it.
+OO-All code encapsulaated within object.
+High Level-Human Readable Form 
+
+2.What are the key features of Python?
+Python is an interpreted language.
+Python is dynamically typed,
+Python is well suited to object orientated programming
+High Level programming language.
+Open source and free ware
+Simple and easy to learn.
+30 Keyword in python where 53 keyword in java
+Plateform independent(Write Once Run Anywhere).
+Portabilitiy(Moving one platform to another platform without any chnges).
+
+3.Mention five benefits of using Python?
+Python comprises of a huge standard library for most Internet platforms like Email, HTML, etc.
+Python does not require explicit memory management as the interpreter itself allocates the memory to new variables and free them automatically
+Provide easy readability due to use of square brackets
+Easy-to-learn for beginners
+Having the built-in data types saves programming time and effort from declaring variables
+
+
+4.What is PEP 8?--current 596
+PEP stands for Python Enhancement Proposal. 
+PEP 8 is a coding convention, a set of recommendation, about how to write your Python code more readable.
+
+5.What is the difference between list and tuples in Python?
+Lists 
+ are mutable i.e they can be edited.
+ Lists are slower than tuples.
+ Collection of values.
+ Different datatype collection
+ More functionality as compared to tuple.
+ Don't know the exact number of rows
+ Value enclosed in []
+ Indexing from position 0
+ Syntax: list_1 = [10, ‘Chelsea’, 20]
+		 list_1.append(5)-Allowed
+
+my_list=list(range(1000000))
+tic=time.time()
+my_list_squqre=map(lambda x:x**2,my_list)
+toc=time.time()
+
+print('Elapsed Time:',toc-tic)
+Elapsed Time: 0.03200173377990723		 
+
+ 
+Tuples 
+ Tuples are immutable (tuples are lists which can’t be edited).
+ Tuples are faster than list.(check below example to prove the same)
+ Less functionality as compared to List
+ know the exact number of rows
+ Represent as parenthesis()
+ Indexing from position 0
+ Syntax: tup_1 = (10, ‘Chelsea’ , 20)
+		 tup_2=(10,30,[34,50],'nitesh')
+		 tup_1.append(5)-Error Occured
+
+my_tuple=tuple(range(1000000))
+tic=time.time()
+my_list_squqre=map(lambda x:x**2,my_tuple)
+toc=time.time()
+
+print('Elapsed Time:',toc-tic)
+Elapsed Time: 0.024022340774536133
+
+
+What is set and frozen set
+
+Set-Similar to list except below point
+	Collectionof item 
+	represents as {}(Curley Braces)
+	duplicate not allowed
+	order not preserved
+	indexing,slicing not allowed.
+	used as key in dictionary.
+	set is mutable
+	add,remove allowed not append
+
+eg-
+	set1={1,2,3,5,1} #{1, 2, 3, 5}
+	set1.add(9)		 #{1, 2, 3, 5, 9}
+	set1.remove(5)	 #{1, 2, 3, 9}
+	set1.append(5)	 #'set' object has no attribute 'append'
+	set1[0]			 #'set' object does not support indexing
+
+	
+Frozen Set-Similar to set except below point.
+			immutable
+
+Eg-
+	myset=frozenset([1,3,2,2]) #frozenset({1, 2, 3})
+	
+	
+set vs list example
+Set Example:
+my_set=set(range(1000000))
+tic=time.time()
+print(9123 in my_set)
+print(999999 in my_set)
+print(12569 in my_set)
+toc=time.time()
+print('Elapsed Time:',toc-tic)
+
+Output:-
+True
+True
+True
+Elapsed Time: 0.017998695373535156
+
+List example:
+my_list=list(range(1000000))
+tic=time.time()
+print(9123 in my_list)
+print(999999 in my_list)
+print(12569 in my_list)
+toc=time.time()
+print('Elapsed Time:',toc-tic)
+
+Output:-
+True
+True
+True
+Elapsed Time: 0.037004709243774414	
+
+	
+6.What is pickling and unpickling?
+Pickling is the process of converting Python object to a string representation(byte stream) and dumps it into a file by using dump function.
+While the process of retrieving original Python objects from the stored string representation is called unpickling.
+
+used for memory and performance efficiency
+load time is faster then write once again.
+
+import pickle
+output=open('data.pkl','wb')
+data1=pickle.dump([1,2,3,5],output)
+data2=pickle.dump([1,8,5,9],-1)
+
+output=open('D:\\data','wb')
+data1=pickle.dump('nitesh pandey',output)
+
+
+
+with open('C:\\Users\\nites\\Desktop\\DataExport\\test\\data1.txt','wb') as output:
+    pickle.dump(['nitesh pandey',1,5,6,1,8],output)
+	
+	
+
+to restored the picked object we use the load() function
+pickle.load(data.pkl)
+
+data=open('D:\\data','rb')
+data1=pickle.load(data)
+cnt=0
+for item in data1:
+    print(cnt ,'is',item)
+    cnt=cnt+1
+
+hi=pickle.load(open('C:\\Users\\nites\\Desktop\\DataExport\\test\\data1.txt','rb'))
+
+#Serialisation
+with open('abc.pkl','wb') as f:
+  pickle.dump([1,2,3,4],f)
+ 
+ #Deserialisation
+ with open('abc.pkl','rb')as f:
+  print(pickle.load(f))
+
+7.How Python is interpreted?
+Python language is an interpreted language. Python program runs directly from the source code. 
+It converts the source code that is written by the programmer into an intermediate language, 
+which is again translated into machine language that has to be executed.
+
+8.How memory is managed in Python?
+Python memory is managed by Python private heap space. All Python objects and data structures are located in a private heap. 
+The programmer does not have an access to this private heap and interpreter takes care of this Python private heap.
+
+The allocation of Python heap space for Python objects is done by Python memory manager. 
+The core API gives access to some tools for the programmer to code.
+
+Python also have an inbuilt garbage collector, which recycle all the unused memory and frees the memory and 
+makes it available to the heap space.
+
+9.What are the tools that help to find bugs or perform static analysis?
+PyChecker is a static analysis tool that detects the bugs in Python source code and warns about the style and complexity of the bug. 
+Pylint is another tool that verifies whether the module meets the coding standard.
+
+
+10.What is namespace in Python?
+namespace is a naming system used to make sure that names are unique to avoid naming conflicts.
+
+11.What Are The Built-In Types Available In Python?
+Here is the list of most commonly used built-in types that Python supports:
+Immutable built-in datatypes of Python
+Numbers
+Strings
+Tuples
+
+Mutable built-in datatypes of Python
+List
+Dictionaries
+Sets
+
+12.What’s The Process To Get The Home Directory Using ‘~’ In Python?
+You need to import the os module, and then just a single line would do the rest.	
+import os
+print (os.path.expanduser('~'))
+
+With Python, how do you find out which directory you are currently in?
+
+To find this, we use the function/method getcwd(). We import it from the module os.
+>>> import os
+>>> os.getcwd()
+‘C:\\Users\\lifei\\AppData\\Local\\Programs\\Python\\Python36-32’
+
+We can also change the current working directory with chdir().
+
+>>> os.chdir('C:\\Users\\lifei\\Desktop')
+
+13.What Are Decorators In Python?
+Python decorator gives us the ability to add new behavior to the given objects dynamically or
+Python decorator is a specific change that we make in Python syntax to alter functions easily.
+
+Example:
+>>> def decor(func):
+    def wrap():
+        print("$$$$$$$$$$$$$$$$$")
+        result = func()
+        print("$$$$$$$$$$$$$$$$$")
+    return wrap
+	
+>>> @decor
+def sayhi():
+    print('Hi')
+	
+>>> sayhi()
+$$$$$$$$$$$$$$$$$
+Hi
+$$$$$$$$$$$$$$$$$
+Decorator
+def div(a,b):
+    print(a/b)
+    
+def smartdiv(func):
+    def inner(a,b):
+        if a<b:
+            a,b=b,a
+        return func(a,b)
+    return inner
+
+div1=smartdiv(div)
+div1(2,5)
+
+Example-----------
+
+def actual_fun():
+  print('Actual function')
+
+def decorated_func(func):
+  def inner_func():
+    print('---Inside inner function---')
+    func()
+    print('---Execution completed for actual function---')
+  return inner_func
+
+
+result=decorated_func(actual_fun)
+result()
+
+---Inside inner function---
+Actual function
+---Execution completed for actual function---
+-----------------------------------
+def actual_fun():
+  print('This is an actual function')
+
+def decorated_fun(func):
+  print('Inside the decorated_function')
+  func()
+  print('Execution completed')
+
+decorated_fun(actual_fun)
+o/p-
+Inside the decorated_function
+This is an actual function
+Execution completed
+
+
+parameter is nothing but what is declared in function or method
+argument is that passed through the calling function
+
+
+14.What is PYTHONPATH?
+Ans: It is an environment variable which is used when a module is imported. 
+Whenever a module is imported, PYTHONPATH is also looked up to check for the presence of the imported modules in various directories. 
+The interpreter uses it to determine which module to load.
+
+
+15.What are python modules? Name some commonly used built-in modules in Python?
+Ans: Python modules are files containing Python code. This code can either be functions classes or variables. A Python
+module is a .py file containing executable code.
+
+In Python, module is the way to structure program. Each Python program file is a module, 
+which imports other modules like objects and attributes.
+
+Module help in logically organize our python code.
+Example calculator program include different sub module like 
+Addition
+Subtraction
+Division
+Multiplication etc.
+
+Some of the commonly used built-in modules are:
+os
+sys
+math
+random
+date time
+JSON
+
+16.What are local variables and global variables in Python?
+Global Variables:
+Variables declared outside a function or in global space are called global variables. 
+These variables can be accessed by any function in the program.
+
+Local Variables:
+Any variable declared inside a function is knowns a local variable. 
+This variable is present in the local space and not in the global space.
+
+>>> a=2    		  #Global Variable
+>>> def add():
+    b=3       #Local Variable
+    c=a+b
+    print(c)
+	
+17.Is python case sensitive?
+Yes. Python is a case sensitive language.
+
+18.What is type conversion in Python?
+Type conversion refers to the conversion of one data type into another.
+
+int() – converts any data type into integer type
+float() – converts any data type into float type
+ord() – converts characters into integer
+hex() – converts integers to hexadecimal
+oct() – converts integer to octal
+tuple() – This function is used to convert to a tuple.
+set() – This function returns the type after converting to set.
+list() – This function is used to convert any data type to a list type.
+dict() – This function is used to convert a tuple of order (key,value) into a dictionary.
+str() – Used to convert integer into a string.
+complex(real,imag) – This function converts real numbers to complex(real,imag) number.
+
+19.Is indentation required in python?
+Indentation is necessary for Python. It specifies a block of code. 
+All code within loops, classes, functions, etc is specified within an indented block. It is usually done using four space characters.
+If your code is not indented necessarily, it will not execute accurately and will throw errors as well.
+
+
+Example:
+>>>import array as arr
+>>>My_Array=arr.array('i',[1,2,3,4])
+>>>My_list=[1,'abc',1.20]
+>>>print(My_Array)
+>>>print(My_list)
+
+Output:
+array(‘i’, [1, 2, 3, 4]) [1, ‘abc’, 1.2]
+
+
+21.What are functions in Python?
+A function is a block of code which is executed only when it is called. To define a function in Python, the def keyword is used.
+functon does not deal with class and its instance concept.
+Example:
+def Newfunc():
+print("Hi, Welcome to Edureka")
+Newfunc(); #calling the function
+
+Method
+method is a function which is belongs to object.
+Method is called by its name.
+it may or maynot return any data
+method declared inside of class.
+
+class Pet:
+    def my_method(self):
+        print('I am in Method')
+a=Pet()
+a.my_method()
+out>>>I am in Method
+
+
+22.What is __init__?
+__init__ is a method or constructor in Python. 
+This method is automatically called to allocate memory when a new object/ instance of a class is created. 
+All classes have the __init__ method.
+the name should be always __init__
+whenever we are creating object, constructor can be executed automatically and we are not required declare explicitly
+
+main objective is to decalre and initialize variable automatically.
+for every object constructor will be executed only once
+
+
+
+class Nit():
+	def __init__(self,name,age):
+		self.name=name
+		self.age=age
+		
+		print('Name is:',self.name)
+		print('Age is:',self.age)
+
+		
+c=Nit('NItesh',26)
+
+
+__name__=it is a variable and used for center point of execution
+it is special variable
+
+eg
+if __name__=='__main__';
+main()
+
+23.What is a lambda function?
+Ans: An anonymous function is known as a lambda function. 
+It is also called as without name or nameless function.
+It is used as inline function or it is shorter version of function.
+This function can have any number of parameters but, can have just one statement.
+A lambda is part of a very important abstraction mechanism which deals with higher order functions
+
+>>> lambda input:expression
+>>> a = lambda x,y : x+y
+print(a(5, 6))
+
+lambda over Normal method 
+def is a keyword that doesn’t return anything and create a name in local namespace
+lambda is a keyword that return a function object and does not create a name in the local namespace
+
+Lambda vs Normal Function.
+While normal functions are defined using the def keyword, 
+in Python anonymous functions are defined using the lambda keyword. 
+Hence, anonymous functions are also called lambda functions.
+
+24.What is self in Python?
+Ans:
+self
+>>self is a reference variable which is always pointing to the current object
+>>within the python class, to refer current object we should use self variable
+
+>>the first argument to the constructor and instance method should be self
+>>PVM(Python Virtual Machine) is responsible to provide value for self argument
+and we are not required to provide explicitly
+
+>>by using self we can declare instance variable
+>>by using self we can access instance variable
+>>no keyword in python to refere object  hence we used self 
+>>instead of self we can use any name but recommended to use self.
+
+class Employee:
+    def __init__(self,empno,empname,empsalary,empaddr):
+        self.empno=empno
+        self.empname=empname
+        self.empsalary=empsalary
+        self.empaddr=empaddr
+        
+    def info(self):
+        print('*'*20)
+        print('Employee number',self.empno)
+        print('Employee name',self.empname)
+        print('Employee salary',self.empsalary)
+        print('Employee address',self.empaddr)
+        print('*'*20)
+    
+e1=Employee(100,'nitesh',25000,'MUM')
+e2=Employee(101,'pandey',250000,'HYD')
+
+e1.info()
+e2.info()
+
+
+class Employee:
+    def __init__(n,empno,empname,empsalary,empaddr):
+        n.empno=empno
+        n.empname=empname
+        n.empsalary=empsalary
+        n.empaddr=empaddr
+        
+    def info(n):
+        print('*'*20)
+        print('Employee number',n.empno)
+        print('Employee name',n.empname)
+        print('Employee salary',n.empsalary)
+        print('Employee address',n.empaddr)
+        print('*'*20)
+    
+e1=Employee(100,'nitesh',25000,'MUM')
+e2=Employee(101,'pandey',250000,'HYD')
+
+e1.info()
+e2.info()
+
+
+
+
+20.How does break, continue and pass work?
+break,pass and continue is a transfer statement.
+Break-Allows loop termination when some condition is match and the control is transferred to the next statement.
+counter=0
+while counter<15:
+    if counter==5:
+        break
+    print(counter)
+    counter=counter+1
+	
+
+Continue-Allows skipping some part of a loop when some specific condition is match and the control is transferred to the beginning of the loop.
+for i in range(5):
+    if i<2:
+        continue
+    print(i)
+
+Pass-Used when you need some block of code syntactically, but you want to skip its execution. 
+	 Also called no operation python.
+	 This is basically a null operation. Nothing happens when this is executed.
+	 
+class Test():
+	pass
+
+[start:stop:step]
+What does [::-1} do?
+Ans: [::-1] is used to reverse the order of an array or a sequence.
+For example:
+import array as arr
+My_Array=arr.array('i',[1,2,3,4,5])
+My_Array[::-1]
+Output: array(‘i’, [5, 4, 3, 2, 1])
+
+Explain how can you generate random numbers in Python?
+Random module is the standard module that is used to generate a random number. The method is defined as:
+
+import random
+random.random
+The statement random.random() method return the floating point number that is in the range of [0, 1).
+The function generates random float numbers.
+
+randrange(a, b):it chooses an integer and define the range in-between (random.randrange(1, 10)-o/p:7)
+uniform(a, b): it chooses a floating point number that is defined in the range(random.uniform(1,10)-o/p:1.379)
+random.random()-it returns a floating point number in the range of 0 to 1(random.random()-o/p:0.364)
+#random
+import random
+for i in range(5):
+    print(random.random())
+	
+
+0.40924418582110467
+0.354712057633932
+0.27500079449736536
+0.6087787379748135
+0.19132395901041066
+
+
+###uniform
+for i in range(5):
+    print(random.uniform(1,9))
+
+6.485401041678337
+5.889138975156772
+3.240117831116473
+5.770304733339631
+8.592089668535646
+
+###normalvariate--generate floating point number with normal distribution.
+for i in range(5):
+    print(random.normalvariate(1,9))
+
+10.616131316518018
+7.7098640468909005
+-7.7914523388911245
+1.4261813446849363
+3.669727393947047
+
+###randint
+for i in range(5):
+    print(random.randint(1,6))
+
+3
+1
+4
+1
+6
+
+#####choice
+outcome=['pandey','nitesh','sam']
+for i in range(5):
+    print(random.choice(outcome))
+
+nitesh
+nitesh
+pandey
+sam
+sam
+
+###seed
+seed is used to generate the fixed value each and every time.
+
+for i in range(4):
+    random.seed(20)    
+    print(random.randint(1,9))
+	
+
+##Randrange
+for i in range(4):
+    print(random.randrange(1,10))
+
+5
+2
+6
+3	
+	
+	
+How do you write comments in python?
+Ans: Comments in Python start with a # character. However, alternatively at times, 
+commenting is done using docstrings(strings enclosed within triple quotes).
+
+
+What is the difference between range & xrange?
+For the most part, xrange and range are the exact same in terms of functionality. 
+They both provide a way to generate a list of integers for you to use, 
+
+The only difference is that range returns a Python list object and xrange returns an xrange object.
+Xrange is depriciated in 3.x version.
+
+
+How will you capitalize the first letter of string?
+Ans: In Python, the capitalize() method capitalizes the first letter of a string. 
+If the string already consists of a capital letter at the beginning, then, it returns the original string.
+Ex-a='nitesh'
+a.capitalize()
+'Nitesh'
+
+
+How will you convert a string to all lowercase?
+Ans: To convert a string to lowercase, lower() function can be used.
+
+Example:
+stg='ABCD'
+print(stg.lower())
+
+
+Q31. How to comment multiple lines in python?
+Ans: Multi-line comments appear in more than one line. All the lines to be commented are to be prefixed by a # or using """ between them
+"""
+Nitesh Lol
+"""
+print('A')
+
+What is the purpose of is, not and in operators?
+Ans: Operators are special functions. They take one or more values and produce a corresponding result.
+
+is: returns true when 2 operands are true  (Example: “a” is ‘a’)(check object reference for both the variable)
+a=[11,2,3]
+b=[11,2,3]
+
+a is b==>False
+c=b
+c is b==>True
+
+not: returns the inverse of the boolean value
+c=[2,7]
+d=[[5,7],[1,5,9]]
+c not in d==>True
+
+in: checks if some element is present in some sequence
+b=[11,2,3]
+d=[[11,2,3],[5,7]]
+b in d ==>True
+
+What is the usage of help() and dir() function in Python?
+Ans: Help() and dir() both functions are accessible from the Python interpreter and used for viewing a consolidated dump of built-in functions. 
+
+Help() function:The help() function is used to display the documentation string and also facilitates you 
+				to see the help related to modules, keywords, attributes, etc.
+Dir() function: The dir() function is used to display the defined symbols or function available ie which is used at that session.
+
+
+What is a dictionary in Python?
+Ans: The built-in datatypes in Python is called dictionary. It defines one-to-one relationship between keys and values. 
+Dictionaries contain pair of keys and their corresponding values. Dictionaries are indexed by keys.
+Key-Any type of object
+Value-Any type of object
+
+dict={'Name':'Nitesh','Age':20,'Add':'Mumbai'}
+dict['Name'] #'Nitesh'
+dict['Age']  #20
+
+
+How can the ternary operators be used in python?
+Ternary operators also known as conditional expressions or operators that evaluate something based on a condition being true or false.
+[on_true] if [expression] else [on_false] 
+eg-
+a=10;
+b=20;
+min=a if a<b else b;
+OR
+{True:a,False:b}[a<b]
+
+
+Difference between *args and **kwargs 
+The names *args and **kwargs are only by convention but there's no hard requirement to use them.
+You would use *args when you're not sure how many arguments might be passed to your function, 
+i.e. it allows you pass an arbitrary number of arguments to your function. 
+For example:
+The single asterisk form (*args) is used to pass a non-keyworded, variable-length argument list.
+
+>>> def print_everything(*args):
+        for count, thing in enumerate(args):
+...         print( '{0}. {1}'.format(count, thing))
+...
+>>> print_everything('apple', 'banana', 'cabbage')
+0. apple
+1. banana
+2. cabbage
+
+Similarly, **kwargs allows you to handle named arguments that you have not defined in advance:
+double asterisk form is used to pass a keyworded, variable-length argument list. Here is an example of how to use the non-keyworded form. 
+It allows us to pass variable number of keyword argument like this. 
+>>> def table_things(**kwargs):
+...     for name, value in kwargs.items():
+...         print( '{0} = {1}'.format(name, value))
+...
+>>> table_things(apple = 'fruit', cabbage = 'vegetable')
+cabbage = vegetable
+apple = fruit
+
+why we used Enumeration Function and its benefits
+we use enumerate function with for loop to track position of our item in iterable.
+
+example :
+Without enumerate function.
+names=['pandey','sam','Nitesh']
+l=len(names)
+for i in range(l):
+    print(i,'---',names[i])
+	
+o/p-
+0 --- pandey
+1 --- sam
+2 --- Nitesh
+
+pos=0
+for name in names:
+    print(f"{pos}----{name}")
+    pos=pos+1
+
+0----pandey
+1----sam
+2----Nitesh
+
+
+With enumerate function.
+
+for count,name in enumerate(names):
+    print(f"{count}----{name}")
+
+0----pandey
+1----sam
+2----Nitesh
+
+What does len() do?
+Ans: It is used to determine the length of a string, a list, an array, etc.
+a=['sam','pandey','sarvesh','nitesh',5,9,6,2]
+len(a)-8
+
+Explain split(), sub(), subn() methods of “re” module in Python.
+Ans: To modify the strings, Python’s “re” module is providing 3 methods. They are:
+
+split() – uses a regex pattern to “split” a given string into a list.
+sub() – finds all substrings where the regex pattern matches and then replace them with a different string
+subn() – it is similar to sub() and also returns the new string along with the no. of replacements.
+
+job='I am Working in Sbilife since last 1.6 years'
+job.split()#['I', 'am', 'Working', 'in', 'Sbilife', 'since', 'last', '1.6', 'years']
+re.sub('I','We',job)#'We am Working in Sbilife since last 1.6 years'
+re.subn('I','We',job,flags = re.IGNORECASE) #('We am WorkWeng Wen SbWelWefe sWence last 1.6 years', 6)
+
+
+What are negative indexes and why are they used?
+Ans: The sequences in Python are indexed and it consists of the positive as well as negative numbers. 
+The numbers that are positive uses ‘0’ that is uses as first index and ‘1’ as the second index and the process goes on like that.
+
+The index for the negative number starts from ‘-1’ that represents the last index in the sequence and ‘-2’ 
+as the penultimate index and the sequence carries forward like the positive number.
+
+What are Python packages?
+Ans: Python packages are namespaces containing multiple modules or subfolders.
+
+
+How can files be deleted in Python?
+Ans: To delete a file in Python, you need to import the OS Module.
+After that, you need to use the os.remove(filename) or os.unlink(filename) function.
+
+Example:
+import os
+os.remove("xyz.txt")
+
+
+How to add values to a python array?
+Ans: Elements can be added to an array using the append(), extend() and the insert (i,x) functions.
+
+Example:
+a=arr.array('d', [1.1 , 2.1 ,3.1] )
+a.append(3.4)
+print(a)
+a.extend([4.5,6.3,6.8]) 
+print(a)
+a.insert(2,3.8)#### If specified index not available then by default its insert at the end of the list
+ print(a)
+
+Extend not used with scalars values.
+a.extend(7) 
+TypeError: 'int' object is not iterable
+
+a=[1,5,9,'nitesh']
+a.extend(['sam'])--when use list of string then it stores as word by word.
+[1, 5, 9, 'nitesh', 'sam']
+
+a.append('pandey')
+[1, 5, 9, 'nitesh', 'sam', 'pandey']
+
+a.extend('mit')--when use string then it stored character by character.
+[1, 5, 9, 'nitesh', 'sam', 'pandey', 'm', 'i', 't']
+
+
+How to remove values to a python array?
+Ans: Array elements can be removed using pop() or remove() method. 
+The difference between these two functions is that the former(pop) returns the deleted value whereas the other does not.
+
+Example:
+a=arr.array('d', [1.1, 2.2, 3.8, 3.1, 3.7, 1.2, 4.6])
+print(a.pop())	#by default last element deleted within the array
+print(a.pop(3)) #specify the index position
+a.remove(1.1)	#specify the value which need to be remove.
+print(a)
+del a[1]        #specify the index position to delete
+
+del a[1] #use index position to delete the element from the list
+a.remove(9)#remove the specified elelment from the list
+a.pop(2) #we also remove the specific element from list by providing index position
+a.pop()#by default pop operation remove the last inserted element in the list
+
+
+Output:
+4.6
+3.1
+array(‘d’, [2.2, 3.8, 3.7, 1.2])
+
+Does Python have OOps concepts?
+Ans: Python is an object-oriented programming language. This means that any program can be solved in python by creating an object model. 
+However, Python can be treated as procedural as well as structural language.
+
+What is the difference between deep and shallow copy?
+Ans:
+Deep Copy:
+	A copy of object in other object.
+	Any changes made to a copy of object do not reflect in the original object.
+	deepcopy()
+	import copy
+	
+	old_list=[[1,1],[2,2],[3,3]]
+	new_list=copy.deepcopy(old_list)
+	
+	new_list[1][0]='Nit'
+	old_list #[[1, 1], [2, 2], [3, 3]]
+	new_list #[[1, 1], ['Nit', 2], [3, 3]]
+	
+example:2
+my_dads_phone=['I Phone',False,4.3]
+my_phone=my_dads_phone #shallow copy
+
+my_dads_phone=list(my_phone) #deeep copy
+my_phone[2]=4
+
+print(my_phone)
+print(my_dads_phone)
+
+['I Phone', False, 4]
+['I Phone', False, 4.3]
+
+Shallow Copy
+	Reference of object is copied in other object.
+	It means that any changes made to a copy of object reflect in the original object.
+	copy()
+	
+	import copy
+	old_list=[[1,1],[2,2],[3,3]]
+	new_list=copy.copy(old_list)
+	
+	old_list[1][1]='N'
+	old_list #[[1,1],[2,'N'],[3,3]]
+	new_list #[[1,1],[2,'N'],[3,3]]
+
+What are Python libraries? Name a few of them.
+Python libraries are a collection of Python packages. 
+Some of the majorly used python libraries are – Numpy, Pandas, Matplotlib, Scikit-learn and many more.
+
+
+What is split used for?
+The split() method is used to separate a given string in Python.
+
+Example:
+Str='Crack Logic'
+str.split()
+o/p-['Crack' 'Logic']
+
+'niteshabcpandey'.split('abc')
+['nitesh', 'pandey']
+
+How to import modules in python?
+
+Modules can be imported using the import keyword.  You can import modules in three ways-
+import numpy as np
+import numpy 
+from numpy import array
+
+What is object and class 
+Object is basic runtime entity(or instance of class)
+class is group of object with similar properties(Attributes) and common behavior.
+
+
+Explain Inheritance in Python with an example.
+Ans: Inheritance allows One class to gain all the members(say attributes and methods) of another class. 
+Inheritance provides code reusability, makes it easier to create and maintain an application. 
+The class from which we are inheriting is called super-class and the class that is inherited is called a derived / child class.
+
+They are different types of inheritance supported by Python:
+Single Inheritance – where a derived class acquires the members of a single super class.
+Multi-level inheritance – a derived class d1 in inherited from base class base1, and d2 are inherited from d1.
+Hierarchical inheritance – from one base class you can inherit any number of child classes
+Multiple inheritance – a derived class is inherited from more than one base class.
+
+
+What is Super()?
+Super is used to access the parent class member and method 
+
+
+class A:
+    def m1(self):
+        print('A class Method')
+class B(A):
+    def m1(self):
+        print('B class Method')
+        
+class C(B):
+    def m1(self):
+        print('C class Method')
+        
+class D(C):
+    def m1(self):
+        print('D class Method')
+
+class E(D):
+    def m1(self):
+        pass
+        C.m1(self) #method2 using classname.method() name 
+        #super(D,self).m1()   Method 1 using super(class name,self).method() to access the method of any super class
+      
+e=E()
+e.m1()
+
+o/p-
+C class Method
+
+-----super() example-------
+
+class base1():
+  def m1(self):
+    print('Base1 class')
+
+class base2(base1):
+  def m1(self):
+    print('Base2 class')
+
+class base3(base2):
+  def m1(self):
+    #base1.m1(self)
+    super(base2,self).m1()
+    #super().m1()
+    print('Base3 class')
+    
+
+
+s=base3()
+s.m1()
+Base1 class
+Base3 class
+
+
+from child class we cant use super() to call instance variable of super class
+we should use self only
+
+
+How are classes created in Python? 
+Ans: Class in Python is created using the class keyword.
+
+Example:
+class Employee:
+def __init__(self, name):
+self.name = name
+E1=Employee("abc")
+print(E1.name)
+Output: abc
+
+
+What is monkey patching in Python?
+Ans: In Python, the term monkey patch only refers to dynamic modifications of a class or module at run-time.
+     
+  Adv:
+  1.can be used in unit testing
+  2.can be used to modify the functionality of an existing class.
+
+  Disadv:
+  1.difficult to debug and understand the code.
+
+m.py
+>>> class A:
+>>> def func(self):
+        print("Hi")
+
+We use above module (monk) in below code and change behavior of func() at run-time by assigning different value
+>>>import m		
+>>>def monkey(self):
+      print ("Hi, monkey")
+>>> m.A.func = monkey
+>>> a = m.A()
+>>> a.func()
+#Hi, monkey
+
+example 2
+A.py
+class power:
+  def square(self,n):
+    return f"Square of given number {n} is {n*n}"
+
+Test.py
+import A
+def cube(self,n):
+  return f"cube of given number {n} is {n*n*n}"
+
+A.power.square=cube
+obj=A.power()
+print(obj.square(3))--return 27
+
+
+
+Does python support multiple inheritance?
+Ans: Multiple inheritance means that a class can be derived from more than one parent classes. 
+Python does support multiple inheritance, unlike Java.
+
+
+What is Polymorphism in Python?
+Ans: Polymorphism means the ability to take multiple forms. So, for instance, 
+if the parent class has a method named ABC then the child class also can have a 
+method with the same name ABC having its own parameters and variables. Python allows polymorphism.
+
+Define encapsulation in Python?
+Ans: Encapsulation means binding or wrapping the code and the data together. A Python class in an example of encapsulation.
+
+How do you do data abstraction in Python?
+Data Abtration refer to the the act of representing essential feature without including background details
+It can be achieved in Python by using interfaces and abstract classes.
+
+eg
+l=[2,5,1,9]
+l.sort()[hide internal working ]
+print(l)-[1,2,5,9]
+
+.Does python make use of access specifiers?
+Ans: Python does not describe access to an instance variable or function.
+function or method with a single or double underscore to imitate the behavior of protected and private access specifiers.  
+
+How to create an empty class in Python? 
+Ans: An empty class is a class that does not have any code defined within its block. 
+It can be created using the pass keyword. However, you can create objects of this class 
+outside the class itself. 
+
+IN PYTHON THE PASS command does nothing when its executed. it’s a null statement. 
+For example:
+class a:
+    pass
+obj=a()
+obj.name="xyz"
+print("Name = ",obj.name)
+
+
+Basic Python programs:
+
+Bubble sort	(ascending order)
+def bs(a):
+    b=len(a)-1
+    for x in range(b):
+        for y in range(b-x):
+            if a[y]>a[y+1]:
+                a[y],a[y+1]=a[y+1],a[y]
+    return a
+a=[5,9,1,5,6]
+bs(a)
+[1, 5, 5, 6, 9]
+
+Sort in Descending order
+def bs(a):
+    b=len(a)-1
+    for i in range(b):
+        for j in range(b-i):
+            if a[j]<a[j+1]:
+                a[j],a[j+1]=a[j+1],a[j]
+    return a
+            
+a=[5,9,6,1,2]
+bs(a)
+[9, 6, 5, 2, 1]
+
+
+#Static Method
+for i in range(0, 6):
+    #print(' '*n, end='') 
+    print('* '*(i))
+
+for j in range(6,0,-1):
+    print('* '*(j))
+
+*
+**
+***
+****
+***
+**
+*
+
+method#2-using 2 loop
+n=5
+for i in range(0,n):
+    for j in range(i):
+        print('* ',end='')
+    print()
+
+n=5
+for x in range(n,0,-1):
+    for y in range(x):
+        print('* ',end='')
+    print()
+    
+##
+Create squar pattern by specifying the row and column value
+n=5
+for i in range(0,5):
+    print(' *'*n)
+	
+ * * * * *
+ * * * * *
+ * * * * *
+ * * * * *
+ * * * * *
+
+n=6
+for i in range(0,3):
+    print(' *'*n)
+ 
+ 
+ 
+#Dynamic Method
+n=5
+for i in range(5):
+    #print(' '*n, end='') 
+    print('* '*(i))
+
+for j in range(n,0,-1):
+    print('* '*(j))
+
+####
+for i in range(1, 6):
+    print('* '*(i))
+
+*
+**
+***
+****
+*****
+
+##
+n=10
+for i in range(1, 6):
+    print(' '*n, end='') # repeat space for n times
+    print('* '*(i)) # repeat stars for i times
+    n-=1
+
+     *
+    * *
+   * * *
+  * * * *
+ * * * * *
+ 
+
+ ###
+n=5
+for i in range(1, 6):
+    print(' '*n, end='') # repet space for n times
+    print('* '*(i)) # repeat stars for i times
+    n-=1
+for j in range(6, 0,-1):
+    print(' '*n, end='') # repet space for n times
+    print('* '*(j)) # repeat stars for i times
+    n+=1
+
+     *
+    * *
+   * * *
+  * * * *
+ * * * * *
+* * * * * *
+ * * * * *
+  * * * *
+   * * *
+    * *
+     *
+
+	 
+	 
+##
+def half_pyr(n):
+    for i in range(n):
+        print(' '*n, end='') # repet space for n times
+        print('* '*(i+1)) # repeat stars for i times
+        n-=1
+
+half_pyr(5)
+
+     *
+    * *
+   * * *
+  * * * *
+ * * * * *
+
+##
+ def half_pyr_alpha(n):
+    num=65
+    for i in range(n):
+        ch = chr(num)
+        print(ch, end='') # repet space for n times
+        print(ch*(i+1)) # repeat stars for i times
+        num+=1
+
+half_pyr(5)
+
+AA
+BBB
+CCCC
+DDDDD
+EEEEEE
+
+
+ord('a')-97--character to its ascii value
+chr(65)-'A'--integer to its corresponding ascii character .
+
+def half_pyr_alpha(n):
+    num=65
+    for i in range(n):
+        ch = chr(num)
+        print(ch, end='') # repet space for n times
+        print(ch*(i)) # repeat stars for i times
+        num+=1
+A
+BB
+CCC
+DDDD
+EEEEE
+
+
+##
+def  contalpha(n):
+    num =1
+    for i in range(0, n): 
+        for j in range(0, i):    
+            print(num, end=" ") 
+            num = num +1
+        print("\r") 
+  
+# Driver code 
+n = 5
+contalpha(n)
+
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+
+#
+def half_pyr(n):
+    num=48#Ascii value of 0
+    for i in range(n):
+        b=chr(num)
+        print(b, end='') # repet space for n times
+        print(b*(i)) # repeat stars for i times
+        num+=1
+half_pyr(5)
+
+0
+11
+222
+3333
+44444
+
+
+##
+def  contalpha(n):
+    num = 65
+    for i in range(0, n): 
+        for j in range(0, i+1): 
+            ch = chr(num)   
+            print(ch, end=" ") 
+            num = num +1
+        print("\r") 
+  
+# Driver code 
+n = 5
+contalpha(n)
+
+A 
+B C 
+D E F 
+G H I J 
+K L M N O 
+
+
+#Write a program in Python to check if a sequence is a Palindrome.
+a=input('PLease enter the string')
+b=a[::-1]
+
+if a==b:
+    print('String is palindrome')
+else:
+    print('Not palindrom')
+
+
+#Write a one-liner that will count the number of capital letters in a file. Your code should work even if the file is too big to fit in memory.
+
+	with open('C:/Users/nites/Desktop/p_urankar.txt') as fh:
+    
+    count = 0
+    text = fh.read()
+    for character in text:
+        if character.isupper():
+            count += 1
+    print(count)
+
+
+We will now try to transform this into a single line.
+with open('C:/Users/nites/Desktop/p_urankar.txt') as fh:
+  count=sum(1 for line in fh for character in line if character.isupper())
+  print(count)
+
+#Write a sorting algorithm for a numerical dataset in Python.
+Ans: The following code can be used to sort a list in Python:
+list = ["1", "4", "0", "6", "9"]
+list = [int(i) for i in list]
+list.sort()
+print (list)
+
+OR
+
+list=[1,8,9,7,2]## If dtypes of element is number
+list.sort()
+print(list)
+
+
+Explain what Flask is and its benefits?
+Ans: Flask is a web microframework for Python
+It will have little to no dependencies on external libraries.  
+It makes the framework light while there is a little dependency to update and fewer security bugs.
+
+
+Is Django better than Flask?
+Ans:Flask is much simpler compared to Django
+Django consists of prewritten code but Flask gives the users to create their own code, 
+therefore, making it simpler to understand the code. 
+ 
+Mention the differences between Django, Pyramid and Flask.
+Ans: 
+
+Flask is a “microframework” primarily build for a small application with simpler requirements. In flask, you have to use external libraries.
+Pyramid is built for larger applications. It provides flexibility and lets the developer use the right tools for their project. 
+Django can also be used for larger applications just like Pyramid. It includes an ORM.
+
+
+
+Discuss Django architecture.
+Ans: Django MVT Pattern:
+The developer provides the Model, the view and the template then just maps it to a URL and Django does the magic to serve it to the user.
+
+user----Django----URL-----view----model And Template
+
+
+Explain how you can set up the Database in Django.	
+You can use the command edit mysite/setting.py , it is a normal python module with module level representing Django settings.
+
+Django uses SQLite by default
+
+Engines-Type of database.
+Name-The name of your database.
+
+We will add the following lines of code to the setting.py file:
+DATABASES = {
+     'default': {
+          'ENGINE' : 'django.db.backends.sqlite3',
+          'NAME' : os.path.join(BASE_DIR, 'db.sqlite3'),
+     }
+}
+
+Mention what the Django templates consist of.
+Ans: The template is a simple text file.  It can create any text-based format like XML, CSV, HTML, etc.  A template 
+contains variables that get replaced with values when the template is evaluated and tags (% tag %) that control the logic of the template.
+
+
+List out the inheritance styles in Django.
+
+Ans: In Django, there are three possible inheritance styles:
+Abstract Base Classes: This style is used when you only want parent’s class to hold information that you don’t want to type out for each child model.
+Multi-table Inheritance: This style is used If you are sub-classing an existing model and need each model to have its own database table.
+Proxy models: You can use this model, If you only want to modify the Python level behavior of the model, without changing the model’s fields.
+
+
+
+How To Save An Image Locally Using Python Whose URL Address I Already Know?
+Ans: We will use the following code to save an image locally from an URL address
+
+import urllib.request
+urllib.request.urlretrieve("URL", "local-filename.jpg")
+
+20.What is the difference between Python Arrays and lists?
+The simplest data structure is the array, which is a contiguous block of memory
+Arrays
+>arrays can hold only a single data type elements. 
+>consider when need to stored large amount of data.
+>consume less memory s compared to List
+
+lists 
+>can hold any data type elements.
+> faster than array.
+> performance loss when volume of data is large.
+>consume more memory as comapred to Array.
+
+
+similarities between list and array
+1.both are used to storing data.
+2.both are mutable.
+3.both can be indexed and iterated through.
+4.both can be sliced.
+
+Python Array
+My_Array=arr.array('i',[1,2,3,4]) -valid
+My_Array=arr.array('i',['nitesh',2,3,4])-invalid due to different data type 
+sys.getsizeof(My_Array)==76
+List:
+l=['nitesh','sam',5]-valid
+l=[8,24,32]-valid
+sys.getsizeof(l)==88
+
+What advantages do NumPy arrays offer over (nested) Python lists?
+Ans: 
+Python’s lists are efficient general-purpose containers. 
+They support (fairly) efficient insertion,deletion,appending and concatenation, and 
+Python’s list comprehensions make them easy to construct and manipulate.
+
+list comprehension provide elgegant way to define and create list in python.
+list comprehensions are used for transforming one list into another list.
+list comprehension consists of 
+(1.) an input sequence, 
+(2.) an iterator over the input sequence,
+(3.) a logical condition over the iterator (this is optional), and 
+(4.) an expression that yields
+
+the elements of the derived list. For example,and [x**2 for a in range(6) if x % 2 == 0] yields [4,16].
+They have certain limitations: 
+they don’t support “vectorized” operations like elementwise addition and multiplication
+
+NumPy is not just more efficient; 
+it is also more convenient. 
+You get a lot of vector and matrix operations for free, which sometimes allow one to avoid unnecessary work.
+NumPy array is faster and You get a lot built in with NumPy.
+
+Is python numpy array better than lists?
+Ans: We use python numpy array instead of a list because of the below three reasons:
+
+Less Memory(Size)-take up less space or less memory consumption.
+Fast(better performance)-faster than list
+Convenient-Easy to use
+functionality-provide large number of function for linear algebra operation built in.
+
+
+How to get indices of N maximum values in a NumPy array?
+Ans: We can get the indices of N maximum values in a NumPy array using the below code:
+import numpy as np
+>>> arr = np.array([1, 3, 2, 4, 5])
+>>> b=arr.argsort()[-3:][::-1]--This return the index of maximum number
+array([4, 3, 1], dtype=int64)
+
+>>> print(arr[b])--return the actual value insted of index.
+[5 4 3]
+argsort()-used to get indices of element and alway return indices as per ascending order respecte to the element
+
+
+Why are local variable names beginning with an underscore discouraged?
+a) they are used to indicate a private variables of a class
+b) they confuse the interpreter
+c) they are used to indicate global variables
+d) they slow down execution
+
+Answer: a) they are used to indicate a private variable of a class
+
+As Python has no concept of private variables, 
+leading underscores are used to indicate variables that must not be accessed from outside the class.
+
+Which of the following is an invalid statement?
+a) abc = 1,000,000
+b) a b c = 1000 2000 3000
+c) a,b,c = 1000, 2000, 3000
+d) a_b_c = 1,000,000
+Answer: b) a b c = 1000 2000 3000
+
+Spaces are not allowed in variable names.
+
+Why lambda forms in python does not have statements?
+Ans-it is used to make new function object and then return them at runtime.
+ They are syntactically restricted to a single expression.
+ 
+
+What is unittest in Python?
+A unit testing framework in Python is known as unittest. 
+It supports sharing of setups, automation testing, shutdown code for tests, aggregation of tests into collections etc.
+
+#What is docstring in Python?
+A Python documentation string is known as docstring, it is a way of documenting Python functions, modules and classes.
+def power(a, b): 
+    """Returns arg1 raised to power arg2."""
+   
+    return a**b 
+  
+print (power.__doc__ )
+
+
+How you can convert a number to a string?
+In order to convert a number into a string, use the inbuilt function str(). 
+
+Explain how can you access a module written in Python from C?
+
+You can access a module written in Python from C by following method,
+Module = =PyImport_ImportModule("<modulename>");
+
+
+Does Python have a switch-case statement?
+In Python, we do not have a switch-case statement,you may write a switch function to use. Else, you may use a set of if-elif-else statements
+
+def switch(choice):
+    switcher={'Nitesh':'Monday',
+            'sarvesh':'Tuesday',
+            'Pandey':'Wednesday'}
+    print(switcher.get(choice,'Hi User'))
+
+switch('Nitesh
+') #Monday
+switch('Nil')	 #Hi User
+
+Here, the get() method returns the value of the key. When no key matches, the default value (the second argument) is returned.
+
+
+List some pdb commands.
+Some pdb(Python Debugger) commands include-
+
+<b> — Add breakpoint
+<c> — Resume execution
+<s> — Debug step by step
+<n> — Move to next line
+<l> — List source code
+<p> — Print an expression
+<s>-Steps
+
+
+
+import pdb
+pdb.set_trace() #trace the error 
+def fact(n):
+    if (n==0):
+        return 1
+    return n* fact(n-1)
+	
+
+Documented commands (type help <topic>):
+========================================
+EOF    c          d        h         list      q        rv       undisplay
+a      cl         debug    help      ll        quit     s        unt      
+alias  clear      disable  ignore    longlist  r        source   until    
+args   commands   display  interact  n         restart  step     up       
+b      condition  down     j         next      return   tbreak   w        
+break  cont       enable   jump      p         retval   u        whatis   
+bt     continue   exit     l         pp        run      unalias  where    
+
+
+%xmode Verbose
+Exception reporting mode: Verbose
+
+What is a Counter in Python?
+Ans.The function Counter() from the module ‘collections’. 
+It counts the number of occurrences of the elements of a container.
+
+from collections import Counter
+cnt=Counter([1,3,2,1,4,2,1,3,1])
+print(cnt)
+Counter({1: 4, 3: 2, 2: 2, 4: 1})
+
+How would you create an empty NumPy array? 	
+To create an empty array with NumPy, we have two options:
+
+import numpy as np
+np.empty(shape=(0,0))
+a=np.array([])
+
+How would you make a Python script executable on Unix?
+Ans. For this to happen, two conditions must be met:
+The script file’s mode must be executable
+The first line must begin with a hash(#). An  example of this will be: #!/usr/local/bin/python
+
+
+Explain a few methods to implement Functionally Oriented Programming in Python.
+
+Ans. Sometimes, when we want to iterate over a list, a few methods come in handy.
+a. filter()
+Filter lets us filter in some values based on conditional logic.
+>>> list(filter(lambda x:x>5,range(8))) #[6, 7]
+
+b. map()
+Map applies a function to every element in an iterable.
+>>> list(map(lambda x:x**2,range(8))) #[0, 1, 4, 9, 16, 25, 36, 49]
+
+c. reduce()
+Reduce-repeatedly reduces a sequence pair-wise until we reach a single value.
+>>> from functools import reduce
+>>> reduce(lambda x,y:x-y,[1,2,3,4,5]) #-13
+
+
+Which methods/functions do we use to determine the type of instance and inheritance?
+Ans. Here, we talk about three methods/functions- type(), isinstance(), and issubclass().
+
+a. type()
+This tells us the type of object we’re working with.
+>>> type(3) #<class ‘int’>
+
+b. isinstance()
+This takes in two arguments- a value and a type. If the value is of the kind of the specified type, 
+it returns True. Else, it returns False.
+>>> isinstance(3,int) #True
+
+
+issubclass()
+
+This takes two classes as arguments. If the first one inherits from the second, it returns True. Else, it returns False.
+
+>>> class A: pass
+>>> class B(A): pass
+>>> issubclass(B,A)
+True
+
+
+What do you mean by overriding methods?
+
+class A:
+    def sayhello(self,name):
+        self.name=name
+        print('Hi am in A')
+        print('Name')
+class B(A):
+    def sayhello(self):
+        print('I am in B')
+
+a=A()
+b=B()
+
+a.sayhello()
+#Hello, I’m A
+
+Whenever you exit Python, is all memory de-allocated?
+Ans:The answer here is no. The modules with circular references to other objects, or 
+to objects referenced from global namespaces, aren’t always frees on exiting Python.
+Plus, it is impossible to de-allocate portions of memory reserved by the C library.
+
+Explain join() and split() in Python.
+join() lets us join characters from a string together by a character we specify.
+The join function is a more flexible way for concatenating string. With join function,
+ you can add any character into the string.
+>>> ','.join('12345')
+‘1,2,3,4,5’
+
+split() lets us split a string around the character we specify.
+>>> '1,2,3,4,5'.split(',')
+
+
+How long can an identifier be in Python?
+
+In Python, an identifier can be of any length. Apart from that, there are certain rules we must follow to name one:
+It can only begin with an underscore or a character from A-Z or a-z.
+The rest of it can contain anything from the following: A-Z/a-z/_/0-9.
+Python is case-sensitive, as we discussed in the previous question.
+Keywords cannot be used as identifiers. Python has the following keywords:
+
+
+and		def		False	import	not		True
+as		del		finally	in		or		try
+assert	elif	for		is		pass	while
+break	else	from	lambda	print	with
+class	except	global	None	raise	yield
+continue exec	if		nonlocal		return
+
+
+How do you remove the leading whitespace in a string?
+
+Leading whitespace in a string is remove by using lstrip()
+
+>>>'   Nitesh '.lstrip()
+ 'Nitesh '
+
+ If we want to strip the trailing whitespace instead, we use rstrip().
+ >>>'   Nitesh '.rstrip()
+ ' Nitesh'
+ 
+ What is a closure in Python?
+
+A closure is said to occur when a nested function references a value in its enclosing scope. The whole point here is that it remembers the value.
+
+>>> def A(x):
+    def B():
+        print(x)
+    return B
+>>> A(7)()
+
+def print_msg(msg):
+    def printer():
+        # This is the nested function
+        print(msg)
+
+    return printer  # returns the nested function
+
+another = print_msg("Hello")
+another()
+Hello
+
+How many kinds of operators do we have in Python? Explain arithmetic operators.
+we have 7 kinds of operators: arithmetic, relational, assignment, logical, membership, identity, and bitwise.
+
+What are membership, operators?
+With the operators ‘in’ and ‘not in’, we can confirm if a value is a member in another.
+
+Explain identity operators in Python.
+The operators ‘is’ and ‘is not’ tell us if two values have the same identity.
+
+
+How do you get a list of all the keys in a dictionary?
+
+Be specific in these type of Python Interview Questions and Answers.
+
+For this, we use the function keys().
+
+>>> mydict={'a':1,'b':2,'c':3,'e':5}
+>>> mydict.keys()
+
+What is tuple unpacking?
+
+First, let’s discuss tuple packing. It is a way to pack a set of values into a tuple.
+
+>>> mytuple=3,4,5
+>>> mytuple
+(3, 4, 5)
+
+This packs 3, 4, and 5 into mytuple.
+
+Now, we will unpack the values from the tuple into variables x, y, and z.
+
+>>> x,y,z=mytuple
+>>> x+y+z
+
+What data types does Python support?
+Python provides us with five kinds of data types:
+
+Numbers-Number use to hold numerical values.
+Strings-A string is a sequence of characters.We declare it using single or double quotes.
+Lists-list is an ordered collection of values, and we declare it using square brackets.
+Tuples-A tuple, like a list, is an ordered collection of values. The difference. However,is that a tuple is immutable. This means that we cannot change a value in it.
+Dictionary- A dictionary is a data structure that holds key-value pairs. We declare it using curly braces.
+
+
+What is a namedtuple?
+
+A namedtuple will let us access a tuple’s elements using a name/label. 
+We use the function namedtuple() for this, and import it from collections.
+
+>>> from collections import namedtuple
+>>> result=namedtuple('result','Physics Chemistry Maths') #format
+>>> Ayushi=result(Physics=86,Chemistry=95,Maths=86) #declaring the tuple
+>>> Ayushi.Chemistry
+
+
+
+How do you take input in Python?
+For taking input from user, we have the function input(). In Python 2, we had another function raw_input().
+The input() function takes, as an argument, the text to be displayed for the task:
+
+>>> a=input('Enter a number')
+
+if we need to work on an integer instead
+We use the int() function for this.
+a=int(input('Enter a number'))
+
+	
+
+What is difference between randint and randrange
+
+1.randint() takes only 2 arguments
+Used when we know the start and end values.
+return a<=value<= b
+
+Syntax-randint(start,stop)
+Example
+import random
+random.randint(10) #invalid
+random.randint(1,10) #valid
+
+2.randrange() can take 1,2 or 3 argument
+Used when we don't know both the limit
+return a<=value< b
+Syntax -randrange(start,stop,steps)
+Example- 
+import random
+random.randrange(5)         
+random.randrange(1,9)
+
+random.randrange(1,10,2)
+
+
+isalnum()
+isdigit()
+isnumeric()
+islower()
+isupper()
+istitle()
+isspace()
+isdecimal()
+			
+	
+What is recursion?
+When a function makes a call to itself, it is termed recursion. But then, 
+in order for it to avoid forming an infinite loop, we must have a base condition.
+
+Let’s take an example.
+
+>>> def facto(n):
+    if n==1: return 1
+    return n*facto(n-1)
+>>> facto(4)
+
+Method:2
+x=10
+y=1
+
+for i in range(1,x):
+    y*=i
+print('Factorial of',i,'number is:',y)
+
+Factorial of 9 number is: 362880
+
+------------------------------------------
+import time
+import math
+vals=list(range(1,100))
+tic=time.time()
+for i in vals:
+    y=1
+    for i in range(1,x):
+        y*=i
+toc=time.time()
+print('Elapsed Time for own defind factorial number:',toc-tic)
+
+tic=time.time()
+for i in vals:
+    y=math.factorial(i)
+toc=time.time()
+print('Elapsed Time for system defind factorial number:',toc-tic)
+
+Elapsed Time for own defind factorial number: 0.0010068416595458984
+Elapsed Time for system defind factorial number: 0.0009927749633789062
+
+
+
+What does the function zip() do?
+
+One of the less common functions with beginners, zip() returns an iterator of tuples.
+list(zip(('a','b','c'),(1,2,3)))
+[('a', 1), ('b', 2), ('c', 3)]
+
+list(zip(['a','b','c'],[1,2,3]))
+[(1, 'a'), (2, 'b'), (3, 'c')]
+
+How will you find, in a string, the first word that rhymes with ‘cake’?
+For our purpose, we will use the function search(), and then use group() to get the output.
+>>> import re
+>>> rhyme=re.search('.ake','I would make a cake, but I hate to bake')
+>>> rhyme.group()
+‘make’
+
+
+What is Tkinter?
+
+Tkinter is a famous Python library with which you can craft a GUI. 
+It provides support for different GUI tools and widgets like buttons, labels, text boxes, radio buttons, and more.
+These tools and widgets have attributes like dimensions, colors, fonts, colors, and more.
+
+You can also import the tkinter module.
+
+import tkinter
+top=tkinter.Tk()
+This will create a new window for you:
+
+How is a .pyc file different from a .py file?
+
+While both files hold bytecode, .pyc is the compiled version of a Python file. It has platform-independent bytecode. 
+Hence, we can execute it on any platform that supports the .pyc format. 
+Python automatically generates it to improve performance(in terms of load time, not speed).
+
+How do you create your own package in Python?
+a package may hold other Python packages and modules.Python package must have an __init__.py file in the directory. 
+You may leave it empty, or you may store initialization code in it. But if your directory does not have an __init__.py file, 
+it isn’t a package; it is just a directory with a bunch of Python scripts. 
+
+package module structures
+
+Package
+
+__init__.py
+
+sub package
+(souund)
+__init__.py
+load.py
+play.py
+pause.py
+
+sub package
+(Image)
+__init__.py
+open.py
+change.py
+close.py
+
+Sub Package
+(Level)
+__init__.py
+start.py
+load.py
+over.py
+
+How do you calculate the length of a string?
+This is simple. We call the function len() on the string we want to calculate the length of.
+len('Ayushi Sharma')
+
+What are accessors, mutators, and @property?
+Ans. What we call getters and setters in languages like Java, we term accessors and mutators in Python. 
+In Java, if we have a user-defined class with a property ‘x’, we have methods like getX() and setX(). 
+In Python, we have @property, which is syntactic sugar for property(). 
+This lets us get and set variables without compromising on the conventions.
+
+Define setter and getter functions. To set and get a value, we define the following functions:
+>>> def get_title(self):
+  return self._title
+>>> def set_title(self,title):
+    self._title=title.upper()
+Here, get_title returns the title of the book, and set_title converts it to all caps 
+
+Make the variable ‘title’ private. To do this, we use a leading underscore. After all these changes, our class looks like this:
+>>> class Song:
+  def __init__(self,title):
+    self.title=title
+  def show_title(self):
+    print(f"I'm listening to {self.title}")
+  def get_title(self):
+    return self._title
+  def set_title(self,title):
+    self._title=title.upper()
+	
+>>> class Song:
+  def __init__(self,title):
+    self.title=title
+  def show_title(self):
+    print(f"I'm listening to {self.title}")
+  @property
+  def title(self):
+    return self._title
+  @title.setter
+  def title(self,title):
+    self._title=title.upper()
+	
+Why we use getter and setter 
+If a data member is declared "private", then it can only be accessed within the same class. 
+No outside class can access data member of that class. If you need to access these variables, 
+you have to use public "getter" and "setter" methods
+
+
+Which methods/functions do we use to determine the type of instance and inheritance?
+
+Ans. Here, we talk about three methods/functions- type(), isinstance(), and issubclass().
+
+a. type()
+
+This tells us the type of object we’re working with.
+>>> type(3)
+
+b. isinstance()
+This takes in two arguments- a value and a type. If the value is of the kind of the specified type, it returns True. Else, it returns False.
+
+>>> isinstance(3,int)
+True
+
+c. issubclass()
+
+This takes two classes as arguments. If the first one inherits from the second, it returns True. Else, it returns False.
+
+>>> class A: pass
+>>> class B(A): pass
+>>> issubclass(B,A)
+True
+
+Explain garbage collection with Python.
+
+Ans. The following points are worth nothing for the garbage collector with CPython-
+
+Python maintains a count of how many references there are to each object in memory
+When a reference count drops to zero, it means the object is dead and Python can free the memory it allocated to that object
+The garbage collector looks for reference cycles and cleans them up
+Python uses heuristics to speed up garbage collection
+Recently created objects might as well be dead
+The garbage collector assigns generations to each object as it is created
+It deals with the younger generations first.
+
+How is Python different from Java?
+
+Ans. Following is the comparison of Python vs Java – 
+
+Java is faster than Python
+Python mandates indentation. Java needs braces.
+Python is dynamically-typed; Java is statically typed.
+Python is simple and concise; Java is verbose
+
+Python is interpreted
+Java is platform-independent
+Java has stronger database-access with JDBC
+
+
+Explain try, raise, and finally.
+
+Ans. These are the keywords we use with exception-handling. We put risky code under a try block, 
+use the raise statement to explicitly raise an error, 
+and use the finally block to put code that we want to execute anyway.
+
+
+How do you use and open a file for writing?
+file in python is generally used to stored data permanently or long time.
+
+file provide 2 main inbuilt function
+open()
+close()
+
+At the time of writing to the file if file does not exist then it create and new file and write the data on it.
+eg-
+file=open('C:\\Users\\crack\\Desktop\\logic.txt','w')-if this  text file not present at specified location then it create a new file.
+file.write('New text fille created')
+
+syntax:
+open('File Path',acc_mod)
+there are multiple access mode in python but most widely used access mode is listed below 
+'r'-read to file
+'w'-write to file
+'a'-append to file
+'b'-open the file in binary mode
+
+Let’s create a text file on our Desktop and call it tabs.txt. To open it to be able to write to it, use the following line of code-
+
+>>> file=open('tabs.txt','w')
+This opens the file in writing mode. You should close it once you’re done.
+>>> file.close()
+
+
+Is del the same as remove()? What are they?
+del and remove() are methods on lists/ ways to eliminate elements
+While del lets us delete an element at a certain index, remove() lets us remove an element by its value.
+delete the variable which is not in used and make it eligible for the GC
+s1='Nitesh'
+s2='Pandey'
+del s1
+del s2
+
+Explain, in brief, the uses of the modules sqlite3, ctypes, pickle, traceback, and itertools.
+
+sqlite3- Helps with handling databases of type SQLite
+ctypes- Lets create and manipulate C data types in Python
+pickle- Lets put any data structure to external files
+traceback- Allows extraction, formatting, and printing of stack traces
+itertools– Supports working with permutations, combinations, and other useful iterables.
+
+
+What is speech_recognition? and elaborate PyPI 
+Speech_recognition is a library for performing the task of recognizing speech with Python.
+PyPI is the Python Package Index. This is a repository of software for Python. 
+
+
+Optionally, what statements can you put under a try-except block?
+
+We have two of those:
+
+else- To run a piece of code when the try-block doesn’t create an exception.
+finally- To execute some piece of code regardless of whether there is an exception.
+
+How will you convert a list into a string?
+Ans. We will use the join() method for this.
+
+>>> nums=['one','two','three','four','five','six','seven']
+>>> s=' '.join(nums)
+>>> s
+‘one two three four five six seven’
+
+write a code to remove numbers smaller than 5 from the list nums. 
+
+>>>def a(l):
+    for i in l:
+        if i>5:
+            print(i)
+
+>>>a([1,2,5,10,3,100,9,24])
+10
+100
+9
+24
+
+>>>list(filter(lambda x:x>=5, l))
+[5, 6, 8, 9]
+
+[i for i in l if i>=5]
+[5, 6, 8, 9]
+
+>>>nums=[]
+
+for i in l:
+    if i >=5:
+        nums.append(i)
+
+>>>nums
+[5, 6, 8, 9]
+
+Can you remove the whitespaces from the string “aaa bbb ccc ddd eee”?
+Ans. I can think of two ways to do this.
+
+Using join-
+>>> s='aaa bbb ccc ddd eee'
+>>> s1=''.join(s.split())
+>>> s1
+‘aaabbbcccdddeee’
+
+Using a list comprehension-
+>>> s='aaa bbb ccc ddd eee'
+>>> s1=str(''.join(([i for i in s if i!=' '])))
+>>> s1
+
+
+What is the iterator protocol?
+Ans. The iterator protocol for Python declares that we must make use of two functions to build an iterator- iter() and next().
+
+iter()- To create an iterator
+next()- To iterate to the next element
+
+String reversed
+
+string="nitesh"		
+print(''.join(reversed(string)))
+
+string[::-1]
+'hsetin'
+
+reverse vs reversed
+reversed return object which is used to iterate over conatainer.
+support any data type
+
+reverse
+used to reverse the elemen of container.
+only support list type 
+
+--------------------------
+1.JSON VS Dictionary
+It is apples vs. oranges comparison: 
+JSON is a data format (a string), 
+Python dictionary is a data structure (in-memory object).
+
+JSON is a serialization format. That is, JSON is a way of representing structured data in the form of a textual string.
+A dictionary is a data structure. That is, it is a way of storing data in memory that provides certain abilities to your code
+
+JSON(JavaScript Object Notation) is a lightweight data-interchange format that easy for humans to read and write. 
+The process of encoding JSON is usually called serialization. 
+
+The Python dict string uses single quotation marks, and JSON enforces double quotation marks.
+JSON key name must be a string, Python dict uses hashable.
+
+dictionaries are for working with data in your program, and JSON is for storing it or sending it around between programs.
+
+json.load() to read JSON data from a file and convert it into a dictionary
+json.loads() to convert JSON string to a dictionary
+loads() — to deserialize a JSON document to a Python object.(string based function)
+load() — to deserialize a JSON formatted stream ( which supports reading from a file) to a Python object.(File based function)
+
+json.dumps() to convert Python primitive types into JSON equivalent
+json.dump() to encode and write JSON data to a file
+dump-load data from pthon objects(use  normally)(File based function)
+dumps-load python data to json object file(use when treate with file)(string based function)
+
+resultJSON = json.dumps(sampleDict)
+json.dump(developer, write_file, indent=4, separators=(", ", ": "), sort_keys=True)
+
+Note that the "json.dumps()" returns a string as indicated by the "s" at the end of "dumps". This process is called encoding.
+JSON(JavaScript Object Notation) is a lightweight data-interchange format that easy for humans to read and write. 
+The process of encoding JSON is usually called serialization. 
+
+dumps()-Encoding to JSON Object
+dump()-Encoding string writing on file.
+loads()-Decode the JSON string.
+load()-Decode while JSON file read
+
+
+for person in data['people']:
+    del person['phone']
+
+new_string=json.dumps(data,indent=2,sort_keys=True)
+print(new_string)
+
+indenntation used only for presentation format
+
+2.We can the change key value of dictionary using below method
+dictionary[new_key] = dictionary[old_key]
+del dictionary[old_key]
+Or in 1 step:
+
+dictionary[new_key] = dictionary.pop(old_key)
+
+
+Python has a built-in package called json, which can be used to work with JSON data.
+import json
+
+json	Python
+object	dict
+array	list
+string	str
+int	int
+real	float
+true	True
+false	False
+null	None
+
+
+postgres connection
+
+import psycopg2
+from psycopg2 import Error
+try:
+    connection = psycopg2.connect(user = "postgres",
+                                  password = "postgres",
+                                  host = "127.0.0.1",
+                                  port = "5432",
+                                  database = "HDFC_SAIKU_POC")
+    cursor = connection.cursor()
+ 
+    create_table_query = '''CREATE TABLE mobile
+          (ID INT PRIMARY KEY     NOT NULL,
+          MODEL           TEXT    NOT NULL,
+          PRICE         REAL); '''
+    
+    cursor.execute(create_table_query)
+    connection.commit()
+    print("Table created successfully in PostgreSQL ")
+except (Exception, psycopg2.DatabaseError) as error :
+    print ("Error while creating PostgreSQL table", error)
+finally:
+    #closing database connection.
+        if(connection):
+            cursor.close()
+            connection.close()
+            print("PostgreSQL connection is closed")
+
+
+how to logging in python
+
+Cursor	
+we can create a cursor object which allows us to execute PostgreSQL command through Python source code.
+We can create as many cursors as we want from a single connection object. Cursors created from the same connection are not isolated,
+ i.e., any changes done to the database by a cursor are immediately visible by the other cursors.
+ 
+close()-this method close the databse
+Cursors are not thread-safe.
+
+
+
+
+PYTHON 2 IS LEGACY, PYTHON 3 IS THE FUTURE.
+PYTHON 2 AND PYTHON 3 HAVE DIFFERENT (SOMETIMES INCOMPATIBLE) LIBRARIES
+
+THERE IS BETTER UNICODE SUPPORT IN PYTHON 3
+In Python 2, implicit str type is ASCII. But in Python 3.x implicit str type is Unicode.
+In Python 3, text strings are Unicode by default. 
+In Python 2, strings are stored as ASCII by default–you have to add a “u” if you want to store strings as Unicode in Python 2.x.
+
+
+PYTHON 3 HAS IMPROVED INTEGER DIVISION
+if you’re trying to perform the calculation 5 divided by 2, and you type 5 / 2, the result will be 2 due to rounding. 
+You would have to write it as 5.0 / 2.0 to get the exact answer of 2.5.
+However, in Python 3, the expression 5 / 2 will return the expected result of 2.5 without having to worry about adding those extra zeroes.
+
+THE TWO VERSIONS HAVE DIFFERENT PRINT STATEMENT SYNTAXES
+print "Hello"	 -python 2
+print("Hello")	 -python 3
+
+
+
+
+
+# importing module 
+import cx_Oracle  
+  
+  
+# Create a table in Oracle database 
+try: 
+  
+    con = cx_Oracle.connect('sys as sysdba/syspassword@localhost/orcl') 
+      
+    # Now execute the sqlquery 
+    cursor = con.cursor() 
+      
+    # Creating a table srollno heading which is number 
+    cursor.execute("create table student(srollno number,name varchar2(10), efees number(10, 2)") 
+                      
+    print("Table Created successful") 
+      
+except cx_Oracle.DatabaseError as e: 
+    print("There is a problem with Oracle", e) 
+  
+# by writing finally if any error occurs 
+# then also we can close the all database operation 
+finally: 
+    if cursor: 
+        cursor.close() 
+    if con: 
+        con.close()
+
+for loop							while loop
+execute body for every element in the 				execute body as long as some 
+given sequence							condition is true
+
+for x in range(10):						while condition:
+	print(x)							body
+
+used when iteration know in advance				don't know the exact iteration
+								in advance
+										
+
+Abstract method:
+only method declaration but not include any implemention.
+
+eg:
+Python Code
+
+class C:
+	def m1():
+		pass
+		
+class P(C):
+	def m1():
+		statement1..
+		statement2..
+		statement3..
+		.
+		.
+		.
+		statementn
+
+Increase memory utilization.
+
+java code:
+class P
+{
+	public abstract int getvehical();
+}		
+
+class C extends P
+{
+	public int getvehical()
+	{
+		return T
+	}
+}
+
+
+
+when we need to open the python file then we used below script.
+exec open('a.py').read()
+---------------------------------------------------------------
+'''
+try:
+    connection = psycopg2.connect(user = "postgres",
+                                  password = "postgres",
+                                  host = "127.0.0.1",
+                                  port = "50290",
+                                  database = "Pythonic")
+    cursor1 = connection.cursor()
+ 
+    create_table_query ="select * from py.stud"
+    
+    cursor1.execute(create_table_query)
+    connection.commit()
+    print("Table created successfully in PostgreSQL ")
+except (Exception, psycopg2.DatabaseError) as error :
+    print ("Error while creating PostgreSQL table", error)
+finally:
+    #closing database connection.
+        if(connection):
+            cursor1.close()
+            connection.close()
+            print("PostgreSQL connection is closed")
+'''
+
+-----------------------
+import psycopg2
+from psycopg2 import Error
+import cx_Oracle
+conn_str=u'Pythonic/Password@localhost:1521/orcl'
+try:
+    
+    con = cx_Oracle.connect(conn_str)
+    cursor = con.cursor()
+    cursor.execute("select * from student")
+    print("Table Created successful") 
+      
+except cx_Oracle.DatabaseError as e: 
+    print("There is a problem with Oracle", e);
+
+
+finally:
+    #closing database connection.
+        if(conn_str):
+            cursor.close()
+            con.close()
+            print("connection is closed")
+
+---------------------
+str() vs repr()
+both is used to represnt the string object
+
+str()-creating output for end user.
+	  return result without pair of qoutes
+	  get less precise value then repr when we calculate value.
+	  
+s='nit'
+print(s)
+o/p-nit
+
+repr()-creating output for debugging and development
+	 print string object with pairs of qoutes.
+	 get more precise value when we calculate value.
+	 
+repr(s)
+"'nit'"
+
+I/O bound program spend most of their time waiting for external operation to complete.
+I/O CPU bound program spend most of the their time doing computation.
+
+even number of - represent addition and odd number of this symbol represent the subtraction
+9--8		addition-17--->>9-(-8)=17
+9---8		subtraction-1
+
+9----8		addition-17
+9-----8		subtraction-1
+
+---------------------------
+open program from script
+ subprocess.Popen(['C:\\python34\\python.exe', 'hello.py'])
+ 
+ 
+timeleft=10
+while timeleft>0:
+    print(timeleft,end='')
+    time.sleep(1)
+    timeleft=timeleft-1
+subprocess.Popen(['start','C:\\Users\\nites\\Downloads\\automate_online-materials\\alarm.wav'],shell=True)
+   
+Sending mail using python code
+import smtplib
+smtpobj=smtplib.SMTP('smtp.gmail.com',587)
+smtpobj.ehlo()
+smtpobj.starttls()
+
+smtpobj.login('niteshpandeyofficial@gmail.com','lauvihiqsyfrxfae')
+smtpobj.sendmail('niteshpandeyofficial@gmail.com', 'niteshpandeyofficial@gmail.com',
+'Subject: Hi This is testing mail.\nDear Prashant, this is python generated testing mail. Sincerely,Nitesh')
+smtpobj.quit()
+
+
+#find the length of each word in series.
+import pandas as pd
+a=['Nitesh','sam','Pandey']
+data=pd.Series(a)
+
+data.map(lambda b:len(b))
+
+Apply vs Applymap vs Map
+
+applymap()-method only works on a pandas dataframe where function is applied on every element individually.
+		  -It is typically used for elementwise operations.
+
+apply()- method can be applied both to series and dataframes where function can be applied both series and 
+individual elements based on the type of function provided.
+
+map() method only works on a pandas series where type of operation to be applied depends on argument passed as a function, 
+dictionary or a list.
+The reason for the name applymap is that Series has a map method for applying an element-wise function:
+
+Note=filter,map both return iterable object so to find exact value we used either list of iteration function.
+a=list(range(5))
+b=list(map(lambda x:x**2,a))
+b
+[0, 1, 4, 9, 16]
+
+without list:
+map(lambda x:x**2,a)
+<map at 0x170fe22e588>
+
+c=list(filter(lambda x:x%2==0,a))
+c
+[0, 2, 4]
+
+without list: 
+filter(lambda x:x%2==0,a)
+<filter at 0x170fe22e5c0>
+
+
+
+DataFrame.apply operates on entire rows or columns at a time.
+DataFrame.applymap, Series.apply, and Series.map operate on one element at time.
+
+exec(open("a.py").read())
+
+
+----
+List Method
+min
+max
+sorted(a)
+a.sort()
+a.reverse()
+reserved(a)#return iterator.
+bisect.bisect(a, 6),  #bisect algorithm return the position in list where element need to be be inserted to keep the list sorted.
+bisect.bisect_left(a, 6)
+bisect.bisect_right(a, 6)
+del A[i] (deletes the i-th element),
+del A[i:j] (removes the slice).
+
+
+For example, to convert “314” to an integer, we
+initial the partial result r to 0. In the first iteration, r = 3, in the second iteration r = 3 × 10 + 1 = 31,
+and in the third iteration r = 31 × 10 + 4 = 314, which is the final result.
+
+.xs
+this function is used to get cross selection from the series/dataframe.
+not used toset values.
+
+
+datatype change
+astype() method is for specific type conversion (i.e. you can specify .astype(float64'),
+.astype(float32), or .astype(float16)). For general conversion, you can use pd.to_numeric,
+pd.to_datetime and pd.to_timedelta.
+
+df.dtypes
+df['A'].astype('float64')
+pd.to_numeric(df['E'])
+
+Ignore the error, return the original input if it cannot be convert
+pd.to_numeric(pd.Series(['1', '2', 'a']), errors='ignore')
+0    1
+1    2
+2    a
+dtype: object
+
+
+# Return NaN when the input cannot be converted to a number
+pd.to_numeric(pd.Series(['1', '2', 'a']), errors='coerce')
+0    1.0
+1    2.0
+2    NaN
+dtype: float64
+
+
+pd.to_datetime(df['C'])
+select_dtypes method can be used to select columns based on dtype.
+
+df.select_dtypes(include='number')
+df.select_dtypes(include=['number','bool'])
+df.select_dtypes(include=['number','bool'],exclude='float64')
+
+df.get_dtype_counts()
+float64    1
+int64      1
+bool       1
+object     1
+dtype: int64
+
+tolist()-return a list of value.
+
+
+Find column name.
+--list(df)
+--df.columns
+--df.columns.tolist()
+
+
+
+
+Note In many environments, the pie chart will come out an oval. To make it a circle, use the
+following:
+plt.axis('equal')
+df['x'].plot(kind='pie')
+
+
+plot() can take arguments that get passed on to matplotlib to style the plot in different ways.
+df.plot(style='o') # plot as dots, not lines
+df.plot(style='g--') # plot as green dashed line
+df.plot(style='o', markeredgecolor='white') # plot as dots with white edge
+
+
+By default, plot() creates a new figure each time it is called. It is possible to plot on an existing
+axis by passing the ax parameter.
+
+plt.figure() # create a new figure
+ax = plt.subplot(121) # create the left-side subplot
+df1.plot(ax=ax) # plot df1 on that subplot
+ax = plt.subplot(122) # create the right-side subplot
+df2.plot(ax=ax) # and plot df2 there
+plt.show() # show the plot
+
+
+df = pd.DataFrame(np.random.randint(0, 10, size=(5, 6)),
+columns=['a10','a20','a25','b','c','d'])
+
+show columns containing letter 'a'
+ df.filter(like='a')
+
+show columns using RegEx filter (b|c|d) - b or c or d:
+df.filter(regex='(b|c|d)')
+
+DataFrames do not have a tolist() method.
+
+Getting a dictionary from a series (uses the index as the keys):
+df['C'].to_dict()
+o/p-{0: 9, 1: 7, 2: 2, 3: 5, 4: 0}
+
+You can also get the entire DataFrame back as a dictionary:
+df.to_dict()
+{'a10': {0: 0, 1: 3, 2: 2, 3: 6, 4: 2},
+ 'a20': {0: 4, 1: 1, 2: 3, 3: 7, 4: 5},
+ 'a25': {0: 5, 1: 3, 2: 6, 3: 3, 4: 0},
+ 'b': {0: 5, 1: 1, 2: 6, 3: 6, 4: 3},
+ 'c': {0: 9, 1: 7, 2: 2, 3: 5, 4: 0},
+ 'd': {0: 7, 1: 4, 2: 1, 3: 8, 4: 0}}
+ 
+ 
+merged_inner = pd.merge(left=df1, right=df2, left_on='y', right_on='y') 
+df1.merge(df2, how='outer')
+
+Uses only keys from left DataFrame.
+df1.merge(df2, how='left')
+
+Uses only keys from right DataFrame.
+df1.merge(df2, how='right')
+
+
+
+------------
+The SciPy library is one of the core packages for
+scientific computing that provides mathematical
+algorithms and convenience functions built on the
+NumPy extension of Python.
+
+
+
+find factorial of number using below method.
+
+scipy.math.factorial
+np.math.factorial
+math.factorial
+
+all above are the same function of 
+<function math.factorial> class
+
+scipy.math.factorial()-it take np.ndaray as input and other cant.
+temp=np.arange(10)
+
+Error occured when below code try to execute.
+ As -only size-1 arrays can be converted to Python scalars
+scipy.math.factorial(temp)
+math.factorial(temp)
+
+
+
+scipy.special.factorial(temp,exact=True)
+array([     1,      1,      2,      6,     24,    120,    720,   5040,
+        40320, 362880])
+		
+scipy.special.factorial(temp)
+array([1.0000e+00, 1.0000e+00, 2.0000e+00, 6.0000e+00, 2.4000e+01,
+       1.2000e+02, 7.2000e+02, 5.0400e+03, 4.0320e+04, 3.6288e+05])
+	   
+between can be used with series.
+temp.between(100,1200)
+
+eg-
+sal=dataset['SALARY']
+
+>> type(sal)
+out- series
+
+filt=sal.between(10000,15000)
+sal[filt].head()
+
+EMPLOYEE_ID	SALARY
+147    		12000
+148    		11000
+149    		10500
+150    		10000
+156    		10000
+Name: SALARY, dtype: int64
+
+sal=dataset['SALARY']
+
+----------------------
+Different method to access slice of data from dataset based on some condition.
+
+1.dataset.query('FIRST_NAME=="Alberto"')
+2.dataset[dataset['FIRST_NAME']=='Alberto']
+
+3.cols=dataset['FIRST_NAME']=='Alberto'
+  dataset[cols]
+  
+  
+More than one condition using query 
+1.dataset.query('SALARY >10000 and MANAGER_ID>120')
+2.dataset.query('not(SALARY >10000 and MANAGER_ID>120)')
+3.dataset.query('SALARY >10000 or MANAGER_ID>120')
+
+@ symbol to reference a variable name.
+td=120
+mg=10000
+
+dataset.query('SALARY >@mg and MANAGER_ID>@td')
+
+instead of isin() we can used in when used query for multiple equality.
+dataset.query('MANAGER_ID in [148, 149]')
+
+avoid when column name include any space.
+
+
+Dataframe method used for merging 
+df1.append(df2)
+df1.join(df2)
+
+Pandas method for merging
+it is used because it is more flexible.
+pd.concat([df1,df2])
+pd.merge([df1,df2])
+
+
+>>>print(range(5))
+range(0, 5)
+
+>>>list(range(5))
+[0, 1, 2, 3, 4]
+
+
+Help of any methods and function.
+import time 
+time.time?
+
+Create our own python module
+write to file using echo and single (>)
+>>> !echo 'def Hello():'>myfirst_module.py
+
+Read file using cat
+>>> !cat myfirst_module.py
+'def Hello():'
+
+Append to a file using (>>)
+!echo '    print('This is new line added to it')' >>myfirst_module.py 
+!cat myfirst_module.py
+
+'def Hello():'
+    print('This is new line added to it')  
+
+import myfirst_module #import self module
+myfirst_module.Hello()
+
+!wget-used for getting  file online using some external link
+
+
+Generate sequence of number:
+using for loop vs np.arange
+loop taking more time as compared to arange function.
+arange having better performace then python loop.
+loop function consume more memory as compared to arange function.
+
+tic=time.time()
+for i in range(50000000):
+    i
+toc=time.time()
+print('Elapsed Time:',toc-tic)
+Elapsed Time: 7.3140058517456055
+
+tic=time.time()
+a=np.arange(50000000)
+toc=time.time()
+print('Elapsed Time:',toc-tic)
+
+Elapsed Time: 0.24299335479736328
+
+!pip install seaborn==0.9.0-install seaborn in jupyter notebook
+
+set some inbuilt property for better visualization in seaborn we use below command.
+import seaborn as sns
+sns.set()
+
+
+to generate a vector in python
+plt.quiver(0,0,3,4)
+----------------------------
+import matplotlib.pyplot as plt
+plt.quiver(0,0,3,4,scale_units='xy',angles='xy',scale=1)
+plt.xlim(-10,10) #specify  X limit 
+plt.ylim(-10,10) #specify  y limit 
+plt.plot()
+
+
+using quiver draw diferent vector 
+----------------------------------------------------
+def plot_vector(vecs):
+    #pdb.set_trace()
+    for v in vecs:
+        plt.quiver(v[0],v[1],v[2],v[3],scale_units='xy',angles='xy',scale=1,color='r')
+    plt.xlim(-10,10)
+    plt.ylim(-10,10)
+    plt.show()
+	
+plot_vector([(0,0,-2,4),(0,0,1,6),(0,0,3,5)])
+
+----------------------------------------------------
+def plot_vector(vecs):
+    colours=['r','g','b','y']
+    i=0
+    #pdb.set_trace()
+    for v in vecs:
+        plt.quiver(v[0],v[1],v[2],v[3],scale_units='xy',angles='xy',scale=1,color=colours[i%len(colours)])
+        i=i+1
+    plt.xlim(-10,10)
+    plt.ylim(-10,10)
+    plt.show()
+
+plot_vector([(0,0,-2,4),(0,0,1,6),(0,0,3,5)])
+
+
+Addition of vector
+
+vecs=[np.asarray([0,0,-2,4]),np.asarray([0,0,2,5]),np.asarray([0,0,1,4])]
+plot_vector(vecs)
+
+vecs[0]+vecs[1]
+vecs[2]+vecs[1]
+
+plot_vector([vecs[0],vecs[2],vecs[0]+vecs[2]])
+
+
+plot_vector([vecs[0],vecs[2],vecs[0]-vecs[2]])
+vecs[0] - vecs[1]
+
+order of operation execution.
+1.exponential(**)
+2.division
+3.modulo
+4.multiplication
+
+
+def main():
+    mystring='Hi'
+    print(mystring)
+    
+if __name__=='__main__':
+        main()
+
+or
+def main():
+    a=10
+    if a>=11:
+        print('A is greater than 10')
+    else:
+        print('A is less than or equal to 10')
+    
+if __name__=='__main__':
+        main()
+
+List comprehension to add 20 to given list.
+l=[40,50,35,60]		
+a=[b+20 for b in l]
+
+x=[x**2 for x in l]    	#find square of given list
+y=[2**i for i in l]		#find 2th power of given list
+z=[m for m in x if m%2==0] #find even number from x list comprehension
+
+
+using some function
+def fun(x):
+    return x+30
+b=[fun(a) for a in l]
+
+
+file.seek(0)#go to first position in of file
+
+a=str(123)
+
+def word_to_num(a):
+    a=str(a)
+    b=len(a)
+    for i in range(0,b):
+
+        if a[i]=='1':
+            print('One',end= ' ')
+        elif a[i]=='2':
+            print('Two',end= ' ')
+        elif a[i]=='3':
+            print('Three',end= ' ')
+        elif a[i]=='4':
+            print('Four',end= ' ')
+
+        elif a[i]=='5':
+            print('Five',end= ' ')
+        elif a[i]=='6':
+            print('Six',end= ' ')
+        elif a[i]=='7':
+            print('Seven',end= ' ')
+        elif a[i]=='8':
+            print('Eight',end= ' ')
+        elif a[i]=='9':
+            print('Nine',end= ' ')
+        elif a[i]=='0':
+            print('Zero',end= ' ')
+			
+word_to_num(598)
+Five Nine Eight
+-------------------
+phone_words = input('Phone: ')
+numbered_words = {
+    '0': 'zero',
+    '1': 'one',
+    '2': 'two',
+    '3': 'three',
+    '4': 'four',
+    '5': 'five',
+    '6': 'six',
+    '7': 'seven',
+    '8': 'eight',
+    '9': 'nine'
+}
+output = ""
+for ch in phone_words:
+    output += numbered_words.get(ch, "!") + " "
+phone_words = numbered_words
+
+print(output)
+--------------------
+Number to word conversion
+
+Method-1:
+>>>import inflect
+>>>p = inflect.engine()
+>>>p.number_to_words(99)
+ninety-nine
+
+Method-2:
+from num2words import num2words
+num2words(2200000,lang='en_IN')
+'twenty-two lakh'
+
+----------------------
+1^2+2^2+3^2+4^2+5^2+....so on
+
+def squareofsum(n) : 
+    return (n * (n + 1) * (2 * n + 1)) // 6
+	
+n = 4
+print(squareofsum(n)) 
+
+-------------------------------
+PIP-Python package installer
+Pypi-Python Package index
+
+-------------------------------
+py is a regular python file. It's plain text and contains just your code. 
+. ipynb is a python notebook and it contains the notebook code, the execution 
+results and other internal settings in a specific format.
+---------------------------
+x = 1
+print(+++x) 
+o/p=1
+
+x = 1
+print(-------------x)
+output always should be 1 no matter it consist of any prefix (-,+)
+
+x = 1000
+y=20
+print(++++++++++++x+y) 
+o/p-1020
+--------------------------
+confusion = {}
+confusion[1] = 1
+confusion['1'] = 2
+confusion[1] += 1
+print(confusion)
+sum = 0
+for k in confusion:
+    sum += confusion[k]
+print(sum)
+
+o/p-{1: 2, '1': 2}
+4
+
+---------------------------
+Whats is output-
+names1 = ['Amir', 'Barry', 'Chales', 'Dao']
+loc = names1.index("Edward")
+print (loc)
+
+Error occured if element not  present in the given list.
+
+---------------------------
+names1 = ['Amir', 'Barry', 'Chales', 'Dao']
+names2 = [name.lower() for name in names1]
+print (names2[2][0])
+
+o/p-c
+----------------------------
+names1 = ['Amir', 'Barry', 'Chales', 'Dao']
+names2 = names1
+names3 = names1[:]
+names2[0] = 'Alice'
+names3[1] = 'Bob'
+
+print(names3)  #deep copy
+['Amir', 'Bob', 'Chales', 'Dao']
+
+print(names1,names2) #shallow copy
+['Alice', 'Barry', 'Chales', 'Dao']
+['Alice', 'Barry', 'Chales', 'Dao']
+
+--------------------------
+Install pythhon package to read XLS file
+ pip install xlrd
+ 
+Python Function to read Excel Sheet.
+open_workbook(filepath)
+
+to know the type of excell cells
+cell_type()
+
+import package to access the MySql db
+import mysql.connector
+------------------------------
+The maketrans() method returns a translation table that maps each character in the intabstring into 
+the character at the same position in the outtab string. Then this table is passed to the translate() function.
+
+str.maketrans(intab, outtab]);
+
+intab = "aeiou"
+outtab = "12345"
+trantab = str.maketrans(intab, outtab)
+
+str = "this is string example....wow!!!"
+print (str.translate(trantab))
+
+.replace() does a substring replace - it tries to match the entirety of the first argument as one chunk, and replace it with the entirety of the second argument.
+.maketrans + .translate does a character-level translation - it replaces each individual character from the first argument with the corresponding character in the second.
+
+------------------------------
+An iterable is an object that has an __iter__ method.
+An iterator is an object with a next() method.
+------------------------------
+Source
+https://towardsdatascience.com/interactive-controls-for-jupyter-notebooks-f5c94829aee6
+
+import ipywidgets as widgets
+from ipywidgets import interact, interact_manual
+
+data=pd.read_csv('C:\\Users\\nites\\Desktop\\DataExport\\salesrep_export.csv')
+dataset=pd.DataFrame(data)
+
+@interact
+def show_articles_more_than(column=['SALARY','COMMISSION_PCT','MANAGER_ID'], x=(1000,100000,10)): ##(min,value,max)
+    return dataset.loc[dataset[column] > x]
+
+---------------------------
+Key takeaways from this chapter
+The following are the links to the Like/Dislike predictor contests:
+
+Padhai Contest 1.1 Part A: MPNeuron [Launched]
+
+Invitation: https://www.kaggle.com/t/7f7013f886464d9a8b6db16a3f2fe153
+Home: https://www.kaggle.com/c/padhai-mp-neuron-like-unlike-classification
+Padhai Contest 1.1 Part B: Perceptron [Launched]
+
+Invitation: https://www.kaggle.com/t/e74469cb24d64e1c98c254cdd57fe729
+Home: https://www.kaggle.com/c/padhai-perceptron-like-unlike-classification
+The following notebook file contains the sample solution for the Like/Dislike predictor contest:
+
+Contest_1_1_Solution_Sample.ipynb
+       https://drive.google.com/open?id=14SFivPfntiMiC0oXFp5JvH57q9HaUbf5
+	   
+
+s1='{[]}'
+stack=[]
+mapping={"}":"{",")":"(","]":"["}
+valid=True
+for char in s1:
+  if char in mapping:
+    top_element=stack.pop() if stack else '#'
+    if top_element !=mapping[char]:
+      valid=False
+  else:
+    stack.append(char)
+
+print(valid)
+
+
+##### Find duplicate
+using set
+list(set(l))
+
+using dict
+l=[1,2,2,2,2,2,4,4,5]
+list(dict.fromkeys(l))
+
+using general user defind method.
+l=[1,2,2,2,3,4,5,5,5,5]
+print(l)
+dup_list=[]
+for i in l:
+  if i in dup_list:
+    l.remove(i)
+  else:
+    dup_list.append(i)
+print(dup_list)
+
+
+Byte objects are sequence of Bytes, whereas Strings are sequence of characters.
+Byte objects are in machine readable form internally, Strings are only in human readable form.
+Since Byte objects are machine readable, they can be directly stored on the disk. 
+Whereas, Strings need encoding before which they can be stored on disk
+
+a='nitesh'
+b=b'nitesh'
+c=a.encode('ASCII')
+if b==c:
+  print('Same')
+else:
+  print('Not same')
+
+
+###############
+Numpy vs scipy
+Numpy stand fpor numerical python while scipy stands for scientific python
+
+numpy is the basic library for defining array and simple mathematical problems
+scipy is used for more complex problem like numericl integration and optimization and machine learning and so on.
+eg scipy.io
+scipy.special
+scipy.linalg
+scipy.stats

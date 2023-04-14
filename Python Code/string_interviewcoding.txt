@@ -1,0 +1,671 @@
+String Interview coding Questions
+
+
+Reverse the string without any inbuilt function.
+s=input('Enter the string you want to reverse:')
+
+slength=len(s)-1
+output=''
+while slength>=0:
+    output=output+s[slength]
+    slength=slength-1
+print(output)
+
+import pandas as pd
+import numpy as np
+
+#method 2
+s=input('Enter the string which you want to reversed:')
+print(s[::-1])
+
+#method-3 rversing th string using reversed method
+a=reversed(s)
+for ch in s:
+	print(ch)
+	
+method-4
+new=reversed(s)
+output=''.join(new)
+print('Reversed the string without loop:',output)
+
+
+###reverse the order of each word within the given string
+s=input('Enter the string you want to reverse:')
+
+li=s.split()
+mi=li[::-1]
+print(mi)
+out=' '.join(mi)
+print(out)
+
+input-nitesh pandey
+output-pandey nitesh
+
+##write a program to reverse the internal content of each word??
+input- nitesh sarvesh pandey
+output-hsetin hsevras yednap
+
+m=input('Enter the string:');
+new1=m.split()
+print(new1)
+
+l1=[]
+print('new list is :',new1)
+for word in new1:
+    l1.append(word[::-1])
+print(l1)
+print(' '.join(l1))#convert list to normal string
+
+
+####
+input-nitesh sarvesh pandey nit sam 
+output-nitesh hsevras pandey tin  sam
+
+alternate string should be reverse 
+
+a=input('Enter the string:')
+input_string=a.split()
+i=0
+list1=[]
+
+while i<len(input_string):
+    if i%2==0:
+        list1.append(input_string[i])
+    else:
+        list1.append(input_string[i][::-1])
+    i=i+1;
+output=' '.join(list1)
+print(output)
+
+
+#####
+#print character present at the even index
+--------------------
+n='nitesh'
+i=0
+print('The Character at even index is:')
+while i<len(n):
+    print(n[i])
+    i=i+2
+
+--------------
+print character present at the odd index
+--------------
+n='nitesh'
+i=1
+print('The Character at odd index is:')
+while i<len(n):
+    print(n[i])
+    i=i+2;
+	
+mehod-2
+------------------------------------------
+s='nitesh'
+print('Character present at even index position:',(','.join(s[::2]))) #or s[0::2]
+
+
+s='nitesh'
+print('Character present at odd index position:',s[1::2])
+
+------------------------------------------
+sorted given alphanumerical string
+input-SADB193
+output-ABDS139
+
+s=input('Enter the alphanumerical string:')
+
+alphabetic=[]
+numerical=[]
+
+for ch in s:
+    if ch.isalpha():
+        alphabetic.append(ch)
+    else:
+        numerical.append(ch)
+output=''.join(sorted(alphabetic)+sorted(numerical))
+print(output)
+
+------------------------------------------
+if we used sorted method directly then it return numerical value first and then alphabetic.
+S='NITESH125'
+output=''.join(sorted(S))
+output-125EHINST 
+
+------------------------------------------
+input-a4z3b2
+output-aaaabbzzz
+	
+n='a4z3b2'
+a=[]
+
+for ch in n:
+    if ch.isalpha():
+        x=ch
+    else:
+        a.append(x*int(ch))
+
+        
+print(''.join(sorted(a)))
+
+-------------------------------------------
+input-a4b3
+output-aaaabbb
+
+method-1
+n='a4b3'
+a=[]
+
+for ch in n:
+    if ch.isalpha():
+        x=ch
+    else:
+        a.append(x*int(ch))
+
+        
+print(''.join(a))
+
+-------------------------------------------
+method-2
+n='a4b3'
+a=''
+
+for ch in n:
+    if ch.isalpha():
+        x=ch
+    else:
+        a=a+x*int(ch)
+
+        
+print(a)
+
+----------------------------------------
+input-aaabbbccd
+output-3a3b2c1d
+
+s1='aaabbbccd';
+
+output=''
+previous=s1[0];
+i=1
+c=1
+
+
+while i<len(s1):
+    if s1[i]==previous:
+        c=c+1
+    else:
+        output=output+str(c)+previous
+        previous=s1[i]
+        c=1
+    
+    if i==len(s1)-1:
+        output=output+str(c)+previous
+    i=i+1
+print(output)   
+
+-----------------------------------------
+#without using count method i.e using dictionary
+input-AABBDDSDDFF
+output-
+A 2
+B 2, 
+D 4, 
+S 1, 
+F 2
+
+s2='AABBDDSDDFF'
+d={}
+
+for ch in s2:
+    d[ch]=d.get(ch,0)+1
+
+print(d)
+
+for k,v in sorted(d.items()):
+    print('{} occured {} times'.format(k,v))
+	
+o/p-
+A occured 2 times
+B occured 2 times
+D occured 4 times
+F occured 2 times
+S occured 1 times
+
+---------------------------------------------
+#using count method
+s1='ASASASDDFF'
+l=[]
+for ch in s1:
+    if ch not in l:
+        l.append(ch)
+for ch in sorted(l):
+    print('{} occured {} times'.format(ch,s1.count(ch)))
+o/p-
+A occured 3 times
+D occured 2 times
+F occured 2 times
+S occured 3 times
+-------------------------------------------
+Using set but order not maintained 
+s1='AABBCD'
+inp=set(s1)
+print(inp)
+for ch in inp:
+  print('{} occurred {} times'.format(ch,s1.count(ch)))
+
+order is maintained
+
+Using set but order not maintained 
+s1='AABBCD'
+inp=set(s1)
+print(inp)
+for ch in sorted(inp):
+  print('{} occurred {} times'.format(ch,s1.count(ch)))
+
+
+--------------------------------------------
+input-AAASSSDDSDADS
+output-4A4D5S
+
+s='AAASSSDDSDADS'
+d={}
+
+for ch in s:
+    d[ch]=d.get(ch,0)+1
+
+output=''
+for k,v in sorted(d.items()):
+    output=output+str(v)+k
+print(output)
+
+---------------------------------------------
+input-AAASSSDDSDADS
+output-A4D4S5
+
+s='AAASSSDDSDADS'
+d={}
+
+for ch in s:
+    d[ch]=d.get(ch,0)+1
+
+output=''
+for k,v in sorted(d.items()):
+    output=output+k+str(v)
+print(output)
+
+-----------------------------------------------
+s=input('Enter the string')
+v={'a','e','i','o','u','A','E','I','O','U'}
+d={}
+
+for ch in s:
+    if ch in v:
+        d[ch]=d.get(ch,0)+1
+print(d)
+for k,v in sorted(d.items()):
+    print('{} occured {} times'.format(k,v))
+	
+Enter the stringyuuhadsvhh
+{'u': 2, 'a': 1}
+a occured 1 times
+u occured 2 times
+
+##same character with different order then it is called as anagram
+
+eg- lazy zoly
+	listen silent
+s1=input('Enter the first string:')
+s2=input('Enter the second string:')
+
+if sorted(s1)==sorted(s2):
+    print('Enter string are anagram')
+else:
+    print('Strings are not angram')
+
+-----------------------------------------
+	
+s1=input('Enter the first string:')
+s2=input('Enter the second string:')
+
+if sorted(s1[::])==sorted(s2[::-1]):
+    print('Enter string are palindrom')
+else:
+    print('Strings are not paindrom')
+	
+-------
+armstrong number
+125=1^3+2^3+5^3=1+8+125=134----not a armstrong number
+
+153=1^3+5^3+3^3=1+125+27=153---its equal to real value of number hence it is armstrong
+22=2^2+2^2=4+4=8--not armstrong number
+
+method-1
+---------------------------------
+a=int(input('Enter the number:'))
+print('Value of a is',a)
+order=len(str(a))
+
+result=0;
+temp=a
+while temp>0:
+    digit=temp%10
+    #print('value of digit:',digit)
+    result=(result+(digit**order))
+    #print('value of result:',result)
+    temp//=10
+    #print('value of temp:',temp)
+    
+if a==result:
+    print(a,'is a armstrong number')
+else:
+    print(a,'is not a armstrong number')
+---------
+Method-2
+---------
+a=int(input('Enter the number:'))
+print('Value of a is',a)
+order=len(str(153))
+words=list(str(a))
+result=0;
+print(words)
+for word in words:
+    b=int(word)**order;
+    result=result+b;
+print('result is:',result)
+print('Actual Value is:',a)
+
+if a==result:
+    print(a,'is a armstrong number')
+else:
+    print(a,'is not a armstrong number')
+
+o/p -
+Enter the number:89
+Value of a is 89
+['8', '9']
+result is: 1241
+Actual Value is: 89
+89 is not a armstrong number
+---------
+to find the number of digit in given number
+a=str(153)
+b=len(str(153))
+--3
+---------------
+a=153
+a=abs(a)
+i=0
+while a>=10**i:
+    i=i+1;
+print(i)---3
+
+----------
+perfect square of any number
+eg-
+
+factor of 6 is 1,2,3,6
+not consider last one i.e only 1,2,3
+sum of this value=1+2+3=6
+i.e perfect number when they are same.
+
+
+a=int(input('Enter the number:'))
+result=0
+for i in range(1,a):
+        if a%i==0:
+            result=result+i
+
+if result==a:
+    print(a,'is a perfect number')
+else:
+    print(a,'is not a perfect number')
+	
+#####
+Not working in all situation
+method-2
+a=int(input('Enter the number:'))
+result=0
+for i in range(1,a):
+    for j in range(1,i):
+        if i%2==0:
+            result=result+i
+            break
+output=result/2
+if a==output:
+    print(a,'is a perfect number')
+else:
+    print(a,'is not a perfect number')
+
+	
+co-prime 
+
+
+the natural number other than 1 whose only factors are 1 and the number itself are called prime number.
+eg-
+factor			prime
+1-1	1		no	
+2-1,2	2		prime
+3-1,3	2		prime
+4-1,2,4	3		not prime
+5-1,5	2		prime
+
+co-prime
+two natural number having one and only 1 as common factor are called co-prime number.
+2 and 3
+common is 1
+#####
+selection sorting can be done in different way
+1.finding min value from the list
+2.traverse through list to find minimum value and then sorted using loop traversal
+
+1.finding min value from the list and then sorted the list.
+
+l=[5,15,3,12,17,0]
+
+ind_min_value=l.index(min_value)
+
+for i in range(len(l)):
+    min_value=min(l[i:])
+    min_ind=l.index(min_value)
+    l[i],l[min_ind]=l[min_ind],l[i]
+print(l)
+
+used when there is any duplicate value
+l=[5,15,3,12,17,0,0]
+
+for i in range(len(l)-1):
+    min_values=l[i]
+    for j in range(i+1,len(l)):
+        if l[j]<min_values:
+            min_values=l[j]
+    m_ind=l.index(min_values,i)
+    print('Minimum Index value',m_ind)
+    if l[i]!=l[m_ind]:
+        l[i],l[m_ind]=l[m_ind],l[i]
+print(l)
+
+
+
+####bubble sort
+method-1
+l=[10,15,4,23,0]
+for i in range(len(l)):
+    for j in range(i+1,len(l)):
+        if l[i]>l[j]:
+            l[i],l[j]=l[j],l[i]
+print(l)
+
+method-2
+l=[0,10,15,4,20,23,0]
+for i in range(len(l)):
+    for j in range(i+1,len(l)):
+        if l[i]>l[j]:
+            l[i],l[j]=l[j],l[i]
+print(l)
+
+------
+def pivot_place(list1,first,last):
+    pivot=list1[first]
+    left=first+1
+    right=last
+
+    while True:
+        while left<=right and list1[left]<=pivot:
+            left=left+1
+        while left<=right and list1[right]>=pivot:
+            right=right-1
+        if left>right:
+            break
+        else:
+            list1[left],list1[right]=list1[right],list1[left]
+    list1[first],list1[right]=list1[right],list1[first]
+    return right
+        
+def quicksort(list1,first,last):
+    if first<last:
+        p=pivot_place(list1,first,last)
+        quicksort(list1,first,p-1)
+        quicksort(list1,p+1,last)
+    
+#main
+
+list1=[56,26,93,17,31,44]
+n=len(list1)-1
+
+quicksort(list1,0,n)
+print(list1)
+
+
+o/p-
+[17, 26, 31, 44, 56, 93]
+
+
+find index of mention number within the list
+a=[1,1,5,6,9,8,6,53,2,3,0,5,5,5,5,5,5,5,5,1,1,1,1,1,1,1,9]
+inplace=int(input('Enter the number which we want to find the index position:'))
+
+for index in range(len(a)):
+    if a[index]==inplace:
+        print(index)
+		
+Enter the number which we want to find the index position:5
+2
+11
+12
+13
+14
+15
+16
+17
+18
+
+--------------------
+take list input from the user. 
+num=int(input('Enteer the length:'))
+list1=[int(input()) for i in range(num)]
+
+
+------------------
+Binary search
+
+
+def search_binary(l1,key):
+    low=0;
+    high=len(l1)-1
+    found=False
+    
+    while low<=high and not found:
+        middle=(low+high)//2
+        if key==l1[middle]:
+            found=True
+        elif key>l1[middle]:
+            low=middle+1
+        else:
+            high=middle-1
+    if found==True:
+        print('Key is found')
+    else:
+        print('Key is not found')
+		
+search_binary(l1,10)
+Key is not found
+
+------------------
+find coprime number
+num1=int(input('Enter first number:'))
+num2=int(input('Enter the second number:'))
+ 
+from fractions import gcd
+if gcd(num1,num2)==1:
+         print(num1,'and',num2,"are coprime")
+else:
+         print(num1,'and',num2,"are not coprime")
+		 
+-----------------
+coprime number within specified limit
+
+
+num1=int(input('Enter first number:'))
+lower=int(input('Enter the lower range:'))
+upper=int(input('Enter the upper range:'))
+ 
+from fractions import gcd
+for i in range(lower,upper+1):
+    if gcd(num1,i)==1:
+         print(i)
+		 
+
+Enter first number:15
+Enter the lower range:2
+Enter the upper range:10
+2
+4
+7
+8
+
+
+
+
+If you need to sort the values in regular alphabetical order, pass str.
+lower for the key keyword argument in the sort() method call.
+
+spam = ['a', 'z', 'A', 'Z']
+>>> spam.sort(key=str.lower)
+>>> spam
+['a', 'A', 'z', 'Z']
+
+
+----------------------------------------
+fromkeys() Parameters
+The fromkeys() method can take two parameters:
+
+alphabets - are the keys that can be any iterables like string, set, list, etc.
+numbers (Optional) - are the values that can be of any type or any iterables like string, set, list, etc.
+
+### Remove duplicates from given input.
+Method-1
+from collections import OrderedDict
+def remove_duplicate(str1):
+    return "".join(OrderedDict.fromkeys(str1))
+     
+print(remove_duplicate("1111222211"))
+12
+
+Method-2
+def remove_duplicate(str):
+  return "".join(sorted(set(str)))
+remove_duplicate('12222244421122')
+
+op-124
+
+method-3
+def remove_duplicate(str):
+  l=[]
+  for char in str:
+    if char not in l:
+      l.append(char)
+    else:
+      pass
+  return l
+
+print("".join(remove_duplicate('1222234445667788')))

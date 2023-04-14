@@ -1,0 +1,2 @@
+NAN vs None
+np.nan allows for vectorized operations; its a float value, while None, by definition, forces object type, which basically disables all efficiency in numpy.
