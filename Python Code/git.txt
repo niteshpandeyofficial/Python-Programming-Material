@@ -1,0 +1,447 @@
+Git or Mercurial system
+
+Source code management
+Software configuration management
+
+Local version control system
+Centralised version control system
+Distributed Version control system
+
+gitlab,gitlaab--central repository
+
+1.Centralised version control system(CVCS)
+
+Drawback
+1.it is not locally available meaning you always need to be connected to a network  to perform any action
+2.since everything is centralised ,if central server get failed you will loose entire data eg (SVN Tool)
+
+2.Distributed Version control system(DVCS)
+In distributed version control system,every contributor has a local copy or clone of the main repository  i.e 
+every one maintains a local repository of their own which contain all the file and metadata present in main repository.
+
+Git(Software or tool) is a DVCS
+
+  repository(Remote Server)
+  |Push |pull
+  |		|
+Local repository(Local System)
+  |Update |commit
+  |		  |
+Working space (PC1)
+
+
+Drawback
+1.difficult to learn compare to CVCS
+2.Each and every time need to pull the data into local system
+
+
+CVCS																	DVCS
+In CVCS, aclient need to get local copy of source			In DVCS each client can have alocal repo as well and have a complete history on it.
+from server ,do the changes and commit those changes		client need to push the changes to branch which will then pushed to server history.
+to central source on the server.
+
+CVCS is easy to learn and setup.							DVCS isystem are difficult  for beginners because multiple command need to be remembered
+
+Working on branches is difficult in CVCS.Developer			Working on branches is easier in DVCS.Developer faces less conflict
+often faces merge conflict.
+
+CVCS system do not provide offline access.					DVCS system are working fine on offline mode as client copy the entire repository
+															on theire local machine
+
+CVCS is slower as every command need to communicate 		DVCS is faster as mostly user deals with local copy without hitting server everytime
+with server.
+
+If CVCS server is down,developer can not work.				If DVCS server is down,developer can work using their local copies
+
+
+
+Stages of git 
+
+Services(Github and Gitlab)
+Git with Github 
+Git with Gitlab
+
+create directory
+git init
+after running the git init command the directory automatically converted to git repository or local repository
+
+working directory/work space
+stagging area
+local repo
+
+
+After doning perfect code we need to commit the code but before commit the code we need to add it into stagging area.
+commit is nothing but snapshot and for each if commit or snapshot 1 id created by system which is 40 alhanumeric value
+
+Commit is a type of incremental backup
+
+Repository
+Repository is a place where you have all your codes or kind of folder on server.
+It is kind of folder related to one product
+Changes are personal to that particular repository.
+
+
+Server
+It store all Repositories
+It contain metadata also
+
+Working directory
+where you see file physically and do modification
+At a time ,you can work on particular branch
+
+In other word CVCS,developer generally makes modification and commit their changes directly to their repository but 
+git uses different strategy,git does not track each and every modified file  whenever  you do comit an operation.git looks for the file 
+present in staging area only those file present in staging area are considered for commit and not all the modified file
+
+
+commit
+store changes in repository for each commit we get one commit id
+It is 40 alphamumerical character
+It user SHA-1 checksum concept
+Even you change one dot checksum of value of that commit id change
+Commit is also name as SHA-1 has
+It help to track the changes
+
+Commit id /version id/version
+Reference to identify each changes
+To identify who changed the file
+
+Tag
+Tag assign a meaningful name with a specific version in a repository once a tag is created for a particular save 
+even  if you create a new commit ,it will not updated
+
+Snapshot
+represent the some data of perticular time
+It is always incremental backup i.e it stored changes(append data )not entire copy
+
+
+Push
+push copy the changes from local repository server to central or remote repo
+This is used to store the changes permanently into the git repo
+
+pull
+pull  operation copies changes from central or remote repo to a local machine.
+The pull operation is used for syncronisation between two repo
+
+
+Branches
+
+In Git, a branch is a new/separate version of the main repository.
+product is a same so one repository but different task
+
+Each task has once separate branch
+Finally merge(code)all branches
+usefull when you want to work parallely
+can create one branch on basis of other branch
+changes are personal to that perticular branch
+default branches is master
+file created in workspace will be visible in any of the branch workspace until you commmit ,then that file
+belongs to that perticular branch
+
+
+Type of repository
+bare repository(Central repo)
+store and share only
+all central or remote repo are bare repository
+
+Non bare repository(Local repo)
+where you can modified the file 
+All local repository are non-bare repository
+
+
+Branching Strategies
+*Feature Branching
+It keeps all the changes of a specific features in a branch and when the feature is completely tested
+and validated it is merged into the master
+
+
+*Task Branching
+It is include in its own branch with the task key included in the branch name
+
+*Release Branching
+when the developed branch acquires enough features for a release the used can clone that branch to form a release branch
+
+Advantges of git
+1.free and open source
+2.security
+git used common cryptograhic has function called secure hash algorithms to name and identify object within the database.
+
+3.fast and small
+as most of the operation are performed locally,therefor it is fast
+
+5.No need of powerfull machine or hardware
+6.Easier branching
+if we create anew branch ,it will copy all the codes to new branch
+
+Branching in Git
+
+-->Each task has one separate branches(Recomonded)
+-->After completion of work we can either merge two different branches or branches with master 
+-->This concept is useful for parallel development.
+-->There is no restriction on creation of number of braches
+-->changes are personal to that perticular branch
+-->Defualt branch is master
+
+-->fle created in workspace will be visible in any one of the branch workspace untill you commit.
+Once you sommit the code then this changes only visible to particular branch only.
+-->when we create a new branches from existing branch then data of existing branch will be copied to new branch.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+yum update -y
+yum install git -y
+
+
+git --version
+2.32.0
+which git
+
+
+
+git config --global user.name "nitesh"
+git config --global user.email "niteshpandey@gmail.com"
+
+git config --list
+
+
+command
+git init
+git status
+touch abc
+git status
+git add .   or git add --all
+git commit -m "First commit"
+git status
+
+git logs
+git show <commit id>
+git remote add origin <url>
+git push -u origin master
+
+Git Pull on the other hand brings the copy of the remote directory changes into the local repository.
+git init
+git remote add origin <url>
+git pull -u origin master 
+git log
+git show <commit id>
+
+Git Fetch is the command that tells the local repository that there are changes available in 
+the remote repository without bringing the changes into the local repository. 
+git fetch 
+git merge origin/main
+
+<add something got the work>
+git status
+git add .
+get comit -m "new commit from us"
+git status
+git push -u origin master
+
+
+gitignore
+git log -1
+git log --oneline
+
+got log --grep "ignore"
+
+Branches--code
+
+git log --oneline
+
+Check the list of all branches
+git branch
+
+Create a new branch using below command
+git branch new_branch_name
+
+Switched to new created branch
+git checkout new_branch_name
+
+Once you’ve finished working on a branch and have merged it into the main code base, 
+you’re free to delete the branch without losing any history.
+git branch -d new_branch_name
+
+If you really want to delete the branch (e.g., it’s a failed experiment), you can use the capital -D flag:
+git branch -D new_branch_name
+
+To delete a remote branch execute the following.
+git push origin --delete crazy-experiment
+
+---------------------
+echo "# asa" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+	
+git remote add origin https://github.com/niteshpandeyofficial/asa.git
+git push -u origin main
+-----------------------
+or push an existing repository from the command line
+git remote add origin https://github.com/niteshpandeyofficial/asa.git
+git branch -M main
+git push -u origin main
+
+-----------------------------------
+Merge
+
+We are using pulling mechanism to merge branches
+you can't merge branches of different repository
+
+git merge <branch name>
+git log --oneline ----verify the merge
+git push origin master--push the changes to central repository
+
+Git Conflict
+when same file having different content in different branch ,if you do merge conflict occurs
+(resolve conflict then add and commit)
+
+A conflict arises when two separate branches have made edits to the same line in a file, or 
+when a file has been deleted in one branch but edited in the other. Conflicts will most 
+likely happen when working in a team environment.
+
+
+git stashing
+
+to stash an item (only applies to modify file not new file)
+
+to stash an item
+git stash
+
+to see the stashed item list 
+git stash list
+
+to stash an item using abbreviation
+git stash save "enter the message"
+
+
+apply stashed to item
+git stash apply stash@{0}
+
+clear stash item
+git stash clear --drop all stash file
+git stash pop ---remove single item only at a time
+git stash drop --remove single item only at a time
+
+Git reset
+git reset .
+git reset --hard
+
+
+reset----before commit
+revert---after commit
+
+
+git revert
+the revert command help to undo an existing commit.
+It does not delete any  data in the process instead rather git create a new commit with the included file 
+reverted to their previous state so your version control history move forward while the state of your file
+moves backward.
+
+git revert <commit id>
+
+delete untrack file from git
+git clean -f  forcefully
+git clean -n  dry run
+
+git tags
+
+Tag operation allow to giving meaningful name to a specific version in the repository.
+git tag -a <tag_name> -m <message> <commit_id>
+
+see the list of tags
+git tag
+
+to see particular comit content by using tag
+git show <tag_name>
+
+to delete git  tag
+git tag -d <tag_name>
+
+
+git clone
+It create a local repository automstically in linux machine with the same name as in github accounts.
+git clone <url of github repository>
+
+git remote -v-----check the status after adding the local repo to github
+
+
+The git diff command allows us to compare different versions of branches and repository. To get the difference between branches, run the git diff command as follows
+Comparing changes with git diff
+git diff 
+or
+git diff filename
+
+
+The "rm" command helps you to remove files from a Git repository. It allows you to not only delete a file from the repository, but also - if you wish - from the filesystem.
+
+To remove a file both from the Git repository and the filesystem, you can use git rm without any parameters 
+git rm abc.txt
+
+If you only want to remove the file from the repository, but keep it on the filesystem, you can add the --cached flag:
+git rm b.bmp --cached
+
+git rm abc/* --dry-run
+git rm abc -r --cached
+
+
+The git bisect command is used to discover the commit that has introduced a bug in the code. It helps track down the commit where the code works and the commit where it does not, hence, tracking down the commit that introduced the bug into the code.
+
+git bisect start
+git bisect good <reference of commit>
+git bisect bad
+git bisect log
+
+git bisect reset
+
+
+Git fetch
+Gives the information of a new change from a remote repository without merging into the current branch	
+data is updated in the .git directory.
+Review of commits and changes can be done.
+No possibility of merge conflicts.
+Command for Git fetch is git fetch<remote>
+Git fetch basically imports the commits to local branches so as to keep up-to-date that what everybody is working on.
+
+
+Git pull
+Brings the copy of all the changes from a remote repository and merges them into the current branch
+Repository 	
+The local repository is updated directly
+Updates the changes to the local repository immediately.
+Merge conflicts are possible if the remote and the local repositories have done changes at the same place.
+Command for Git Pull is git pull<remote><branch>
+Git Pull basically brings the local branch up-to-date with the remote copy that will also updates the other remote tracking branches.
+
+
+subgit
+SubGit is a tool for teams that migrate from SVN to Git. It converts SVN repositories to Git and allows you to work with both systems simultaneously.
+The subgit import command requires all the parameters to be set in the command line; however, under the hood, it actually creates a configuration file, fills it up according to given parameters and performs import using that configuration file.
+
+
+rebashing
+Rebase is one of two Git utilities designed to integrate changes from one branch onto another. Rebasing is the process of 
+combining or moving a sequence of commits on top of a new base commit. Git rebase is the linear process of merging.
+(refer from here https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+
+
+
+reflog
+git reflog
+git reflog show --all
+
+git log shows the commit log accessible from the refs (heads, tags, remotes)
+git reflog is a record of all commits that are or were referenced in your repo at any time.
+The git log is a public record of the commit history of the repository, whereas the reflog is private.
+
