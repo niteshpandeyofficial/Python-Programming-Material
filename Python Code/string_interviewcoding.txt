@@ -400,7 +400,7 @@ while a>=10**i:
 print(i)---3
 
 ----------
-perfect square of any number
+Perfect no 
 eg-
 
 factor of 6 is 1,2,3,6
