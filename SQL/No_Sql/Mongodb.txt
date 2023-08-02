@@ -8,9 +8,9 @@ Sharding is a method for distributing data across multiple machines. MongoDB use
 sharding to support deployments with very large data sets and high throughput operations.
 
 Schema is not strict(dynamic schema)
-Data store in mongo db as jason object
+Data store in mongo db as json object
 Retrival process is fast(performance is good)
-support geoasptial query
+support Geospatial query
 easily integration with big data hadoop
 highly scalable
 
