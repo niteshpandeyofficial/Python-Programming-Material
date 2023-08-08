@@ -65,6 +65,14 @@ create directory
 git init
 after running the git init command the directory automatically converted to git repository or local repository
 
+by default when we initialize the git repository it creater master branch but if we want it to main then 
+write below code
+git init -b main(New Branch name)
+
+Direct move the file into commit area without moving into stagging area
+git commit -a -m "Third Commit"
+
+
 working directory/work space
 stagging area
 local repo
@@ -379,10 +387,12 @@ git remote -v-----check the status after adding the local repo to github
 
 
 The git diff command allows us to compare different versions of branches and repository. To get the difference between branches, run the git diff command as follows
-Comparing changes with git diff
+Comparing changes with git diff.this applicable only when the file is in working directory.if file is in staging area then we need to used --staged keyword.
 git diff 
 or
 git diff filename
+
+git diff --staged
 
 
 The "rm" command helps you to remove files from a Git repository. It allows you to not only delete a file from the repository, but also - if you wish - from the filesystem.
@@ -392,7 +402,7 @@ git rm abc.txt
 
 If you only want to remove the file from the repository, but keep it on the filesystem, you can add the --cached flag:
 git rm b.bmp --cached
-
+git rm --cached cred.txt
 git rm abc/* --dry-run
 git rm abc -r --cached
 
