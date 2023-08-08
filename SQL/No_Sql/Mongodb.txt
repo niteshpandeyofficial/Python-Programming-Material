@@ -131,6 +131,10 @@ Remove all element or documents of given collection
 db.collectionname.remove({})
 
 Update the details
+Once a document is stored in the database, it can be changed using one of several
+update methods: updateOne , updateMany , and replaceOne. updateOne and
+updateMany.
+
 update={'Age':21}
 new_value={'$set':{'Age':29}}
 
@@ -160,12 +164,27 @@ db.version()
 collectionsdb.count_documents({})
 
 Create index
+Indexes look at an ordered list with references to the content. These in turn allow
+MongoDB to query orders of magnitude faster. To create an index, use the
+createIndex collection method.
+
+db.users.find({"username": "user101"}).explain("executionStats")
+--executionStats mode helps us understand the effect of using an index to
+satisfy queries.
+
 collectionsdb.create_index([("item",pymongo.ASCENDING)],unique=True)
 
 Retrive the index name
 list(collectionsdb.index_information())
 
 Delete the document from collections
+The CRUD API in MongoDB provides deleteOne and deleteMany for this purpose.
+Both of these methods take a filter document as their first parameter. The filter
+specifies a set of criteria to match against in removing documents.
+For example:
+> db.books.deleteOne({"_id" : 3})
+
+
 db.collection.deleteOne()
 db.collection.deleteMany()
 
@@ -254,8 +273,60 @@ Steps
 
 
 Overview
-
 Mongo Db consist of multiple databases 
 each databases consist on multiple cllection
 each collection consist of multiple documents
 
+The find method is used to perform queries in MongoDB. Querying returns a
+subset of documents in a collection, from no documents at all to the entire
+collection. Which documents get returned is determined by the first argument to
+find , which is a document specifying the query criteria.
+Example:
+> db.users.find({"age" : 24})
+
+
+The common data types in MongoDB are:
+Null
+{"x" : null}
+Boolean
+{"x" : true}
+Number
+{"x" : 4}
+String
+{"x" : "foobar"}
+Date
+{"x" : new Date()}
+Regular expression
+{"x" : /foobar/i}
+Array
+{"x" : ["a", "b", "c"]}
+Embedded document
+{"x" : {"foo" : "bar"}}
+Object ID
+{"x" : ObjectId()}
+Binary Data
+Binary data is a string of arbitrary bytes.
+Code
+{"x" : function() { /* ... */ }}
+
+geospatial index
+MongoDB has two types of geospatial indexes: 2dsphere and 2d. 2dsphere indexes
+work with spherical geometries that model the surface of the earth based on the
+WGS84 datum.
+
+{
+"name" : "New York City",
+"loc" : {
+"type" : "Point",
+"coordinates" : [50, 2]
+}
+}
+
+
+{
+"name" : "Hudson River",
+"loc" : {
+"type" : "LineString",
+"coordinates" : [[0,1], [0,2], [1,2]]
+}
+}
