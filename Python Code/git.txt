@@ -57,7 +57,7 @@ If CVCS server is down,developer can not work.				If DVCS server is down,develop
 
 Stages of git 
 
-Services(Github and Gitlab)
+Services(Github and Gitlab,BitBucketc)
 Git with Github 
 Git with Gitlab
 
@@ -214,6 +214,7 @@ git config --global user.name "nitesh"
 git config --global user.email "niteshpandey@gmail.com"
 
 git config --list
+git config --global --list
 
 
 command
