@@ -24,9 +24,25 @@ Horizontal Scaling involves dividing the system dataset and load over multiple s
 increase capacity as required. While the overall speed or capacity of a single machine may not be high,each machine 
 handles a subset of the overall workload, potentially providing better efficiency than a single high-speed high-capacity server.
 
-Collection is a group of MongoDB documents. It is the equivalent of an RDBMS table. A collection exists within a single database
+database
+MongoDB groups collections into databases. MongoDB can host several databases,
+each grouping together collections.
+Some reserved database names are as follows:
+admin
+local
+config
+
+collection
+Collection is a group of MongoDB documents. It is the equivalent of an RDBMS table. A collection exists within a single database.
+For example, both of the following documents could be stored in a single collection:
+{"greeting" : "Hello world!", "views": 3}
+{"signoff": "Good bye"}
+
+
+Documents
 A document is a set of key-value pairs. Documents have dynamic schema. Dynamic schema means that documents in the same collection 
 do not need to have the same set of fields or structure, and common fields in a collection's documents may hold different types of data.
+e.g {"greeting" : "Hello world!"}
 
 write concern as “the level of acknowledgment requested from MongoDB for write operations to a standalone mongod or to replica sets or 
 to sharded clusters. Simply put, a write concern is an indication of 'durability' passed along with write operations to MongoDB.
@@ -39,14 +55,15 @@ Primary Key->Primary Key (Default key _id provided by mongodb itself)
 
 
 Advantages of MongoDB over RDBMS
-Schema less − MongoDB is a document database in which one collection holds different documents. Number of fields, content and size of the document can differ from one document to another.
-Structure of a single object is clear.
-No complex joins.
-Deep query-ability. MongoDB supports dynamic queries on documents using a document-based query language that's nearly as powerful as SQL.
+1. Schema less − MongoDB is a document database in which one collection holds different documents. Number of fields, content and size of the document can differ from one document to another.
+2. Structure of a single object is clear.
+3. No complex joins.
+4. Deep query-ability. MongoDB supports dynamic queries on documents using a document-based query language that's nearly as powerful as SQL.
 Tuning.
-Ease of scale-out − MongoDB is easy to scale.
+5. Ease of scale-out − MongoDB is easy to scale.
 Conversion/mapping of application objects to database objects not needed.
-Uses internal memory for storing the (windowed) working set, enabling faster access of data.
+6. Uses internal memory for storing the (windowed) working set, enabling faster access of data.
+7. MongoDB has inbuilt support for data partitioning (Sharding).
 
 Why Use MongoDB?
 Document Oriented Storage − Data is stored in the form of JSON style documents.
