@@ -118,6 +118,15 @@ Tag
 Tag assign a meaningful name with a specific version in a repository once a tag is created for a particular save 
 even  if you create a new commit ,it will not updated
 
+Tagging is of 2 type
+1.Lightweight Tagging
+2.Annotated Tagging
+
+git tag
+git tag -a v1.0 -m "lst relatease"
+git push origin v1.0
+
+
 Snapshot
 represent the some data of perticular time
 It is always incremental backup i.e it stored changes(append data )not entire copy
@@ -278,6 +287,8 @@ git branch new_branch_name
 Switched to new created branch
 git checkout new_branch_name
 
+git checkout -b new_branch_name
+
 Once you’ve finished working on a branch and have merged it into the main code base, 
 you’re free to delete the branch without losing any history.
 git branch -d new_branch_name
@@ -307,8 +318,11 @@ Merge
 
 We are using pulling mechanism to merge branches
 you can't merge branches of different repository
+first we need to switch in the main branch and then we try to merge with different branch.
 
 git merge <branch name>
+git push origin main(after merging we need to push the code to repository)
+
 git log --oneline ----verify the merge
 git push origin master--push the changes to central repository
 
@@ -455,4 +469,7 @@ git reflog show --all
 git log shows the commit log accessible from the refs (heads, tags, remotes)
 git reflog is a record of all commits that are or were referenced in your repo at any time.
 The git log is a public record of the commit history of the repository, whereas the reflog is private.
+
+git tag --pretty=oneline
+get all commit id with details in single line
 
