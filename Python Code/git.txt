@@ -103,20 +103,18 @@ present in staging area only those file present in staging area are considered f
 
 
 commit
-store changes in repository for each commit we get one commit id
-It is 40 alphamumerical character
-It user SHA-1 checksum concept
-Even you change one dot checksum of value of that commit id change
-Commit is also name as SHA-1 has
-It help to track the changes
+Commit store changes in repository.for each commit we get unique commit id
+It is 40 alphamumerical character.It uses SHA-1 checksum concept
+Even you change one dot checksum  value of that commit id change
+Commit is also name as SHA-1 hash.It help to track the changes
 
 Commit id /version id/version
 Reference to identify each changes
 To identify who changed the file
 
 Tag
-Tag assign a meaningful name with a specific version in a repository once a tag is created for a particular save 
-even  if you create a new commit ,it will not updated
+Tag assign a meaningful name with a specific version in a repository,once a tag is created for a particular save 
+even if you create a new commit ,it will not updated we need to push the tag also to reflect it in repository.
 
 Tagging is of 2 type
 1.Lightweight Tagging
@@ -134,17 +132,20 @@ It is always incremental backup i.e it stored changes(append data )not entire co
 
 Push
 push copy the changes from local repository server to central or remote repo
-This is used to store the changes permanently into the git repo
+This is used to store the changes permanently into the git repository
+
+git push origin main
 
 pull
 pull  operation copies changes from central or remote repo to a local machine.
-The pull operation is used for syncronisation between two repo
+The pull operation is used for syncronisation between two repo.
 
+git pull <remote_name>
 
 Branches
 
 In Git, a branch is a new/separate version of the main repository.
-product is a same so one repository but different task
+product is a same .means one repository but different task
 
 Each task has once separate branch
 Finally merge(code)all branches
@@ -152,16 +153,16 @@ usefull when you want to work parallely
 can create one branch on basis of other branch
 changes are personal to that perticular branch
 default branches is master
-file created in workspace will be visible in any of the branch workspace until you commmit ,then that file
+file created in workspace will be visible in any of the branch workspace until you commmit ,once commit done then that file
 belongs to that perticular branch
 
 
 Type of repository
-bare repository(Central repo)
+1.bare repository(Central repo)
 store and share only
 all central or remote repo are bare repository
 
-Non bare repository(Local repo)
+2.Non bare repository(Local repo)
 where you can modified the file 
 All local repository are non-bare repository
 
@@ -200,26 +201,12 @@ Branching in Git
 -->Defualt branch is master
 
 -->fle created in workspace will be visible in any one of the branch workspace untill you commit.
-Once you sommit the code then this changes only visible to particular branch only.
+Once you summit the code then this changes only visible to particular branch only.
 -->when we create a new branches from existing branch then data of existing branch will be copied to new branch.
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 yum update -y
 yum install git -y
-
 
 git --version
 2.32.0
@@ -249,11 +236,8 @@ git remote add origin <url>
 git push -u origin master
 
 Git Pull on the other hand brings the copy of the remote directory changes into the local repository.
-git init
-git remote add origin <url>
 git pull -u origin master 
-git log
-git show <commit id>
+
 
 Git Fetch is the command that tells the local repository that there are changes available in 
 the remote repository without bringing the changes into the local repository. 
@@ -276,18 +260,19 @@ got log --grep "ignore"
 
 Branches--code
 
-git log --oneline
+git log --oneline ----show all the git commit id line by line
 
 Check the list of all branches
 git branch
 
 Create a new branch using below command
 git branch new_branch_name
+git checkout -b new_branch_name
 
 Switched to new created branch
 git checkout new_branch_name
+git switch branch_name
 
-git checkout -b new_branch_name
 
 Once you’ve finished working on a branch and have merged it into the main code base, 
 you’re free to delete the branch without losing any history.
