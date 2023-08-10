@@ -260,7 +260,7 @@ got log --grep "ignore"
 
 Branches--code
 
-git log --oneline ----show all the git commit id line by line
+git log --oneline ----print a single commit in a single line as output when the git log command is executed using this option
 
 Check the list of all branches
 git branch
@@ -285,6 +285,7 @@ To delete a remote branch execute the following.
 git push origin --delete crazy-experiment
 
 ---------------------
+steps from initialisation to push the changes in remote repo
 echo "# asa" >> README.md
 git init
 git add README.md
@@ -301,14 +302,12 @@ git push -u origin main
 -----------------------------------
 Merge
 
-We are using pulling mechanism to merge branches
-you can't merge branches of different repository
-first we need to switch in the main branch and then we try to merge with different branch.
+1.We are using pulling mechanism to merge branches
+2.you can't merge branches of different repository
+3.first we need to switch in the main branch and then we try to merge with different branch.
 
 git merge <branch name>
 git push origin main(after merging we need to push the code to repository)
-
-git log --oneline ----verify the merge
 git push origin master--push the changes to central repository
 
 Git Conflict
@@ -374,9 +373,9 @@ git tag
 to see particular comit content by using tag
 git show <tag_name>
 
-to delete git  tag
+to delete git   tag
 git tag -d <tag_name>
-
+git push origin tag
 
 git clone
 It create a local repository automstically in linux machine with the same name as in github accounts.
@@ -421,7 +420,7 @@ Gives the information of a new change from a remote repository without merging i
 data is updated in the .git directory.
 Review of commits and changes can be done.
 No possibility of merge conflicts.
-Command for Git fetch is git fetch<remote>
+Command for Git fetch is git fetch <remote>
 Git fetch basically imports the commits to local branches so as to keep up-to-date that what everybody is working on.
 
 
@@ -438,7 +437,7 @@ Git Pull basically brings the local branch up-to-date with the remote copy that 
 subgit
 SubGit is a tool for teams that migrate from SVN to Git. It converts SVN repositories to Git and allows you to work with both systems simultaneously.
 The subgit import command requires all the parameters to be set in the command line; however, under the hood, it actually creates a configuration file, fills it up according to given parameters and performs import using that configuration file.
-
+ 
 
 rebashing
 Rebase is one of two Git utilities designed to integrate changes from one branch onto another. Rebasing is the process of 
