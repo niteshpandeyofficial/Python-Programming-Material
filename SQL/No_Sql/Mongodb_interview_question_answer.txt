@@ -1,0 +1,331 @@
+Explain Primary and Secondary Replica Sets?
+Primary Replica Set receives all the write operations from the clients. Secondary replica sets replicate the primary replica sets and implement the operations for their datasets so that secondary datasets affect the primary datasets.
+
+
+What is the importance of GridFS and Journaling?
+GridFS: We use GridFS to retrieve and store large files like images, videos, and audio files.
+Journaling: We use Journaling for secure backups in MongoDB.
+
+
+
+How does MongoDB provides concurrency?
+MongoDB uses reader-writer locks for concurrency. Reader-writer locks allow concurrent readers shared access to a resource, such as a database or collection, but give exclusive access to a single write operation.
+
+Explain Sharding and Aggregation in MongoDB?
+Aggregation: Aggregations are the activities that handle the data records and give the record results.
+Sharding: Sharding means storing the data on multiple machines.
+
+What is the importance of profiler in MongoDB?
+MongoDB contains the database profiler that shows the performance characteristics of every operation against the database. Through the profiler, we can identify the queries that are slower than they should be and use this data to determine when we require an index.
+
+
+What is the purpose of the save() method?
+We use the save() method for replacing the existing documents with new documents.
+
+
+What is the purpose of the DB command?
+We use the “DB” command to get the name of the presently selected database
+
+Which command do we use for creating the backup of the database?
+We use the mongodump command for creating the database backup.
+
+Which command do we use for restoring the backup?
+We use mongorestore for restoring the backup.
+
+What is the syntax of the limit() and sort() method?
+Syntax of the limit() method is:
+>db.COLLECTION_NAME.find().limit(NUMBER)
+
+ Syntax of the sort() method is:
+
+>db.COLLECTION_NAME.find().sort({KEY:1})
+
+What do you know about NoSQL databases? What are the various types of NoSQL databases?
+NoSQL refers to “Not Only SQL”. Kinds of NoSQL databases:
+
+Key-Value
+Graph
+Column Oriented
+Document Oriented
+
+
+Which command do we use for dropping a database?
+We use the “DB.drop database” command for dropping a database.
+
+Why do we use the pretty() method?
+We use the pretty() method for displaying the results in a formatted way.
+
+
+How do we remove a document from the collection?
+By using the remove() method, we remove a document from the collection.
+
+What does ObjectId contain?
+ObjectID is a 12-byte BSON type. These are:
+
+Client machine ID
+Client process ID
+Byte incremented counter
+Timestamp
+
+4 bytes value representing seconds
+3 byte machine identifier
+2 byte process id
+3 byte counter
+
+
+What are the elements of the Sharded Cluster?
+Following are the elements of the Sharded Cluster:
+
+Query routers
+Shards
+Config servers
+
+What are the substitutes for MongoDB?
+Following are the substitutes to MongoDB:
+
+Hbase
+CouchDB
+Cassandra
+Redis
+Riak
+
+
+What is a Storage Engine?
+Storage Engine is a component of the database that is accountable to manage how we store on the disk. For instance, one storage engine may provide better performance for the read-heavy workloads, and another one may support a great throughput for the write operations.
+
+Explain Capped Collection?
+In MongoDB, the Capped collection is a special kind of collection. This indicates that in this collection, we can restrict the collection size. Syntax of Capped Collection is as follows:
+db.createCollection(<collection_name>, {capped: Boolean, autoIndexId: Boolean, size: Number, max : Number})
+
+
+What are the storage engines used by MongoDB?
+WiredTiger and MMAPv1 are the two storage engines used by MongoDB.
+MMAPv1 is MongoDB's original storage engine based on memory mapped files. This is the original storage engine for MongoDB.
+
+
+
+How do we configure the cache size in MongoDB?
+In MongoDB, we cannot configure the cache. MongoDB utilizes the free spaces over the system automatically by using memory-mapped files.
+
+What are the aggregate functions of MongoDB?
+Following are the aggregate functions of MongoDB:
+
+AVG
+Sum
+Min
+Max
+First
+Push
+addTo Set
+Last
+
+What are the CRUD operations of MongoDB?
+Following are the CRUD operations of MongoDB:
+
+Create-db.collection.insert();
+Read-db.collection.find();
+Update-db.collection.update();
+Delete-db.collection.remove();
+
+How do we use a primary key in MongoDB?
+“_id field” is reticent for a primary key in MongoDB. And it is a distinct value. If we do not set anything to the “_id”, it will systematically fill it with the “MongoDB Id Object”. Yet, we can store any distinct information in that field.
+
+How do we see the connections utilized by MongoDB?
+For seeing the connections utilized by MongoDB, we use db_adminCommand(”connPoolStats”).
+
+BSON is a binary-encoded format, whereas JSON is a text-based format. This means that BSON is compact for transmitting over a network, while JSON is human-readable and easier to work with in various contexts.
+
+
+
+Basis for Comparison	
+MongoDB	
+1.It is a non-relational database	
+2.It is a document-oriented database system through fields and documents
+3.It is horizontally and vertically scalable
+4.Performance enhances with the rise in the processors	
+5.It has a built-in provision to store the hierarchical data	
+6.It does not support difficulty Joins	
+7.It uses BSON for database querying	 
+8.It provides support to javascript-based clients for querying the database	
+
+RDBMS
+1.It is a relational database management system
+2.It works over relationships among the tables, which use columns and rows	
+3.It is vertically scalable
+4.Performance enhances with the rise in the RAM capacity
+5.It is hard to store the hierarchical data
+6.It supports complex joins
+7.It uses SQL to query the database
+8.It does not provide support to the javascript-based clients to query the database
+
+How do applications access the real-time data modifications in MongoDB?
+Applications access the real-time data modifications through the Change streams that serve as the subscriber for every collection operation like delete, insert, and update.
+
+What are the different kinds of Indexes in MongoDB?
+Following are the different kinds of Indexes in MongoDB:
+
+Default: It is the “_id” that MongoDB creates.
+Compound: It is useful for multiple fields.
+Multi-key: It indexes the array data.
+Single field: It sorts and indexes over a single field.
+Geospatial: It is useful for querying the location data.
+Hashed: It indexes the hashes of the multiple fields.
+
+
+How does MongoDB store the data?
+As it is a document-based database, MongoDB stores the documents in Binary Javascript Object Notation or BSON, which is a binary-encoded format of JSON.
+
+Does MongoDB support ACID Transaction? Define ACID Transaction?
+Yes, MongoDB supports ACID Transaction. ACID refers to Atomicity, Consistency, Isolation, and Durability. Transaction manager assures that we handle these attributes. 
+
+How do we find array elements with multiple criteria?
+For example, if we have the below documents:
+
+{ _id: 1, numbers: [1000, -1000]]
+{ _id: 2, numbers: [500]]
+When we execute the following command:
+
+db.example.find( { numbers: { $elemMatch: { $gt: -10, $lt: 10 } } } );
+
+Which are the different languages supported by MongoDB?
+MonggoDB provides official driver support for C, C++, C#, Java, Node.js, Perl, PHP, Python, Ruby, Scala, Go and Erlang.
+You can use MongoDB with any of the above languages.
+
+Is MongoDB better than other SQL databases? If yes then how?
+MongoDB is better than other SQL databases because it allows a highly flexible and scalable document structure.
+For example:
+One data document in MongoDB can have five columns and the other one in the same collection can have ten columns.
+MongoDB database are faster than SQL databases due to efficient indexing and storage techniques.
+
+
+Why MongoDB is known as best NoSQL database?
+MongoDb is the best NoSQL database because, it is:
+
+Document Oriented
+Rich Query language
+High Performance
+Highly Available
+Easily Scalable
+
+Does MongoDB support primary-key, foreign-key relationship?
+No. By Default, MongoDB doesn't support primary key-foreign key relationship.
+
+Does MongoDB support foreign key constraints?
+No. MongoDB does not support such relationships.
+
+Can you achieve primary key - foreign key relationships in MongoDB?
+We can achieve primary key-foreign key relationship by embedding one document inside another. For example: An address document can be embedded inside customer document.
+
+Does MongoDB need a lot of RAM?
+No. There is no need a lot of RAM to run MongoDB. It can be run even on a small amount of RAM because it dynamically allocates and de-allocates RAM according to the requirement of the processes.
+
+What is a Namespace in MongoDB?
+Namespace is a concatenation of the database name and the collection name.
+For e.g. school.students with school as the database and students as the collection
+
+
+Why 32 bit version of MongoDB are not preferred ?
+Because MongoDB uses memory mapped files so when you run a 32-bit build of MongoDB, the total storage size of server is 2 GB. But when you run a 64-bit build of MongoDB, this provides virtually unlimited storage size. So 64-bit is preferred over 32-bit.
+
+Explain the covered query in MongoDB.
+A query is called covered query if satisfies the following two conditions:
+
+The fields used in the query are part of an index used in the query.
+The fields returned in the results are in the same index.
+
+
+Why are MongoDB data files large in size?
+MongoDB doesn't follow file system fragmentation and pre allocates data files to reserve space while setting up the server. That's why MongoDB data files are large in size.
+
+Is it possible to configure the cache size for MMAPv1 in MongoDB?
+No. it is not possible to configure the cache size for MMAPv1 because MMAPv1 does not allow configuring the cache size.
+
+How to configure the cache size for WiredTiger in MongoDB?
+For the WiredTiger storage engine, you can specify the maximum size of the cache that WiredTiger will use for all data. This can be done using storage.wiredTiger.engineConfig.cacheSizeGB option.
+
+
+ What is the difference between MongoDB and Redis database?
+Difference between MongoDB and Redis:
+
+Redis is faster than MongoDB.
+Redis has a key-value storage whereas MongoDB has a document type storage.
+Redis is hard to code but MongoDB is easy.
+
+Explain Replication.
+Replication is the process of synchronizing data across multiple servers.
+
+What is the use of an Index in MongoDB?
+In MongoDB, indexes provide high-performance read operations for frequently used queries.
+
+
+What is the syntax of the skip() method?
+The syntax of the skip() methopd is as follows:
+
+>db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER)
+
+What is the command syntax that tells you whether you are on the master server or not? And how many master does MongoDB allow?
+Command syntax Db.isMaster() will tell you whether you are on the master server or not. MongoDB allows only one master server, while couchDB allows multiple masters.
+
+
+Does MongoDB pushes the writes to disk immediately or lazily?
+MongoDb pushes the data to disk lazily.It update the immediately written to the journal but writting the data from journal to disk happen lazily.
+
+What happens if an index does not fit into RAM?
+If index do not fit into RAM,Mongo DB read the data from disk which is relatively slower than reading from RAM.
+
+How to get All indexes on particular collection?
+db.collection.getIndexes()
+
+
+At what interval does mongodb writr update to the disk??
+By default configuration,MongoDB write updates to the disk every 60 seconds.Howeverthis is configurable with the commitIntervalMs and systPeriodsecx option.
+
+
+How does MongoDB handle indexing?
+Indexing is done using the ensureIndex() method. The syntax is:
+db.COLLECTION_NAME.ensureIndex()
+
+State the difference between the find() and limit() methods.
+find(): displays only selected data rather than all the data of a document. For example, if your document has 4 fields but you want to show only one, set the required field as 1 and others as 0.
+db.collection.find({})
+
+limit(): limit function limits the number of records fetched. For example, if you have 7 documents but want to display only the first 4 documents in a collection, use limit. Syntax –
+db.collection.find().limit(7)----limit(number)
+
+Explain the purpose of the map-reduce command.
+Map-reduce is a way to perform aggregation.
+
+The Map function emits the key-value pair specified.
+The Reduce function combines the key value pair and returns the aggregation result.
+
+Explain the process of Transaction/Locking in MongoDB?
+MongoDB supports multi-granular locking with read and write locks.
+
+There are three types of locking mechanisms possible in MongoDB:
+
+Global level
+Database level
+Collection level
+The implementation also depends on the individual storage engine. There are four modes of locking:
+
+R(shared lock),
+W(exclusive lock),
+r(intent shared lock),
+w(intent exclusive lock).
+
+What is the difference between the $all operator and the $in operator?
+Both the $all operator and the $in operator are used to filter documents 
+in a subarray based on a conditional.Let us assume we have the following 
+documents in a collection.$all retrieves documents that satisfy all conditions 
+in the query array, whereas $in retrieves documents that meet any condition in the query array.
+
+
+Both writes and reads become faster when you add more slaves to a replica set.” Is this statement true or false? Why?
+False. All write operations are done only on the master. On the other hand, read operations can be made on any 
+instance—slave or master. Therefore, only reads become faster when you add more slaves to a replica set.
+
+A staple feature of relational database systems is the JOIN clause. What is the equivalent in MongoDB, and does it have any known limitations?
+The $lookup operator is the equivalent of JOIN.
+Here is an example of a nested lookup in MongoDB.
+
+
