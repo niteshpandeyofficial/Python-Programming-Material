@@ -67,10 +67,13 @@ after running the git init command the directory automatically converted to git 
 
 by default when we initialize the git repository it creater master branch but if we want it to main then 
 write below code
-git init -b main(New Branch name)
+git init -b main(New Branch name) or
+git branch -M main
 
 Direct move the file into commit area without moving into stagging area
-git commit -a -m "Third Commit"
+git commit -a -m "Third Commit" or
+git commit -m "third commit" then
+git push origin main
 
 
 working directory/work space
@@ -120,8 +123,17 @@ Tagging is of 2 type
 1.Lightweight Tagging
 2.Annotated Tagging
 
-git tag
-git tag -a v1.0 -m "lst relatease"
+A lightweight tag is very much like a branch that doesn't change — it's just a pointer to a specific commit. 
+Annotated tags, however, are stored as full objects in the Git database
+
+When you use git tag <tagname>, Git will create a tag at the current revision but will not prompt you for an annotation. 
+It will be tagged without a message (this is a lightweight tag).
+
+git tag tag_name-----Lightweight Tag
+git tag -a v1.0 -m "lst relatease" ------Annotate Tag
+When you use git tag -a <tagname>, Git will prompt you for an annotation unless you have also used the -m flag to provide a message.
+When you use git tag -a -m <msg> <tagname>, Git will tag the commit and annotate it with the provided message.
+
 git push origin v1.0
 
 
@@ -141,6 +153,26 @@ pull  operation copies changes from central or remote repo to a local machine.
 The pull operation is used for syncronisation between two repo.
 
 git pull <remote_name>
+
+git pull = git fetch + git merge
+
+
+Git Fetch 
+Gives the information of a new change from a remote repository without merging into the current branch
+Repository data is updated in the .git directory
+Review of commits and changes can be done
+No possibility of merge conflicts.
+Command for Git fetch is git fetch<remote>.
+Git fetch basically imports the commits to local branches so as to keep up-to-date that what everybody is working on.
+
+
+Git Pull
+Brings the copy of all the changes from a remote repository and merges them into the current branch
+The local repository is updated directly
+Updates the changes to the local repository immediately.
+Merge conflicts are possible if the remote and the local repositories have done changes at the same place.
+Command for Git Pull is git pull<remote><branch>.
+Git Pull basically brings the local branch up-to-date with the remote copy that will also updates the other remote tracking branches.
 
 Branches
 
@@ -320,7 +352,6 @@ likely happen when working in a team environment.
 
 
 git stashing
-
 to stash an item (only applies to modify file not new file)
 
 to stash an item
@@ -342,6 +373,7 @@ git stash pop ---remove single item only at a time
 git stash drop --remove single item only at a time
 
 Git reset
+reset is the command we use when we want to move the repository back to a previous commit, discarding any changes made after that commit.
 git reset .
 git reset --hard
 
@@ -393,7 +425,8 @@ git diff filename
 git diff --staged
 
 
-The "rm" command helps you to remove files from a Git repository. It allows you to not only delete a file from the repository, but also - if you wish - from the filesystem.
+The "rm" command helps you to remove files from a Git repository. It allows you to not only delete a file from the repository,
+but also - if you wish - from the filesystem.
 
 To remove a file both from the Git repository and the filesystem, you can use git rm without any parameters 
 git rm abc.txt
@@ -405,7 +438,9 @@ git rm abc/* --dry-run
 git rm abc -r --cached
 
 
-The git bisect command is used to discover the commit that has introduced a bug in the code. It helps track down the commit where the code works and the commit where it does not, hence, tracking down the commit that introduced the bug into the code.
+The git bisect command is used to discover the commit that has introduced a bug in the code. 
+It helps track down the commit where the code works and the commit where it does not, hence, 
+tracking down the commit that introduced the bug into the code.
 
 git bisect start
 git bisect good <reference of commit>
@@ -429,6 +464,7 @@ Brings the copy of all the changes from a remote repository and merges them into
 Repository 	
 The local repository is updated directly
 Updates the changes to the local repository immediately.
+
 Merge conflicts are possible if the remote and the local repositories have done changes at the same place.
 Command for Git Pull is git pull<remote><branch>
 Git Pull basically brings the local branch up-to-date with the remote copy that will also updates the other remote tracking branches.
@@ -436,7 +472,8 @@ Git Pull basically brings the local branch up-to-date with the remote copy that 
 
 subgit
 SubGit is a tool for teams that migrate from SVN to Git. It converts SVN repositories to Git and allows you to work with both systems simultaneously.
-The subgit import command requires all the parameters to be set in the command line; however, under the hood, it actually creates a configuration file, fills it up according to given parameters and performs import using that configuration file.
+The subgit import command requires all the parameters to be set in the command line; however, under the hood, it actually creates a configuration file, 
+fills it up according to given parameters and performs import using that configuration file.
  
 
 rebashing
