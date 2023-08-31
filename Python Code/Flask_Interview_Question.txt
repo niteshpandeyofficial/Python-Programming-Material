@@ -1,0 +1,142 @@
+Q 1. What is Flask?
+Answer: Flask is a microweb framework that provides an API to build up web applications. 
+Flask’s framework is also easier to learn because of its diversified working style. 
+Flask is based on the WSGI (Web Server Gateway Interface) toolkit and the Jinja2 template engine. 
+It is very flexible to implement a simple web application. 
+Also, Flask provides visual debugging, which gives more control over the component.
+
+
+Q 2. What are the features of Flask Python?
+Answer:
+
+Built-in web server and debugger
+Compatibility with most of the latest technologies.
+High scalability and flexibility for simple web applications.
+Integrated support for unit testing
+Securing cookies in client-side sessions
+Dispatching RESTful request
+Google App Engine compatibility
+Unicode support
+Web Server Gateway Interface(WSGI) compliance
+
+
+Q 3. What is the difference between Flask and Django?
+Flask
+Flask is a WSGI framework
+It allows multiple types of databases.
+Use SQL Alchemy
+Diversified working style
+
+Django
+Django is a Full-stack web framework
+It doesn’t support multiple types of databases.
+Build-in ORM 
+Monolithic Working Style
+
+
+
+Q 4. What is the default host and port of Flask?
+Answer: The default local host of the flask is 127.0.0.1, and the default port is 5000.
+
+
+why do we use Flask(__name__) in Flask?
+
+What is routing in Flask?
+App Routing means mapping the URLs to a specific function that will handle the logic for that URL. 
+Modern web frameworks use more meaningful URLs to help users remember the URLs and make navigation simpler. 
+
+
+Q 8. What is Template Inheritance in Flask?
+Answer: Template Inheritance is a powerful feature of Flask’s Jinja templating has a great feature called template inheritance. 
+Jinja is a Python programming language web template engine. We’ve noticed that a website’s web pages all have the same footer, 
+navigation bar, and other elements. Instead of creating the identical footer and navigation bar on each webpage separately, 
+we utilize template inheritance, which allows us to generate the part that is common to all webpages 
+(e.g. footer, navigation bar) only once and eliminates the need to write the HTML, head, and title tag many times.
+
+
+
+Q 9. What does url_for do in Flask?
+Answer: The url_for() method is used to generate a URL to a specific function dynamically. 
+
+
+Q 10. How do you handle cookies in a Flask?
+Answer: The set_cookie() method on the response object in Flask is used to set cookies. 
+
+
+Q 11. How does file uploading work in Flask?
+Answer: The process of sending binary or regular files to a server is known as file uploading. 
+Flask makes it simple for us to upload files. All we need is an HTML form with multipart/form-data encryption enabled. 
+
+request.files['file'] = name.filename
+
+
+Q 12. What is Flask-WTF, and what are its characteristics?
+Answer: WTF, also known as WT Forms in Flask, is a type of interactive user interface. 
+The WTF is a flask built-in module that lets you build forms in a different way in flask web apps.
+
+Flask WTF includes the following features:
+Integration with web forms is available.
+It comes with a CSRF token, it’s an extremely secure form.
+CSRF protection on a global scale 
+Comes with the ability to integrate internationalization.
+There’s also a Supporting Captcha
+This module has a file uploader that works with Flask Uploads.
+
+
+Q 13. How long can an identifier be in Flask Python?
+Answer: In Flask Python, An identifier can be as long as you want, 
+as python is case-sensitive so it will treat upper case and lower case letters differently.
+
+
+Q 14. What HTTP methods does Python Flask provide?
+Answer: To handle HTTP requests, Flask uses a number of decorators. 
+The HTTP protocol is the backbone of internet data communication. 
+This HTTP protocol defines a number of techniques for obtaining 
+information from a particular URL. The different HTTP methods are:
+ 
+GET
+POST
+PUT
+DELETE
+HEAD 
+
+
+Q 16. What is the use of jsonify() in Flask?
+Answer: Jsonify is one of the flask.json module’s functions. It converts data to JSON and encapsulates 
+it in a response object with the mime-type application/JSON.
+
+Q 18. Explain how one can one-request database connections in Flask?
+Answer: Creating and closing database connections all the time is very inefficient, 
+Because database connections encapsulate a transaction, you must ensure that the 
+connection is only used by one request at a time. The Flask framework allows its 
+users to request databases in three ways. They are:
+
+before_request(): No parameters are given when these connections are invoked before making a request.
+after_request(): After initiating a request, these connections are called, and a response is sent to the client.
+teardown_request(): This decorator is called when an exception is raised or everything went well (the error parameter will be None).
+
+
+Q 20. Mention how one can enable debugging in Flask Python?
+Answer:  When Debug is turned on, any changes to the application code are updated immediately in the 
+development stage, eliminating the need to restart the server.
+
+#Method 1
+app.debug = True
+
+#Method 2
+app.run('host' = localhost, debug = True)
+
+
+Q 22. How is memory managed in Flask Python?
+Answer: In a flask, Memory allocation is managed by the Flask Python memory management. 
+Also, It has an inbuilt garbage collector which recycles all unused memory to save up heap space. 
+The Python interpreter’s responsibility is to keep track of everything. Users can, however, 
+use the core API to access some of the tools. 
+
+Q 25. What Is Flask Sijax?
+Answer: Sijax is a Python/jQuery library that makes AJAX easy to use in web applications to your Flask applications.
+Flask Sijax also provides an easy way to send JSON data between the server and the client.
+
+To install we can use the following command 
+pip install flask-sijax 
+
