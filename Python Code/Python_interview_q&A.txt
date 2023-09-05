@@ -1,5 +1,12 @@
 ﻿Python Details
 
+Why you should learn python ??
+1.Huge community Supports.
+2.Future is with AI.
+3.Easy to learn and implement
+4.General Purpose Programming Language(Wth the help of python we can developed web app,mobile app,desktop app and so on).
+
+
 
 What is Python ?
 Python is high level,interactive,interpreted and object oriented scripting language.
@@ -10,6 +17,7 @@ OO-All code encapsulaated within object.
 High Level-Human Readable Form 
 
 2.What are the key features of Python?
+Highly Extensible
 Python is an interpreted language.
 Python is dynamically typed,
 Python is well suited to object orientated programming
@@ -19,6 +27,17 @@ Simple and easy to learn.
 30 Keyword in python where 53 keyword in java
 Plateform independent(Write Once Run Anywhere).
 Portabilitiy(Moving one platform to another platform without any chnges).
+Intendetion base block code
+Large Library.
+
+Where python can be used??
+Developing websiter
+Task automation
+Data analysis
+Data visualization
+AI,ML,IOT
+Developing Desktop Application.
+Python can also be used to developing mobile application client side of ajax based application
 
 3.Mention five benefits of using Python?
 Python comprises of a huge standard library for most Internet platforms like Email, HTML, etc.
