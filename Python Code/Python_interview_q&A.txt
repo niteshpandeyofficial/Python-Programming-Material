@@ -6,8 +6,6 @@ Why you should learn python ??
 3.Easy to learn and implement
 4.General Purpose Programming Language(Wth the help of python we can developed web app,mobile app,desktop app and so on).
 
-
-
 What is Python ?
 Python is high level,interactive,interpreted and object oriented scripting language.
 
@@ -29,6 +27,9 @@ Plateform independent(Write Once Run Anywhere).
 Portabilitiy(Moving one platform to another platform without any chnges).
 Intendetion base block code
 Large Library.
+
+What is variable in python??
+Variable are used to hold data during execution of the program.
 
 Where python can be used??
 Developing websiter
