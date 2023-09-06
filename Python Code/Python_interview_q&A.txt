@@ -73,7 +73,11 @@ toc=time.time()
 print('Elapsed Time:',toc-tic)
 Elapsed Time: 0.03200173377990723		 
 
- 
+Binary Number System -0,1
+Octal Number System -0,1,2,3,4,5,6,7
+Decimal Number System -0,1,2,3,4,5,6,7,8,9
+Hexadecimal Number System -0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F
+
 Tuples 
  Tuples are immutable (tuples are lists which can’t be edited).
  Tuples are faster than list.(check below example to prove the same)
