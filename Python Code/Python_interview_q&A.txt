@@ -28,6 +28,11 @@ Portabilitiy(Moving one platform to another platform without any chnges).
 Intendetion base block code
 Large Library.
 
+What is an unicode ??
+The unicode is character encoding and it's goal is to replace the existing character set with its standard UTF.
+UTF-Unicode Transformation format.
+UTF-8 is the most commonly used character encoding.It is also backward compatible with ASCII.
+
 What is variable in python??
 Variable are used to hold data during execution of the program.
 
@@ -3228,3 +3233,21 @@ eg scipy.io
 scipy.special
 scipy.linalg
 scipy.stats
+
+
+character to unicode
+ord('A')
+
+Unicode to character
+chr(65)
+
+floor division
+any of a and b is float--->float
+int both is int -->int
+
+Every non zero value-True
+Zero-False
+Non empty string -->True
+Empty String-->False
+
+when operand is non boolean than result also be not a boolean value.
