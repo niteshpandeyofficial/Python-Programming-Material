@@ -3284,7 +3284,10 @@ set.add
 set.add adds an individual element to the set.
 s1.add(0)
 
-it cannot work with an iterable, unless it is hashable. That is the reason why a.add([1, 2]) fails.
+it cannot work with an iterable, unless it is hashable.
+add() function accepts an immutable argument i.e. we can pass int, strings, bytes, frozen sets, 
+tuples or any other immutable object to the add() function.
+ That is the reason why a.add([1, 2]) fails.
 s1.add([3,5])
 
 set.update
