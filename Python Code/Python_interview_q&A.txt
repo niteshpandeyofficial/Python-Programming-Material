@@ -3272,3 +3272,25 @@ sorted(n)
 
 n=['Zitesh', 'Pandey']
 sorted(n)
+
+find if the given digit is of 3 digit or not.
+x=123
+if 99<x<1000:
+print('3 digit number')
+
+
+set.add
+
+set.add adds an individual element to the set.
+s1.add(0)
+
+it cannot work with an iterable, unless it is hashable. That is the reason why a.add([1, 2]) fails.
+s1.add([3,5])
+
+set.update
+
+In case of set.update, you can pass multiple iterables to it and it will iterate all 
+iterables and will include the individual elements in the set. Remember: It can accept only iterables.
+That is why you are getting an error when you try to update it with 1.
+set.update(1)
+s1.update([9,3],(11,5),{45,78})
