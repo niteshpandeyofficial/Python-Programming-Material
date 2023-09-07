@@ -3297,3 +3297,7 @@ iterables and will include the individual elements in the set. Remember: It can 
 That is why you are getting an error when you try to update it with 1.
 set.update(1)
 s1.update([9,3],(11,5),{45,78})
+
+
+set.discard() vs set.remove() -->both are the same function
+main difference is that discard does not throw an error if element is not present in set.
