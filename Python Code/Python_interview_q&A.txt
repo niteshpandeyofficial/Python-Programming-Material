@@ -57,6 +57,16 @@ Having the built-in data types saves programming time and effort from declaring 
 PEP stands for Python Enhancement Proposal. 
 PEP 8 is a coding convention, a set of recommendation, about how to write your Python code more readable.
 
+
+
+Strings-
+A string is a sequence of characters.
+String is a class.
+String  is immutable.
+String is iterable.
+String in hashable.
+We declare it using single or double quotes.
+
 5.What is the difference between list and tuples in Python?
 Lists 
  are mutable i.e they can be edited.
@@ -1827,7 +1837,6 @@ What data types does Python support?
 Python provides us with five kinds of data types:
 
 Numbers-Number use to hold numerical values.
-Strings-A string is a sequence of characters.We declare it using single or double quotes.
 Lists-list is an ordered collection of values, and we declare it using square brackets.
 Tuples-A tuple, like a list, is an ordered collection of values. The difference. However,is that a tuple is immutable. This means that we cannot change a value in it.
 Dictionary- A dictionary is a data structure that holds key-value pairs. We declare it using curly braces.
@@ -3251,3 +3260,15 @@ Non empty string -->True
 Empty String-->False
 
 when operand is non boolean than result also be not a boolean value.
+
+addition of integer number only using sum function.
+str1="1a2b3c"
+sum([int(e) for e in str1 if ord(e)>=49 and ord(e)<=57])
+
+sorted return list of value
+n='Nitesh Pandey'
+sorted(n)
+[' ', 'N', 'P', 'a', 'd', 'e', 'e', 'h', 'i', 'n', 's', 't', 'y']
+
+n=['Zitesh', 'Pandey']
+sorted(n)
