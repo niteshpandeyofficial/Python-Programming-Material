@@ -58,7 +58,6 @@ PEP stands for Python Enhancement Proposal.
 PEP 8 is a coding convention, a set of recommendation, about how to write your Python code more readable.
 
 
-
 Strings-
 A string is a sequence of characters.
 String is a class.
@@ -137,9 +136,9 @@ Frozen Set-Similar to set except below point.
 			immutable
 
 Eg-
-	myset=frozenset([1,3,2,2]) #frozenset({1, 2, 3})
+myset=frozenset([1,3,2,2]) #frozenset({1, 2, 3})
 	
-	
+
 set vs list example
 Set Example:
 my_set=set(range(1000000))
@@ -170,6 +169,25 @@ True
 True
 True
 Elapsed Time: 0.037004709243774414	
+
+
+Dictionary:
+dict is a class.
+dict is mutable.
+dict is not hashable.
+dict is iterable.
+dict is not a sequence.
+dict can not have the duplicate keys.
+indexing is not applicable to dict object.
+slicing operator is not applicable
+dict elements are pair of key-value and data-value.
+
+syntax:
+dict={}  --empty dict
+dict={'Name':'Nitesh',12='Pandey'}--key can be of any type no restriction for key data type.
+d=dict(a=10,b=20,c=30) --key should be string type only.
+
+
 
 	
 6.What is pickling and unpickling?
