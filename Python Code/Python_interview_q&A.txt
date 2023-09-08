@@ -187,9 +187,22 @@ dict={}  --empty dict
 dict={'Name':'Nitesh',12='Pandey'}--key can be of any type no restriction for key data type.
 d=dict(a=10,b=20,c=30) --key should be string type only.
 
+when we use inbuit function in dictionary then it deals with only keys.
 
+d={'Name':['Nitesh','Sam','Nit'],'College':'KJSCE'}
+len(d) --2 #only consider keys count
+min(d) --College
+max(d) --Name
+sum(d) --Error Occurred because keys are string not numerical
+sorted(d)--['College', 'Name']
 
-	
+d.popitem()
+d.pop(key_value)--return data value and delete the element from dict.
+d.clear()
+
+dictionary comprehensions
+d={i:i**2 for i in range(1,10)} --{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+
 6.What is pickling and unpickling?
 Pickling is the process of converting Python object to a string representation(byte stream) and dumps it into a file by using dump function.
 While the process of retrieving original Python objects from the stored string representation is called unpickling.
