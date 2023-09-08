@@ -3332,3 +3332,19 @@ s1.update([9,3],(11,5),{45,78})
 
 set.discard() vs set.remove() -->both are the same function
 main difference is that discard does not throw an error if element is not present in set.
+
+
+Note-
+non-default argument follows default argument
+
+error in below code:
+def sum(a=0,b,c=0,d=0):
+  c=a+b+c+d
+  return c
+
+you can not have positional argument after keyword argument.
+def multiply(a,b):
+  return a*b
+
+multiply(a=2,4)-error
+multiply(2,b=4)-valid
