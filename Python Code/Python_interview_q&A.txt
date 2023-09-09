@@ -1173,6 +1173,8 @@ Morphism--(behaviour)
 
 Method Overloading
 Method overriding
+--method name is same ,different arguments.
+(Not applicable in python)--not directly perform in python.
 
 What do you mean by overriding methods?
 
