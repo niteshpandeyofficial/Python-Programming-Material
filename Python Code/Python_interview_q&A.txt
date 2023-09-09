@@ -511,6 +511,9 @@ A lambda is part of a very important abstraction mechanism which deals with high
 >>> a = lambda x,y : x+y
 print(a(5, 6))
 
+We can call lambda function using below syntax also.
+(lambda a,b:a+b)(3,4)
+
 lambda over Normal method 
 def is a keyword that doesn’t return anything and create a name in local namespace
 lambda is a keyword that return a function object and does not create a name in the local namespace
