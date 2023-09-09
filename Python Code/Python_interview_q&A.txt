@@ -1147,7 +1147,7 @@ if the parent class has a method named ABC then the child class also can have a
 method with the same name ABC having its own parameters and variables. Python allows polymorphism.
 
 Define encapsulation in Python?
-Ans: Encapsulation means binding or wrapping the code and the data together. A Python class in an example of encapsulation.
+Ans: Encapsulation means binding or wrapping the method and the data together.A Python class in an example of encapsulation.
 
 How do you do data abstraction in Python?
 Data Abtration refer to the the act of representing essential feature without including background details
