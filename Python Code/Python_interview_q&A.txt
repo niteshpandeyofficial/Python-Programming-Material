@@ -1,4 +1,4 @@
-﻿Python Details
+﻿Python DetailsPython
 
 Why you should learn python ??
 1.Huge community Supports.
@@ -494,6 +494,28 @@ class Nit():
 		
 c=Nit('NItesh',26)
 
+--------------------------------------------------------------------
+class A:
+  def __init__(self):
+    self.m1=9
+
+class B:
+  def __init__(self):
+    self.m2=4
+
+class C(B,A):
+  def __init__(self):
+    B.__init__(self)  #call both the constructor at the same time
+    A.__init__(self)
+    #super().__init__() #call the constructor of super class i.e B
+    self.m3=1 
+
+
+c=C()
+print(c.m1)
+print(c.m2)
+
+##o/p- 9,4
 
 __name__=it is a variable and used for center point of execution
 it is special variable
@@ -1146,6 +1168,30 @@ Ans: Polymorphism means the ability to take multiple forms. So, for instance,
 if the parent class has a method named ABC then the child class also can have a 
 method with the same name ABC having its own parameters and variables. Python allows polymorphism.
 
+Poly---(Many) 
+Morphism--(behaviour)
+
+Method Overloading
+Method overriding
+
+What do you mean by overriding methods?
+
+class A:
+    def sayhello(self,name):
+        self.name=name
+        print('Hi am in A')
+        print('Name')
+class B(A):
+    def sayhello(self):
+        print('I am in B')
+
+a=A()
+b=B()
+
+a.sayhello()
+#Hello, I’m A
+
+
 Define encapsulation in Python?
 Ans: Encapsulation means binding or wrapping the method and the data together.A Python class in an example of encapsulation.
 
@@ -1752,23 +1798,6 @@ This takes two classes as arguments. If the first one inherits from the second, 
 >>> issubclass(B,A)
 True
 
-
-What do you mean by overriding methods?
-
-class A:
-    def sayhello(self,name):
-        self.name=name
-        print('Hi am in A')
-        print('Name')
-class B(A):
-    def sayhello(self):
-        print('I am in B')
-
-a=A()
-b=B()
-
-a.sayhello()
-#Hello, I’m A
 
 Whenever you exit Python, is all memory de-allocated?
 Ans:The answer here is no. The modules with circular references to other objects, or 
@@ -3353,3 +3382,49 @@ def multiply(a,b):
 
 multiply(a=2,4)-error
 multiply(2,b=4)-valid
+
+
+Duck Typing is a way of programming in which an object passed into a function or 
+method supports all method signatures and attributes expected of that object at run time.
+
+
+class VSCode:
+  def execute(self):
+    print('Compile')
+    print('Run')
+
+class MyEditor:
+  def execute(self):
+    print('Spell Check')
+    print('Naming convention')
+    print('Conpile')
+    print('Run')
+
+class Editor:
+  def writing_code(self,ide):
+    print('Coding')
+    #ide=VSCode()
+    ide.execute()
+
+
+e=Editor()
+e.writing_code()
+
+o/p-
+Coding
+Compile
+Run
+
+
+#Instead of MyEditor we can use any class object and passed it to the function call. method name should be same otherwise
+#it will give an error
+e=Editor()
+ide=MyEditor()
+e.writing_code(ide)
+
+o/p-
+Coding
+Spell Check
+Naming convention
+Conpile
+Run
