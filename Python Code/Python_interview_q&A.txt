@@ -300,6 +300,8 @@ We can also change the current working directory with chdir().
 Python decorator gives us the ability to add new behavior to the given objects dynamically or
 Python decorator is a specific change that we make in Python syntax to alter functions easily.
 
+input function-->decorator-->output function with modified functionality.
+
 Example:
 >>> def decor(func):
     def wrap():
