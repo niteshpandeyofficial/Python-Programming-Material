@@ -3431,3 +3431,7 @@ Spell Check
 Naming convention
 Conpile
 Run
+
+create file in google colab using below snnipet
+%%writefile new.txt
+This is new file created
