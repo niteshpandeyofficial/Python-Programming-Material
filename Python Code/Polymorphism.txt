@@ -1,0 +1,122 @@
+Polymorphism means the ability to take multiple forms. So, for instance, 
+if the parent class has a method named ABC then the child class also can have a 
+method with the same name ABC having its own parameters and variables. Python allows polymorphism.
+
+Method Overriding
+Operator Overloading(+,-,*)
+
+Method Overloading
+As type concept is not applicable(Dynamic type concept) ,method overloading concept is not applicable in python.
+
+
+class Test:
+  def m1(self):
+    print('NO argument method')
+  
+  def m1(self,a):
+    print('One argument method')
+  
+  def m1(self,a,b):
+    print('Two argument method')
+
+t=Test()
+t.m1(10) #error occurred because it consider last one method which have two argument and we provided only one.
+t.m1(10,20) #only last method is executed remaining all are skipped.
+
+
+Constructor overloading is also not possible
+
+class Test:
+  def __init__(self):
+    print('No Arguments constructor')
+  
+  def __init__(self,a):
+    print('One Argument Constructor')
+  
+  def __init__(self,a,b):
+    print('Two Argument Constructor')
+
+t=Test(1,2)---Two Argument Constructor
+t=Test() -----Test.__init__() missing 2 required positional arguments: 'a' and 'b'
+
+
+Operator Overloading supported in python.
+__add__,__sub__,__mul__(same method work for diffe
+rent data type)
+
+class Book:
+  def __init__(self,pages):
+    self.pages=pages
+  
+  def __str__(self):
+    return 'The numbe of pages:'+str(self.pages)
+  
+  def __add__(self,others):
+    total=self.pages+others.pages
+    b=Book(total)
+    return b
+
+
+b1=Book(100)
+b2=Book(100)
+b3=Book(300)
+b4=Book(400)
+
+print(b1+b2+b3+b4)
+The numbe of pages:900
+
+Method overriding and constructor overriding is possible in python.
+
+Overriding concept is applicable for both constructor and method 
+below code represent the polymorphism and this concept can be implemented with the help of method overriding.
+
+class Parent:
+  def marry(self):
+    print('Your wife should be an engineer')
+
+class Child(Parent):
+  def marry(self): #child override the method of parent 
+    print('My Wife should be a doctor')
+
+
+c=Child()
+c.marry()
+
+o/p-
+My Wife should be a doctor
+
+
+demo:
+
+class Person:
+  def __init__(self,name,age):
+    self.name=name
+    self.age=age
+  
+  def show(self):
+    print('name of the Person is',self.name)
+    print('Age of the Person is',self.age)
+
+p=Person('Nitesh',30)
+p.show()
+
+name of the Person is Nitesh
+Age of the Person is 30
+
+class Employee(Person): #inheritence
+  def __init__(self,name,age,emp_no,dept_name):
+    super().__init__(name,age)  
+    self.emp_no=23
+    self.dept_name=dept_name
+  
+  def show(self):
+    super().show()
+    print('employee id is',self.emp_no)
+    print('employee depart name',self.dept_name)
+
+e=Employee('Nitesh',31,123,'comps')
+e.show()
+name of the Person is Nitesh
+Age of the Person is 31
+employee id is 23
+employee depart name comps
