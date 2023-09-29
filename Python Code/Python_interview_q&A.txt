@@ -15,6 +15,9 @@ OO-All code encapsulaated within object.
 High Level-Human Readable Form 
 
 Python is both compiled as well as an interpreted language, which means when we run a python code, it is first compiled and then interpreted line by line.
+Python is an interpreted language, which means the source code of a Python program is converted into bytecode that is then executed by the Python virtual machine.
+
+
 
 2.What are the key features of Python?
 Highly Extensible
@@ -55,10 +58,20 @@ Easy-to-learn for beginners
 Having the built-in data types saves programming time and effort from declaring variables
 
 
-4.What is PEP 8?--current 596
+4.What is PEP 8?--(3.9--596)(3.11--994)
 PEP stands for Python Enhancement Proposal. 
 PEP 8 is a coding convention, a set of recommendation, about how to write your Python code more readable.
 
+disutils vs setuptools
+Distutils is the standard packaging tool for Python. It is included in the standard library. 
+Setuptools is a collection of enhancements to Distutils. It includes support for building and installing eggs
+
+> A “Python egg” is a logical structure embodying the release of a specific version of a Python project, comprising its code, resources, and metadata.
+The egg file itself is basically a zip file.egg file contain egg and egg-info
+
+> Python eggs and wheels are two popular formats for distributing Python packages. Eggs are older and more widely used, while wheels are newer and offer some advantages, such as improved performance and support for multiple Python versions
+
+> Same concept as a .jar file in Java, it is a .zip file with some metadata files renamed .egg, for distributing code as bundles.
 
 Strings-
 A string is a sequence of characters.
