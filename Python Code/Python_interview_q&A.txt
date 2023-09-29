@@ -261,8 +261,7 @@ open_file.close()
 with open('C:\\Users\\nites\\Desktop\\DataExport\\test\\data1.txt','wb') as output:
     pickle.dump(['nitesh pandey',1,5,6,1,8],output)
 		
-
-To restored the pickle object we use the load() function
+## To restored the pickle object we use the load() function
 pickle.load(data.pkl)
 
 data=open('D:\\data','rb')
@@ -275,7 +274,7 @@ data.close()
 
 #hi=pickle.load(open('C:\\Users\\nites\\Desktop\\DataExport\\test\\data1.txt','rb'))
 
-Pickling and unpickling is also called as serialisation or deserialisation.
+## Pickling and unpickling is also called as serialisation or deserialisation.
 #Serialisation
 with open('abc.pkl','wb') as f:
   pickle.dump([1,2,3,4],f)
