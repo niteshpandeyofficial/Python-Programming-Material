@@ -73,6 +73,16 @@ The egg file itself is basically a zip file.egg file contain egg and egg-info
 
 > Same concept as a .jar file in Java, it is a .zip file with some metadata files renamed .egg, for distributing code as bundles.
 
+from setuptools import setup
+src.egg-info folder contain below file
+pkg-info
+source.txt
+dependency_link.txt
+requires.txt
+top_level.txt
+
+pip install .e . --This command create egg file 
+
 Strings-
 A string is a sequence of characters.
 String is a class.
@@ -199,7 +209,7 @@ dict elements are pair of key-value and data-value.
 
 syntax:
 dict={}  --empty dict
-dict={'Name':'Nitesh',12='Pandey'}--key can be of any type no restriction for key data type.
+dict={'Name':'Nitesh',12:'Pandey'}--key can be of any type no restriction for key data type.
 d=dict(a=10,b=20,c=30) --key should be string type only.
 
 when we use inbuit function in dictionary then it deals with only keys.
@@ -209,7 +219,8 @@ len(d) --2 #only consider keys count
 min(d) --College
 max(d) --Name
 sum(d) --Error Occurred because keys are string not numerical
-sorted(d)--['College', 'Name']
+d={1:10,2:20,3:30} #if key is numeric then sum function return sum of key
+sorted(d)--['College', 'Name'] --sorting done on basis of key only not value.
 
 d.popitem()
 d.pop(key_value)--return data value and delete the element from dict.
