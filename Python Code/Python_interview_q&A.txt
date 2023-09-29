@@ -14,6 +14,8 @@ interpreted-it directly interpret the code without compiling it.
 OO-All code encapsulaated within object.
 High Level-Human Readable Form 
 
+Python is both compiled as well as an interpreted language, which means when we run a python code, it is first compiled and then interpreted line by line.
+
 2.What are the key features of Python?
 Highly Extensible
 Python is an interpreted language.
