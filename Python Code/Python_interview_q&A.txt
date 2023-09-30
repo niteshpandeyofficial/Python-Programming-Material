@@ -36,7 +36,7 @@ Large Library.
 What is an unicode ??
 The unicode is character encoding and it's goal is to replace the existing character set with its standard UTF.
 UTF-Unicode Transformation format.
-UTF-8 is the most commonly used character encoding.It is also backward compatible with ASCII.
+UTF-8 is the most commonly used character encoding.It is also backward compatible with ASCII(American Standard Code for Information Interchange).
 
 What is variable in python??
 Variable are used to hold data during execution of the program.
@@ -58,7 +58,7 @@ Easy-to-learn for beginners
 Having the built-in data types saves programming time and effort from declaring variables
 
 
-4.What is PEP 8?--(3.9--596)(3.11--994)
+4.What is PEP 8?--(3.9--596)(3.11--654)
 PEP stands for Python Enhancement Proposal. 
 PEP 8 is a coding convention, a set of recommendation, about how to write your Python code more readable.
 
@@ -69,7 +69,8 @@ Setuptools is a collection of enhancements to Distutils. It includes support for
 > A “Python egg” is a logical structure embodying the release of a specific version of a Python project, comprising its code, resources, and metadata.
 The egg file itself is basically a zip file.egg file contain egg and egg-info
 
-> Python eggs and wheels are two popular formats for distributing Python packages. Eggs are older and more widely used, while wheels are newer and offer some advantages, such as improved performance and support for multiple Python versions
+> Python eggs and wheels are two popular formats for distributing Python packages. Eggs are older and more widely used, while wheels are newer 
+and offer some advantages, such as improved performance and support for multiple Python versions
 
 > Same concept as a .jar file in Java, it is a .zip file with some metadata files renamed .egg, for distributing code as bundles.
 
@@ -135,7 +136,7 @@ toc=time.time()
 
 print('Elapsed Time:',toc-tic)
 Elapsed Time: 0.024022340774536133
-
+ 
 
 What is set and frozen set
 
@@ -222,9 +223,13 @@ sum(d) --Error Occurred because keys are string not numerical
 d={1:10,2:20,3:30} #if key is numeric then sum function return sum of key
 sorted(d)--['College', 'Name'] --sorting done on basis of key only not value.
 
-d.popitem()
+d.popitem() --return the element which is removed from dictionary.
 d.pop(key_value)--return data value and delete the element from dict.
 d.clear()
+
+we use pop() and popitem() to remove elements from a dictionary, they are actually different. 
+pop() can remove any item from a dictionary as long as you specify the key. On the other hand, 
+popitem() can only remove and return the value of the last element in the dictionary.
 
 dictionary comprehensions
 d={i:i**2 for i in range(1,10)} --{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
@@ -289,14 +294,10 @@ It converts the source code that is written by the programmer into an intermedia
 which is again translated into machine language that has to be executed.
 
 8.How memory is managed in Python?
-Python memory is managed by Python private heap space. All Python objects and data structures are located in a private heap. 
-The programmer does not have an access to this private heap and interpreter takes care of this Python private heap.
-
-The allocation of Python heap space for Python objects is done by Python memory manager. 
-The core API gives access to some tools for the programmer to code.
-
-Python also have an inbuilt garbage collector, which recycle all the unused memory and frees the memory and 
-makes it available to the heap space.
+    Python memory is managed by Python private heap space. All Python objects and data structures are located in a private heap. 
+The programmer does not have an access to this private heap and interpreter takes care of this Python private heap.The allocation 
+of Python heap space for Python objects is done by Python memory manager.The core API gives access to some tools for the programmer to code.
+    Python also have an inbuilt garbage collector, which recycle all the unused memory and makes it available to the heap space.
 
 9.What are the tools that help to find bugs or perform static analysis?
 PyChecker is a static analysis tool that detects the bugs in Python source code and warns about the style and complexity of the bug. 
@@ -344,11 +345,11 @@ Example:
 >>> def decor(func):
     def wrap():
         print("$$$$$$$$$$$$$$$$$")
-        result = func()
+        result = func()    --or we can write func() only
         print("$$$$$$$$$$$$$$$$$")
     return wrap
 	
->>> @decor
+@decor
 def sayhi():
     print('Hi')
 	
@@ -356,6 +357,21 @@ def sayhi():
 $$$$$$$$$$$$$$$$$
 Hi
 $$$$$$$$$$$$$$$$$
+
+--using @decorator function--
+def smartdiv(fun):
+  def inner(a,b):
+    if a<b:
+      a,b=b,a
+    return fun(a,b)
+  return inner
+
+@smartdiv
+def div(a,b):
+  return a/b
+
+
+
 Decorator
 def div(a,b):
     print(a/b)
