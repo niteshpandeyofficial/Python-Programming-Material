@@ -873,7 +873,12 @@ Ans: Help() and dir() both functions are accessible from the Python interpreter 
 
 Help() function:The help() function is used to display the documentation string and also facilitates you 
 				to see the help related to modules, keywords, attributes, etc.
+
 Dir() function: The dir() function is used to display the defined symbols or function available ie which is used at that session.
+ if we used any varaible for eg s="nitesh" in our session and when we try to use dir(s) then it provide all the function Name
+ applicable for this variable.  
+
+ eg-'__add__','__class__','__contains__','__delattr__','capitalize','casefold','center','count','encode','endswith' so on.
 
 
 
@@ -886,6 +891,20 @@ b=20;
 min=a if a<b else b;
 OR
 {True:a,False:b}[a<b]
+
+we can use tuple to implement ternary operator
+(b,a)[a<b]   ----(false,true)[condition]
+
+print('a is larger' if a>b else 'b is larger')
+
+syntax:
+
+[on_true] if [expression] else [on_false]
+(if_test_fails,if_test_pass)[test]
+{False:if_test_fails,True:if_test_pass}[test]
+(lambda:if_test_fails,lambda:if_test_true)[test]88
+
+
 
 
 Difference between *args and **kwargs 
