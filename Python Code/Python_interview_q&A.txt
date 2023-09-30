@@ -197,7 +197,7 @@ True
 Elapsed Time: 0.037004709243774414	
 
 
-Dictionary:
+What is a dictionary in Python?
 dict is a class.
 dict is mutable.
 dict is not hashable.
@@ -207,6 +207,15 @@ dict can not have the duplicate keys.
 indexing is not applicable to dict object.
 slicing operator is not applicable
 dict elements are pair of key-value and data-value.
+
+Ans: The built-in datatypes in Python is called dictionary. It defines one-to-one relationship between keys and values. 
+Dictionaries contain pair of keys and their corresponding values. Dictionaries are indexed by keys.
+Key-Any type of object
+Value-Any type of object
+
+dict={'Name':'Nitesh','Age':20,'Add':'Mumbai'}
+dict['Name'] #'Nitesh'
+dict['Age']  #20
 
 syntax:
 dict={}  --empty dict
@@ -468,6 +477,19 @@ This variable is present in the local space and not in the global space.
     c=a+b
     print(c)
 	
+
+we can change scope of global variable using global 
+a=2
+def add():
+  b=3 
+  global a
+  a=4     
+  c=a+b
+  print(c)
+  o/p-7
+
+a is global variable but uses the value assign inside the ad function instead of a=2
+
 17.Is python case sensitive?
 Yes. Python is a case sensitive language.
 
@@ -835,6 +857,17 @@ b=[11,2,3]
 d=[[11,2,3],[5,7]]
 b in d ==>True
 
+How many kinds of operators do we have in Python? Explain arithmetic operators.
+we have 7 kinds of operators: arithmetic, relational, assignment, logical, membership, identity, and bitwise.
+
+What are membership, operators?
+With the operators ‘in’ and ‘not in’, we can confirm if a value is a member in another.
+
+Explain identity operators in Python.
+The operators ‘is’ and ‘is not’ tell us if two values have the same identity.
+
+
+
 What is the usage of help() and dir() function in Python?
 Ans: Help() and dir() both functions are accessible from the Python interpreter and used for viewing a consolidated dump of built-in functions. 
 
@@ -842,16 +875,6 @@ Help() function:The help() function is used to display the documentation string 
 				to see the help related to modules, keywords, attributes, etc.
 Dir() function: The dir() function is used to display the defined symbols or function available ie which is used at that session.
 
-
-What is a dictionary in Python?
-Ans: The built-in datatypes in Python is called dictionary. It defines one-to-one relationship between keys and values. 
-Dictionaries contain pair of keys and their corresponding values. Dictionaries are indexed by keys.
-Key-Any type of object
-Value-Any type of object
-
-dict={'Name':'Nitesh','Age':20,'Add':'Mumbai'}
-dict['Name'] #'Nitesh'
-dict['Age']  #20
 
 
 How can the ternary operators be used in python?
@@ -1921,14 +1944,7 @@ another = print_msg("Hello")
 another()
 Hello
 
-How many kinds of operators do we have in Python? Explain arithmetic operators.
-we have 7 kinds of operators: arithmetic, relational, assignment, logical, membership, identity, and bitwise.
 
-What are membership, operators?
-With the operators ‘in’ and ‘not in’, we can confirm if a value is a member in another.
-
-Explain identity operators in Python.
-The operators ‘is’ and ‘is not’ tell us if two values have the same identity.
 
 
 How do you get a list of all the keys in a dictionary?
