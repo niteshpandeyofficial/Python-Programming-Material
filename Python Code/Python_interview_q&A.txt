@@ -353,7 +353,7 @@ Example:
 def sayhi():
     print('Hi')
 	
->>> sayhi()
+>>> sayhi() 
 $$$$$$$$$$$$$$$$$
 Hi
 $$$$$$$$$$$$$$$$$
