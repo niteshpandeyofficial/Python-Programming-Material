@@ -1201,6 +1201,12 @@ e.m1()
 o/p-
 C class Method
 
+super(class name,self).method() --this method first go to class which is provide and check whether it is inherit from other class or not 
+if yes then it go for its parent and print the result.in above example super call its parent class which is D and then it call to its parent which is C and then 
+print the value from class C 
+
+classname.method() or super().method()--it directly call to the class which is call and execute its method
+
 -----super() example-------
 
 class base1():
