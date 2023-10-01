@@ -38,7 +38,7 @@ shapes = [Circle(5), Rectangle(4, 6)]
 for shape in shapes:
     print(f"Area of shape: {shape.area()}")
 
-    
+
 
 Method Overriding
 Operator Overloading(+,-,*)
@@ -79,8 +79,7 @@ t=Test() -----Test.__init__() missing 2 required positional arguments: 'a' and '
 
 
 Operator Overloading supported in python.
-__add__,__sub__,__mul__(same method work for diffe
-rent data type)
+__add__,__sub__,__mul__(same method work for different data type)
 
 class Book:
   def __init__(self,pages):
