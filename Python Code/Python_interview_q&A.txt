@@ -1361,6 +1361,7 @@ obj=a()
 obj.name="xyz"
 print("Name = ",obj.name)
 
+o/p-Name =  xyz
 
 Basic Python programs:
 
