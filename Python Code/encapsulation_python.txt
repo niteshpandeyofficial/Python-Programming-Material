@@ -1,0 +1,46 @@
+Encapsulation:
+
+1.Encapsulation is one of the fundamental principles of object-oriented programming.
+2.Encapsulation means binding or wrapping the method and the data together into a single unit
+3.This helps to protect the data from unauthorized access and modification, and makes the code more modular and reusable.
+
+Encapsulation in Python is achieved by using classes and methods. 
+
+To encapsulate data in Python, you can simply declare it as a private member of a class. Private members are 
+prefixed with two underscores (__) and can only be accessed from within the class.
+
+Benefits of encapsulation
+1.Data protection.
+2.Modularity.
+3.Maintainability.
+
+
+class Student:
+    def __init__(self, name, age):
+        self.name = name  # Public attribute
+        self._age = age   # Protected attribute
+        self.__grade = None  # Private attribute
+
+    def study(self, subject):
+        print(f"{self.name} is studying {subject}")
+
+    def __get_grade(self):
+        return self.__grade
+
+    def set_grade(self, grade):
+        if 0 <= grade <= 100:
+            self.__grade = grade
+        else:
+            print("Invalid grade value")
+
+student = Student("Alice", 20)
+student.study("Math")
+student.set_grade(95)
+print(student.name)  # Public attribute can be accessed
+print(student._age)   # Protected attribute can be accessed (not recommended)
+print(student.__grade)  # This will raise an AttributeError
+
+
+private variable can be accessed using below syntax:
+
+objectname,_className__variableName (student._Student__get_grade())
