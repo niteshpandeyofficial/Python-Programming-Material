@@ -1711,11 +1711,12 @@ The simplest data structure is the array, which is a contiguous block of memory
 Arrays
 >arrays can hold only a single data type elements. 
 >consider when need to stored large amount of data.
->consume less memory s compared to List
+>consume less memory as compared to List
+>array is faster than list
 
 lists 
 >can hold any data type elements.
-> faster than array.
+> slower than array.
 > performance loss when volume of data is large.
 >consume more memory as comapred to Array.
 
