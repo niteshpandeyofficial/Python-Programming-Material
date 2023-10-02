@@ -1985,14 +1985,18 @@ Leading whitespace in a string is remove by using lstrip()
  
  What is a closure in Python?
 
-A closure is said to occur when a nested function references a value in its enclosing scope. The whole point here is that it remembers the value.
+A closure is said to occur when a nested function references a value in its enclosing scope. 
+The whole point here is that it remembers the value.
 
+>a function in another function.
+eg-1:
 >>> def A(x):
     def B():
         print(x)
     return B
 >>> A(7)()
 
+eg-2:
 def print_msg(msg):
     def printer():
         # This is the nested function
@@ -2004,7 +2008,20 @@ another = print_msg("Hello")
 another()
 Hello
 
+eg-3:
+def enter_number_outer():
+  number=[]
+  def enter_number_inner(x):
+    number.append(x)
+    print(number)
+  return enter_number_inner
 
+enter_number=enter_number_outer()
+enter_number(3)
+enter_number(5)
+
+#[3]
+#[3, 5]
 
 
 How do you get a list of all the keys in a dictionary?
@@ -2226,7 +2243,8 @@ Define setter and getter functions. To set and get a value, we define the follow
     self._title=title.upper()
 Here, get_title returns the title of the book, and set_title converts it to all caps 
 
-Make the variable ‘title’ private. To do this, we use a leading underscore. After all these changes, our class looks like this:
+Make the variable ‘title’ private. To do this, we use a leading underscore.
+After all these changes, our class looks like this:
 >>> class Song:
   def __init__(self,title):
     self.title=title
@@ -2248,7 +2266,18 @@ Make the variable ‘title’ private. To do this, we use a leading underscore. 
   @title.setter
   def title(self,title):
     self._title=title.upper()
-	
+
+
+getter:these are the methods used in oop which help to access the private attribute from the class.
+setter:these are the method used in oops feature which  help to set the value to the private attribute from a class.
+
+@property:
+it is used to get the value of private attribute without using any getter method.
+
+@method_name.setter:
+To set the private variable we used this method.
+
+
 Why we use getter and setter 
 If a data member is declared "private", then it can only be accessed within the same class. 
 No outside class can access data member of that class. If you need to access these variables, 
