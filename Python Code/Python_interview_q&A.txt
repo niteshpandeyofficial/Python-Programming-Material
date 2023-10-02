@@ -2436,14 +2436,28 @@ string[::-1]
 
 reverse vs reversed
 
+reversed.
 1.reversed return object which is used to iterate over conatainer.
 2.used to reverse the sequence of data.
 3.support any data type(can be reversed list,tiple,string and dictionaries)
+
+a=['a','b','d','s','c']
+list(reversed(a))
+#['c', 's', 'd', 'b', 'a']
+
+list(reversed((1,2,3,4,5)))
+#[5, 4, 3, 2, 1]
+
 
 reverse
 1.used to reverse the elemen of container.
 2.support only list type.
 3.final or original list get modified.
+
+l=['nitesh','pandey']
+l.reverse()
+l
+#['pandey', 'nitesh']
 
 --------------------------
 1.JSON VS Dictionary
