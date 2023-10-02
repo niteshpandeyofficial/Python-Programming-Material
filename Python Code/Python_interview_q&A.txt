@@ -2435,12 +2435,15 @@ string[::-1]
 'hsetin'
 
 reverse vs reversed
-reversed return object which is used to iterate over conatainer.
-support any data type
+
+1.reversed return object which is used to iterate over conatainer.
+2.used to reverse the sequence of data.
+3.support any data type(can be reversed list,tiple,string and dictionaries)
 
 reverse
-used to reverse the elemen of container.
-only support list type 
+1.used to reverse the elemen of container.
+2.support only list type.
+3.final or original list get modified.
 
 --------------------------
 1.JSON VS Dictionary
