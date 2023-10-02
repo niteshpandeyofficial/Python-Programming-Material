@@ -1330,16 +1330,8 @@ Define encapsulation in Python?
 Ans: Encapsulation is one of the fundamental principles of object-oriented programming.
 Encapsulation means binding or wrapping the method and the data together into a single unit
 This helps to protect the data from unauthorized access and modification, and makes the code more modular and reusable.
+###ref encapsulation_python.txt within same folder of this repo
 
-Encapsulation in Python is achieved by using classes and methods. 
-
-To encapsulate data in Python, you can simply declare it as a private member of a class. Private members are 
-prefixed with two underscores (__) and can only be accessed from within the class.
-
-Benefits of encapsulation
-1.Data protection.
-2.Modularity.
-3.Maintainability.
 
 How do you do data abstraction in Python?
 Data Abtration refer to the the act of representing essential feature without including background details
