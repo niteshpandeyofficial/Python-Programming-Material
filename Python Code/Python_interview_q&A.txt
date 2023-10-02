@@ -1500,7 +1500,7 @@ for j in range(6, 0,-1):
 def half_pyr(n):
     for i in range(n):
         print(' '*n, end='') # repet space for n times
-        print('* '*(i+1)) # repeat stars for i times
+        print('* '*(i+1)) # repeat stars for i times (if loop start from 0 then use i+1 else use only i)
         n-=1
 
 half_pyr(5)
