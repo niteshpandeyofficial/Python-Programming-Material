@@ -51,4 +51,38 @@ v.mileage()
 
 o/p-Mileage is 12km
 
+
+
+syntax:
+
+class C:
+	def m1():
+		pass
+		
+class P(C):
+	def m1():
+		statement1..
+		statement2..
+		statement3..
+		.
+		.
+		.
+		statementn
+
+
+java code:
+class P
+{
+	public abstract int getvehical();
+}		
+
+class C extends P
+{
+	public int getvehical()
+	{
+		return T
+	}
+}
+
+
  
