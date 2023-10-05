@@ -3489,10 +3489,10 @@ else:
 o/p-same
 ###############
 Numpy vs scipy
-Numpy stand fpor numerical python while scipy stands for scientific python
+Numpy stand for numerical python while scipy stands for scientific python
 
 numpy is the basic library for defining array and simple mathematical problems
-scipy is used for more complex problem like numericl integration and optimization and machine learning and so on.
+scipy is used for more complex problem like numerical integration and optimization and machine learning and so on.
 eg scipy.io
 scipy.special
 scipy.linalg
@@ -3525,10 +3525,11 @@ n='Nitesh Pandey'
 sorted(n)
 [' ', 'N', 'P', 'a', 'd', 'e', 'e', 'h', 'i', 'n', 's', 't', 'y']
 
-n=['Zitesh', 'Pandey']
+n=['Zebra', 'Pandey']
 sorted(n)
+['Pandey', 'Zebra']
 
-find if the given digit is of 3 digit or not.
+find if the given number is of 3 digit or not.
 x=123
 if 99<x<1000:
 print('3 digit number')
@@ -3575,7 +3576,7 @@ multiply(2,b=4)-valid
 
 
 Duck Typing is a way of programming in which an object passed into a function or 
-method supports all method signatures and attributes expected of that object at run time.
+method supports all method signatures and attributes expected of that object at run time. 
 
 
 class VSCode:
@@ -3587,12 +3588,12 @@ class MyEditor:
   def execute(self):
     print('Spell Check')
     print('Naming convention')
-    print('Conpile')
+    print('Compile')
     print('Run')
 
 class Editor:
   def writing_code(self,ide):
-    print('Coding')
+    print('Coding') 
     #ide=VSCode()
     ide.execute()
 
