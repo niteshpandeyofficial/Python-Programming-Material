@@ -3302,7 +3302,7 @@ numbered_words = {
 output = ""
 for ch in phone_words:
     output += numbered_words.get(ch, "!") + " "
-phone_words = numbered_words
+output
 
 print(output)
 --------------------
@@ -3407,7 +3407,7 @@ import mysql.connector
 The maketrans() method returns a translation table that maps each character in the intabstring into 
 the character at the same position in the outtab string. Then this table is passed to the translate() function.
 
-str.maketrans(intab, outtab]);
+str.maketrans(intab, outtab);
 
 intab = "aeiou"
 outtab = "12345"
@@ -3437,22 +3437,6 @@ def show_articles_more_than(column=['SALARY','COMMISSION_PCT','MANAGER_ID'], x=(
     return dataset.loc[dataset[column] > x]
 
 ---------------------------
-Key takeaways from this chapter
-The following are the links to the Like/Dislike predictor contests:
-
-Padhai Contest 1.1 Part A: MPNeuron [Launched]
-
-Invitation: https://www.kaggle.com/t/7f7013f886464d9a8b6db16a3f2fe153
-Home: https://www.kaggle.com/c/padhai-mp-neuron-like-unlike-classification
-Padhai Contest 1.1 Part B: Perceptron [Launched]
-
-Invitation: https://www.kaggle.com/t/e74469cb24d64e1c98c254cdd57fe729
-Home: https://www.kaggle.com/c/padhai-perceptron-like-unlike-classification
-The following notebook file contains the sample solution for the Like/Dislike predictor contest:
-
-Contest_1_1_Solution_Sample.ipynb
-       https://drive.google.com/open?id=14SFivPfntiMiC0oXFp5JvH57q9HaUbf5
-	   
 
 s1='{[]}'
 stack=[]
@@ -3502,7 +3486,7 @@ if b==c:
 else:
   print('Not same')
 
-
+o/p-same
 ###############
 Numpy vs scipy
 Numpy stand fpor numerical python while scipy stands for scientific python
