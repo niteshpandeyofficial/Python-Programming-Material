@@ -2854,11 +2854,25 @@ filter(lambda x:x%2==0,a)
 <filter at 0x170fe22e5c0>
 
 
-
 DataFrame.apply operates on entire rows or columns at a time.
 DataFrame.applymap, Series.apply, and Series.map operate on one element at time.
 
 exec(open("a.py").read())
+
+
+
+map() function
+map() function always passes all the elements/iterables through the transform function.	
+Applied to all the iterables and return the same number of the iterator without filtration.
+The result is printed in the form of a map object for the map() function.
+Transform function can take N number of arguments.	
+The map() function is used as the best alternative for looping in python. The mapping technique is implemented in the map() function.	
+
+Filter() 
+function always check the condition in terms of Boolean values and then passes elements through the function.
+The result is printed in the form of a filter object, and those filter objects can be converted into a list.
+The function used for checking conditions in the filter function must take only one argument.
+The filter function is used as a filter in python.
 
 
 ----
@@ -2968,7 +2982,9 @@ show columns using RegEx filter (b|c|d) - b or c or d:
 df.filter(regex='(b|c|d)')
 
 DataFrames do not have a tolist() method.
+we can use to_list() method with Series.
 
+to_dict() method can be used with series and dataframe.
 Getting a dictionary from a series (uses the index as the keys):
 df['C'].to_dict()
 o/p-{0: 9, 1: 7, 2: 2, 3: 5, 4: 0}
@@ -3011,8 +3027,6 @@ math.factorial
 all above are the same function of 
 <function math.factorial> class
 
-scipy.math.factorial()-it take np.ndaray as input and other cant.
-temp=np.arange(10)
 
 Error occured when below code try to execute.
  As -only size-1 arrays can be converted to Python scalars
