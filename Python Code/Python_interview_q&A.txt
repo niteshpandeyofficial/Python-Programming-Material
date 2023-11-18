@@ -1,5 +1,10 @@
-﻿Python Details
+﻿Python DetailsPython
 
+Why you should learn python ??
+1.Huge community Supports.
+2.Future is with AI.
+3.Easy to learn and implement
+4.General Purpose Programming Language(Wth the help of python we can developed web app,mobile app,desktop app and so on).
 
 What is Python ?
 Python is high level,interactive,interpreted and object oriented scripting language.
@@ -9,7 +14,13 @@ interpreted-it directly interpret the code without compiling it.
 OO-All code encapsulaated within object.
 High Level-Human Readable Form 
 
+Python is both compiled as well as an interpreted language, which means when we run a python code, it is first compiled and then interpreted line by line.
+Python is an interpreted language, which means the source code of a Python program is converted into bytecode that is then executed by the Python virtual machine.
+
+
+
 2.What are the key features of Python?
+Highly Extensible
 Python is an interpreted language.
 Python is dynamically typed,
 Python is well suited to object orientated programming
@@ -19,6 +30,25 @@ Simple and easy to learn.
 30 Keyword in python where 53 keyword in java
 Plateform independent(Write Once Run Anywhere).
 Portabilitiy(Moving one platform to another platform without any chnges).
+Intendetion base block code
+Large Library.
+
+What is an unicode ??
+The unicode is character encoding and it's goal is to replace the existing character set with its standard UTF.
+UTF-Unicode Transformation format.
+UTF-8 is the most commonly used character encoding.It is also backward compatible with ASCII(American Standard Code for Information Interchange).
+
+What is variable in python??
+Variable are used to hold data during execution of the program.
+
+Where python can be used??
+Developing websiter
+Task automation
+Data analysis
+Data visualization
+AI,ML,IOT
+Developing Desktop Application.
+Python can also be used to developing mobile application client side of ajax based application
 
 3.Mention five benefits of using Python?
 Python comprises of a huge standard library for most Internet platforms like Email, HTML, etc.
@@ -28,9 +58,39 @@ Easy-to-learn for beginners
 Having the built-in data types saves programming time and effort from declaring variables
 
 
-4.What is PEP 8?--current 596
+4.What is PEP 8?--(3.9--596)(3.11--654)
 PEP stands for Python Enhancement Proposal. 
 PEP 8 is a coding convention, a set of recommendation, about how to write your Python code more readable.
+
+disutils vs setuptools
+Distutils is the standard packaging tool for Python. It is included in the standard library. 
+Setuptools is a collection of enhancements to Distutils. It includes support for building and installing eggs
+
+> A “Python egg” is a logical structure embodying the release of a specific version of a Python project, comprising its code, resources, and metadata.
+The egg file itself is basically a zip file.egg file contain egg and egg-info
+
+> Python eggs and wheels are two popular formats for distributing Python packages. Eggs are older and more widely used, while wheels are newer 
+and offer some advantages, such as improved performance and support for multiple Python versions
+
+> Same concept as a .jar file in Java, it is a .zip file with some metadata files renamed .egg, for distributing code as bundles.
+
+from setuptools import setup
+src.egg-info folder contain below file
+pkg-info
+source.txt
+dependency_link.txt
+requires.txt
+top_level.txt
+
+pip install .e . --This command create egg file 
+
+Strings-
+A string is a sequence of characters.
+String is a class.
+String  is immutable.
+String is iterable.
+String in hashable.
+We declare it using single or double quotes.
 
 5.What is the difference between list and tuples in Python?
 Lists 
@@ -53,7 +113,11 @@ toc=time.time()
 print('Elapsed Time:',toc-tic)
 Elapsed Time: 0.03200173377990723		 
 
- 
+Binary Number System -0,1
+Octal Number System -0,1,2,3,4,5,6,7
+Decimal Number System -0,1,2,3,4,5,6,7,8,9
+Hexadecimal Number System -0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F
+
 Tuples 
  Tuples are immutable (tuples are lists which can’t be edited).
  Tuples are faster than list.(check below example to prove the same)
@@ -72,7 +136,7 @@ toc=time.time()
 
 print('Elapsed Time:',toc-tic)
 Elapsed Time: 0.024022340774536133
-
+ 
 
 What is set and frozen set
 
@@ -98,9 +162,9 @@ Frozen Set-Similar to set except below point.
 			immutable
 
 Eg-
-	myset=frozenset([1,3,2,2]) #frozenset({1, 2, 3})
+myset=frozenset([1,3,2,2]) #frozenset({1, 2, 3})
 	
-	
+
 set vs list example
 Set Example:
 my_set=set(range(1000000))
@@ -132,7 +196,53 @@ True
 True
 Elapsed Time: 0.037004709243774414	
 
-	
+
+What is a dictionary in Python?
+dict is a class.
+dict is mutable.
+dict is not hashable.
+dict is iterable.
+dict is not a sequence.
+dict can not have the duplicate keys.
+indexing is not applicable to dict object.
+slicing operator is not applicable
+dict elements are pair of key-value and data-value.
+
+Ans: The built-in datatypes in Python is called dictionary. It defines one-to-one relationship between keys and values. 
+Dictionaries contain pair of keys and their corresponding values. Dictionaries are indexed by keys.
+Key-Any type of object
+Value-Any type of object
+
+dict={'Name':'Nitesh','Age':20,'Add':'Mumbai'}
+dict['Name'] #'Nitesh'
+dict['Age']  #20
+
+syntax:
+dict={}  --empty dict
+dict={'Name':'Nitesh',12:'Pandey'}--key can be of any type no restriction for key data type.
+d=dict(a=10,b=20,c=30) --key should be string type only.
+
+when we use inbuit function in dictionary then it deals with only keys.
+
+d={'Name':['Nitesh','Sam','Nit'],'College':'KJSCE'}
+len(d) --2 #only consider keys count
+min(d) --College
+max(d) --Name
+sum(d) --Error Occurred because keys are string not numerical
+d={1:10,2:20,3:30} #if key is numeric then sum function return sum of key
+sorted(d)--['College', 'Name'] --sorting done on basis of key only not value.
+
+d.popitem() --return the element which is removed from dictionary.
+d.pop(key_value)--return data value and delete the element from dict.
+d.clear()
+
+we use pop() and popitem() to remove elements from a dictionary, they are actually different. 
+pop() can remove any item from a dictionary as long as you specify the key. On the other hand, 
+popitem() can only remove and return the value of the last element in the dictionary.
+
+dictionary comprehensions
+d={i:i**2 for i in range(1,10)} --{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+
 6.What is pickling and unpickling?
 Pickling is the process of converting Python object to a string representation(byte stream) and dumps it into a file by using dump function.
 While the process of retrieving original Python objects from the stored string representation is called unpickling.
@@ -140,22 +250,32 @@ While the process of retrieving original Python objects from the stored string r
 used for memory and performance efficiency
 load time is faster then write once again.
 
+Note:-
+#once we open the file we needs to close irespective of any operation otherwise it overwrite the data and get error like EOFError: Ran out of input.
+#it is not compulsion to use the file name with .pkl extension we can write only name also 
+
 import pickle
 output=open('data.pkl','wb')
 data1=pickle.dump([1,2,3,5],output)
-data2=pickle.dump([1,8,5,9],-1)
+output.close()
 
 output=open('D:\\data','wb')
 data1=pickle.dump('nitesh pandey',output)
+output.close()
 
+op=open("nitesh",'wb')
+pickle.dump([1,2,3,4,5],op)
+op.close()
 
+open_file=open("nitesh",'rb')
+ab=pickle.load(open_file)
+print(ab)
+open_file.close()
 
 with open('C:\\Users\\nites\\Desktop\\DataExport\\test\\data1.txt','wb') as output:
     pickle.dump(['nitesh pandey',1,5,6,1,8],output)
-	
-	
-
-to restored the picked object we use the load() function
+		
+## To restored the pickle object we use the load() function
 pickle.load(data.pkl)
 
 data=open('D:\\data','rb')
@@ -164,9 +284,11 @@ cnt=0
 for item in data1:
     print(cnt ,'is',item)
     cnt=cnt+1
+data.close()
 
-hi=pickle.load(open('C:\\Users\\nites\\Desktop\\DataExport\\test\\data1.txt','rb'))
+#hi=pickle.load(open('C:\\Users\\nites\\Desktop\\DataExport\\test\\data1.txt','rb'))
 
+## Pickling and unpickling is also called as serialisation or deserialisation.
 #Serialisation
 with open('abc.pkl','wb') as f:
   pickle.dump([1,2,3,4],f)
@@ -181,14 +303,10 @@ It converts the source code that is written by the programmer into an intermedia
 which is again translated into machine language that has to be executed.
 
 8.How memory is managed in Python?
-Python memory is managed by Python private heap space. All Python objects and data structures are located in a private heap. 
-The programmer does not have an access to this private heap and interpreter takes care of this Python private heap.
-
-The allocation of Python heap space for Python objects is done by Python memory manager. 
-The core API gives access to some tools for the programmer to code.
-
-Python also have an inbuilt garbage collector, which recycle all the unused memory and frees the memory and 
-makes it available to the heap space.
+    Python memory is managed by Python private heap space. All Python objects and data structures are located in a private heap. 
+The programmer does not have an access to this private heap and interpreter takes care of this Python private heap.The allocation 
+of Python heap space for Python objects is done by Python memory manager.The core API gives access to some tools for the programmer to code.
+    Python also have an inbuilt garbage collector, which recycle all the unused memory and makes it available to the heap space.
 
 9.What are the tools that help to find bugs or perform static analysis?
 PyChecker is a static analysis tool that detects the bugs in Python source code and warns about the style and complexity of the bug. 
@@ -230,22 +348,39 @@ We can also change the current working directory with chdir().
 Python decorator gives us the ability to add new behavior to the given objects dynamically or
 Python decorator is a specific change that we make in Python syntax to alter functions easily.
 
+input function-->decorator-->output function with modified functionality.
+
 Example:
 >>> def decor(func):
     def wrap():
         print("$$$$$$$$$$$$$$$$$")
-        result = func()
+        result = func()    --or we can write func() only
         print("$$$$$$$$$$$$$$$$$")
     return wrap
 	
->>> @decor
+@decor
 def sayhi():
     print('Hi')
 	
->>> sayhi()
+>>> sayhi() 
 $$$$$$$$$$$$$$$$$
 Hi
 $$$$$$$$$$$$$$$$$
+
+--using @decorator function--
+def smartdiv(fun):
+  def inner(a,b):
+    if a<b:
+      a,b=b,a
+    return fun(a,b)
+  return inner
+
+@smartdiv
+def div(a,b):
+  return a/b
+
+
+
 Decorator
 def div(a,b):
     print(a/b)
@@ -342,6 +477,19 @@ This variable is present in the local space and not in the global space.
     c=a+b
     print(c)
 	
+
+we can change scope of global variable using global 
+a=2
+def add():
+  b=3 
+  global a
+  a=4     
+  c=a+b
+  print(c)
+  o/p-7
+
+a is global variable but uses the value assign inside the ad function instead of a=2
+
 17.Is python case sensitive?
 Yes. Python is a case sensitive language.
 
@@ -422,6 +570,28 @@ class Nit():
 		
 c=Nit('NItesh',26)
 
+--------------------------------------------------------------------
+class A:
+  def __init__(self):
+    self.m1=9
+
+class B:
+  def __init__(self):
+    self.m2=4
+
+class C(B,A):
+  def __init__(self):
+    B.__init__(self)  #call both the constructor at the same time
+    A.__init__(self)
+    #super().__init__() #call the constructor of super class i.e B
+    self.m3=1 
+
+
+c=C()
+print(c.m1)
+print(c.m2)
+
+##o/p- 9,4
 
 __name__=it is a variable and used for center point of execution
 it is special variable
@@ -440,6 +610,9 @@ A lambda is part of a very important abstraction mechanism which deals with high
 >>> lambda input:expression
 >>> a = lambda x,y : x+y
 print(a(5, 6))
+
+We can call lambda function using below syntax also.
+(lambda a,b:a+b)(3,4)
 
 lambda over Normal method 
 def is a keyword that doesn’t return anything and create a name in local namespace
@@ -684,23 +857,29 @@ b=[11,2,3]
 d=[[11,2,3],[5,7]]
 b in d ==>True
 
+How many kinds of operators do we have in Python? Explain arithmetic operators.
+we have 7 kinds of operators: arithmetic, relational, assignment, logical, membership, identity, and bitwise.
+
+What are membership, operators?
+With the operators ‘in’ and ‘not in’, we can confirm if a value is a member in another.
+
+Explain identity operators in Python.
+The operators ‘is’ and ‘is not’ tell us if two values have the same identity.
+
+
+
 What is the usage of help() and dir() function in Python?
 Ans: Help() and dir() both functions are accessible from the Python interpreter and used for viewing a consolidated dump of built-in functions. 
 
 Help() function:The help() function is used to display the documentation string and also facilitates you 
 				to see the help related to modules, keywords, attributes, etc.
+
 Dir() function: The dir() function is used to display the defined symbols or function available ie which is used at that session.
+ if we used any varaible for eg s="nitesh" in our session and when we try to use dir(s) then it provide all the function Name
+ applicable for this variable.  
 
+ eg-'__add__','__class__','__contains__','__delattr__','capitalize','casefold','center','count','encode','endswith' so on.
 
-What is a dictionary in Python?
-Ans: The built-in datatypes in Python is called dictionary. It defines one-to-one relationship between keys and values. 
-Dictionaries contain pair of keys and their corresponding values. Dictionaries are indexed by keys.
-Key-Any type of object
-Value-Any type of object
-
-dict={'Name':'Nitesh','Age':20,'Add':'Mumbai'}
-dict['Name'] #'Nitesh'
-dict['Age']  #20
 
 
 How can the ternary operators be used in python?
@@ -713,6 +892,17 @@ min=a if a<b else b;
 OR
 {True:a,False:b}[a<b]
 
+we can use tuple to implement ternary operator
+(b,a)[a<b]   ----(false,true)[condition]
+
+print('a is larger' if a>b else 'b is larger')
+
+syntax:
+
+[on_true] if [expression] else [on_false]
+(if_test_fails,if_test_pass)[test]
+{False:if_test_fails,True:if_test_pass}[test]
+(lambda:if_test_fails,lambda:if_test_true)[test]88
 
 Difference between *args and **kwargs 
 The names *args and **kwargs are only by convention but there's no hard requirement to use them.
@@ -895,6 +1085,37 @@ print(my_dads_phone)
 ['I Phone', False, 4]
 ['I Phone', False, 4.3]
 
+
+#deep copy
+
+a=[1,2,3,4]
+b=a.copy()
+b
+[1, 2, 3, 4]
+
+b.append(5)
+print(b)
+print(a)
+
+[1, 2, 3, 4, 5]
+[1, 2, 3, 4]
+
+
+#shallow copy
+c=b
+print(c)
+print(b)
+[1, 2, 3, 4, 5]
+[1, 2, 3, 4, 5]
+
+
+c.append(0)
+print(c)
+print(b)
+[1, 2, 3, 4, 5, 0]
+[1, 2, 3, 4, 5, 0]
+
+
 Shallow Copy
 	Reference of object is copied in other object.
 	It means that any changes made to a copy of object reflect in the original object.
@@ -937,6 +1158,7 @@ class is group of object with similar properties(Attributes) and common behavior
 
 
 Explain Inheritance in Python with an example.
+refere inheritence.ipynb file in same direcory
 Ans: Inheritance allows One class to gain all the members(say attributes and methods) of another class. 
 Inheritance provides code reusability, makes it easier to create and maintain an application. 
 The class from which we are inheriting is called super-class and the class that is inherited is called a derived / child class.
@@ -978,6 +1200,12 @@ e.m1()
 
 o/p-
 C class Method
+
+super(class name,self).method() --this method first go to class which is provide and check whether it is inherit from other class or not 
+if yes then it go for its parent and print the result.in above example super call its parent class which is D and then it call to its parent which is C and then 
+print the value from class C 
+
+classname.method() or super().method()--it directly call to the class which is call and execute its method
 
 -----super() example-------
 
@@ -1071,12 +1299,45 @@ Ans: Polymorphism means the ability to take multiple forms. So, for instance,
 if the parent class has a method named ABC then the child class also can have a 
 method with the same name ABC having its own parameters and variables. Python allows polymorphism.
 
+Poly---(Many) 
+Morphism--(behaviour)
+
+
+Method overriding
+Method Overloading
+--method name is same ,different arguments.(because no type define explictly )
+(Not applicable in python)--not directly perform in python.
+
+What do you mean by overriding methods?
+
+class A:
+    def sayhello(self,name):
+        self.name=name
+        print('Hi am in A')
+        print('Name')
+class B(A):
+    def sayhello(self):
+        print('I am in B')
+
+a=A()
+b=B()
+
+a.sayhello()
+#Hello, I’m A
+
+
 Define encapsulation in Python?
-Ans: Encapsulation means binding or wrapping the code and the data together. A Python class in an example of encapsulation.
+Ans: Encapsulation is one of the fundamental principles of object-oriented programming.
+Encapsulation means binding or wrapping the method and the data together into a single unit
+This helps to protect the data from unauthorized access and modification, and makes the code more modular and reusable.
+###ref encapsulation_python.txt within same folder of this repo
+
 
 How do you do data abstraction in Python?
 Data Abtration refer to the the act of representing essential feature without including background details
 It can be achieved in Python by using interfaces and abstract classes.
+it is used to make code more modular, reusable, and easier to understand.
+###ref abstraction_python.txt within same folder of this repo
 
 eg
 l=[2,5,1,9]
@@ -1100,6 +1361,7 @@ obj=a()
 obj.name="xyz"
 print("Name = ",obj.name)
 
+o/p-Name =  xyz
 
 Basic Python programs:
 
@@ -1238,7 +1500,7 @@ for j in range(6, 0,-1):
 def half_pyr(n):
     for i in range(n):
         print(' '*n, end='') # repet space for n times
-        print('* '*(i+1)) # repeat stars for i times
+        print('* '*(i+1)) # repeat stars for i times (if loop start from 0 then use i+1 else use only i)
         n-=1
 
 half_pyr(5)
@@ -1449,11 +1711,12 @@ The simplest data structure is the array, which is a contiguous block of memory
 Arrays
 >arrays can hold only a single data type elements. 
 >consider when need to stored large amount of data.
->consume less memory s compared to List
+>consume less memory as compared to List
+>array is faster than list
 
 lists 
 >can hold any data type elements.
-> faster than array.
+> slower than array.
 > performance loss when volume of data is large.
 >consume more memory as comapred to Array.
 
@@ -1641,16 +1904,27 @@ The first line must begin with a hash(#). An  example of this will be: #!/usr/lo
 Explain a few methods to implement Functionally Oriented Programming in Python.
 
 Ans. Sometimes, when we want to iterate over a list, a few methods come in handy.
+ Filter(), map(), and reduce() are powerful tools for iterable manipulation in Python
 a. filter()
-Filter lets us filter in some values based on conditional logic.
+
+1.filter is used to filter elements from an iterable based on a condition.
+2.It takes two arguments: a function (or a lambda function) and an iterable (e.g., list, tuple).
+3.The function should return True or False for each element in the iterable.it return an element
+for which the function returns True.
+
 >>> list(filter(lambda x:x>5,range(8))) #[6, 7]
 
 b. map()
-Map applies a function to every element in an iterable.
+1.map is used to apply a function to each element of an iterable and collect the results.
+2.It takes two arguments: a function and an iterable.
+
 >>> list(map(lambda x:x**2,range(8))) #[0, 1, 4, 9, 16, 25, 36, 49]
 
 c. reduce()
 Reduce-repeatedly reduces a sequence pair-wise until we reach a single value.
+It takes two arguments: a binary function and an iterable.
+The binary function should accept two arguments and return a single value.
+
 >>> from functools import reduce
 >>> reduce(lambda x,y:x-y,[1,2,3,4,5]) #-13
 
@@ -1677,23 +1951,6 @@ This takes two classes as arguments. If the first one inherits from the second, 
 >>> issubclass(B,A)
 True
 
-
-What do you mean by overriding methods?
-
-class A:
-    def sayhello(self,name):
-        self.name=name
-        print('Hi am in A')
-        print('Name')
-class B(A):
-    def sayhello(self):
-        print('I am in B')
-
-a=A()
-b=B()
-
-a.sayhello()
-#Hello, I’m A
 
 Whenever you exit Python, is all memory de-allocated?
 Ans:The answer here is no. The modules with circular references to other objects, or 
@@ -1741,14 +1998,18 @@ Leading whitespace in a string is remove by using lstrip()
  
  What is a closure in Python?
 
-A closure is said to occur when a nested function references a value in its enclosing scope. The whole point here is that it remembers the value.
+A closure is said to occur when a nested function references a value in its enclosing scope. 
+The whole point here is that it remembers the value.
 
+>a function in another function.
+eg-1:
 >>> def A(x):
     def B():
         print(x)
     return B
 >>> A(7)()
 
+eg-2:
 def print_msg(msg):
     def printer():
         # This is the nested function
@@ -1760,14 +2021,20 @@ another = print_msg("Hello")
 another()
 Hello
 
-How many kinds of operators do we have in Python? Explain arithmetic operators.
-we have 7 kinds of operators: arithmetic, relational, assignment, logical, membership, identity, and bitwise.
+eg-3:
+def enter_number_outer():
+  number=[]
+  def enter_number_inner(x):
+    number.append(x)
+    print(number)
+  return enter_number_inner
 
-What are membership, operators?
-With the operators ‘in’ and ‘not in’, we can confirm if a value is a member in another.
+enter_number=enter_number_outer()
+enter_number(3)
+enter_number(5)
 
-Explain identity operators in Python.
-The operators ‘is’ and ‘is not’ tell us if two values have the same identity.
+#[3]
+#[3, 5]
 
 
 How do you get a list of all the keys in a dictionary?
@@ -1798,7 +2065,6 @@ What data types does Python support?
 Python provides us with five kinds of data types:
 
 Numbers-Number use to hold numerical values.
-Strings-A string is a sequence of characters.We declare it using single or double quotes.
 Lists-list is an ordered collection of values, and we declare it using square brackets.
 Tuples-A tuple, like a list, is an ordered collection of values. The difference. However,is that a tuple is immutable. This means that we cannot change a value in it.
 Dictionary- A dictionary is a data structure that holds key-value pairs. We declare it using curly braces.
@@ -1990,7 +2256,8 @@ Define setter and getter functions. To set and get a value, we define the follow
     self._title=title.upper()
 Here, get_title returns the title of the book, and set_title converts it to all caps 
 
-Make the variable ‘title’ private. To do this, we use a leading underscore. After all these changes, our class looks like this:
+Make the variable ‘title’ private. To do this, we use a leading underscore.
+After all these changes, our class looks like this:
 >>> class Song:
   def __init__(self,title):
     self.title=title
@@ -2012,7 +2279,18 @@ Make the variable ‘title’ private. To do this, we use a leading underscore. 
   @title.setter
   def title(self,title):
     self._title=title.upper()
-	
+
+
+getter:these are the methods used in oop which help to access the private attribute from the class.
+setter:these are the method used in oops feature which  help to set the value to the private attribute from a class.
+
+@property:
+it is used to get the value of private attribute without using any getter method.
+
+@method_name.setter:
+To set the private variable we used this method.
+
+
 Why we use getter and setter 
 If a data member is declared "private", then it can only be accessed within the same class. 
 No outside class can access data member of that class. If you need to access these variables, 
@@ -2199,12 +2477,29 @@ string[::-1]
 'hsetin'
 
 reverse vs reversed
-reversed return object which is used to iterate over conatainer.
-support any data type
+
+reversed.
+1.reversed return object which is used to iterate over conatainer.
+2.used to reverse the sequence of data.
+3.support any data type(can be reversed list,tiple,string and dictionaries)
+
+a=['a','b','d','s','c']
+list(reversed(a))
+#['c', 's', 'd', 'b', 'a']
+
+list(reversed((1,2,3,4,5)))
+#[5, 4, 3, 2, 1]
+
 
 reverse
-used to reverse the elemen of container.
-only support list type 
+1.used to reverse the elemen of container.
+2.support only list type.
+3.final or original list get modified.
+
+l=['nitesh','pandey']
+l.reverse()
+l
+#['pandey', 'nitesh']
 
 --------------------------
 1.JSON VS Dictionary
@@ -2559,11 +2854,25 @@ filter(lambda x:x%2==0,a)
 <filter at 0x170fe22e5c0>
 
 
-
 DataFrame.apply operates on entire rows or columns at a time.
 DataFrame.applymap, Series.apply, and Series.map operate on one element at time.
 
 exec(open("a.py").read())
+
+
+
+map() function
+map() function always passes all the elements/iterables through the transform function.	
+Applied to all the iterables and return the same number of the iterator without filtration.
+The result is printed in the form of a map object for the map() function.
+Transform function can take N number of arguments.	
+The map() function is used as the best alternative for looping in python. The mapping technique is implemented in the map() function.	
+
+Filter() 
+function always check the condition in terms of Boolean values and then passes elements through the function.
+The result is printed in the form of a filter object, and those filter objects can be converted into a list.
+The function used for checking conditions in the filter function must take only one argument.
+The filter function is used as a filter in python.
 
 
 ----
@@ -2673,7 +2982,9 @@ show columns using RegEx filter (b|c|d) - b or c or d:
 df.filter(regex='(b|c|d)')
 
 DataFrames do not have a tolist() method.
+we can use to_list() method with Series.
 
+to_dict() method can be used with series and dataframe.
 Getting a dictionary from a series (uses the index as the keys):
 df['C'].to_dict()
 o/p-{0: 9, 1: 7, 2: 2, 3: 5, 4: 0}
@@ -2716,8 +3027,6 @@ math.factorial
 all above are the same function of 
 <function math.factorial> class
 
-scipy.math.factorial()-it take np.ndaray as input and other cant.
-temp=np.arange(10)
 
 Error occured when below code try to execute.
  As -only size-1 arrays can be converted to Python scalars
@@ -2993,7 +3302,7 @@ numbered_words = {
 output = ""
 for ch in phone_words:
     output += numbered_words.get(ch, "!") + " "
-phone_words = numbered_words
+output
 
 print(output)
 --------------------
@@ -3098,7 +3407,7 @@ import mysql.connector
 The maketrans() method returns a translation table that maps each character in the intabstring into 
 the character at the same position in the outtab string. Then this table is passed to the translate() function.
 
-str.maketrans(intab, outtab]);
+str.maketrans(intab, outtab);
 
 intab = "aeiou"
 outtab = "12345"
@@ -3128,22 +3437,6 @@ def show_articles_more_than(column=['SALARY','COMMISSION_PCT','MANAGER_ID'], x=(
     return dataset.loc[dataset[column] > x]
 
 ---------------------------
-Key takeaways from this chapter
-The following are the links to the Like/Dislike predictor contests:
-
-Padhai Contest 1.1 Part A: MPNeuron [Launched]
-
-Invitation: https://www.kaggle.com/t/7f7013f886464d9a8b6db16a3f2fe153
-Home: https://www.kaggle.com/c/padhai-mp-neuron-like-unlike-classification
-Padhai Contest 1.1 Part B: Perceptron [Launched]
-
-Invitation: https://www.kaggle.com/t/e74469cb24d64e1c98c254cdd57fe729
-Home: https://www.kaggle.com/c/padhai-perceptron-like-unlike-classification
-The following notebook file contains the sample solution for the Like/Dislike predictor contest:
-
-Contest_1_1_Solution_Sample.ipynb
-       https://drive.google.com/open?id=14SFivPfntiMiC0oXFp5JvH57q9HaUbf5
-	   
 
 s1='{[]}'
 stack=[]
@@ -3193,14 +3486,140 @@ if b==c:
 else:
   print('Not same')
 
-
+o/p-same
 ###############
 Numpy vs scipy
-Numpy stand fpor numerical python while scipy stands for scientific python
+Numpy stand for numerical python while scipy stands for scientific python
 
 numpy is the basic library for defining array and simple mathematical problems
-scipy is used for more complex problem like numericl integration and optimization and machine learning and so on.
+scipy is used for more complex problem like numerical integration and optimization and machine learning and so on.
 eg scipy.io
 scipy.special
 scipy.linalg
 scipy.stats
+
+
+character to unicode
+ord('A')
+
+Unicode to character
+chr(65)
+
+floor division
+any of a and b is float--->float
+int both is int -->int
+
+Every non zero value-True
+Zero-False
+Non empty string -->True
+Empty String-->False
+
+when operand is non boolean than result also be not a boolean value.
+
+addition of integer number only using sum function.
+str1="1a2b3c"
+sum([int(e) for e in str1 if ord(e)>=49 and ord(e)<=57])
+
+sorted return list of value
+n='Nitesh Pandey'
+sorted(n)
+[' ', 'N', 'P', 'a', 'd', 'e', 'e', 'h', 'i', 'n', 's', 't', 'y']
+
+n=['Zebra', 'Pandey']
+sorted(n)
+['Pandey', 'Zebra']
+
+find if the given number is of 3 digit or not.
+x=123
+if 99<x<1000:
+print('3 digit number')
+
+
+set.add
+
+set.add adds an individual element to the set.
+s1.add(0)
+
+it cannot work with an iterable, unless it is hashable.
+add() function accepts an immutable argument i.e. we can pass int, strings, bytes, frozen sets, 
+tuples or any other immutable object to the add() function.
+ That is the reason why a.add([1, 2]) fails.
+s1.add([3,5])
+
+set.update
+
+In case of set.update, you can pass multiple iterables to it and it will iterate all 
+iterables and will include the individual elements in the set. Remember: It can accept only iterables.
+That is why you are getting an error when you try to update it with 1.
+set.update(1)
+s1.update([9,3],(11,5),{45,78})
+
+
+set.discard() vs set.remove() -->both are the same function
+main difference is that discard does not throw an error if element is not present in set.
+
+
+Note-
+non-default argument follows default argument
+
+error in below code:
+def sum(a=0,b,c=0,d=0):
+  c=a+b+c+d
+  return c
+
+you can not have positional argument after keyword argument.
+def multiply(a,b):
+  return a*b
+
+multiply(a=2,4)-error
+multiply(2,b=4)-valid
+
+
+Duck Typing is a way of programming in which an object passed into a function or 
+method supports all method signatures and attributes expected of that object at run time. 
+
+
+class VSCode:
+  def execute(self):
+    print('Compile')
+    print('Run')
+
+class MyEditor:
+  def execute(self):
+    print('Spell Check')
+    print('Naming convention')
+    print('Compile')
+    print('Run')
+
+class Editor:
+  def writing_code(self,ide):
+    print('Coding') 
+    #ide=VSCode()
+    ide.execute()
+
+
+e=Editor()
+e.writing_code()
+
+o/p-
+Coding
+Compile
+Run
+
+
+#Instead of MyEditor we can use any class object and passed it to the function call. method name should be same otherwise
+#it will give an error
+e=Editor()
+ide=MyEditor()
+e.writing_code(ide)
+
+o/p-
+Coding
+Spell Check
+Naming convention
+Conpile
+Run
+
+create file in google colab using below snnipet
+%%writefile new.txt
+This is new file created

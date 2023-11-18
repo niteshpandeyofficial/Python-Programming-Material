@@ -1,0 +1,115 @@
+
+
+
+Feature					NumPy Arrays										Python Lists
+Element data type		Stores homogeneous data         					The elements can be of different data types.
+						i.e., the elements are of the same data type
+	
+Flexibility				Less flexible,	because operations are 				Allows more flexibility in adding, removing data.
+						performed element wise.
+						
+Declaration for usage	Numpy module needs to be imported for using 		No import is required to use Python lists.
+						Numpy arrays.
+Arithmetic and 
+matrix operations		Many vector and matrix operations are in-built		Complex statistical and analytical libraries are not available.
+Loops					Explicit loop is required to run through the 		Explicit loop is not required to run through the elements.
+						elements.	
+						
+						
+						
+
+
+
+Name a few use cases where NumPy is useful.
+	To perform complex mathematical computations on arrays.
+	To use multi-dimensional arrays and matrices in operations.
+	To execute trigonometric, statistical, and algebraic functions.
+	To execute transforms and methods for shape manipulation.
+	To generate random numbers.
+	To add/ delete/ sort/ split arrays.
+	
+
+How many dimensions can a NumPy array have?
+	In NumPy, an array can have N-dimensions, and is called a ndarray.
+	Ndarray is a multidimensional container which contains elements of the same type and size.
+	The number of dimensions in a ndarray is also known as ‘rank’.
+	A tuple of integers called ‘shape’ defines the size of the array in each dimension.
+	The data type of elements in ndarray is defined by a  ‘dtype’ object.
+	
+How does the flatten function differs from the ravel function??
+	The flatten() function always returns a copy. The ravel() function returns a view of the original array in most cases. 
+	ravel() is faster than flatten()
+	
+What caused the Overflow error in NumPy?
+	The fixed size of NumPy numeric types causes an overflow error when a value needs more memory than available in the data type. 
+	In other words, you use a value too large to fit in the required place.
+	
+
+How does NumPy differ from Pandas?
+NumPy													Pandas
+It is a fundamental library of Python.					It is an open-source and BSD-licensed library written in Python language.
+
+It has a set of tools like multidimensional				It provides a set of data analysis tools,time series, 
+arrays for performing scientific computation			to perform multiple operations on data.
+and other complex functions.
+
+It works on numeric data and you can call it, 			It works on tabular data, and you can call it,"pandas module".
+"numpy module".	
+
+It is also fast but memory efficient.					It is fast but consumes more memory.
+It supports fewer applications compared to Pandas.		It supports broader and large industrial applications.
+
+
+How do you calculate the moving average?
+Using convolve function is the simplest method which is based on discrete convolution. 
+You have to use a method that calculates discrete convolution to get a rolling mean.
+
+
+Indexing: Indexing is used to obtain individual elements.
+Slicing: Slicing is used to obtain a sequence of elements.
+Indexing and Slicing can be be done in Python Sequences types like list, string, tuple, range objects.
+
+How can you check whether any NumPy Array has elements or is empty?
+	numpy.any()		An array element is evaluated as True if it lies along any given axis. 
+					Simply put, it returns TRUE if the array has elements otherwise, FALSE.
+	numpy.size()	The function returns size of array. If the return value is zero, then the array is empty.
+	
+
+How is the seed function used in NumPy?
+The seed function sets the seed(provides input) of a pseudo-random number generator in NumPy.
+
+How to convert the data type of an array in NumPy?
+The data type(dtype) of an array can be changed using the function numpy.astype()
+
+
+What is the difference between copy and view in NumPy?
+Copy
+	Returns a copy of the original array.
+	Do not share the data or memory location with the original array.
+	Any modifications made in the copy will not get reflected in the original.
+	
+View
+	Returns a view of the original array.
+	Does use the data and memory location of the original array.
+	Any modifications made in the copy will get reflected in the original.
+	
+
+What is the biggest challenge while writing extension modules in NumPy?
+Reference counting is the biggest challenge while writing extension modules in NumPy. 
+Mismanagement of reference counting might result in memory leaks and segmentation faults. 
+It is challenging to manage the reference counting. 
+
+
+
+Difference Between Python List and NumPy Array
+1. A list cannot directly handle a mathematical operations, while array can
+2. An array consumes less memory than a list
+3. Using an array is faster than a list
+4. A list is easier to modify.
+5. A list can consist of different nested data size.
+6. A list can store different data types
+
+Similarities between a list and an array?
+1. They both use square brackets ([])
+2. Both datatype are mutable
+3. Both can be indexed and can be used for slicing operations

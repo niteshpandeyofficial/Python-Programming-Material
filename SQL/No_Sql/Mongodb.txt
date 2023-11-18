@@ -24,9 +24,25 @@ Horizontal Scaling involves dividing the system dataset and load over multiple s
 increase capacity as required. While the overall speed or capacity of a single machine may not be high,each machine 
 handles a subset of the overall workload, potentially providing better efficiency than a single high-speed high-capacity server.
 
-Collection is a group of MongoDB documents. It is the equivalent of an RDBMS table. A collection exists within a single database
+database
+MongoDB groups collections into databases. MongoDB can host several databases,
+each grouping together collections.
+Some reserved database names are as follows:
+admin
+local
+config
+
+collection
+Collection is a group of MongoDB documents. It is the equivalent of an RDBMS table. A collection exists within a single database.
+For example, both of the following documents could be stored in a single collection:
+{"greeting" : "Hello world!", "views": 3}
+{"signoff": "Good bye"}
+
+
+Documents
 A document is a set of key-value pairs. Documents have dynamic schema. Dynamic schema means that documents in the same collection 
 do not need to have the same set of fields or structure, and common fields in a collection's documents may hold different types of data.
+e.g {"greeting" : "Hello world!"}
 
 write concern as “the level of acknowledgment requested from MongoDB for write operations to a standalone mongod or to replica sets or 
 to sharded clusters. Simply put, a write concern is an indication of 'durability' passed along with write operations to MongoDB.
@@ -39,14 +55,15 @@ Primary Key->Primary Key (Default key _id provided by mongodb itself)
 
 
 Advantages of MongoDB over RDBMS
-Schema less − MongoDB is a document database in which one collection holds different documents. Number of fields, content and size of the document can differ from one document to another.
-Structure of a single object is clear.
-No complex joins.
-Deep query-ability. MongoDB supports dynamic queries on documents using a document-based query language that's nearly as powerful as SQL.
+1. Schema less − MongoDB is a document database in which one collection holds different documents. Number of fields, content and size of the document can differ from one document to another.
+2. Structure of a single object is clear.
+3. No complex joins.
+4. Deep query-ability. MongoDB supports dynamic queries on documents using a document-based query language that's nearly as powerful as SQL.
 Tuning.
-Ease of scale-out − MongoDB is easy to scale.
+5. Ease of scale-out − MongoDB is easy to scale.
 Conversion/mapping of application objects to database objects not needed.
-Uses internal memory for storing the (windowed) working set, enabling faster access of data.
+6. Uses internal memory for storing the (windowed) working set, enabling faster access of data.
+7. MongoDB has inbuilt support for data partitioning (Sharding).
 
 Why Use MongoDB?
 Document Oriented Storage − Data is stored in the form of JSON style documents.
@@ -114,6 +131,10 @@ Remove all element or documents of given collection
 db.collectionname.remove({})
 
 Update the details
+Once a document is stored in the database, it can be changed using one of several
+update methods: updateOne , updateMany , and replaceOne. updateOne and
+updateMany.
+
 update={'Age':21}
 new_value={'$set':{'Age':29}}
 
@@ -143,12 +164,27 @@ db.version()
 collectionsdb.count_documents({})
 
 Create index
+Indexes look at an ordered list with references to the content. These in turn allow
+MongoDB to query orders of magnitude faster. To create an index, use the
+createIndex collection method.
+
+db.users.find({"username": "user101"}).explain("executionStats")
+--executionStats mode helps us understand the effect of using an index to
+satisfy queries.
+
 collectionsdb.create_index([("item",pymongo.ASCENDING)],unique=True)
 
 Retrive the index name
 list(collectionsdb.index_information())
 
 Delete the document from collections
+The CRUD API in MongoDB provides deleteOne and deleteMany for this purpose.
+Both of these methods take a filter document as their first parameter. The filter
+specifies a set of criteria to match against in removing documents.
+For example:
+> db.books.deleteOne({"_id" : 3})
+
+
 db.collection.deleteOne()
 db.collection.deleteMany()
 
@@ -237,8 +273,60 @@ Steps
 
 
 Overview
-
 Mongo Db consist of multiple databases 
 each databases consist on multiple cllection
 each collection consist of multiple documents
 
+The find method is used to perform queries in MongoDB. Querying returns a
+subset of documents in a collection, from no documents at all to the entire
+collection. Which documents get returned is determined by the first argument to
+find , which is a document specifying the query criteria.
+Example:
+> db.users.find({"age" : 24})
+
+
+The common data types in MongoDB are:
+Null
+{"x" : null}
+Boolean
+{"x" : true}
+Number
+{"x" : 4}
+String
+{"x" : "foobar"}
+Date
+{"x" : new Date()}
+Regular expression
+{"x" : /foobar/i}
+Array
+{"x" : ["a", "b", "c"]}
+Embedded document
+{"x" : {"foo" : "bar"}}
+Object ID
+{"x" : ObjectId()}
+Binary Data
+Binary data is a string of arbitrary bytes.
+Code
+{"x" : function() { /* ... */ }}
+
+geospatial index
+MongoDB has two types of geospatial indexes: 2dsphere and 2d. 2dsphere indexes
+work with spherical geometries that model the surface of the earth based on the
+WGS84 datum.
+
+{
+"name" : "New York City",
+"loc" : {
+"type" : "Point",
+"coordinates" : [50, 2]
+}
+}
+
+
+{
+"name" : "Hudson River",
+"loc" : {
+"type" : "LineString",
+"coordinates" : [[0,1], [0,2], [1,2]]
+}
+}

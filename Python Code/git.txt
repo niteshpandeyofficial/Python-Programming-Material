@@ -57,13 +57,24 @@ If CVCS server is down,developer can not work.				If DVCS server is down,develop
 
 Stages of git 
 
-Services(Github and Gitlab)
+Services(Github and Gitlab,BitBucketc)
 Git with Github 
 Git with Gitlab
 
 create directory
 git init
 after running the git init command the directory automatically converted to git repository or local repository
+
+by default when we initialize the git repository it creater master branch but if we want it to main then 
+write below code
+git init -b main(New Branch name) or
+git branch -M main
+
+Direct move the file into commit area without moving into stagging area
+git commit -a -m "Third Commit" or
+git commit -m "third commit" then
+git push origin main
+
 
 working directory/work space
 stagging area
@@ -95,20 +106,36 @@ present in staging area only those file present in staging area are considered f
 
 
 commit
-store changes in repository for each commit we get one commit id
-It is 40 alphamumerical character
-It user SHA-1 checksum concept
-Even you change one dot checksum of value of that commit id change
-Commit is also name as SHA-1 has
-It help to track the changes
+Commit store changes in repository.for each commit we get unique commit id
+It is 40 alphamumerical character.It uses SHA-1 checksum concept
+Even you change one dot checksum  value of that commit id change
+Commit is also name as SHA-1 hash.It help to track the changes
 
 Commit id /version id/version
 Reference to identify each changes
 To identify who changed the file
 
 Tag
-Tag assign a meaningful name with a specific version in a repository once a tag is created for a particular save 
-even  if you create a new commit ,it will not updated
+Tag assign a meaningful name with a specific version in a repository,once a tag is created for a particular save 
+even if you create a new commit ,it will not updated we need to push the tag also to reflect it in repository.
+
+Tagging is of 2 type
+1.Lightweight Tagging
+2.Annotated Tagging
+
+A lightweight tag is very much like a branch that doesn't change — it's just a pointer to a specific commit. 
+Annotated tags, however, are stored as full objects in the Git database
+
+When you use git tag <tagname>, Git will create a tag at the current revision but will not prompt you for an annotation. 
+It will be tagged without a message (this is a lightweight tag).
+
+git tag tag_name-----Lightweight Tag
+git tag -a v1.0 -m "lst relatease" ------Annotate Tag
+When you use git tag -a <tagname>, Git will prompt you for an annotation unless you have also used the -m flag to provide a message.
+When you use git tag -a -m <msg> <tagname>, Git will tag the commit and annotate it with the provided message.
+
+git push origin v1.0
+
 
 Snapshot
 represent the some data of perticular time
@@ -117,17 +144,40 @@ It is always incremental backup i.e it stored changes(append data )not entire co
 
 Push
 push copy the changes from local repository server to central or remote repo
-This is used to store the changes permanently into the git repo
+This is used to store the changes permanently into the git repository
+
+git push origin main
 
 pull
 pull  operation copies changes from central or remote repo to a local machine.
-The pull operation is used for syncronisation between two repo
+The pull operation is used for syncronisation between two repo.
 
+git pull <remote_name>
+
+git pull = git fetch + git merge
+
+
+Git Fetch 
+Gives the information of a new change from a remote repository without merging into the current branch
+Repository data is updated in the .git directory
+Review of commits and changes can be done
+No possibility of merge conflicts.
+Command for Git fetch is git fetch<remote>.
+Git fetch basically imports the commits to local branches so as to keep up-to-date that what everybody is working on.
+
+
+Git Pull
+Brings the copy of all the changes from a remote repository and merges them into the current branch
+The local repository is updated directly
+Updates the changes to the local repository immediately.
+Merge conflicts are possible if the remote and the local repositories have done changes at the same place.
+Command for Git Pull is git pull<remote><branch>.
+Git Pull basically brings the local branch up-to-date with the remote copy that will also updates the other remote tracking branches.
 
 Branches
 
 In Git, a branch is a new/separate version of the main repository.
-product is a same so one repository but different task
+product is a same .means one repository but different task
 
 Each task has once separate branch
 Finally merge(code)all branches
@@ -135,16 +185,16 @@ usefull when you want to work parallely
 can create one branch on basis of other branch
 changes are personal to that perticular branch
 default branches is master
-file created in workspace will be visible in any of the branch workspace until you commmit ,then that file
+file created in workspace will be visible in any of the branch workspace until you commmit ,once commit done then that file
 belongs to that perticular branch
 
 
 Type of repository
-bare repository(Central repo)
+1.bare repository(Central repo)
 store and share only
 all central or remote repo are bare repository
 
-Non bare repository(Local repo)
+2.Non bare repository(Local repo)
 where you can modified the file 
 All local repository are non-bare repository
 
@@ -183,26 +233,12 @@ Branching in Git
 -->Defualt branch is master
 
 -->fle created in workspace will be visible in any one of the branch workspace untill you commit.
-Once you sommit the code then this changes only visible to particular branch only.
+Once you summit the code then this changes only visible to particular branch only.
 -->when we create a new branches from existing branch then data of existing branch will be copied to new branch.
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 yum update -y
 yum install git -y
-
 
 git --version
 2.32.0
@@ -214,6 +250,7 @@ git config --global user.name "nitesh"
 git config --global user.email "niteshpandey@gmail.com"
 
 git config --list
+git config --global --list
 
 
 command
@@ -231,11 +268,8 @@ git remote add origin <url>
 git push -u origin master
 
 Git Pull on the other hand brings the copy of the remote directory changes into the local repository.
-git init
-git remote add origin <url>
 git pull -u origin master 
-git log
-git show <commit id>
+
 
 Git Fetch is the command that tells the local repository that there are changes available in 
 the remote repository without bringing the changes into the local repository. 
@@ -258,16 +292,19 @@ got log --grep "ignore"
 
 Branches--code
 
-git log --oneline
+git log --oneline ----print a single commit in a single line as output when the git log command is executed using this option
 
 Check the list of all branches
 git branch
 
 Create a new branch using below command
 git branch new_branch_name
+git checkout -b new_branch_name
 
 Switched to new created branch
 git checkout new_branch_name
+git switch branch_name
+
 
 Once you’ve finished working on a branch and have merged it into the main code base, 
 you’re free to delete the branch without losing any history.
@@ -280,6 +317,7 @@ To delete a remote branch execute the following.
 git push origin --delete crazy-experiment
 
 ---------------------
+steps from initialisation to push the changes in remote repo
 echo "# asa" >> README.md
 git init
 git add README.md
@@ -296,11 +334,12 @@ git push -u origin main
 -----------------------------------
 Merge
 
-We are using pulling mechanism to merge branches
-you can't merge branches of different repository
+1.We are using pulling mechanism to merge branches
+2.you can't merge branches of different repository
+3.first we need to switch in the main branch and then we try to merge with different branch.
 
 git merge <branch name>
-git log --oneline ----verify the merge
+git push origin main(after merging we need to push the code to repository)
 git push origin master--push the changes to central repository
 
 Git Conflict
@@ -313,7 +352,6 @@ likely happen when working in a team environment.
 
 
 git stashing
-
 to stash an item (only applies to modify file not new file)
 
 to stash an item
@@ -335,6 +373,7 @@ git stash pop ---remove single item only at a time
 git stash drop --remove single item only at a time
 
 Git reset
+reset is the command we use when we want to move the repository back to a previous commit, discarding any changes made after that commit.
 git reset .
 git reset --hard
 
@@ -366,9 +405,9 @@ git tag
 to see particular comit content by using tag
 git show <tag_name>
 
-to delete git  tag
+to delete git   tag
 git tag -d <tag_name>
-
+git push origin tag
 
 git clone
 It create a local repository automstically in linux machine with the same name as in github accounts.
@@ -378,25 +417,30 @@ git remote -v-----check the status after adding the local repo to github
 
 
 The git diff command allows us to compare different versions of branches and repository. To get the difference between branches, run the git diff command as follows
-Comparing changes with git diff
+Comparing changes with git diff.this applicable only when the file is in working directory.if file is in staging area then we need to used --staged keyword.
 git diff 
 or
 git diff filename
 
+git diff --staged
 
-The "rm" command helps you to remove files from a Git repository. It allows you to not only delete a file from the repository, but also - if you wish - from the filesystem.
+
+The "rm" command helps you to remove files from a Git repository. It allows you to not only delete a file from the repository,
+but also - if you wish - from the filesystem.
 
 To remove a file both from the Git repository and the filesystem, you can use git rm without any parameters 
 git rm abc.txt
 
 If you only want to remove the file from the repository, but keep it on the filesystem, you can add the --cached flag:
 git rm b.bmp --cached
-
+git rm --cached cred.txt
 git rm abc/* --dry-run
 git rm abc -r --cached
 
 
-The git bisect command is used to discover the commit that has introduced a bug in the code. It helps track down the commit where the code works and the commit where it does not, hence, tracking down the commit that introduced the bug into the code.
+The git bisect command is used to discover the commit that has introduced a bug in the code. 
+It helps track down the commit where the code works and the commit where it does not, hence, 
+tracking down the commit that introduced the bug into the code.
 
 git bisect start
 git bisect good <reference of commit>
@@ -411,7 +455,7 @@ Gives the information of a new change from a remote repository without merging i
 data is updated in the .git directory.
 Review of commits and changes can be done.
 No possibility of merge conflicts.
-Command for Git fetch is git fetch<remote>
+Command for Git fetch is git fetch <remote>
 Git fetch basically imports the commits to local branches so as to keep up-to-date that what everybody is working on.
 
 
@@ -420,6 +464,7 @@ Brings the copy of all the changes from a remote repository and merges them into
 Repository 	
 The local repository is updated directly
 Updates the changes to the local repository immediately.
+
 Merge conflicts are possible if the remote and the local repositories have done changes at the same place.
 Command for Git Pull is git pull<remote><branch>
 Git Pull basically brings the local branch up-to-date with the remote copy that will also updates the other remote tracking branches.
@@ -427,8 +472,9 @@ Git Pull basically brings the local branch up-to-date with the remote copy that 
 
 subgit
 SubGit is a tool for teams that migrate from SVN to Git. It converts SVN repositories to Git and allows you to work with both systems simultaneously.
-The subgit import command requires all the parameters to be set in the command line; however, under the hood, it actually creates a configuration file, fills it up according to given parameters and performs import using that configuration file.
-
+The subgit import command requires all the parameters to be set in the command line; however, under the hood, it actually creates a configuration file, 
+fills it up according to given parameters and performs import using that configuration file.
+ 
 
 rebashing
 Rebase is one of two Git utilities designed to integrate changes from one branch onto another. Rebasing is the process of 
@@ -444,4 +490,7 @@ git reflog show --all
 git log shows the commit log accessible from the refs (heads, tags, remotes)
 git reflog is a record of all commits that are or were referenced in your repo at any time.
 The git log is a public record of the commit history of the repository, whereas the reflog is private.
+
+git tag --pretty=oneline
+get all commit id with details in single line
 

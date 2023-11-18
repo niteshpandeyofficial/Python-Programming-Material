@@ -1,0 +1,88 @@
+Abstraction
+
+
+1.Data Abtration refer to the the act of representing essential feature without including background details
+2.It can be achieved in Python by using interfaces and abstract classes.
+3.It is used to make code more modular, reusable, and easier to understand.
+
+eg-For the sake of understanding let us have an example as we all use the social platforms and contact our friends, 
+chat, share images etc., but we don’t know how these operations are happening in the background. 
+
+l=[2,5,1,9]
+l.sort()[hide internal working ]
+print(l)-[1,2,5,9]
+
+In Python, abstraction can be achieved by using abstract classes and interfaces.
+
+Abstract Classes:
+1.Abstract Classes are classes that cannot be instantiated or we can not create object of abstract class. 
+2.They serve as blueprints for other classes and may define abstract methods 
+(methods without implementation) that must be implemented by subclasses. 
+
+3.Abstract classes are created using the abc(Abstract Base Class) module in Python.
+4.An Abstract class can contain the both method normal and abstract method.
+
+
+Interfaces:
+1.Python does not have a built-in concept of interfaces like some other programming languages (e.g., Java). 
+2.However, you can use abstract base classes (ABCs) to define interfaces, as shown in the example.
+
+class Car(ABC):
+  @abstractmethod
+  def mileage(self):
+    pass
+	
+class Audi(Car):
+  def mileage(self):
+    return 'Mileage is 10 km'
+
+class BMW(Car):
+  def mileage(self):
+    return 'Mileage is 9km'
+
+class Verna(Car):
+  def mileage(self):
+    return 'Mileage is 12km'
+	
+
+Abstraction is important because it helps to produce code that is more reliable, maintainable, and scalable.
+v=Verna()
+v.mileage()
+
+o/p-Mileage is 12km
+
+
+
+syntax:
+
+class C:
+	def m1():
+		pass
+		
+class P(C):
+	def m1():
+		statement1..
+		statement2..
+		statement3..
+		.
+		.
+		.
+		statementn
+
+
+java code:
+class P
+{
+	public abstract int getvehical();
+}		
+
+class C extends P
+{
+	public int getvehical()
+	{
+		return T
+	}
+}
+
+
+ 

@@ -22,7 +22,7 @@ select replace('Nitesh Sarvesh Pandey',' ','') as modified_name from dual;--Nite
 SELECT TRANSLATE('NITESH SARVESH PANDEY','ABCD','1234') FROM DUAL;--NITESH S1RVESH P1N4EY
 SELECT TRANSLATE('ABCCCD','ABC','1234') FROM DUAL;--12333D
 SELECT TRANSLATE('WELCOME','ORACLE','1234') FROM DUAL;--W41M
-SELECT TRANSLATE('ABCDS','ACB','12') FROM DUAL;--12DS
+SELECT TRANSLATE('ABCDS','ACB','12') FROM DUAL;--12DS --character sorted and assign value
 SELECT TRANSLATE('ABCDS','ACBD','123') FROM DUAL;--132S
 select TRANSLATE('Nitesh pandey','nit','')from dual;--return null if 3rd argument is null
 select TRANSLATE('Nitesh pandey','nit')from dual;--error occurred (Invalid no of argument) same is working fine in case of replace
