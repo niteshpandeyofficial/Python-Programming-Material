@@ -196,7 +196,7 @@ Retryable reads allow MongoDB drivers to automatically retry certain read operat
 Tools for creating and manipulating SON, the Serialized Ocument Notation.
 Regular dictionaries can be used instead of SON objects, 
 but not when the order of keys is important. A SON object can be used just like a normal Python dictionary.
-A subclass of dict that maintains ordering of keys and provides a few extra niceties for dealing with SON. 
+A subclass of dict that maintains ordering of keys and provides a few extra entities for dealing with SON. 
 SON provides an API similar to collections.OrderedDict from Python 2.7+.
 
 
@@ -204,7 +204,7 @@ SON provides an API similar to collections.OrderedDict from Python 2.7+.
 If the connection string does not specify a database/ you must specify a slash (/) 
 
 Database as a service.
-MOgo dbs atlas
+Mongo dbs atlas--cloud version of mongo db
 
 The urllib module has been split into parts and renamed in Python 3 to urllib.request, urllib.parse, and urllib.error.
 from urllib.parse import quote
@@ -224,7 +224,7 @@ Nitsam@143
 
 INterview
 
-Question1: What are NoSQL databases? What are the different types of NoSQL databases? 
+Question1: What are NoSQL databases? What are the different types of NoSQL databases? (Not only sql or non sql)
 Question2: What kind of NoSQL database MongoDB is? 
 Question3: Which are the most important features of MongoDB? 
 Question4: What is a Namespace in MongoDB? Question5: Which all languages can be used with MongoDB?
