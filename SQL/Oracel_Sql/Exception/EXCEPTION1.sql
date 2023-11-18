@@ -1,5 +1,15 @@
---EXXCEPTION
-/*
+--Error
+/*Error is nothing but abnornal condition
+error can be classified into 2 types
+    1.Compile time error
+    2.Run time error
+
+1.Compile time error happen when the code is getting compiled.
+2.Runtime error occurred when the code is executing and some wrong input causes the code to throw runtime error which
+    is also called as an exception in plsql.
+Exception are those runtime errors which can be handled programmatically in the application.
+
+--EXCEPTION
 ERROR THAT ARE RAISED DURING PROGRAM EXECUTION.
 1. PREDEFINDED EXCEPTION(SYSTEM DEFIND)
     1.1 NAMED EXCEPTION (NO_DATA_FOUND,INVALID_NUMBER,TOO_MANY_ROWS,ZERO_DEVIDE,VALUE_ERROR)
