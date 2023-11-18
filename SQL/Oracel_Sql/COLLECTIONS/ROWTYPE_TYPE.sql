@@ -72,4 +72,9 @@ DELETE FROM EMP WHERE SAL IS NOT NULL;
 SELECT * FROM EMP;
 
 
+/*
+%TYPE is used to declare a variable with the same type as that of a database table column.
+%ROWTYPE is used to declare a record as same type found in database table.
+These two provides data independence and allows you to adopt database changes due to new business requirements.
+*/
 
