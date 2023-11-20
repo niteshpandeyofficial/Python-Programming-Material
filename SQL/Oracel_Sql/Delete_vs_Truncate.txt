@@ -1,0 +1,12 @@
+delete vs truncate
+
+
+Delete																Truncate
+1.DML command														1.DDL command
+2.can use where condition with select statement						2.can not use where condition with select statement.
+3.delete specific row based on condition.							3.all row will be removed from table.
+4.slower because it uses undo segment.								4.Faster as compared to delete.
+5.Trigger will get fired(on delete trigger)							5.No trigger will get fired.
+6.won't reclaim the space used by table.							6.reclaim the space used by table.
+7.won't reset the high level watermark.								7.Reset the high level watermark.
+8.on delete cascade from oracle 12c 								8.truncate table <table_name> cascade from oracle 12c
