@@ -40,6 +40,14 @@ serially_reusable
 udf
 */
 
+/*
+LPAD-Left padded to sequence of character in expression
+LPAD(expr1,n,expr2)
+return expr1 ,left padded to length n characters with the sequence of character in expr2
+
+This function is useful for the formatting of the output of query.
+
+*/
 
 
 ---mask the character or number except last 4 digit or character
