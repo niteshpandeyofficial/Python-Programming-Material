@@ -26,6 +26,8 @@ constraint u1 unique(regno));
 select 'abc' from emp;
 select 1 from emp;
 
+--If employee table consist of  record and we used above query then it return 1 5 times i.e as many no of record present in table
+
 
 --Type of pragma
 /*
@@ -44,9 +46,7 @@ udf
 LPAD-Left padded to sequence of character in expression
 LPAD(expr1,n,expr2)
 return expr1 ,left padded to length n characters with the sequence of character in expr2
-
 This function is useful for the formatting of the output of query.
-
 */
 
 
@@ -77,6 +77,20 @@ select
     regexp_replace(substr(d,1,length(d)-4),'[^.]','X')|| 
     substr(d,case when length(d)<=4 then 1 else -4 end) details
 from data;
+
+/*
+Analytical Function
+1.first_value() over(partition by column_name)
+--select distinct(first_value(emp_name) over(partition by dept_no order by sal)
+from emp where rownum=1
+
+2.Lead & Leg function
+3.nth_value()-return nth values in the set of values
+nth_value(product_name,2)
+
+*/
+
+
 
 /*
 update value 1 to 0 and 0 to 1 in the given table
@@ -255,8 +269,8 @@ alter table emp modify emp_address invisible;
 alter table emp modify emp_address visible;
 
 --check the metadata of mention table
-select 
-sys.dbms_metadata.get_ddl('table','emp') 
+
+select SYS.dbms_metadata.get_ddl('TABLE','EMP') 
 from dual;
 
 --find the dubplicate values from travels table
