@@ -538,7 +538,15 @@ test
 */
 
 select c from t 
-where cast(c as number default -999 on conversion error)=1
+where VALIDATE_CONVERSION(c as number)=1
+union all
+select c from t 
+where cast(c as number default -999 on conversion error)=-999;
+
+or
+
+select c from t 
+where VALIDATE_CONVERSION(c as number)=1
 union all
 select c from t 
 where cast(c as number default -999 on conversion error)=-999;
@@ -1190,7 +1198,7 @@ pseudo column
 4.only selection is allowed
 
 virtual column
-1.columns prt of table
+1.columns part of table
 2.value are derived from other columns of same table.
 3.can be index
 4.only selection is allowed,no dml are allowed
