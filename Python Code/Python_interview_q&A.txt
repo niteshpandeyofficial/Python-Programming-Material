@@ -20,18 +20,24 @@ Python is an interpreted language, which means the source code of a Python progr
 
 
 2.What are the key features of Python?
-Highly Extensible
-Python is an interpreted language.
-Python is dynamically typed,
-Python is well suited to object orientated programming
-High Level programming language.
-Open source and free ware
-Simple and easy to learn.
-30 Keyword in python where 53 keyword in java
-Plateform independent(Write Once Run Anywhere).
-Portabilitiy(Moving one platform to another platform without any chnges).
-Intendetion base block code
-Large Library.
+Feature of language is nothing but services/facilities provided by language developed in the language,which are used by 
+language programmers for developing real-time applications.
+
+1.Simple and easy to learn.
+2.Open source and free ware
+3.Highly Extensible
+5.Python is dynamically programming language,
+6.Python is an interpreted programming language.
+7.Python is well suited to object orientated or procedured oriented programming 
+8.High Level programming language.
+9.Robust
+10.Extensible Programming language.
+11.Embedded programming language.
+12.Support Third Party API.
+13.Plateform independent(Write Once Run Anywhere).
+14.Portabilitiy(Moving one platform to another platform without any chnges).
+15.Intendetion base block code
+16.Large Library.
 
 What is an unicode ??
 The unicode is character encoding and it's goal is to replace the existing character set with its standard UTF.
