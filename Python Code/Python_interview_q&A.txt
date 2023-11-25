@@ -14,9 +14,49 @@ interpreted-it directly interpret the code without compiling it.
 OO-All code encapsulaated within object.
 High Level-Human Readable Form 
 
-Python is both compiled as well as an interpreted language, which means when we run a python code, it is first compiled and then interpreted line by line.
-Python is an interpreted language, which means the source code of a Python program is converted into bytecode that is then executed by the Python virtual machine.
+Python is an interpreted language, which means when we run a python code, it is first compiled and then interpreted line by line.
+Python is an interpreted language, which means the source code of a Python program is converted into bytecode that is then executed 
+by the Python virtual machine.
 
+
+Both compiler and interpreter are program that convert the source code(High Level Language) into machine code(Low Level Language)
+Compiler
+1.A compiler takes the entire program in one go.
+2.The Compiler generates an intermediate object code.
+3.Compiler convert high level program that can be executed many times.
+4.Error are displayed after entire program checked.
+5.Compiler is used by java,c,c++,c#
+
+Interpreter
+1.An interpreter takes a single unit if code at a time.
+2.The interpreter never produces any intermediate object code.
+3.Interpreter convert high level program each time it is executed.
+4.Error display line by line.
+5.less memory required.
+6.Interpreter used by python ,PHP,Ruby etc.
+
+
+Real Time application developed by Python
+
+1.Web Application Development.
+Microframework (bottle,flask)
+Django,Pyramid
+
+2.GUI App Development.
+tkinter
+
+3.Consol Based Application.
+REPL(Read Evaluate Print Loop)
+Files
+
+4.Software development building tool.
+5.Business Application.(ERP,E-Commerce)
+6.Standard Application(Crome)
+7.Image Processing Application.
+8.DS/AI/ML
+9.Gaming Application.
+10.Scientific Application.(NASA,ISRO)
+11.Audio/Video Application.
 
 
 2.What are the key features of Python?
@@ -24,10 +64,24 @@ Feature of language is nothing but services/facilities provided by language deve
 language programmers for developing real-time applications.
 
 1.Simple and easy to learn.
-2.Open source and free ware
+    1.Python language provide rich set of modules or API.
+    2.Python Programming provide inbuit facility called garbage collector,which collects un-used memory
+    space and improve the performance of python based application.
+    3.Python provide developer friendly syntaxes so that we can develop error free program in a limited
+    span of time.
+
+2.Open source and free ware.
+    1.We can use python software without any license and it is freeware.
+    2.Its source code is open so that we can customized based on our requirement.
+    3.Python distribution(Jpython or Jython,Iron Python/IPython,MicroPython,Anaconda Python,Ruby Python,PyPy,stackless Python.)
+
+
+
 3.Highly Extensible
+
 5.Python is dynamically programming language,
 6.Python is an interpreted programming language.
+
 7.Python is well suited to object orientated or procedured oriented programming 
 8.High Level programming language.
 9.Robust
