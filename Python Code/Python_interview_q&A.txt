@@ -169,6 +169,8 @@ In any programing langauge(Python,c,c++,java),we have 4 types of number system.
 3.Octal number system( 8 number (0-8)) ---('0d','0O')
 4.Hexadecimal number system(16 number(0-15)) --('0x','0X')
 
+
+
 What is an unicode ??
 The unicode is character encoding and it's goal is to replace the existing character set with its standard UTF.
 UTF-Unicode Transformation format.
