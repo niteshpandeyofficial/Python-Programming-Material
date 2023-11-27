@@ -84,10 +84,32 @@ language programmers for developing real-time applications.
 
 7.Python is well suited to object orientated or procedured oriented programming 
 8.High Level programming language.
+  --If we provide low lelvel means machine readable data also then python give human readable form of data.
+    eg---a=0b1010 ----it return 10 (which is decimal value of provide binary value).
+
 9.Robust
+    --A programing language is said to be robust if and only if it always provide user-friendly errror message when user 
+    commits mistakes at implemention level.
+    --To get user-friendly error message we use exception handling features.
+    --Due to this python is robust programing language.
+
 10.Extensible Programming language.
+    --An extensible progr language means that you can use other lan program in python.
+    eg- python programing or code can be called part of c,C++ etc language.
+
 11.Embedded programming language.
+    --we can use python program in any other programing language.
+    i.e we can embed python program anywhere.
+
 12.Support Third Party API.
+    --The python program support extensively for making of third party API for developing real time application 
+    with precise code.
+
+    First Party-Python inbuild feature or module or library.
+    Second Party-O.S related Library.
+    Third Party-Different vendor provide the different module.
+
+
 13.Plateform independent(Write Once Run Anywhere).
     --Python is one of the platform independent language because  "In python programming execution environment 
       all value are stored in the form of OBJECT with unlimited size".
