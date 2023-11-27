@@ -155,6 +155,19 @@ Variables
 2.Behind all object there exist a class.
 
 In python 3.X we have 14 datatype and they are classified into 6 types.
+int,float,boolean,complex--Numerical Datatype (Immutable)
+str,byte,bytecode,range----Sequence category datatype(Immutable,mutable)
+list,tuple-----------------List category datatype(Immutable,mutable)
+set,frozen set-------------set category datatype(Immutable,mutable)
+dict-----------------------dictionary category datatype
+None Type------------------None Type Datatype(Immutable)
+
+In any programing langauge(Python,c,c++,java),we have 4 types of number system.
+1.Decimal number system(default (0-9))  --Base10 literal are called decimal number system.
+2.Binary number system (2 number only(0-1))--To store binary data in python prog.,binary data must be proceed with either '0b' or '0B'
+  ---Even we store binary data but when we print the value,python gives result in decimal number only.
+3.Octal number system( 8 number (0-8)) ---('0d','0O')
+4.Hexadecimal number system(16 number(0-15)) --('0x','0X')
 
 What is an unicode ??
 The unicode is character encoding and it's goal is to replace the existing character set with its standard UTF.
@@ -2735,7 +2748,7 @@ close()-this method close the databse
 Cursors are not thread-safe.
 
 
-
+Python 2.X vs Python 3.X
 
 PYTHON 2 IS LEGACY, PYTHON 3 IS THE FUTURE.
 PYTHON 2 AND PYTHON 3 HAVE DIFFERENT (SOMETIMES INCOMPATIBLE) LIBRARIES
@@ -2755,7 +2768,8 @@ THE TWO VERSIONS HAVE DIFFERENT PRINT STATEMENT SYNTAXES
 print "Hello"	 -python 2
 print("Hello")	 -python 3
 
-
+IN python 2.X we have long datatype to represent the large integral values
+But in python 3.X there is no long type explictly and we represent long values also by using int datatype only 
 
 
 
