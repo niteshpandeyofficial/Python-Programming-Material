@@ -120,7 +120,8 @@ language programmers for developing real-time applications.
 
 
 Data Type 
-Data type is allocating memory space to our input.
+The main purpose of Data type is taht to allocate sufficient amount of memory space input of the program.
+This input represent the type of data present inside of variable called as data type
 
 platform dependent/independent
 c/c++ programing language and whose corresponding data types varying theire memory space from one O.S to another O.S 
@@ -131,6 +132,29 @@ float----4 Bytes -----8 Bytes
 double---8 Bytes -----16 Bytes
 char-----1 Bytes -----1 Bytes
 
+To represent the data in python programing we required 3 things.
+1.Literals/Values
+2.Variables/Identifier
+3.Data type
+
+Literals
+1.It is nothing but input values passing to the programs.
+eg-   Numeric Literals --100,200,40.4
+      Boolean Literals --True ,False
+      String Literals  --Nitesh,Pandey
+
+Identifier
+1.To process this literals or value stored in main memory,as programmer we must 
+give distinctnames to the created memory space.
+2.Since distinct names makes us to identify the literal/values for processing hence distinct names are called 'Identifiers'
+3.Programatically identifier values can be changed during execution of the program
+and hence identifier are called 'Variables'
+
+Variables
+1.All the variables in python are called Object.
+2.Behind all object there exist a class.
+
+In python 3.X we have 14 datatype and they are classified into 6 types.
 
 What is an unicode ??
 The unicode is character encoding and it's goal is to replace the existing character set with its standard UTF.
