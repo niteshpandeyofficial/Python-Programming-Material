@@ -410,7 +410,9 @@ git tag -d <tag_name>
 git push origin tag
 
 git clone
-It create a local repository automstically in linux machine with the same name as in github accounts.
+The git clone command is used to create a local working copy of an existing remote repository.
+The command downloads the remote repository to the computer.
+
 git clone <url of github repository>
 
 git remote -v-----check the status after adding the local repo to github
