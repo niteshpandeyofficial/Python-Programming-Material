@@ -54,6 +54,23 @@ we utilize template inheritance, which allows us to generate the part that is co
 (e.g. footer, navigation bar) only once and eliminates the need to write the HTML, head, and title tag many times.
 
 
+from flask import Flask 
+  
+app = Flask(__name__) 
+  
+# Pass the required route to the decorator. 
+@app.route("/hello") 
+def hello(): 
+    return "Hello, Welcome to GeeksForGeeks"
+    
+@app.route("/") 
+def index(): 
+    return "Homepage of GeeksForGeeks"
+  
+if __name__ == "__main__": 
+    app.run(debug=True) 
+
+
 
 Q 9. What does url_for do in Flask?
 Answer: The url_for() method is used to generate a URL to a specific function dynamically. 
