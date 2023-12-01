@@ -25,7 +25,7 @@ increase capacity as required. While the overall speed or capacity of a single m
 handles a subset of the overall workload, potentially providing better efficiency than a single high-speed high-capacity server.
 
 database
-MongoDB groups collections into databases. MongoDB can host several databases,
+MongoDB groups of collections into databases. MongoDB can host several databases,
 each grouping together collections.
 Some reserved database names are as follows:
 admin
@@ -86,7 +86,7 @@ To display database, you need to insert at least one document into it.
 
 install pymongo library(if not installed)
 import pymongo
-connecct to pymongo server(Connect to database server)
+connect to pymongo server(Connect to database server)
 connect to database(connect to specific database)
 connect to collection (connect to specific table within connected database)
 
@@ -255,10 +255,7 @@ Shutterfly
 
 storing policy related documents details in mongodb
 
-nitesh_pandey
-Nitsam@143
-
-INterview
+Interview
 
 Question1: What are NoSQL databases? What are the different types of NoSQL databases? (Not only sql or non sql)
 Question2: What kind of NoSQL database MongoDB is? 
@@ -274,7 +271,7 @@ Steps
 
 Overview
 Mongo Db consist of multiple databases 
-each databases consist on multiple cllection
+each databases consist on multiple c0llections
 each collection consist of multiple documents
 
 The find method is used to perform queries in MongoDB. Querying returns a
