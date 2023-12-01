@@ -484,6 +484,44 @@ combining or moving a sequence of commits on top of a new base commit. Git rebas
 (refer from here https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
 
 
+Git Rebase is similar to git merge, but the logs are modified after merge in this technique.
+Let us take an example if we have a project with 3 commits on the master branch as commit 1,2,3 and feature branch commits as commit A and B. 
+If we perform a git rebase operation then the commits A and B will be rebased on to the master branch as commit 4 and 5 and there will be no 
+logs of the feature branches.
+
+
+Git Merge
+Git merge is one of the merging techniques in git, in which the logs of commits on branches are intact.
+Let us take an example if we have a project with 3 commits on the master branch as commit 1,2,3 and feature branch commits as commit A and B. 
+If we perform a git merge operation then commits A and B will be merged as commit 4 onto the master branch.
+
+https://www.edureka.co/blog/git-rebase-vs-merge/
+
+Advantages:
+
+The logs are very exhaustive and can help in understanding the complete history of how and when each merge happened
+It is easy to find mistakes and resolve them.
+Disadvantages:
+
+Results in a clumsy log / history
+Not very user-friendly
+
+
+
+
+Git merge is a command that allows you to merge branches from Git.	
+Git rebase is a command that allows developers to integrate changes from one branch to another.
+
+In Git Merge logs will be showing the complete history of the merging of commits.	
+Logs are linear in Git rebase as the commits are rebased.
+
+All the commits on the feature branch will be combined as a single commit in the master branch.	
+All the commits will be rebased and the same number of commits will be added to the master branch.
+
+Git Merge is used when the target branch is shared branch.
+Git Rebase should be used when the target branch is private branch.
+
+
 
 reflog
 git reflog
