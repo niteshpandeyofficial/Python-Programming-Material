@@ -45,6 +45,9 @@ right join --(inner join + additional records from the right table)
 --This type of join returns all rows from the RIGHT-hand table specified in the ON condition and only those rows from the other table where the joined fields are equal (join condition is met).
 --The Oracle RIGHT OUTER JOIN would return the all records from table2 and only those records from table1 that intersect with table2.
 
+Full Outer Join
+ A full outer join contains all records of both the left and right tables.
+
 
 Constraints
 A rule that restricts the values in a database is called constraints
