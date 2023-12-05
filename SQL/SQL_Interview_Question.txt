@@ -1,0 +1,108 @@
+Company Name:NeoSoft 
+
+Primary vs unique
+
+1.The primary key does not store null values, whereas the unique key does.
+2.A table can only have one primary key, whereas it can have multiple unique keys.
+3.Primary key enforces entity integrity whereas unique key enforces unique data.
+4.The primary key, by default, creates clustered index.The unique key, by default, creates a non-clustered index.
+5.example
+
+CREATE TABLE Student
+(
+Student_Id number PRIMARY KEY, 
+Student_name VARCHAR2(150), 
+roll_number number
+);
+
+CREATE TABLE House
+(
+House_Number number UNIQUE, 
+House_Name VARCHAR2(150), 
+House_Address VARCHAR2(250)
+);
+
+
+Entity integrity is concerned with ensuring that each row of a table has a unique and non-null primary key value
+
+
+Cluster index vs non-cluster index
+
+A clustered index is used to define the order or to sort the table or arrange the data by alphabetical order just like a dictionary.A non-clustered index collects the data at one place and records at another place.
+
+
+Join
+inner join
+Oracle INNER JOINS return all rows from multiple tables where the join condition is met.
+
+left join --(inner join +any additional records in the left table)
+--This type of join returns all rows from the LEFT-hand table specified in the ON condition and only those rows from the other table where the joined fields are equal (join condition is met).
+
+--The Oracle LEFT OUTER JOIN would return the all records from table1 and only those records from table2 that intersect with table1.
+
+
+right join --(inner join + additional records from the right table)
+--This type of join returns all rows from the RIGHT-hand table specified in the ON condition and only those rows from the other table where the joined fields are equal (join condition is met).
+--The Oracle RIGHT OUTER JOIN would return the all records from table2 and only those records from table1 that intersect with table2.
+
+
+Constraints
+A rule that restricts the values in a database is called constraints
+Oracle Constraints clause provides data integrity to the data.
+Oracle has multiple types of constraints for multiple purposes.
+
+1. NOT NULL
+This will enforce the column to always have a value and it will not allow any NULL record to be added in the column.
+We will add NOT NULL constraint using both CREATE TABLE and ALTER TABLE constraint.
+
+CREATE TABLE STUDENT (
+student_id number NOT NULL)
+
+ALTER TABLE STUDENT MODIFY AGE number NOT NULL;
+
+
+2. UNIQUE
+This constraint in Oracle ensures that all the values of the column are different from each other and there are no duplicates
+
+CREATE TABLE student (
+student_id number UNIQUE)
+
+ALTER TABLE STUDENT ADD UNIQUE(student_id);
+
+
+3. PRIMARY KEY
+Primary key constraint uniquely describes each value of a column. No duplicates or NULL value is allowed. One important point is that a table can have only one primary key.
+
+CREATE TABLE STUDENT (
+student_id number PRIMARY KEY)
+
+ALTER TABLE STUDENT
+ADD PRIMARY KEY (student_id);
+
+4. FOREIGN KEY Constraints.
+A foreign key is a field which refers to the PRIMARY KEY of another table and the table which actually has the foreign key is called child table. 
+
+CREATE TABLE Orders(
+OrderID number PRIMARY KEY,
+student_id number REFERENCES student(student_id)
+);
+
+ALTER TABLE Orders
+ADD FOREIGN KEY (student_id) REFERENCES student(student_id);
+
+
+5. CHECK Constraint
+The CHECK constraint is used to limit the value of the range that can be placed in a column. In case we want to restrict certain values in a column or a table we introduce the check constraint. 
+
+CREATE TABLE student (
+student_id int NOT NULL,
+FirstName varchar(25) NOT NULL,
+LastName varchar(25),
+Age int CHECK (Age>=18)
+);
+
+ALTER TABLE student ADD CHECK (Age>=19);
+
+
+
+
