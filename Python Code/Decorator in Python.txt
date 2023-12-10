@@ -1,0 +1,20 @@
+Decorator in Python
+
+1.Python decorator gives us the ability to add new behavior to the given objects dynamically.
+2.They are essentially functions that take another function as an argument and return a modified 
+version of that function.
+
+Benefits of using decorators:
+Clean Code
+Maintainability
+Code Reusability
+
+Decorators are commonly used for various purposes, such as:
+
+Logging: Adding logging statements before and after function execution.
+Timing: Measuring the time taken for a function to execute.
+Authorization: Checking if a user has the necessary permissions before allowing access to a function.
+Caching: Storing and reusing the results of expensive function calls.
+Validation: Checking the input parameters or output of a function.
+
+https://climbtheladder.com/python-decorators-interview-questions/
