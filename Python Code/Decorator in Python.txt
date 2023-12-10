@@ -17,4 +17,85 @@ Authorization: Checking if a user has the necessary permissions before allowing 
 Caching: Storing and reusing the results of expensive function calls.
 Validation: Checking the input parameters or output of a function.
 
+Example:
+>>> def decor(func):
+    def wrap():
+        print("$$$$$$$$$$$$$$$$$")
+        result = func()    --or we can write func() only
+        print("$$$$$$$$$$$$$$$$$")
+    return wrap
+	
+@decor
+def sayhi():
+    print('Hi')
+	
+>>> sayhi() 
+$$$$$$$$$$$$$$$$$
+Hi
+$$$$$$$$$$$$$$$$$
+
+--using @decorator function--
+def smartdiv(fun):
+  def inner(a,b):
+    if a<b:
+      a,b=b,a
+    return fun(a,b)
+  return inner
+
+@smartdiv
+def div(a,b):
+  return a/b
+
+
+
+Decorator
+def div(a,b):
+    print(a/b)
+    
+def smartdiv(func):
+    def inner(a,b):
+        if a<b:
+            a,b=b,a
+        return func(a,b)
+    return inner
+
+div1=smartdiv(div)
+div1(2,5)
+
+Example-----------
+
+def actual_fun():
+  print('Actual function')
+
+def decorated_func(func):
+  def inner_func():
+    print('---Inside inner function---')
+    func()
+    print('---Execution completed for actual function---')
+  return inner_func
+
+
+result=decorated_func(actual_fun)
+result()
+
+---Inside inner function---
+Actual function
+---Execution completed for actual function---
+-----------------------------------
+def actual_fun():
+  print('This is an actual function')
+
+def decorated_fun(func):
+  print('Inside the decorated_function')
+  func()
+  print('Execution completed')
+
+decorated_fun(actual_fun)
+o/p-
+Inside the decorated_function
+This is an actual function
+Execution completed
+
+
+
 https://climbtheladder.com/python-decorators-interview-questions/
