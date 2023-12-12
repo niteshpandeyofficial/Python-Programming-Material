@@ -394,6 +394,7 @@ Elapsed Time: 0.037004709243774414
 
 
 What is a dictionary in Python?
+unordered collections of key-value pairs enclosed in curly braces {}
 dict is a class.
 dict is mutable.
 dict is not hashable.
@@ -402,7 +403,28 @@ dict is not a sequence.
 dict can not have the duplicate keys.
 indexing is not applicable to dict object.
 slicing operator is not applicable
-dict elements are pair of key-value and data-value.
+
+different ways to create dictionaries:
+Using literals: my_dict = {"name": "John", "age": 30}
+From other iterables: my_dict = dict(name="John", age=30)
+Using dictionary comprehension: squares = {x: x**2 for x in range(10)}
+
+Accessing and Modifying Keys and Values:
+Adding: my_dict["email"] = "john@email.com"
+Removing: del my_dict["age"]
+Updating: my_dict["name"] = "Jane"
+
+common built-in functions for dictionaries:
+len(my_dict): returns the number of key-value pairs.
+keys(): returns a dictionary view of all keys.
+values(): returns a dictionary view of all values.
+items(): returns a dictionary view of all key-value pairs.
+
+real-world applications of dictionaries:
+Storing configuration settings.
+Representing user profiles with key-value attributes.
+Mapping words to their definitions.
+
 
 Ans: The built-in datatypes in Python is called dictionary. It defines one-to-one relationship between keys and values. 
 Dictionaries contain pair of keys and their corresponding values. Dictionaries are indexed by keys.
