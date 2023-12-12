@@ -28,7 +28,7 @@ Compiler
 5.Compiler is used by java,c,c++,c#
 
 Interpreter
-1.An interpreter takes a single unit if code at a time.
+1.An interpreter takes a single unit of code at a time.
 2.The interpreter never produces any intermediate object code.
 3.Interpreter convert high level program each time it is executed.
 4.Error display line by line.
@@ -118,9 +118,8 @@ language programmers for developing real-time applications.
 15.Intendetion base block code
 16.Large Library.
 
-
 Data Type 
-The main purpose of Data type is taht to allocate sufficient amount of memory space input of the program.
+The main purpose of Data type is that to allocate sufficient amount of memory space to input of the program.
 This input represent the type of data present inside of variable called as data type
 
 platform dependent/independent
@@ -232,14 +231,33 @@ We declare it using single or double quotes.
 
 5.What is the difference between list and tuples in Python?
 Lists 
- are mutable i.e they can be edited.
+ ordered collections(represents a group of objects) of elements(meaning the order of elements in a list is preserved.) enclosed in square brackets [].
+ Different datatype collection.
+ Lists can grow or shrink in size dynamically.
+ List are mutable i.e they can be edited.
  Lists are slower than tuples.
- Collection of values.
- Different datatype collection
  More functionality as compared to tuple.
  Don't know the exact number of rows
  Value enclosed in []
  Indexing from position 0
+
+different ways to create lists:
+Using literals: my_list = [1, "apple", True]
+Using constructors: my_list = list((1, 2, 3))
+Using comprehension: even_numbers = [x for x in range(10) if x % 2 == 0]
+
+common methods for modifying lists:
+Adding elements: my_list.append(4) or my_list.insert(1, "banana")
+Removing elements: my_list.remove("banana") or del my_list[2]
+Sorting elements: my_list.sort() or sorted(my_list)
+
+List Operations:
+common operations like concatenation (+), membership (in), and repetition (*).
+built-in functions like len() for length and max() or min() for finding extremum values.
+
+Use Cases:
+real-world applications of lists, such as storing data sets, shopping lists, or student grades.
+
  Syntax: list_1 = [10, ‘Chelsea’, 20]
 		 list_1.append(5)-Allowed
 
@@ -257,12 +275,31 @@ Decimal Number System -0,1,2,3,4,5,6,7,8,9
 Hexadecimal Number System -0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F
 
 Tuples 
+ Tuples is an ordered sequences of elements enclosed in parentheses()
  Tuples are immutable (tuples are lists which can’t be edited).
  Tuples are faster than list.(check below example to prove the same)
  Less functionality as compared to List
  know the exact number of rows
  Represent as parenthesis()
  Indexing from position 0
+
+
+different ways to create tuples:
+Using literals: my_tuple = ("apple", 1, True)
+Packing: my_tuple = "apple", 1, True (automatically creates a tuple)
+Using constructors: my_tuple = tuple((1, 2, 3))
+
+Operations:
+Accessing Elements:Indexing uses square brackets and element position (e.g., my_tuple[1] for the second element).
+Slicing extracts a subsequence using colon-separated indices (e.g., my_tuple[1:4] for elements 2 to 4).
+Length:Finding the number of elements in a tuple.
+Concatenation:Combining tuples.
+
+common applications of tuples:
+Storing constant data like days of the week or months of the year.
+Representing immutable data points like coordinates or employee records.
+Defining function arguments or return values requiring fixed order.
+
  Syntax: tup_1 = (10, ‘Chelsea’ , 20)
 		 tup_2=(10,30,[34,50],'nitesh')
 		 tup_1.append(5)-Error Occured
@@ -279,20 +316,41 @@ Elapsed Time: 0.024022340774536133
 What is set and frozen set
 
 Set-Similar to list except below point
-	Collectionof item 
-	represents as {}(Curley Braces)
-	duplicate not allowed
-	order not preserved
-	indexing,slicing not allowed.
-	used as key in dictionary.
-	set is mutable
-	add,remove allowed not append
+unordered collections of unique elements enclosed in curly braces {}
+set is mutable
+duplicate not allowed
+order not preserved
+indexing,slicing not allowed.
+used as key in dictionary.
+
+add,remove allowed not append
+
+different ways to create sets:
+Using literals: my_set = {1, "apple", True}
+From other iterables: my_set = set([1, 2, 3])
+Using set comprehension: even_numbers = {x for x in range(10) if x % 2 == 0}
+
+Modifying Sets:
+Adding: my_set.add(4)
+Removing: my_set.remove("apple") or my_set.discard("banana") (ignores non-existent elements)
+Clearing: my_set.clear()
+Updating: my_set.update({4, 5})
+
+Operation:
+Set Operations: Union (|), intersection (&), difference (-), symmetric difference (^).
+Membership Testing: Checking if an element is present in the set.
+Length:Finding the number of elements in a set
+
+real-world applications of sets:
+Removing duplicate entries from lists.
+Finding unique elements in different data sets.
+Checking if elements are present in specific categories.
 
 eg-
 	set1={1,2,3,5,1} #{1, 2, 3, 5}
 	set1.add(9)		 #{1, 2, 3, 5, 9}
 	set1.remove(5)	 #{1, 2, 3, 9}
-	set1.append(5)	 #'set' object has no attribute 'append'
+	set1.append(5)	 #'set' object has no attribute 'append' (because append means adding to end but set is unorder collections hence its not allowed)
 	set1[0]			 #'set' object does not support indexing
 
 	
