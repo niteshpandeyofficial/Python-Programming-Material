@@ -462,10 +462,18 @@ dictionary comprehensions
 d={i:i**2 for i in range(1,10)} --{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
 
 6.What is pickling and unpickling?
+Pickling and unpickling are fundamental concepts in Python for data serialization and deserialization. 
+pickling
 Pickling is the process of converting Python object to a string representation(byte stream) and dumps it into a file by using dump function.
-While the process of retrieving original Python objects from the stored string representation is called unpickling.
+Pickling is implemented using the pickle module in Python.
+To pickle an object, you use pickle.dump() to write the object to a file or obtain a byte stream.
 
-used for memory and performance efficiency
+unpickling
+While the process of retrieving original Python objects from the stored string representation is called unpickling.
+Unpickling is also done using the pickle module.
+To unpickle an object, you use pickle.load() to read the byte stream from a file or other sources.
+
+Used for memory and performance efficiency
 load time is faster then write once again.
 
 Note:-
@@ -521,10 +529,23 @@ It converts the source code that is written by the programmer into an intermedia
 which is again translated into machine language that has to be executed.
 
 8.How memory is managed in Python?
-    Python memory is managed by Python private heap space. All Python objects and data structures are located in a private heap. 
+Python memory is managed by Python private heap space. All Python objects and data structures are located in a private heap. 
 The programmer does not have an access to this private heap and interpreter takes care of this Python private heap.The allocation 
 of Python heap space for Python objects is done by Python memory manager.The core API gives access to some tools for the programmer to code.
-    Python also have an inbuilt garbage collector, which recycle all the unused memory and makes it available to the heap space.
+Python also have an inbuilt garbage collector, which recycle all the unused memory and makes it available to the heap space.
+
+The key aspects of memory management in Python include:
+Private Heap Space-Python has its private heap space for storing objects and data structures. 
+The memory manager is responsible for allocating and deallocating memory in this heap.
+
+Garbage Collection-which recycle all the unused memory and makes it available to the heap space.
+
+Reference Counting-Python employs a reference counting mechanism to keep track of the number of references to an object.
+When the reference count drops to zero, meaning there are no references pointing to the object, the memory occupied by the object is released.
+
+Cyclic Garbage Collector-Python also includes a cyclic garbage collector to detect and collect objects involved in circular references
+This ensures that even in cases of circular references, memory is properly managed.
+
 
 9.What are the tools that help to find bugs or perform static analysis?
 PyChecker is a static analysis tool that detects the bugs in Python source code and warns about the style and complexity of the bug. 
@@ -533,6 +554,22 @@ Pylint is another tool that verifies whether the module meets the coding standar
 
 10.What is namespace in Python?
 namespace is a naming system used to make sure that names are unique to avoid naming conflicts.
+There are different types of namespaces in Python:
+
+Local Namespace:
+The local namespace is the namespace associated with the current function or method. 
+It contains local variables and parameters defined within that function or method. 
+The local namespace is created when the function is called and is destroyed when the function exits.
+
+Global Namespace:
+The global namespace is associated with the entire module or script. 
+It contains global variables and functions defined at the module level. 
+The global namespace is created when the module is imported or the script is executed and persists until the Python interpreter exits.
+
+Built-in Namespace:
+The built-in namespace contains names for built-in functions, exceptions, and other objects that are available 
+by default in every Python script or module. These names are predefined and always accessible.
+
 
 11.What Are The Built-In Types Available In Python?
 Here is the list of most commonly used built-in types that Python supports:
