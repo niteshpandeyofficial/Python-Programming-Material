@@ -861,6 +861,7 @@ It is also called as without name or nameless function.
 It is used as inline function or it is shorter version of function.
 This function can have any number of parameters but, can have just one statement.
 A lambda is part of a very important abstraction mechanism which deals with higher order functions
+Lambda functions are often used in situations where a small, simple function is needed for a short duration.
 
 >>> lambda input:expression
 >>> a = lambda x,y : x+y
@@ -874,9 +875,23 @@ def is a keyword that doesn’t return anything and create a name in local names
 lambda is a keyword that return a function object and does not create a name in the local namespace
 
 Lambda vs Normal Function.
-While normal functions are defined using the def keyword, 
-in Python anonymous functions are defined using the lambda keyword. 
-Hence, anonymous functions are also called lambda functions.
+Lambda functions and normal (named) functions in Python serve the same purpose of defining functions, 
+but they differ in terms of syntax, scope, and use cases. 
+
+Lambda function: Defined using the lambda keyword followed by arguments and an expression. They're anonymous, meaning they don't have a name.
+Normal function: Defined using the def keyword followed by the function name, arguments, and body (containing the function code).
+
+2. Purpose:
+Lambda function: Designed for short, anonymous functions typically used once or a few times. They're concise and convenient for small tasks.
+Normal function: More suitable for complex or reusable code blocks that require multiple lines of code, variable declarations, or control flow statements.
+
+3. Syntax:
+Lambda function: lambda arguments: expression
+Normal function: def function_name(arguments):
+
+4. UseCase
+Filtering, sorting, callbacks
+Performing complex calculations or computations,logic, organization.
 
 24.What is self in Python?
 Ans:
