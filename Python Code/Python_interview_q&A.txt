@@ -226,8 +226,10 @@ A string is a sequence of characters.
 String is a class.
 String  is immutable.
 String is iterable.
-String in hashable.
+String in hashable.(An object is hashable if it has a hash value which never changes during its lifetime)
 We declare it using single or double quotes.
+Imp--The hash value is an integer which is used to quickly compare dictionary keys while looking at a dictionary
+
 
 5.What is the difference between list and tuples in Python?
 Lists 
