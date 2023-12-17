@@ -548,6 +548,17 @@ When the reference count drops to zero, meaning there are no references pointing
 Cyclic Garbage Collector-Python also includes a cyclic garbage collector to detect and collect objects involved in circular references
 This ensures that even in cases of circular references, memory is properly managed.
 
+Ques-Explain garbage collection with Python.
+Ans. 
+The following points are worth nothing for the garbage collector with CPython-
+Python maintains a count of how many references there are to each object in memory
+When a reference count drops to zero, it means the object is dead and Python can free the memory it allocated to that object
+The garbage collector looks for reference cycles and cleans them up
+Python uses heuristics to speed up garbage collection
+Recently created objects might as well be dead
+The garbage collector assigns generations to each object as it is created
+It deals with the younger generations first.
+
 
 9.What are the tools that help to find bugs or perform static analysis?
 PyChecker is a static analysis tool that detects the bugs in Python source code and warns about the style and complexity of the bug. 
@@ -1131,14 +1142,26 @@ b in d ==>True
 
 How many kinds of operators do we have in Python? Explain arithmetic operators.
 we have 7 kinds of operators: arithmetic, relational, assignment, logical, membership, identity, and bitwise.
+Arithmetic operators in Python are used to perform basic mathematical operations on numeric values. 
+Here's an explanation of the main arithmetic operators in Python:
+
+Addition (+): This operator is used to add two numbers.
+Subtraction (-): This operator is used to subtract the right operand from the left operand.
+Multiplication (*): This operator is used to multiply two numbers.
+Division (/): This operator is used to divide the left operand by the right operand. It returns a floating-point result.
+Floor Division (//): This operator is used to perform integer division, which returns the quotient as an integer, discarding any remainder.
+Modulus (%): This operator is used to get the remainder of the division of the left operand by the right operand.
+Exponentiation ():** This operator raises the left operand to the power of the right operand.
+
+These operators follow the usual rules of arithmetic, including the order of operations (PEMDAS/BODMAS),
+
+
 
 What are membership, operators?
 With the operators ‘in’ and ‘not in’, we can confirm if a value is a member in another.
 
 Explain identity operators in Python.
 The operators ‘is’ and ‘is not’ tell us if two values have the same identity.
-
-
 
 What is the usage of help() and dir() function in Python?
 Ans: Help() and dir() both functions are accessible from the Python interpreter and used for viewing a consolidated dump of built-in functions. 
@@ -1155,7 +1178,10 @@ Dir() function: The dir() function is used to display the defined symbols or fun
 
 
 How can the ternary operators be used in python?
-Ternary operators also known as conditional expressions or operators that evaluate something based on a condition being true or false.
+The ternary operator in Python, also known as the conditional operator.
+They can make the code more concise and readable. 
+It evaluate something based on a condition being true or false.
+
 [on_true] if [expression] else [on_false] 
 eg-
 a=10;
@@ -1174,7 +1200,7 @@ syntax:
 [on_true] if [expression] else [on_false]
 (if_test_fails,if_test_pass)[test]
 {False:if_test_fails,True:if_test_pass}[test]
-(lambda:if_test_fails,lambda:if_test_true)[test]88
+(lambda:if_test_fails,lambda:if_test_true)[test]
 
 Difference between *args and **kwargs 
 The names *args and **kwargs are only by convention but there's no hard requirement to use them.
@@ -2592,18 +2618,6 @@ This takes two classes as arguments. If the first one inherits from the second, 
 >>> class B(A): pass
 >>> issubclass(B,A)
 True
-
-Explain garbage collection with Python.
-
-Ans. The following points are worth nothing for the garbage collector with CPython-
-
-Python maintains a count of how many references there are to each object in memory
-When a reference count drops to zero, it means the object is dead and Python can free the memory it allocated to that object
-The garbage collector looks for reference cycles and cleans them up
-Python uses heuristics to speed up garbage collection
-Recently created objects might as well be dead
-The garbage collector assigns generations to each object as it is created
-It deals with the younger generations first.
 
 How is Python different from Java?
 
