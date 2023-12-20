@@ -1366,6 +1366,19 @@ a.append('pandey')
 a.extend('mit')--when use string then it stored character by character.
 [1, 5, 9, 'nitesh', 'sam', 'pandey', 'm', 'i', 't']
 
+# Using append for a single element
+The append() method is used to add a single element to the end of a list.
+my_list = [1, 2, 3]
+my_list.append(4)
+# Result: [1, 2, 3, 4]
+
+# Using extend for multiple elements
+#The extend() method is used to append the elements of an iterable (e.g., a list, tuple, or string) to the end of the original list.
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+list1.extend(list2)
+# Result: [1, 2, 3, 4, 5, 6]
+
 
 How to remove values to a python array?
 Ans: Array elements can be removed using pop() or remove() method. 
@@ -1509,7 +1522,6 @@ Multiple inheritance – a derived class is inherited from more than one base cl
 
 What is Super()?
 Super is used to access the parent class member and method 
-
 
 class A:
     def m1(self):
