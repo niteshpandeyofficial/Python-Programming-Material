@@ -3961,3 +3961,16 @@ Run
 create file in google colab using below snnipet
 %%writefile new.txt
 This is new file created
+
+
+#insignia Online test
+def fun1(data):
+  return data*2
+
+def fun2(data):
+  return data+3
+
+data=[1,2,3,4]
+res=list(map(fun1,list(map(fun2,data))))
+
+res=[8,10,12,14]
