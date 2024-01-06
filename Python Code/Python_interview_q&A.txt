@@ -4095,3 +4095,8 @@ Caching
 Caching is an optimization technique that you can use in your applications to keep recent or often-used data in memory locations
 that are faster or computationally cheaper to access than their source. 
 
+difference between object and variable
+variables are simply references to objects, not the actual data itself.
+variable:Think of it like a name tag on a box. The name "Apple" on the box is the variable, while the actual apple inside is the object.
+Object:Think of it as the box itself. It contains the data and any associated methods or behaviors.
+
