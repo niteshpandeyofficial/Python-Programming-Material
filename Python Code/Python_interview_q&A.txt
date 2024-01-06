@@ -2153,7 +2153,9 @@ Python’s lists are efficient general-purpose containers.
 They support (fairly) efficient insertion,deletion,appending and concatenation, and 
 Python’s list comprehensions make them easy to construct and manipulate.
 
-list comprehension provide elgegant way to define and create list in python.
+list comprehension provide elegant way to define and create list in python.
+The process of creating a list while performing some operation on the data 
+so that it can be accessed using an iterator is referred to as List Comprehension.
 list comprehensions are used for transforming one list into another list.
 list comprehension consists of 
 (1.) an input sequence, 
@@ -4053,11 +4055,12 @@ A function is called Higher Order Function if it contains other functions as a p
 
 
 What are exec() and eval () in python ?
-The exec() function executes the specified Python code. The exec() function accepts large blocks of code, 
-unlike the eval() function which only accepts a single expression.
-
+The exec() function executes multiple statements or code blocks.
+unlike the eval() function which only evaluates a single expression
+	
 
 exec("x = 10\ny = 20\nprint(x + y)") --return 30
+eval("x = 10\ny = 20\nprint(x + y)") --getting error
 def add(a,b):
   return a+b
 eval('add(5,6))--return 11
@@ -4074,3 +4077,21 @@ Security Considerations:
 
 eval() is generally safer for simple expressions, but be cautious when evaluating untrusted code to avoid potential code injection vulnerabilities.
 exec() poses higher security risks as it can execute arbitrary code. Thoroughly validate and sanitize any user-provided code before executing it with exec().
+
+What are Metaclasses?
+A metaclass in Python is a class of a class that defines how a class behaves.
+
+
+pick random sequence from given list.
+import random
+l=['nitesh','sam','rohan']
+random.shuffle(l)
+print(l)
+print(random.sample(l,3))
+print(random.choices(l,k=3))
+
+
+Caching
+Caching is an optimization technique that you can use in your applications to keep recent or often-used data in memory locations
+that are faster or computationally cheaper to access than their source. 
+
