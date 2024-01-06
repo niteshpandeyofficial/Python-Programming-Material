@@ -1140,6 +1140,68 @@ b=[11,2,3]
 d=[[11,2,3],[5,7]]
 b in d ==>True
 
+Operator in Python 
+Operators are special symbols or keywords that perform operations on values and variables. They are essential for building expressions 
+and manipulating data in Python. Key types of operators in Python:
+
+Arithmetic Operators:
+
+Perform basic mathematical operations:
++ (addition)
+- (subtraction)
+* (multiplication)
+/ (division)
+// (floor division, discarding remainder)
+% (modulo, remainder after division)
+** (exponentiation)
+
+Assignment Operators:
+Assign values to variables:
+= (assigns a value)
++= (adds and assigns)
+-= (subtracts and assigns)
+*= (multiplies and assigns)
+/= (divides and assigns)
+//= (floor divides and assigns)
+%= (modulo and assigns)
+**= (exponentiates and assigns)
+
+Comparison Operators:
+Compare values and return Boolean results (True or False):
+== (equal to)
+!= (not equal to)
+> (greater than)
+< (less than)
+>= (greater than or equal to)
+<= (less than or equal to)
+
+Logical Operators:
+Combine Boolean expressions:
+and (returns True if both operands are True)
+or (returns True if at least one operand is True)
+not (inverts the truth value of an operand)
+
+Bitwise Operators:
+Perform operations on individual bits of integers:
+& (bitwise AND)
+| (bitwise OR)
+^ (bitwise XOR)
+~ (bitwise NOT)
+<< (left shift)
+>> (right shift)
+
+Membership Operators:
+Check if a value is present in a sequence (string, list, tuple, set, dictionary):
+in (returns True if the value is found)
+not in (returns True if the value is not found)
+
+Identity Operators:
+Check if two objects refer to the same memory location:
+is (returns True if the objects are identical)
+is not (returns True if the objects are not identical)
+
+
+
 How many kinds of operators do we have in Python? Explain arithmetic operators.
 we have 7 kinds of operators: arithmetic, relational, assignment, logical, membership, identity, and bitwise.
 Arithmetic operators in Python are used to perform basic mathematical operations on numeric values. 
@@ -1156,7 +1218,7 @@ Exponentiation ():** This operator raises the left operand to the power of the r
 These operators follow the usual rules of arithmetic, including the order of operations (PEMDAS/BODMAS),
 
 What are membership, operators?
-Membership operators  are used to test the relationship between two values or expressions
+Membership operators  are used to Check if a value is present in a sequence (string, list, tuple, set, dictionary):
 There are two main membership operators in Python:
 
 in: This operator returns True if the specified element is present in the sequence and False if it's not. 
@@ -2316,6 +2378,8 @@ The join function is a more flexible way for concatenating string. With join fun
 split() lets us split a string around the character we specify.
 >>> '1,2,3,4,5'.split(',')
 
+Why do we use join() function in Python?
+The join() method provides a flexible way to create strings from iterable objects. It joins each element of an iterable (such as list, string, and tuple) by a string separator (the string on which the join() method is called) and returns the concatenated string.
 
 How long can an identifier be in Python?
 
@@ -3974,3 +4038,39 @@ data=[1,2,3,4]
 res=list(map(fun1,list(map(fun2,data))))
 
 res=[8,10,12,14]
+
+
+
+How does Python approach multithreading?
+Python has the following multi-threading tools:
+
+A designated multi-threading package. It’s not widely used as it slows code execution down.
+GIL (Global Interpreter Lock) constructor. It helps ensure that only one string is executed at a time. After GIL executes a string, it’ll get passed over to the next one.
+
+
+What are higher-order functions?
+A function is called Higher Order Function if it contains other functions as a parameter or returns a function as an output 
+
+
+What are exec() and eval () in python ?
+The exec() function executes the specified Python code. The exec() function accepts large blocks of code, 
+unlike the eval() function which only accepts a single expression.
+
+
+exec("x = 10\ny = 20\nprint(x + y)") --return 30
+def add(a,b):
+  return a+b
+eval('add(5,6))--return 11
+
+When to Use Each:
+
+Use eval() when:
+You need to evaluate a simple expression dynamically.
+You want to get a result back from the evaluated code.
+Use exec() when:
+You need to execute multiple statements or a code block.
+You want to modify the global namespace (although use caution with this).
+Security Considerations:
+
+eval() is generally safer for simple expressions, but be cautious when evaluating untrusted code to avoid potential code injection vulnerabilities.
+exec() poses higher security risks as it can execute arbitrary code. Thoroughly validate and sanitize any user-provided code before executing it with exec().
