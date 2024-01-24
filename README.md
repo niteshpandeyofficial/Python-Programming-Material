@@ -13,7 +13,7 @@ $pip install pytest
 $ pytest
 ```
 
-> instead of writing cpytest command each and every time we can set the default test runner so that we can direct run the test cases using GUI
+> instead of writing pytest command each and every time we can set the default test runner so that we can direct run the test cases using GUI
 
 Steps
 1. Go to Setting
