@@ -1,12 +1,21 @@
 
 #### Install Pytest First
-bash```
+```bash
 $pip install pytest
 ```
-1. Create folder inside the created folder with the name starting with test
+#### Follow below steps to run pytest
+ > for class name first character should be capital of Test (Test_all)
+
+ > for function name should be start with prefix test eg(test_add)
 
 2.To run pytest use below command
-bash```
+```bash
 $ pytest
 ```
+
+> instead of writing cpytest command each and every time we can set the default test runner so that we can direct run the test cases using GUI
+
+Steps
+1. Go to Setting
+2. Set default test runner pytest from unittest
 
