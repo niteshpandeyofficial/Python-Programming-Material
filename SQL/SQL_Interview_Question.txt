@@ -104,6 +104,31 @@ LastName varchar(25),
 Age int CHECK (Age>=18)
 );
 
+
+Applied Cloud Computing SQL interview Question
+
+select * from t_employee_det;
+
+--------find maximum salary department wise
+SELECT
+    MAX(salary),
+    department
+FROM
+    t_employee_det
+GROUP BY
+    department
+ORDER BY
+    department DESC;
+
+
+----------Add Two column value row by row--------------
+SELECT
+    e.*,
+    ( salary + bonus ) AS final_salary
+FROM
+    t_employee_det e;
+
+
 ALTER TABLE student ADD CHECK (Age>=19);
 
 
