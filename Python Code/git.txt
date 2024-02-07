@@ -306,6 +306,11 @@ git checkout new_branch_name
 git switch branch_name
 
 
+
+checkout is used to undo the previous changes in file
+git checkout file_name(git checkout -f)
+git restore file_name
+
 Once you’ve finished working on a branch and have merged it into the main code base, 
 you’re free to delete the branch without losing any history.
 git branch -d new_branch_name
@@ -482,6 +487,16 @@ rebashing
 Rebase is one of two Git utilities designed to integrate changes from one branch onto another. Rebasing is the process of 
 combining or moving a sequence of commits on top of a new base commit. Git rebase is the linear process of merging.
 (refer from here https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+
+
+Git rebase -used to optimizing and cleaning up your commit history.
+1.change a commit message
+2.delete commit.
+3.reorder commit.
+4.combine multiple commits into one
+5.edit/split existing commit into multiple new one.
+
+
 
 
 Git Rebase is similar to git merge, but the logs are modified after merge in this technique.
