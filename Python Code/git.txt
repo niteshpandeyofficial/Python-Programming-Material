@@ -549,3 +549,17 @@ The git log is a public record of the commit history of the repository, whereas 
 git tag --pretty=oneline
 get all commit id with details in single line
 
+
+
+git alias
+--give the short name to any coomand 
+git status
+git config --global alias.s status
+
+git s(now it is work as alias)
+
+git commit -a -m "message_desc"
+git config --global alias.sc 'commit -a -m'
+git sc "message"
+
+
