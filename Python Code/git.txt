@@ -305,7 +305,7 @@ Switched to new created branch
 git checkout new_branch_name
 git switch branch_name
 
-
+git mv file4.txt file3.txt(rename the file using git command)
 
 checkout is used to undo the previous changes in file
 git checkout file_name(git checkout -f)
