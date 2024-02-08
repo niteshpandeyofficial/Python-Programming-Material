@@ -148,13 +148,6 @@ This is used to store the changes permanently into the git repository
 
 git push origin main
 
-pull
-pull  operation copies changes from central or remote repo to a local machine.
-The pull operation is used for syncronisation between two repo.
-
-git pull <remote_name>
-
-git pull = git fetch + git merge
 
 
 Git Fetch 
@@ -173,6 +166,19 @@ Updates the changes to the local repository immediately.
 Merge conflicts are possible if the remote and the local repositories have done changes at the same place.
 Command for Git Pull is git pull<remote><branch>.
 Git Pull basically brings the local branch up-to-date with the remote copy that will also updates the other remote tracking branches.
+
+
+pull
+pull  operation copies changes from central or remote repo to a local machine.
+The pull operation is used for syncronisation between two repo.
+
+git pull <remote_name>
+
+git pull = git fetch + git merge
+
+clone vs pull
+ Git clone copies all files to the local machine, 
+ while git pull only copies the modified files to the local machine.
 
 Branches
 
@@ -548,6 +554,9 @@ git log shows the commit log accessible from the refs (heads, tags, remotes)
 git reflog is a record of all commits that are or were referenced in your repo at any time.
 The git log is a public record of the commit history of the repository, whereas the reflog is private.
 
+What about Git reflog?
+Git reflog is a history of all the changes made to a git repository. It is a valuable tool for debugging and troubleshooting purposes. 
+
 git tag --pretty=oneline
 get all commit id with details in single line
 
@@ -565,3 +574,13 @@ git config --global alias.sc 'commit -a -m'
 git sc "message"
 
 
+
+What has to be run to squash the last N commits into a single commit?
+In Git, squashing commits means combining two or more commits into one.
+
+What is the functionality of “git cherry-pick” command?
+This command is used to introduce certain commits from one branch onto another branch within the repository.
+
+How do you find a list of files that has changed in a particular commit?
+git diff-tree -r <commit id>
+ this will list all the files that were changed or added in that commit.
