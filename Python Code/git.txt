@@ -377,7 +377,9 @@ git stash clear --drop all stash file
 git stash pop ---remove single item only at a time
 git stash drop --remove single item only at a time
 
-Git reset
+Git reset (back to working area from staging area )
+or
+git restore --staged a.txt(name of file)
 reset is the command we use when we want to move the repository back to a previous commit, discarding any changes made after that commit.
 git reset .
 git reset --hard
