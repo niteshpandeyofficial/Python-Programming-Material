@@ -1,7 +1,9 @@
 MongoDB
 
 
-MongoDB: MongoDB is a NoSQL() database.MongoDB is a JSON document datastore. 
+MongoDB: MongoDB is a NoSQL() database.that store large volume of data inthe form of documents.
+
+MongoDB is a JSON document datastore. 
 It allows you to store and query JSON style documents with a few smarts on top.
 Mongo DB is schema less structure
 Sharding is a method for distributing data across multiple machines. MongoDB uses 
@@ -13,6 +15,25 @@ Retrival process is fast(performance is good)
 support Geospatial query
 easily integration with big data hadoop
 highly scalable
+
+
+Alternatives of nosql database to mongodb 
+Neo4j
+amazone dynamodb
+cassandra ApacheHBASE
+redis
+
+key-value :redis
+columns_based:cassandra
+document base:mongodb ,couchbase
+graph database:Neo4j
+
+
+How mongodb store data
+MongoDB store data records as documents(BSON documents)  which are gatherd together in collections
+
+Schema of database describe  the structure of data  to be stored.
+
 
 There are two methods for addressing system growth: vertical and horizontal scaling.
 
@@ -131,7 +152,7 @@ Remove all element or documents of given collection
 db.collectionname.remove({})
 
 Update the details
-Once a document is stored in the database, it can be changed using one of several
+Once a document is storefindoneandupdated in the database, it can be changed using one of several
 update methods: updateOne , updateMany , and replaceOne. updateOne and
 updateMany.
 
