@@ -97,6 +97,30 @@ p=Programmer('Sam',100)
 p.showDetails()
 p.showLanguage()
 
+-----------------------
+class BaseClass:
+  def __init__(self,age):
+    self.age=age
+  
+  def display(self):
+    print('Age is',self.age)
+  
+class DerivedClass(BaseClass):
+  def __init__(self,age,name):
+    super().__init__(age)
+    self.name=name
+  
+  def display(self):
+    super().display()
+    print(f"name is {self.name}")
+
+e1=DerivedClass(16,"Nitesh")
+e1.display()
+o/p-
+Age is 16
+name is Nitesh
+------------------------
+
 2.Mulitple Inheritence.
 It allows a class to inherit attributes and methods from multiple parents class or more then one base class.
 Syntax:
