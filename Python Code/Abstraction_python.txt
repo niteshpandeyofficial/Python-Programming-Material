@@ -22,6 +22,9 @@ Abstract Classes:
 3.Abstract classes are created using the abc(Abstract Base Class) module in Python.
 4.An Abstract class can contain the both method normal and abstract method.
 
+Using Abstract Methods:
+Abstract methods are declared using the @abstractmethod decorator provided by the abc module (Abstract Base Classes) in Python. Any class containing abstract methods must inherit from ABC (Abstract Base Class) and implement all abstract methods defined in its parent classes.
+
 
 Interfaces:
 1.Python does not have a built-in concept of interfaces like some other programming languages (e.g., Java). 
@@ -45,8 +48,6 @@ class Verna(Car):
   def mileage(self):
     return 'Mileage is 12km'
 	
-
-Abstraction is important because it helps to produce code that is more reliable, maintainable, and scalable.
 v=Verna()
 v.mileage()
 
