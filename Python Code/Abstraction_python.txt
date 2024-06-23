@@ -27,6 +27,7 @@ Interfaces:
 1.Python does not have a built-in concept of interfaces like some other programming languages (e.g., Java). 
 2.However, you can use abstract base classes (ABCs) to define interfaces, as shown in the example.
 
+from abc import ABC, abstractmethod
 class Car(ABC):
   @abstractmethod
   def mileage(self):
