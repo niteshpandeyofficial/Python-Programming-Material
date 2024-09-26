@@ -3,6 +3,7 @@
 
 SELECT ROWID,E.* FROM EMP E WHERE ROWID='AAAR1oAABAAAbHhAAG';
 
+-- In Oracle databases, an index is a database object that improves the speed of data retrieval operations on a table. 
 --AN INDEX IS AN SCHEMA OBJECT THAT CONTAIN AN ENTRY FOR EACH VALUE THAT APPEARS IN THE INDEX COLUMNS OR THE TABLE
 --An index is a database structure that provides quick lookup of data in a column or columns of a table
 --IT PROVIDE DIRECT,FAST ACCESS TO ROW.ORACLE DATABASE SUPPORT SEVERAL TYPE OF INDEX.
