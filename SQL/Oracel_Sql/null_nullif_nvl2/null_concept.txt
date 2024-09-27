@@ -1,6 +1,5 @@
-null is not treated as empty string.its unknow value
 0 is numerical value.
-blank is treated as string 
+In Oracle, a blank value (i.e., an empty string) is treated as a NULL value
 
 null is not compared with equal or not equal operator
 for this we can use is null or is not null.
