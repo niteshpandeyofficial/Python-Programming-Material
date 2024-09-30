@@ -86,9 +86,31 @@ Analytical Function
 --select distinct(first_value(emp_name) over(partition by dept_no order by sal)
 from emp where rownum=1
 
+select employee_id,salary_first_value(salary) over (partition by department ordr by salary) details from t_user_details;
+--return result as first value of salary from each department 
+
 2.Lead & Leg function
-3.nth_value()-return nth values in the set of values
+LEAD is commonly used to compare values in the current row with those in the following rows
+LEAD(column_name, offset, default_value) OVER (PARTITION BY partition_expression ORDER BY order_expression)
+
+select employee_id,last_name,lead(salary) over(order by employee_id) from t_user_details; --compare the value of current row with its next value.
+
+LAG is similar to LEAD, but it accesses data from a previous row in the result set. It allows comparisons between the current row and previous rows.
+LAG(column_name, offset, default_value) OVER (PARTITION BY partition_expression ORDER BY order_expression)
+
+select employee_id,salary,lag(salary) over(order by employee_id) from t_user_details;
+
+use case:
+-- Use LEAD to compare current row data with the next row.
+-- Use LAG to compare current row data with the previous row.
+-- Use FIRST_VALUE to get a consistent value from the first row of the ordered set.
+
+
+3.nth_value()-return nth values in the set of values(etrieving specific row values within a partition.)
 nth_value(product_name,2)
+
+select employee_id,salary,nth_value(salary,2) over(partition by department order by salary desc) details from t_user_details;
+-- return department wise 2nd salary in descending order
 
 */
 
