@@ -478,7 +478,8 @@ A1	A2	B3	B4	C5	C6
 D1	D2	E3	E4	F5	F6
 */
 
-
+The WITHIN GROUP clause in Oracle is essential for performing ordered-set aggregations, 
+allowing you to define how the input values should be ordered before performing calculations like percentiles or medians.
 select listagg(level*3,',') within group (order by rownum desc)from dual connect by level<=100/3;
 /*
 99,96,93,90,87,84,81,78,75,72,69,66,63,60,57,54,51,48,45,42,39,36,33,30,27,24,21,18,15,12,9,6,3
