@@ -147,6 +147,12 @@ select rownum r,e.* from emp e order by 1) where mod(r,2)=0;
 
 
 -----find unique travel fair from respective source and destination.
+LEAST: Returns the smallest value from a set of expressions.
+GREATEST: Returns the largest value from a set of expressions.
+
+select least(10,20,4,5,6,7) as min,greates(23,4,5,3,20,null) as max from dual;
+-- output  min-4,max-null(because its containt null value .if does not then retrun 23 as max value)
+
 create table travels
 (src varchar2(10),dest varchar2(10),fair number);
 
