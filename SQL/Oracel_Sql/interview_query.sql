@@ -568,6 +568,14 @@ a.b.c
 test
 */
 
+The VALIDATE_CONVERSION function is a valuable tool in Oracle SQL 
+for checking whether a value can be safely converted to a specified data type. 
+This can enhance data validation processes and improve error handling in your applications.
+
+SELECT VALIDATE_CONVERSION('123', 'NUMBER') AS is_valid
+FROM dual;
+-- This will return 1, indicating that the string '123' can be converted to a NUMBER.
+
 select c from t 
 where VALIDATE_CONVERSION(c as number)=1
 union all
@@ -1093,7 +1101,8 @@ select regexp_count('aaAAdhfdhvbdA','A|a') res from dual;
 */
 
 ----------find day in each month
-with year as (select 2024 y from dual)
+with year as (   
+    2024 y from dual)
 select --y,
         --rownum MM,
         --last_day(to_date(trim(to_char(level,'00'))||y,'MMYYYY')) last_day,
@@ -1345,7 +1354,7 @@ end;
 
 ----
 clear screen
-create or replace procedure test1_demo(p_value IN OUT varchar2,lv_temp IN OUT number)--Actual parameter 
+create or replace procedure test1_demo(p_value IN OUT varchar2,lv_temp IN OUT number)--Formal parameter 
 as
 begin
     p_value:='B';
@@ -1357,7 +1366,7 @@ declare
     lv_char varchar2(2);
     lv_temp number;
 begin
-    lv_char:='A';--Formal parameter
+    lv_char:='A';--Actual parameter
     lv_temp:=1/0;
     begin
     test1_demo(lv_char,lv_temp);
@@ -1371,10 +1380,12 @@ end;
 Actual Parameter
 1.When a function is called, the values (expressions) that are passed in the function call are called the arguments or actual parameters.	
 2.There is no need to specify datatype in actual parameter. 
+3. An actual parameter is the real value or variable that you pass to a procedure or function when you call it.
     
 Formal Parameter
 1. The parameter used in function definition statement which contain data type on its time of declaration is called formal parameter.
 2.The datatype of the receiving value must be defined.
+2. A formal parameter is a variable that is defined in a procedure or function declaration.
 */
 
 /*
