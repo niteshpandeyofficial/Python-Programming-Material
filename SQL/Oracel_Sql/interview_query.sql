@@ -52,6 +52,8 @@ This function is useful for the formatting of the output of query.
 
 ---mask the character or number except last 4 digit or character
 --does not work well when there is length of digit is less then 4
+-- Eg> input:111222233334444
+-- output:XXXXXXXXXXXX4444
 with data as
 (
 select 1111222233334444 d from dual)
