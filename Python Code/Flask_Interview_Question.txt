@@ -157,3 +157,36 @@ Flask Sijax also provides an easy way to send JSON data between the server and t
 To install we can use the following command 
 pip install flask-sijax 
 
+What is ORM?
+ORM stands for Object-Relational Mapping. It is a programming technique that allows developers to interact with a database using an object-oriented paradigm. Instead of writing raw SQL queries to manipulate database records, ORM allows you to define models as classes and interact with the database using Python objects.
+
+Why Use ORM in Flask?
+Simplified Database Interaction
+Less Boilerplate Code
+Security
+Enhanced Productivity
+Improve Maintainability
+
+Once you have initialized the database with flask db init during the initial setup of your Flask application, you do not need to initialize the database again when adding new tables or making changes to existing ones.
+1.Define your new model: Add the new table as a class in your application.
+2.Generate a migration script: Use flask db migrate to create a migration file.(flask db migrate -m "Add Post table")
+3.Apply the migration: Use flask db upgrade to apply the changes to your database.
+
+# This creates all tables defined by the models
+with app.app_context():
+        db.create_all()
+
+Basic Migration Commands
+Initialize migrations: This sets up the migration repository.
+>> flask db init
+
+Generate a migration script: After making changes to your models, generate a migration script.
+>> flask db migrate -m "Description of changes"
+
+Apply migrations: Apply the generated migration script to the database.
+>> flask db upgrade
+
+Rollback migrations: If needed, you can revert to a previous migration.
+>> flask db downgrade
+
+
