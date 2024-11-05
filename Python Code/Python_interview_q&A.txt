@@ -2507,11 +2507,27 @@ What is a namedtuple?
 A namedtuple will let us access a tuple’s elements using a name/label. 
 We use the function namedtuple() for this, and import it from collections.
 
+namedtuple is a subclass of tuple that allows you to define a tuple with named fields.
+It's useful when you need immutability, a lightweight object, and named fields for better readability and self-documentation.
+
 >>> from collections import namedtuple
 >>> result=namedtuple('result','Physics Chemistry Maths') #format
 >>> Ayushi=result(Physics=86,Chemistry=95,Maths=86) #declaring the tuple
 >>> Ayushi.Chemistry
 
+Example-2
+from collections import namedtuple
+# Define a named tuple type
+Person = namedtuple('Person', ['name', 'age', 'city'])
+# Create an instance of the named tuple
+person1 = Person(name="Alice", age=30, city="New York")
+# Access fields by name (dot notation)
+print(person1.name)  # Output: Alice
+print(person1.age)   # Output: 30
+print(person1.city)  # Output: New York
+
+# You can still access fields by index (like a regular tuple)
+print(person1[0])  # Output: Alice (same as person1.name)
 
 
 How do you take input in Python?
