@@ -2451,6 +2451,23 @@ enter_number(5)
 #[3]
 #[3, 5]
 
+def make_discount_calculator(discount):
+    def apply_discount(price):
+        return price - (price * discount)
+    return apply_discount
+
+# Create a discount calculator with a 20% discount
+discount_20 = make_discount_calculator(0.20)
+print(discount_20(100))  # Output: 80.0
+
+# Create another discount calculator with a 10% discount
+discount_10 = make_discount_calculator(0.10)
+print(discount_10(100))  # Output: 90.0
+
+When to Use Which Approach:
+Use a Closure if you need independent, customized instances that retain their own state. For example, if you want to create different discount calculators with different discount values that operate separately, closures are a good choice.
+
+Use a Class Variable if you want shared state across all instances. If every instance of your discount calculator should use the same discount rate (e.g., a global discount rate for all customers), then class variables make more sense.
 
 How do you get a list of all the keys in a dictionary?
 
