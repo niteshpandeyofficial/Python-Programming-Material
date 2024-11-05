@@ -4018,6 +4018,34 @@ multiply(2,b=4)-valid
 
 Duck Typing is a way of programming in which an object passed into a function or 
 method supports all method signatures and attributes expected of that object at run time. 
+Duck Typing in Python is a concept where the type or class of an object is determined by its behavior (i.e., what methods it has or how it behaves) rather than its explicit type.
+example-1
+
+class Dog:
+    def speak(self):
+        return "Woof!"
+    
+class Cat:
+    def speak(self):
+        return "Meow!"
+    
+class Person:
+    def speak(self):
+        return "Hello!"
+
+def make_animal_speak(animal):
+    # We don't check if `animal` is an instance of Dog, Cat, etc.
+    # We just call `speak()`.
+    return animal.speak()
+
+# You can pass any object as long as it has the `speak` method
+dog = Dog()
+cat = Cat()
+person = Person()
+
+print(make_animal_speak(dog))    # Output: Woof!
+print(make_animal_speak(cat))    # Output: Meow!
+print(make_animal_speak(person)) # Output: Hello!
 
 
 class VSCode:
