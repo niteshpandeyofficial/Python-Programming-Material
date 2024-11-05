@@ -2976,6 +2976,10 @@ dump()-Encoding string writing on file.
 loads()-Decode the JSON string.
 load()-Decode while JSON file read
 
+json.dumps()	Converts Python data to a JSON string	When you need to work with the JSON data as a string (e.g., sending it over the network, logging, or manipulating it in your program).
+json.dump()	Converts Python data to JSON and writes it directly to a file	When you want to save the data in a JSON file on disk (e.g., saving configuration, ex
+
+
 
 for person in data['people']:
     del person['phone']
