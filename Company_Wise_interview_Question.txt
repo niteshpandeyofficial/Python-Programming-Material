@@ -1,0 +1,165 @@
+Neosoft Interview Round1
+
+Python
+What is oops
+Encapsulation
+Inheritance (multiple and multilevel)
+Abstraction
+Generator
+Iterator
+Decorator
+list,iterator,generator
+
+
+SQL
+Join (outer or full join)
+Unique vs primary
+Primary vs foreign key
+Contraints
+
+
+Git
+Four git Command 
+Git push
+Git pull
+Git merge
+Git clone
+githook
+
+
+WebFramework
+App rout
+ORM
+render_template
+how to deploy the flask application in ec2
+methods in app route
+how to provide the input value to render template
+
+Pandas 
+
+
+AWS CloudFormation is a service that gives developers and businesses an easy way to create a collection of related AWS and third-party resources, and provision and manage them in an orderly and predictable fashion.
+
+
+
+Reliance Limited
+columns=name,age,location,nationality
+
+#student having age is greater than 40 and location is mumbai
+student_det[(student_det['Age']>40) & (student_det['location']=='Mumbai')] or
+student_det.query("Age>40 & location=='Mumbai'")
+
+
+check dataframe is null or not
+df.isnull() or len(df)--if zero means null or df.size()---if zero means null
+
+fill not available value to the columns having NAN value if columns is of different datatype
+df.fillna('Not Available')
+
+
+Create dict value from 2 list values
+A=[1,2,3]
+B=['A','B','C']
+dict((zip(A,B)))
+
+query for equi join where id is same
+SELECT t1.name,t1.age,t1.id FROM table1 t1,table2 t2 WHERE t1.id=t2.id
+
+left join
+SELECT t1.name,t1.age,t1.id FROM table1 t1 LEFT JOIN table2 t2 ON t1.id=t2.id
+
+
+1.how to download the file on local machine it they click on submit button
+answer:
+The send_from_directory function in Flask is used to safely serve files from a specific directory on your server. It is helpful when you want to provide file downloads or serve static files without exposing the full filesystem path.
+
+Use safe_join to ensure that the provided filename does not allow users to access files outside the intended directory.
+
+        file_path = safe_join(UPLOAD_FOLDER, filename)
+        send_from_directory(UPLOAD_FOLDER, filename, as_attachment=True)
+
+
+
+
+2.how to get the large data from third party api to display it on web browser if it take the long time.
+you can follow a structured approach that includes asynchronous processing, pagination, or background jobs.
+Asynchronous processing allows your application to handle requests without blocking the server. You can use libraries like Flask-SocketIO or asyncio with aiohttp to fetch data without freezing the user interface.
+
+For even more efficient handling, especially if the data is extensive, you may consider using a background job queue (like Celery) to fetch the data. This way, you can inform the user that the data is being processed and check back later for results.
+
+
+
+3.how to insert 1 lakh data into oracle using flask post methods
+Answer:
+Using chunked insertion is a best practice for inserting large datasets, as it offers improved performance, better memory management, and more effective error handling.
+
+4.how to download the large data from third party api if its take long running time.
+
+Blueprint
+In Flask, a Blueprint is a way to organize your application into smaller, reusable components. Think of it as a mini-application that can have its own routes, templates, and static files.
+users_bp = Blueprint('users', __name__)
+app.register_blueprint(users_bp, url_prefix='/users')
+
+
+
+engine in pandas--XLRD is the default engine for Pandas to read Excel files, and as it happens XLRD stopped supporting XLSX files. If you want to read one anyway, you need to pip install openpyxl, and set it to be the reading engine instead of the default.
+
+how to read_excel file along with sheet name
+read_excel()--Read only 3 columns of perticular sheets
+df=pd.read_excel('/content/interview_data.xlsx',sheet_name="file1",engine='openpyxl',usecols=['employee_id', 'employee_name', 'department'],nrows=5)
+
+
+
+--> app_context() in flask
+This is particularly useful when you need to run background tasks, scripts, or any operations that require access to the application context.
+
+with app.app_context():
+	subprocess.call(['bash','./app/download/abc.sh'],app.config['path'])
+
+
+how to add time object and date object into time object as single object
+from datetime import date,time,datetime
+my_date = date.today()
+my_time = time(14, 30, 0) 
+datetime.combine(my_date,my_time)
+o/p:
+datetime.datetime(2024, 11, 9, 14, 30)
+
+download dataframe data without index
+df.to_csv('abc.csv',index=False)
+
+
+
+
+how to get oracle connection details
+import cx_Oracle
+dsn = cx_Oracle.makedsn(host, port, service_name=service_name)
+connection = cx_Oracle.connect(username, password, dsn)
+
+
+
+how to go to the next directory when present in the current directory
+eg --current directory is  home/nitesh/
+we needs to go to the next upper hierarchy ???
+this is 2 step process.
+1.check the folder present in current directory using ls or ls -ltr
+2.once find the required directory then go to that directory using cd directory_name.
+
+
+CORS(Cross-origin resource sharing)
+CORS:It is allow your API to be accessed by web applications from different origins.
+
+from flask_cors import CORS
+CORS(app,resources={r'/*':{"Access-Control-Allow-Origin":
+				['http://localhost,'http://abc.com'],
+				"Access-Control-Allow-Crednentials":True,"supports_credentials":True
+				},
+		   },
+		supports_credentials=True,expose_headers='*')
+
+
+Access-Control-Allow-Origin
+used to control how resources are shared between different origins. This header specifies which origins are allowed to access the resource. 
+It is essential for security, as it helps prevent unauthorized access to resources.
+
+If you need to include credentials (like cookies) in your requests, you can set supports_credentials=True
