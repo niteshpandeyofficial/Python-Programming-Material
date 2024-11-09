@@ -1,0 +1,581 @@
+UNIX----->UNICS(Uniplexed Information and Computing Services)
+
+Flavours of unix
+MAC OS
+IBM -AIX
+HP UX
+SUN Solaris
+
+
+MINIX---Base Language of Linux
+
+Linux + GNU -->OS
+
+Linux Distribution
+
+Red Hat (RHEL)
+Fedora
+Debian
+Others(Ubuntu,Cent OS(Fast than other OS),Kali )
+Community and enterprice(CentOS)
+
+Linux Feature/Advantages
+Open source
+Secure
+Light weight
+Simplified update for all installed software
+Multiuser --Multi Task
+Multiple distribution(Red Hat,Debian,Fedora,centos kali linux,ubuntu)
+
+
+Architecture
+
+HW
+Kernal(interact with Hardware)
+Shell(interact with users)
+Users
+
+
+Folder--Directories
+Administrator--root user
+Software--package
+file--file
+
+/(Forward slash)--top level root directory
+
+File system hierarchy
+
+/root---It is a home directory for root users
+/home---It is a home directory for all other users
+/usr----by default all software are installed in this directory
+/etc----It contain all configuration file
+/bin----It contain command used by all user including root user
+/sbin---It contain command used by root user only
+/opt----Optional directory to store the software
+/dev----Essential device file .This includes terminals device,usb or any other attached to the system
+/boot---It contain bootable file for linux
+
+
+How to create file in linux
+1.cat --create file
+2.nano
+3.vi/vim
+4.touch ---(create empty file)
+
+Vi and nano--editor
+
+
+sudo su----super user do switch user
+
+$--normal user
+#--root user
+
+
+
+cat
+the cat command is one of the most universal tool,yet all it does is copy standard input to standard output
+
+Main features of cat command
+create file
+copy file
+concatenate file
+reverse tac content of the file
+
+Create file---creating single file 
+cat > file_name
+----
+----
+(ctrl+d)--to exit
+
+read file 
+cat file_name
+
+Concatenate the file --to add the more than one file in to single file
+cat file_name1 file_name2 > combine_file
+
+write to file (only add the new details )
+cat >>file_name1
+thank you
+
+> vs >>
+Touch command(Generally used to create file with timestamps)
+Uses
+
+Create an empty file
+change all timstamp of file
+update only access time of file,modify time of file
+Create multiple empty file
+
+Timestamps categorise into 3 category
+access(Last time when a file was access)
+modify(Last time when a file was modified)
+change(Last time when a file metadata was changed)
+
+
+touch file1 file2 file3
+touch -a file1(Modify access time of file)
+touch -m file2(change the modify time of file)
+
+
+
+
+vim /vi editor
+programer text editor
+it can be used to edit all kind of plan text .it is mostly useful for editing program mainly used for unix program
+vi is standard but nano is based on linux which is used by us
+
+:w--To save
+:wq or :x --to save and quite
+:q--quite
+:q!--force quite no save
+
+cat--to see the content of file from bottom to top
+
+nano
+nano file
+ctrl + x
+
+ctrl+o---override
+
+
+
+Linux doesn't use file extensions; rather, the file's type is part of the file name. To find out the true file type use the file command.
+
+
+
+
+
+
+
+
+
+
+#!/bin/bash
+awk -F , '$2~/^c/'  a1.csv >a1.txt
+awk -F , '{sum+=$3} END {print sum}' a1.txt
+
+
+
+ssh -s a1.sh
+
+ 
+ #!/bin/bash
+while read line
+do
+   echo "Record is : $line"
+done < input.csv
+
+
+
+
+tar -czvf 2021-01.tar.gz
+
+awk -F "\"*,\"*" '{print $2}' textfile.csv
+awk 'NR == 2 {print $3}' a.txt > price
+
+grep 'p1' <namefile> | awk '{print $1,$3}'
+
+ awk -F , '$2 == "c1" { print $3}' a1.csv
+
+Download virtual box
+https://www.virtualbox.org/wiki/Downloads
+
+
+ubuntu is a distribution  of Linux in given directory
+pwd-Print current working directory
+cd-change directory.
+cp -copy 
+
+ls-list the file and folder.
+
+
+PWD-print working directory
+cd /--roots nodes
+cd
+
+
+awk -F: '{ print $1}' /etc/passwd---list of user
+
+/  -
+// -
+~  -
+touch --
+move the any file we need to present in that directory
+
+difference between move and copy
+
+mv---move the file to specified location 
+history | grep mv--which command we used
+
+-vi--with mv command
+mv -i file1 /tmp
+
+
+ls -A
+ls -R ----read all the folder and subfoder of the same.
+ls -a---read hiden file
+ls -lsrt
+history
+
+nautilus folder1
+chmod u+x program_name  ---Change mode
+
+Idecimal value for different permission
+
+Owner			Group				Public
+Execute --100		Execute --10			Execute --1
+Write --200		Write --20			Write --2 
+Read --400		Read  --40			Read --4
+
+
+
+Users in Linux
+Regular user--(Home directory)
+Root user --Full access of system(Admin or Super user)
+Service users--specific service allowed for people
+
+$--regular user
+
+Advanced Package Tools(APT)
+
+top
+ps -a
+ps 
+kill
+d-directory
+- file 
+
+Hidden file and folder
+mkdir .file_name
+
+
+Rename of file and move using same command
+mv old_file_name 	new_file_name
+
+Remove command 
+
+rm -rf -->remove even non-empty file and directory
+rm -rp -->remove even non-empty including parent file and directory 
+rm -r  -->remove empty directory.
+
+rmdir --remove empty directory
+rmdir -p  ---remove both parent and child directory.
+rmdir -pv ---remove both parent and child directory with verbose.
+
+
+find the type of file or directory
+ls -l(long list)
+d--directory
+
+ls -al  --->
+
+
+. -->current directory
+..--> previous directory
+
+
+Copy command
+cp file1 file2---if destination file not present in the current specified directory then system will create new file and copy the content on it
+cp file1 file3 ---if the file present then it asked or overwrit option
+
+
+Cut paste
+
+mv file1 file2  --cut the directory from current location to in file2
+
+Rename
+mv file1 myfolder--rename file to myfolder
+
+Remove
+If we specify the parameter then it force fully remove the content but if we normally used without parameterit asked for remove the content
+
+less
+less command is used to check the preview of first page details
+we can enter q to exit from less command
+
+head new
+it only show top 10 value of file
+
+more
+tail
+
+
+
+yellowgod updater modified
+
+yum install httpd -y(default it install apached server Y means always yes)
+yum remove httpd
+yum update httpd
+
+
+chkconfig httpd on
+echo "Nitsam"
+
+echo "Hi I am Nitesh" >abc.text
+echo "welcom" >>abc.text ----append 
+echo >abc.text --erase
+
+
+grep root /etc/passwd--search the details
+sort---ascending the details in alphabetical order
+who am i
+
+yum update -y(update the all existing packages)
+tree --specify the tree level architecture
+
+cat /etc/os-release
+cat /etc/os-rel*
+
+service httpd start ---Start the apache server
+service httpd stop 
+service httpd status --check status of apached server
+
+yum list installed
+
+which treee---use to check the perticular software
+
+
+useradd-create the user
+groupadd-create a group
+gpasswd-a/-M -->to add user in to group or multiple usser into group
+
+cat /etc/group
+cat /etc/passwd
+
+
+ln --hard link(Backup created when we make any changes in existing file)
+ln -s (soft link)
+
+Tap Archieve
+tar  --used to combine multiple file into one
+tar -cvf dirxyz.tar dira
+c--create
+f--forcefully
+v--verberose
+
+gzip --
+gzip dirx.tar
+
+Receiver end
+gunzip dirx.tar.gz
+
+tar -xvf dirx.tar
+x--etract
+
+wget <url>
+non interactive network downloader
+
+drwxr-xr-x 3 root root  18 Jul  1 17:11 dira
+
+d---repesent that it is directory
+rwx--owner or root permission
+r-x--group user permission
+r-x --other user permission
+3--sumbolic link
+root--owner user
+root --group uper
+18-file size (default is 8 byte in case of empty directory)
+
+
+chmod
+chown
+chgrp
+
+
+command
+
+[root@ip-172-31-40-60 test_learn]# ls
+file1  file2
+[root@ip-172-31-40-60 test_learn]# cat file2
+this is 2nd file
+[root@ip-172-31-40-60 test_learn]# cat file1 >> file2
+[root@ip-172-31-40-60 test_learn]# ls
+file1  file2
+[root@ip-172-31-40-60 test_learn]# cat file2
+this is 2nd file
+this is open third time
+[root@ip-172-31-40-60 test_learn]# cat file1
+this is open third time
+[root@ip-172-31-40-60 test_learn]# cat file1>file2
+[root@ip-172-31-40-60 test_learn]# ls
+file1  file2
+[root@ip-172-31-40-60 test_learn]# cat file1
+this is open third time
+[root@ip-172-31-40-60 test_learn]# cat file2
+this is open third time
+[root@ip-172-31-40-60 test_learn]# ls
+
+ot@ip-172-31-40-60 test_learn]# ls
+file1  file2
+[root@ip-172-31-40-60 test_learn]# 
+[root@ip-172-31-40-60 test_learn]# 
+[root@ip-172-31-40-60 test_learn]# 
+[root@ip-172-31-40-60 test_learn]# 
+[root@ip-172-31-40-60 test_learn]# cat >file3
+this is third file 
+[root@ip-172-31-40-60 test_learn]# ls
+file1  file2  file3
+[root@ip-172-31-40-60 test_learn]# cat file1 file2 >> file3
+[root@ip-172-31-40-60 test_learn]# ls
+file1  file2  file3
+[root@ip-172-31-40-60 test_learn]# cat file3
+this is third file 
+this is open third time
+this is open third time
+
+
+
+[root@ip-172-31-40-60 test_learn]# cat file5
+this is third file 
+this is open third time
+this is open third time
+[root@ip-172-31-40-60 test_learn]#  cat file5>>file6
+[root@ip-172-31-40-60 test_learn]# cat file6
+this is a file which is deleted
+
+this is new line added to this file
+
+this is third file 
+this is open third time
+this is open third time
+[root@ip-172-31-40-60 test_learn]# cat >>file6
+this is line added after concatenation og file5
+[root@ip-172-31-40-60 test_learn]# 
+[root@ip-172-31-40-60 test_learn]# ls
+file1  file2  file3  file4  file5  file6
+[root@ip-172-31-40-60 test_learn]# cat file6
+this is a file which is deleted
+
+this is new line added to this file
+
+this is third file 
+this is open third time
+this is open third time
+this is line added after concatenation og file5
+
+
+this is open third time
+[root@ip-172-31-40-60 test_learn]# cat file5>file6
+[root@ip-172-31-40-60 test_learn]# file6
+bash: file6: command not found
+[root@ip-172-31-40-60 test_learn]# cat file6
+this is third file 
+this is open third time
+this is open third time
+[root@ip-172-31-40-60 test_learn]# cat >file6
+this is a file which is deleted
+^X
+[root@ip-172-31-40-60 test_learn]# ls
+file1  file2  file3  file4  file5  file6
+[root@ip-172-31-40-60 test_learn]# cat file6
+this is a file which is deleted
+
+[root@ip-172-31-40-60 test_learn]# cat >>file6
+this is new line added to this file
+^X
+[root@ip-172-31-40-60 test_learn]# ls
+file1  file2  file3  file4  file5  file6
+[root@ip-172-31-40-60 test_learn]# cat file6
+this is a file which is deleted
+
+this is new line added to this file
+
+[root@ip-172-31-40-60 test_learn]# cat file5
+this is third file 
+this is open third time
+this is open third time
+[root@ip-172-31-40-60 test_learn]#  cat file5>>file6
+[root@ip-172-31-40-60 test_learn]# cat file6
+this is a file which is deleted
+
+this is new line added to this file
+
+
+[root@ip-172-31-40-60 test_learn]# ls -l
+total 24
+-rw-r--r-- 1 root root  24 Jun 29 17:31 file1
+-rw-r--r-- 1 root root  24 Jun 29 17:34 file2
+-rw-r--r-- 1 root root  68 Jun 29 17:37 file3
+-rw-r--r-- 1 root root  68 Jun 29 17:43 file4
+-rw-r--r-- 1 root root  68 Jun 29 17:43 file5
+-rw-r--r-- 1 root root 188 Jun 29 17:48 file6
+[root@ip-172-31-40-60 test_learn]# ls -lsrt
+total 24
+4 -rw-r--r-- 1 root root  24 Jun 29 17:31 file1
+4 -rw-r--r-- 1 root root  24 Jun 29 17:34 file2
+4 -rw-r--r-- 1 root root  68 Jun 29 17:37 file3
+4 -rw-r--r-- 1 root root  68 Jun 29 17:43 file4
+4 -rw-r--r-- 1 root root  68 Jun 29 17:43 file5
+4 -rw-r--r-- 1 root root 188 Jun 29 17:48 file6
+[root@ip-172-31-40-60 test_learn]# 
+[root@ip-172-31-40-60 test_learn]# 
+[root@ip-172-31-40-60 test_learn]# ll
+total 24
+-rw-r--r-- 1 root root  24 Jun 29 17:31 file1
+-rw-r--r-- 1 root root  24 Jun 29 17:34 file2
+-rw-r--r-- 1 root root  68 Jun 29 17:37 file3
+-rw-r--r-- 1 root root  68 Jun 29 17:43 file4
+-rw-r--r-- 1 root root  68 Jun 29 17:43 file5
+-rw-r--r-- 1 root root 188 Jun 29 17:48 file6
+[root@ip-172-31-40-60 test_learn]# 
+
+
+Touch command
+
+[root@ip-172-31-40-60 test_learn]# ls -l
+total 24
+-rw-r--r-- 1 root root  24 Jun 29 17:31 file1
+-rw-r--r-- 1 root root  24 Jun 29 17:34 file2
+-rw-r--r-- 1 root root  68 Jun 29 17:37 file3
+-rw-r--r-- 1 root root  68 Jun 29 17:43 file4
+-rw-r--r-- 1 root root  68 Jun 29 17:43 file5
+-rw-r--r-- 1 root root 188 Jun 29 17:48 file6
+[root@ip-172-31-40-60 test_learn]# ls -lsrt
+total 24
+4 -rw-r--r-- 1 root root  24 Jun 29 17:31 file1
+4 -rw-r--r-- 1 root root  24 Jun 29 17:34 file2
+4 -rw-r--r-- 1 root root  68 Jun 29 17:37 file3
+4 -rw-r--r-- 1 root root  68 Jun 29 17:43 file4
+4 -rw-r--r-- 1 root root  68 Jun 29 17:43 file5
+4 -rw-r--r-- 1 root root 188 Jun 29 17:48 file6
+[root@ip-172-31-40-60 test_learn]# 
+[root@ip-172-31-40-60 test_learn]# 
+[root@ip-172-31-40-60 test_learn]# ll
+total 24
+-rw-r--r-- 1 root root  24 Jun 29 17:31 file1
+-rw-r--r-- 1 root root  24 Jun 29 17:34 file2
+-rw-r--r-- 1 root root  68 Jun 29 17:37 file3
+-rw-r--r-- 1 root root  68 Jun 29 17:43 file4
+-rw-r--r-- 1 root root  68 Jun 29 17:43 file5
+-rw-r--r-- 1 root root 188 Jun 29 17:48 file6
+[root@ip-172-31-40-60 test_learn]# 
+
+file1  file2  file3  file4  file5  new_file
+[root@ip-172-31-40-60 test_learn]# ls >>nit.txt
+[root@ip-172-31-40-60 test_learn]# ls
+file1  file2  file3  file4  file5  new_file  nit.txt
+[root@ip-172-31-40-60 test_learn]# cat nit.txt
+file1
+file2
+file3
+file4
+file5
+new_file
+nit.txt
+[root@ip-172-31-40-60 test_learn]# rm nit.txt
+rm: remove regular file ‘nit.txt’? y
+[root@ip-172-31-40-60 test_learn]# ls
+file1  file2  file3  file4  file5  new_file
+[root@ip-172-31-40-60 test_learn]# file1 >>nil.txt
+bash: file1: command not found
+[root@ip-172-31-40-60 test_learn]# cat file1>>list.txtt
+[root@ip-172-31-40-60 test_learn]# cat file1>>list.txt
+[root@ip-172-31-40-60 test_learn]# cat list.txt
+this is file1 which is created by touch command
+but edited by vim command
+[root@ip-172-31-40-60 test_learn]# file file1
+file1: ASCII text
+[root@ip-172-31-40-60 test_learn]# file nit.txt
+nit.txt: cannot open (No such file or directory)
+[root@ip-172-31-40-60 test_learn]# file list.txt
+list.txt: ASCII text
