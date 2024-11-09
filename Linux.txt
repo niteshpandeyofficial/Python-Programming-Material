@@ -579,3 +579,14 @@ file1: ASCII text
 nit.txt: cannot open (No such file or directory)
 [root@ip-172-31-40-60 test_learn]# file list.txt
 list.txt: ASCII text
+
+
+If we pass the read command without any argument, it will take a line as user input and store it in a built-in variable 'REPLY'.
+read
+echo $REPLY  
+
+read -n :limit the username till 6 character
+read -n 6 -p "enter username "
+
+read -s :read sensitive data like password
+read -s -p "Enter password: "  
