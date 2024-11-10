@@ -1574,6 +1574,21 @@ What is object and class
 Object is basic runtime entity(or instance of class)
 class is group of object with similar properties(Attributes) and common behavior.
 
+A class in Python is a blueprint or template for creating objects (instances). It defines a set of attributes (variables) and methods (functions) that the objects created from the class can use. Essentially, a class encapsulates data and functionality together, allowing for object-oriented programming (OOP) in Python.
+
+class A:
+  def __init__(self):
+    self.name='nitesh'
+    self.addr='Mumbai'
+
+  def display(self):
+    print(f"name of employee is:{self.name} and he stay in :{self.addr}")
+
+a=A() --creating object og class A
+a.name --Instance variable
+a.addr -- Instance variable
+a.display() --instance method
+
 
 Explain Inheritance in Python with an example.
 refere inheritence.ipynb file in same direcory
