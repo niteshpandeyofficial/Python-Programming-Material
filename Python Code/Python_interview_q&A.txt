@@ -796,6 +796,8 @@ array(‘i’, [1, 2, 3, 4]) [1, ‘abc’, 1.2]
 21.What are functions and method in Python?
 A function is a block of code which is executed only when it is called. To define a function in Python, the def keyword is used.
 functon does not deal with class and its instance concept.
+Functions can be defined globally (outside any class) or locally (within another function or method).
+No special first parameter.
 Example:
 def Newfunc():
 print("Hi, Welcome to Edureka")
@@ -806,6 +808,10 @@ method is a function which is belongs to object.
 Method is called by its name.
 it may or maynot return any data
 method declared inside of class.
+It takes self as its first parameter, which refers to the instance of the class on which the method is called.
+Takes self for instance methods or cls for class methods.
+Operates on the state of the object (self) or the class (cls).
+Called on an instance (object.method()) or a class (Class.method()).
 
 class Pet:
     def my_method(self):
