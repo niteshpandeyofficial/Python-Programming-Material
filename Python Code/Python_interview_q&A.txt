@@ -793,7 +793,7 @@ Output:
 array(‘i’, [1, 2, 3, 4]) [1, ‘abc’, 1.2]
 
 
-21.What are functions in Python?
+21.What are functions and method in Python?
 A function is a block of code which is executed only when it is called. To define a function in Python, the def keyword is used.
 functon does not deal with class and its instance concept.
 Example:
