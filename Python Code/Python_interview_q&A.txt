@@ -4191,3 +4191,35 @@ variables are simply references to objects, not the actual data itself.
 variable:Think of it like a name tag on a box. The name "Apple" on the box is the variable, while the actual apple inside is the object.
 Object:Think of it as the box itself. It contains the data and any associated methods or behaviors.
 
+
+
+What is the difference between "is" and "==" in Python.
+In Python, is and == are both used to compare objects, but they serve different purposes and operate in distinct ways.
+is checks whether two references point to the same object in memory (identity comparison).
+== checks if two objects have the same value (equality comparison).
+
+x = 1000
+y = 1000
+print(x is y)  --False
+print(x == y)  --True
+
+x = 1000
+y = x
+print(x is y) --true
+
+
+
+when to use
+Use is when you need to check if two variables refer to the same object in memory.
+Use == when you need to compare the values of two objects.
+
+What is the difference between "append" and "extend" in Python?
+In Python, both append and extend are methods used to add elements to a list, but they work in slightly different ways.
+Use append() when you want to add a single element to the list, regardless of whether it's a number, string, or even another list (in which case the list is added as a sublist).
+Use extend() when you want to add multiple elements (like another list, a string, a set, or a tuple) and flatten the iterable, adding its individual elements to the list.
+Performance:
+append() is typically faster than extend() because it's just adding a single element to the list.
+extend() involves iterating over the iterable, which makes it slightly slower if the iterable is large.
+Summary:
+append(x): Adds one item to the end of the list, which can be any object (e.g., a number, a list, etc.).
+extend(iterable): Adds multiple items to the list by iterating over the iterable (e.g., another list, string, or tuple) and adding each element individually.
