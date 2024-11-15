@@ -174,3 +174,28 @@ used to control how resources are shared between different origins. This header 
 It is essential for security, as it helps prevent unauthorized access to resources.
 
 If you need to include credentials (like cookies) in your requests, you can set supports_credentials=True
+
+
+Techment technology
+1.Project details
+2.AWS s3
+3.decorator
+4.garbage collector
+5.list comprehension
+
+
+type of architecture used
+
+
+serverless architecture
+Singleton
+There is only one instance of the Flask application during the lifecycle of the app, and all requests are handled by this single instance.
+When you create a Flask app (app = Flask(__name__)), there is only one instance of the Flask app in the application context. This instance is used throughout the lifetime of the app.
+
+Factory Pattern
+Pattern Usage in Flask:
+
+Flask uses the Factory Pattern in its application setup. The application factory is a function that returns a new Flask app instance, allowing for flexible configuration of the app, such as different environments (development, testing, production) or different application configurations.
+How it's used in Flask:
+
+Flask encourages the use of an application factory function to create app instances. This allows you to customize the app configuration based on the environment.
