@@ -33,7 +33,18 @@ ORM
 render_template
 how to deploy the flask application in ec2
 methods in app route
-how to provide the input value to render template
+how to provide the input value to render template.
+Ans:In Flask, you use the render_template function to render a template, and you can pass variables to the template using keyword arguments.
+@app.route('/')
+def index():
+    name = "John Doe"
+    age = 30
+    return render_template('index.html', name=name, age=age)
+
+<body>
+    <h1>Hello, {{ name }}!</h1>
+    <p>You are {{ age }} years old.</p>
+</body>
 
 Pandas 
 
