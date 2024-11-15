@@ -182,12 +182,11 @@ Techment technology
 3.decorator
 4.garbage collector
 5.list comprehension
-
+6.serverless architecture
+7.garbage collector
+8.dynamic type means
 
 type of architecture used
-
-
-serverless architecture
 Singleton
 There is only one instance of the Flask application during the lifecycle of the app, and all requests are handled by this single instance.
 When you create a Flask app (app = Flask(__name__)), there is only one instance of the Flask app in the application context. This instance is used throughout the lifetime of the app.
