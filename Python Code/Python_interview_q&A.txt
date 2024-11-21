@@ -4223,3 +4223,10 @@ extend() involves iterating over the iterable, which makes it slightly slower if
 Summary:
 append(x): Adds one item to the end of the list, which can be any object (e.g., a number, a list, etc.).
 extend(iterable): Adds multiple items to the list by iterating over the iterable (e.g., another list, string, or tuple) and adding each element individually.
+
+To check whether two matrices are equal or not.
+array_equal() is strict: it requires the shapes and values to be the same.
+array_equiv() is more flexible: it allows broadcasting and compares arrays that can be made equivalent through broadcasting.
+np.array_equiv(matrix1, matrix3)
+np.array_equal(matrix1, matrix2)
+
