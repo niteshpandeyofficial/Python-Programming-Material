@@ -48,6 +48,12 @@ right join --(inner join + additional records from the right table)
 Full Outer Join
  A full outer join contains all records of both the left and right tables.
 
+Cross Join
+a CROSS JOIN is a type of join that returns the Cartesian product of two tables. This means that every row from the first table is combined with every row from the second table. The result set will contain all possible combinations of rows between the two tables.
+SELECT columns
+FROM table1
+CROSS JOIN table2;
+use case:generating the combination of all
 
 Constraints
 A rule that restricts the values in a database is called constraints
@@ -139,3 +145,5 @@ select * from (select emp_name,sal, rank() over(order by sal desc)rk from t_emp_
 first 5 max salary
 select * from (select emp_name,sal, rank() over(order by sal desc)rk from t_emp_det) where rk<=5;
 select * from t_emp_det order by sal desc fetch first 5 rows only;
+
+
