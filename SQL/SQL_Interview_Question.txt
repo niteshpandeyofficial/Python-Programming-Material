@@ -133,4 +133,9 @@ ALTER TABLE student ADD CHECK (Age>=19);
 
 
 
+select 5th max salary from table using rank function
+select * from (select emp_name,sal, rank() over(order by sal desc)rk from t_emp_det) where rk=5;
 
+first 5 max salary
+select * from (select emp_name,sal, rank() over(order by sal desc)rk from t_emp_det) where rk<=5;
+select * from t_emp_det order by sal desc fetch first 5 rows only;
