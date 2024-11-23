@@ -198,3 +198,16 @@ Flask uses the Factory Pattern in its application setup. The application factory
 How it's used in Flask:
 
 Flask encourages the use of an application factory function to create app instances. This allows you to customize the app configuration based on the environment.
+
+Hexaware:
+input:
+dict_a = {'a':1,'b':2,'c':3} 
+dict_b = {'d':4,'f':6,'e':5} 
+output = {1:'a',2:'b',3:'c',4:'d',5:'e',6:'f'}
+d={}
+for key,val in sorted(dict_a.items()):
+  d[val]=key
+print(d)
+
+merged_dict = {v: k for k, v in {**dict_a, **dict_b}.items()}
+print(merged_dict)
