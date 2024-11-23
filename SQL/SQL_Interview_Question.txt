@@ -146,4 +146,186 @@ first 5 max salary
 select * from (select emp_name,sal, rank() over(order by sal desc)rk from t_emp_det) where rk<=5;
 select * from t_emp_det order by sal desc fetch first 5 rows only;
 
+ACID Property
+--------------
+The ACID properties are a set of principles that guarantee that database transactions are processed reliably. These principles are crucial for ensuring the consistency, reliability, and integrity of data in relational databases like Oracle DB.
 
+The ACID acronym stands for the following:
+
+Atomicity
+Consistency
+Isolation
+Durability
+
+1. Atomicity
+Definition: A transaction is an "atomic" unit of work. This means that a transaction is either fully completed or not executed at all. There is no partial completion of a transaction.
+In Oracle DB: If an error occurs or a system failure happens, any changes made during the transaction are rolled back and the database is restored to its previous state. For example, if a transaction involves transferring money from one bank account to another, either both operations (debit and credit) are completed or neither happens.
+Example:
+If you insert records into multiple tables and one table insert fails, Oracle will ensure that no partial changes are committed to the database.
+
+
+2. Consistency
+Definition: The database must transition from one valid state to another valid state after a transaction. It ensures that the database remains in a consistent state before and after a transaction.
+In Oracle DB: After a transaction is completed, the database should meet all the constraints, triggers, and business rules defined. For example, if you have constraints on certain columns (like a foreign key), the transaction should not violate these rules.
+Example:
+A referential integrity constraint is maintained even after transactions. If a transaction tries to delete a record that other records reference, the transaction will fail to maintain consistency.
+
+3. Isolation
+Definition: Transactions should be independent of one another. The operations of one transaction should not be visible to other transactions until the transaction is complete.
+In Oracle DB: This ensures that transactions are isolated and the changes made by one transaction are not visible to other transactions until the first transaction is committed. Oracle provides different isolation levels that define how transaction data is isolated from other transactions, including Read Uncommitted, Read Committed, Repeatable Read, and Serializable.
+Example:
+If one transaction is updating a record, another transaction should not be able to read or modify that record until the first transaction is committed (depending on the isolation level set).
+Oracle Isolation Levels:
+Read Committed: This is the default level in Oracle. It ensures that a transaction only sees committed data.
+Serializable: This is the strictest isolation level, ensuring no other transaction can access any data that another transaction is modifying, even for reading.
+
+4. Durability
+Definition: Once a transaction has been committed, it will survive any subsequent system crashes. The data is permanently saved in the database and will not be lost.
+In Oracle DB: After a transaction commits, the changes are written to persistent storage (like disk). Even if the system crashes or loses power, the changes will not be lost.
+Example:
+If a user completes a transaction, the changes (like inserting, updating, or deleting records) are written to the transaction log and permanent storage, ensuring durability even in the case of hardware or software failures.
+
+transactional locks
+-------------------
+transactional locks (or locking mechanisms) are crucial for managing concurrent access to the database to ensure data consistency and isolation. Locks are used to prevent multiple transactions from interfering with each other and violating the ACID properties, particularly Isolation.
+Exclusive Locks (X Lock)
+UPDATE employees SET salary = salary + 1000 WHERE emp_id = 101;
+-- This will place an exclusive lock on the row for emp_id = 101
+2. Shared Locks (S Locks)
+SELECT * FROM employees WHERE department = 'HR';
+-- This may acquire a shared lock, allowing other transactions to read the same rows.
+3. Row-Level Locks
+Usage: Typically used in UPDATE or DELETE statements to ensure only the affected rows are locked, allowing other transactions to work on other rows of the same table
+4. Table-Level Locks
+Usage: These are usually used in situations where you want to perform an operation that affects all rows in a table, such as a TRUNCATE or ALTER operation.
+
+
+Normalization:
+refers to the process of organizing the data to reduce redundancy and dependency by dividing large tables into smaller, manageable ones. The goal of normalization is to eliminate the problems associated with data anomalies such as update anomalies, insert anomalies, and delete anomalies.
+
+Why Normalize?
+Eliminate Data Redundancy: Avoid storing the same data repeatedly across multiple records.
+Improve Data Integrity: Ensures data is accurate and consistent.
+Simplify Database Maintenance: Smaller tables with fewer dependencies are easier to manage.
+Prevent Anomalies: Reduces anomalies in the database such as update, insert, and delete anomalies.
+
+1. First Normal Form (1NF)
+Definition: A table is in 1NF if it meets the following conditions:
+All columns contain atomic (indivisible) values.
+Each column contains values of a single type.
+The order in which data is stored does not matter.
+How to achieve 1NF:
+Eliminate repeating groups (i.e., groups of columns that represent multiple values).
+Ensure each column contains only a single value per record.
+Example of 1NF Violation:
+Student_ID | Name  | Courses
+1          | John  | Math, English
+2          | Alice | Science, History
+In this table, the Courses column contains multiple values (not atomic). To convert to 1NF:
+
+plaintext
+Copy code
+Student_ID | Name  | Course
+1          | John  | Math
+1          | John  | English
+2          | Alice | Science
+2          | Alice | History
+2. Second Normal Form (2NF)
+Definition: A table is in 2NF if it is in 1NF and there is no partial dependency. This means that:
+All non-key attributes are fully functionally dependent on the entire primary key, not just a part of it.
+How to achieve 2NF:
+Identify partial dependencies (dependencies where non-key columns depend on a part of the composite key).
+Remove partial dependencies by creating new tables and moving the partially dependent columns to those tables.
+Example of 2NF Violation:
+
+plaintext
+Copy code
+Student_ID | Course_ID | Professor | Instructor_Age
+1          | 101       | Dr. Smith | 45
+1          | 102       | Dr. Brown | 50
+2          | 101       | Dr. Smith | 45
+In this case, Instructor_Age depends only on the Professor (not on the full composite key Student_ID, Course_ID). To convert to 2NF:
+
+Create two tables:
+Student_Courses (Student_ID, Course_ID, Professor)
+Professors (Professor, Instructor_Age)
+
+Student_Courses:
+Student_ID | Course_ID | Professor
+1          | 101       | Dr. Smith
+1          | 102       | Dr. Brown
+2          | 101       | Dr. Smith
+
+Professors:
+Professor  | Instructor_Age
+Dr. Smith  | 45
+Dr. Brown  | 50
+3. Third Normal Form (3NF)
+Definition: A table is in 3NF if it is in 2NF and there is no transitive dependency. This means:
+Non-key columns should not depend on other non-key columns.
+How to achieve 3NF:
+Identify transitive dependencies (when one non-key column depends on another non-key column) and remove them by creating new tables.
+Example of 3NF Violation:
+
+Employee_ID | Employee_Name | Department | Department_Manager
+1           | John          | HR         | Smith
+2           | Alice         | IT         | Johnson
+Here, Department_Manager depends on Department, not directly on the primary key (Employee_ID). To convert to 3NF:
+
+Create two tables:
+Employees (Employee_ID, Employee_Name, Department)
+Departments (Department, Department_Manager)
+
+Employees:
+Employee_ID | Employee_Name | Department
+1           | John          | HR
+2           | Alice         | IT
+
+Departments:
+Department | Department_Manager
+HR         | Smith
+IT         | Johnson
+4. Boyce-Codd Normal Form (BCNF)
+Definition: A table is in BCNF if it is in 3NF and every determinant is a candidate key. This means:
+If a non-prime attribute (an attribute not part of any candidate key) determines another attribute, it must be a candidate key.
+How to achieve BCNF:
+Analyze the functional dependencies and ensure that every non-prime attribute is fully dependent on a candidate key.
+Example of BCNF Violation:
+
+plaintext
+Copy code
+Course_ID | Instructor | Department
+101        | Dr. Smith  | Physics
+102        | Dr. Brown  | Chemistry
+101        | Dr. Lee    | Physics
+In this case, Department depends on Course_ID, which violates BCNF (because Course_ID is not a candidate key). To convert to BCNF:
+
+Split the table into two:
+Courses (Course_ID, Department)
+Course_Instructors (Course_ID, Instructor)
+
+Courses:
+Course_ID | Department
+101       | Physics
+102       | Chemistry
+
+Course_Instructors:
+Course_ID | Instructor
+101       | Dr. Smith
+101       | Dr. Lee
+102       | Dr. Brown
+5. Fourth Normal Form (4NF)
+Definition: A table is in 4NF if it is in BCNF and has no multi-valued dependencies.
+How to achieve 4NF:
+Eliminate multi-valued dependencies (when a single key determines multiple independent sets of attributes).
+Example of 4NF Violation:
+Employee_ID | Skill | Language
+1           | Java  | English
+1           | Python| Spanish
+2           | SQL   | French
+The employee has multiple independent attributes (skills and languages), which can be split into separate tables for Skills and Languages.
+
+6. Fifth Normal Form (5NF)
+Definition: A table is in 5NF if it is in 4NF and all join dependencies are implied by the candidate keys.
+How to achieve 5NF:
+Split the data into smaller tables such that no further decomposition is possible.
