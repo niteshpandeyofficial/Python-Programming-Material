@@ -255,7 +255,8 @@ Polymorphism
 if the parent class has a method named ABC then the child class also can have a 
 method with the same name ABC having its own parameters and variables. 
 3.It allows different objects to be treated as instances of a common base class.
-
+4.Imagine you're at an online store that accepts different types of payments, like Credit Card, Debit Card, and PayPal. 
+You have a function called make_payment() that processes the payment, but the way each payment method is processed differs.
 In Python, polymorphism is implemented primarily through method overriding and operator overloading.
 
 class Shape:
