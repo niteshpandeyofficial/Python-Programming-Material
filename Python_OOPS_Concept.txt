@@ -432,6 +432,8 @@ def lets_fly(flayable):
   flayable.fly()
 
 lets_fly(Bird())
+In programming, if an object "looks like" a certain type (i.e., it has the required methods or behaviors), then it is treated as that type, regardless of the actual class it belongs to. This is the essence of duck typing — determining the suitability of an object based on what it can do, rather than what it "is."
+
 
 Benefits of Polymorphism:
 Code Reusability
