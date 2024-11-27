@@ -379,6 +379,60 @@ result = p1 + p2  # Calls the __add__ method for Point objects
 print(result.x, result.y)
 
 
+
+Inheritance with method overriding is one common way to implement polymorphism.
+However, duck typing allows polymorphism without inheritance. In Python, as long as an object implements the required methods, it can be treated polymorphically.
+Abstract base classes (ABCs) can also define common interfaces for polymorphic behavior.
+Polymorphism in Python is flexible and can be achieved through various techniques, with inheritance being one of the most common but not the only way.
+
+
+#method overriding with the help on inheritence
+class Parent:
+  def decision(self):
+    print(f"decision taken by parents")
+
+class Child:
+  def decision(self):
+    print(f"decision taken by child")
+
+c=Child()
+c.decision()
+
+#method overriding using abstraction
+class Shape(ABC):
+  @abstractmethod
+  def area(self):
+    pass
+
+class Circle(Shape):
+  def __init__(self,radius):
+    self.radius=radius
+  def area(self):
+    return f"area of circle is:{3.14*self.radius*self.radius}"
+
+class Triangle(Shape):
+  def __init__(self,l,b):
+    self.length=l
+    self.width=b
+  def area(self,l,b):
+    return f"area of triangle is:{0.5*self.length*self.width}"
+
+c=Circle(10)
+
+#method overriding using duck typing
+class Bird:
+  def fly(self):
+    print('Bird can fly')
+
+class Airplan:
+  def fly(self):
+    print('Airplan can also fly')
+
+def lets_fly(flayable):
+  flayable.fly()
+
+lets_fly(Bird())
+
 Benefits of Polymorphism:
 Code Reusability
 Flexibility and Adaptability
