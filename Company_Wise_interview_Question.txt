@@ -212,3 +212,62 @@ print(d)
 
 merged_dict = {v: k for k, v in {**dict_a, **dict_b}.items()}
 print(merged_dict)
+
+
+Method1-recursive method
+
+def flatten(input_list):
+    result = []
+    for item in input_list:
+        if isinstance(item, list):  # Check if the item is a list
+            result.extend(flatten(item))  # Recursively flatten the item
+        else:
+            result.append(item)  # If it's not a list, add the item directly
+    return result
+
+input_list = [[1, 2], [3, 4], [[4], [6]]]
+output = flatten(input_list)
+print(output)
+
+
+output=[1, 2, 3, 4, 4, 6]
+
+
+method-2 Inbuilt function
+result=[]
+
+for i in input_list:
+  if isinstance(i,list):
+    result.extend(np.ravel(i))
+  else:
+    result.append(i)
+print(result)
+
+input_list = [[1,2],[3,4], [[4],[6]]]
+
+
+s = 'Hello World'
+s = s.replace(' ', '')  # Remove spaces
+char_count = Counter(s)
+print(dict(char_count))
+
+
+s = 'Hello World'
+
+char_count = {}
+
+for char in s:
+    if char != ' ':  # Skip spaces
+        if char in char_count:
+            char_count[char] += 1
+        else:
+            char_count[char] = 1
+
+print(char_count)
+
+
+MRO stands for Method Resolution Order.
+MRO ensures that the method resolution is consistent and predictable in Python’s multiple inheritance system.
+The C3 Linearization algorithm determines the method resolution order based on the inheritance hierarchy, respecting the relationships between the classes.
+You can always inspect the MRO of a class using mro() or __mro__.
+
