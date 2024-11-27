@@ -48,6 +48,35 @@ print(student._age)   # Protected attribute can be accessed (not recommended)
 print(student.__grade)  # This will raise an AttributeError
 
 
+class BankAccount:
+  def __init__(self,initial_amout=0):
+    self._balance=initial_amout
+  
+  def deposit(self,amount):
+    if amount>0:
+      self._balance+=amount
+      print(f"new amount after deposit is{self._balance}")
+    else:
+      print(f"please enter the valid positive number")
+
+  def withdrawl(self,amount):
+    if amount>0 and amount<=self._balance:
+      self._balance-=amount
+      print(f"withdrawl amount is:{amount} and ne balance is:{self._balance}")
+    else:
+      print(f"invalid amount")
+  
+  def get_balance(self):
+    print(f"new amount is:{self._balance}")
+
+account = BankAccount(initial_amout=50)
+
+account.deposit(10)
+account.deposit(100)
+account.withdrawl(10)
+
+
+
 private variable can be accessed using below syntax:
 
 objectname,_className__variableName (student._Student__get_grade())
