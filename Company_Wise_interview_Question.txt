@@ -193,11 +193,12 @@ When you create a Flask app (app = Flask(__name__)), there is only one instance 
 
 Factory Pattern
 Pattern Usage in Flask:
-
 Flask uses the Factory Pattern in its application setup. The application factory is a function that returns a new Flask app instance, allowing for flexible configuration of the app, such as different environments (development, testing, production) or different application configurations.
 How it's used in Flask:
 
 Flask encourages the use of an application factory function to create app instances. This allows you to customize the app configuration based on the environment.
+The key idea is that we create a function that returns an instance of the Flask app, and depending on different conditions (like environment variables or configuration files), we can create different instances of the app.
+
 
 Hexaware:
 input:
