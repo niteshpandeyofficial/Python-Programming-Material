@@ -317,6 +317,34 @@ Method Overriding
 Achieved by defining a method in a child class with the same name as a method in the parent class.
 The method in the child class overrides the method in the parent class.
 
+1.Method Overloading via Default Arguments:
+class Calculator:
+    def add(self, a, b=0, c=0):  # Default values for b and c
+        return a + b + c
+
+# Create an object of the Calculator class
+calc = Calculator()
+
+# Calling the method with different numbers of arguments
+print(calc.add(5))        # Only one argument: 5 + 0 + 0 = 5
+print(calc.add(5, 10))    # Two arguments: 5 + 10 + 0 = 15
+print(calc.add(5, 10, 15))  # Three arguments: 5 + 10 + 15 = 30
+
+2.Method Overloading via Variable-Length Arguments (*args)
+class Calculator:
+    def add(self, *args):
+        return sum(args)
+
+# Create an object of the Calculator class
+calc = Calculator()
+
+# Calling the method with a variable number of arguments
+print(calc.add(5))          # 5
+print(calc.add(5, 10))      # 5 + 10 = 15
+print(calc.add(5, 10, 15))  # 5 + 10 + 15 = 30
+print(calc.add(1, 2, 3, 4, 5))  # 1 + 2 + 3 + 4 + 5 = 15
+
+
 
 class Parent:
   def marry(self):
