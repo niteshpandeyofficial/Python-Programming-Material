@@ -329,3 +329,10 @@ The employee has multiple independent attributes (skills and languages), which c
 Definition: A table is in 5NF if it is in 4NF and all join dependencies are implied by the candidate keys.
 How to achieve 5NF:
 Split the data into smaller tables such that no further decomposition is possible.
+
+
+find the number of time first_name is present in table
+SELECT first_name, COUNT(*) AS name_count
+FROM employees
+GROUP BY first_name
+ORDER BY name_count DESC;
