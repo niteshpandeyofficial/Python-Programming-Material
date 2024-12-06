@@ -75,7 +75,12 @@ account.deposit(10)
 account.deposit(100)
 account.withdrawl(10)
 
+Encapsulation is achieved by:
 
+Hiding the internal state (_balance) behind public methods.
+Restricting how the internal state can be modified (e.g., only allowing positive amounts to be deposited or withdrawn).
+Providing controlled access to the state through well-defined interfaces (deposit(), withdrawl(), and get_balance()), ensuring that the internal data cannot be arbitrarily changed by external code.
+This design promotes better data integrity, security, and flexibility.
 
 private variable can be accessed using below syntax:
 
