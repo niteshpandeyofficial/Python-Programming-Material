@@ -1,0 +1,677 @@
+101317350442
+Mutable objects are those whose state or value can be modified after creation
+
+Examples of mutable objects in Python:
+
+Lists: You can modify, add, or remove elements in a list.
+Dictionaries: You can add, remove, or modify key-value pairs.
+Sets: You can add or remove elements from a set.
+
+2. Immutable Objects
+Immutable objects are those whose state or value cannot be changed after they are created.
+Examples of immutable objects in Python:
+Integers: The value of an integer cannot be changed once it is created.
+Strings: Strings cannot be changed once they are created (you can create new strings, but the original string is unmodified).
+Tuples: You cannot modify, add, or remove elements from a tuple.
+Frozensets: Like sets, but immutable	.
+
+
+-- memory managemen and garbage collection
+Python memory is managed by Python private heap space. All Python objects and data structures are located in a private heap. 
+The programmer does not have an access to this private heap and interpreter takes care of this Python private heap.The allocation 
+of Python heap space for Python objects is done by Python memory manager.
+
+
+In Python, garbage collection refers to the process of automatically reclaiming memory occupied by objects that are no longer needed 
+by the program. The goal of garbage collection is to free up memory that is no longer referenced, preventing memory leaks and ensuring 
+that the program uses memory efficiently.
+Python uses a combination of two main techniques to manage memory:
+
+Reference Counting-Python employs a reference counting mechanism to keep track of the number of references to an object.
+When the reference count drops to zero, meaning there are no references pointing to the object, the memory occupied by the object 
+is released.
+
+Cyclic Garbage Collector-Python also includes a cyclic garbage collector to detect and collect objects involved in circular references
+This ensures that even in cases of circular references, memory is properly managed.
+
+
+Python provides the gc module to allow for manual control of garbage collection. For example, you can:
+Trigger a manual garbage collection with gc.collect().
+Check the number of objects collected in each generation with gc.get_count().
+Disable or enable the garbage collector with gc.disable() and gc.enable().
+
+
+different ways to add the dictionary
+d1={'name':'nitesh','age':34}
+d2={'surname':'Pandey'}
+d1.update(d2)
+d1
+{'name': 'nitesh', 'age': 34, 'surname': 'Pandey'}
+
+d1|d2
+{'name': 'nitesh', 'age': 34, 'surname': 'Pandey'}
+
+dict_new={**d1,**d2}
+dict_new
+{'name': 'nitesh', 'age': 34, 'surname': 'Pandey'}
+
+from collections import ChainMap
+dict(ChainMap(d1,d2))
+{'surname': 'Pandey', 'name': 'nitesh', 'age': 34}
+
+
+How would you find the intersection of two lists in Python?
+
+list1 = [1, 2, 3, 4, 5]
+list2 = [3, 4, 5, 6, 7]
+
+# Convert both lists to sets and find the intersection
+intersection = list(set(list1) & set(list2))
+print(intersection)
+
+
+list1 = [1, 2, 3, 4, 5, 5]
+list2 = [3, 4, 5, 6, 7, 5]
+
+# Find the intersection using list comprehension
+intersection = [item for item in list1 if item in list2]
+print(intersection)
+
+
+list1 = [1, 2, 3, 4, 5]
+list2 = [3, 4, 5, 6, 7]
+
+# Using filter() and lambda to find the intersection
+intersection = list(filter(lambda x: x in list2, list1))
+print(intersection)
+
+
+from collections import Counter
+
+list1 = [1, 2, 3, 4, 5, 5]
+list2 = [3, 4, 5, 6, 7, 5]
+
+# Count elements in both lists
+counter1 = Counter(list1)
+counter2 = Counter(list2)
+
+# Find the intersection based on the minimum count of each element
+intersection = list((counter1 & counter2).elements())
+print(intersection)
+
+list1 = [1, 2, 3, 4, 5]
+list2 = [3, 4, 5, 6, 7]
+
+# Use a dictionary to find the intersection
+dict2 = {item: None for item in list2}
+intersection = [item for item in list1 if item in dict2]
+print(intersection)
+
+
+t = (2,4,6,8)
+t = t + (12) --error
+t = t + (12,) --correct
+
+
+di = {'name': {'surname': 'pandey', 'first_name': 'nitesh'}, 'age': 31}
+
+# Create the new dictionary by merging 'name' and 'age'
+new_dict = {**di['name'], 'age': di['age']}
+
+print(new_dict)
+
+---------------------------------------
+
+# Expression as a string
+expr = "2+3/5*5"
+
+# Evaluate the expression
+result = eval(expr)
+---------------------------------------
+output=['nitesh', '1', '/']
+input_list = ['nitesh', '1', '/', 10]
+for inp in input_list:
+  if isinstance(inp,str):
+    print(inp)
+
+--------------------------------------
+
+classmethod and staticmethod
+You have a Car class.
+You might want to count how many Car objects you've created.
+Instead of doing that with every single car object, you want to keep track at the class level.
+
+class Car:
+    total_cars = 0
+
+    def __init__(self, make):
+        self.make = make
+        Car.total_cars += 1
+
+    @classmethod
+    def get_total_cars(cls):
+        return cls.total_cars
+
+
+c=Car('venue')
+c2=Car('verna')
+print(Car.get_total_cars_count())
+
+
+Static method
+import math
+
+class Math:
+    @staticmethod
+    def circle_area(radius):
+        return math.pi * radius ** 2
+		
+		
+Operation.add(5,3) #static method
+op=Operation()
+op.add(5,3) ### instance method
+
+we are calling method by using object reference then it should be instance method 
+else if calling by using class name then it should be static method
+
+-----find prime number using filter function.(Wipro)-----
+def fun_prime(num):
+  for i  in range(2,int(num**0.5)+1):
+    if num%i==0:
+      return False
+  else:
+    return True
+	
+list(filter(fun_prime,range(2,30)))
+
+-----------------------------------------------
+custom context manager 
+
+from contextlib import contextmanager
+
+@contextmanager
+def my_open(filename, mode):
+    # Open the file when entering the context
+    file = open(filename, mode)
+    try:
+        # Yield the file object to the 'with' block
+        yield file
+    finally:
+        # Ensure the file is closed when exiting the context
+        file.close()
+
+# Usage
+with my_open('abc.txt', 'w') as file:
+    file.write("Hello, this is a test.")
+
+
+
+def fib_val1(n):
+  fib_seq=[]
+  a,b=0,1
+  while a<n:
+    fib_seq.append(a)
+    a,b=b,a+b
+  return fib_seq
+  
+ fib_val1(5) 
+  
+def fib_val(n):
+  if n==0:
+	return 0
+  if n==1:
+    return 1
+  else:
+    return fib_val(n-1)+fib_val(n-2)
+fib_val(5)
+
+
+Write an SQL query to find the average salary for each department in the 'employees' table. 
+Include only departments with more than 5 employees
+
+
+SELECT department_id, AVG(salary) AS average_salary
+FROM employees
+GROUP BY department_id
+HAVING COUNT(employee_id) > 5;
+
+
+
+Que CODING
+x = '01010011'
+Out = '00001111'
+
+Method-1
+zero=x.count('0')
+one=x.count('1')
+res='0'*zero+'1'*one
+print(res)
+
+method-2
+l=[]
+x = '01010011'
+for n in x:
+  l.append(n)
+
+l.sort()
+''.join(l)
+
+def bs(x_new):
+  for s in range(len(x_new)-1):
+    for j in range((len(x_new)-1)-1):
+      if int(x_new[j])>int(x_new[j+1]):
+        x_new[j],x_new[j+1]=x_new[j+1],x_new[j]
+  return x_new
+  
+x_new=list(x)
+res=bs(x_new)
+print(''.join(res))
+
+
+
+
+
+x = '100110201'
+Out = '000011121'
+---------------------------
+
+
+x = "()[]{}"  Output: True
+x = "([)]" Output: False
+
+def balance_string(inp_str):
+  mapped_dict={")": "(", "]": "[", "}": "{"}
+  stack=[]
+
+  for chr in inp_str:
+    if chr in mapped_dict.values():
+      stack.append(chr)
+    elif chr in mapped_dict.keys():
+      if stack and stack[-1]==mapped_dict[chr]:
+        stack.pop()
+  if not stack:
+    return 'Balanced'
+  else:
+    return 'not balanced'
+
+print(balance_string("()[]{}"))  # Output: Balanced
+print(balance_string("([)]"))    # Output: Unbalanced
+print(balance_string("{[()]}"))  # Output: Balanced
+print(balance_string("{[(])}"))  # Output: Unbalanced
+
+
+oracle:
+Yes, Oracle allows foreign keys to be NULL, and when they are NULL, no foreign key integrity check is done for those rows.
+foreign keys can also have NULL values, and this is allowed because a NULL is considered as an unknown or missing value. 
+Oracle does not enforce a rule that a foreign key must have a value that exists in the referenced table; 
+it just ensures that when the value is provided, it must match a valid entry in the parent table.
+
+
+SELECT emp_name, dept_id, COUNT(*)
+FROM employees
+GROUP BY emp_name, dept_id
+HAVING COUNT(*) > 1;
+
+DELETE FROM employees
+WHERE ROWID NOT IN (
+    SELECT MIN(ROWID)
+    FROM employees
+    GROUP BY emp_name
+);
+
+Using distinct keyword also.
+
+
+session management
+Redis
+Storing Session Data Server-Side (Flask-Session Extension)
+Using Flask-Login for User Authentication (Advanced)
+
+
+
+Constructor Types in Python:
+1.Default Constructor (__init__):
+No parameters except self.
+Initializes attributes with default values.
+
+class Person:
+    def __init__(self):
+        self.name = "John Doe"
+        self.age = 30
+
+person1 = Person()
+print(person1.name)  # John Doe
+print(person1.age)   # 30
+
+
+
+2.Parameterized Constructor (__init__):
+Accepts parameters to initialize the object with custom values.
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+person1 = Person("Alice", 25)
+print(person1.name)  # Alice
+print(person1.age)   # 25
+
+
+3.Class Method Constructor (@classmethod):
+Alternative constructor method defined with @classmethod decorator.
+Used for more complex object creation logic, like from strings or other types.
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @classmethod
+    def from_string(cls, person_string):
+        name, age = person_string.split(',')
+        return cls(name, int(age))
+
+person1 = Person.from_string("Bob,40")
+print(person1.name)  # Bob
+print(person1.age)   # 40
+
+
+4.Static Method Constructor (@staticmethod):
+A static method used to create an object, typically not dependent on the class or instance.
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @staticmethod
+    def create_person(name, age):
+        return Person(name, age)
+
+person1 = Person.create_person("Charlie", 35)
+print(person1.name)  # Charlie
+print(person1.age)   # 35
+
+
+5.Object Creation with __new__:
+The __new__ method controls the object creation process.
+Useful for advanced scenarios like implementing the Singleton pattern.
+class Singleton:
+    _instance = None
+
+    def __new__(cls):
+        if not cls._instance:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+    def __init__(self, value):
+        self.value = value
+
+singleton1 = Singleton(10)
+singleton2 = Singleton(20)
+print(singleton1.value)  # 10
+print(singleton2.value)  # 10
+
+
+
+API is a broad term for any interface that allows software systems to communicate.
+REST API is a specific type of web API that follows the principles of REST, such as stateless communication, resource-based operations, 
+and use of HTTP methods.
+API vs REST API
+Definition	
+A broad concept that defines how software components interact with each other.	
+A specific type of web API that follows the principles of REST.
+
+Scope	
+General term;can be used for different kinds of interactions.	
+A particular kind of web API focused on stateless communication using HTTP.
+
+Protocol	
+Can use various protocols (HTTP, SOAP, etc.).	
+Primarily uses HTTP and follows specific conventions for requests and responses.
+
+Statefulness	
+Can be stateful or stateless.	
+Stateless—each request must contain all the information the server needs.
+
+
+Data Format	
+Can use various formats (XML, JSON, etc.).	
+Usually returns data in JSON or XML format.
+
+Operations	
+May not follow any standard operation set.	
+Uses standard HTTP methods (GET, POST, PUT, DELETE).
+
+
+
+Types of Magic Tables:
+
+inserted Table: This table holds the new rows being inserted or updated.
+deleted Table: This table holds the rows that were deleted or the old values before an update.
+CREATE TRIGGER trg_AfterInsert
+ON Employees
+FOR INSERT
+AS
+BEGIN
+    -- Use the "inserted" magic table to retrieve inserted rows
+    SELECT * FROM inserted
+END
+
+They are not physically stored tables.
+They are created automatically by SQL Server for use within triggers.
+They are only accessible in the context of triggers.
+
+
+Types of Temporary Tables:
+Local Temporary Tables: These are prefixed with a single # (e.g., #TempTable) and are only accessible to the session that created them. They are automatically dropped when the session ends.
+Global Temporary Tables: These are prefixed with ## (e.g., ##GlobalTempTable) and are accessible to all sessions, but they are dropped when the last session using them is closed.
+
+CREATE TABLE #TempTable (
+    ID INT,
+    Name VARCHAR(100)
+)
+
+INSERT INTO #TempTable (ID, Name)
+VALUES (1, 'John'), (2, 'Jane')
+
+SELECT * FROM #TempTable
+
+
+
+
+Race conditions in asyncio occur when multiple tasks concurrently access shared resources, leading to inconsistent results.
+Synchronization mechanisms like asyncio.Lock, asyncio.Semaphore, and asyncio.Queue can be used to prevent race conditions by 
+ensuring that only one task can access the shared resource at a time or controlling access to the resource.
+
+
+Project Details:
+
+We built an IP Address Management (IPAM) system that automates the allocation and tracking of IP addresses in a network. 
+The solution included several key features:
+
+Dynamic IP Allocation: A system that efficiently allocates IP addresses within a given range, ensuring no conflicts and optimal usage.
+Subnet Management: The system could handle multiple subnets, dynamically dividing the network into appropriate subnet sizes based on the requirements (e.g., CIDR calculations).
+IP Address Tracking: It provided real-time tracking of which IP addresses are assigned, available, or in use.
+User Management
+IP Search
+
+
+This IPAM solution streamlined the IP allocation process, reduced conflicts, and saved a significant amount of time in managing 
+subnets across multiple networks. It also provided better visibility into network usage.
+
+
+2.We developed an automated data processing pipeline that:
+Monitored Cloud Resources
+Analyzed Usage: 
+Triggered Alerts: 
+Increased Asset Visibility:
+This automated pipeline helped the infrastructure teams to  monitor cloud resources more effectively, reduced manual effort in tracking 
+usage,It also provided a more transparent view of cloud assets, which was critical for better decision-making and cost optimization.
+
+
+
+Polymorphism example.
+Imagine you're at an online store that accepts different types of payments, like Credit Card, Debit Card, and PayPal. 
+You have a function called make_payment() that processes the payment, but the way each payment method is processed differs.
+
+
+
+Method1-recursive method
+
+def flatten(input_list):
+    result = []
+    for item in input_list:
+        if isinstance(item, list):  # Check if the item is a list
+            result.extend(flatten(item))  # Recursively flatten the item
+        else:
+            result.append(item)  # If it's not a list, add the item directly
+    return result
+
+input_list = [[1, 2], [3, 4], [[4], [6]]]
+output = flatten(input_list)
+print(output)
+
+
+output=[1, 2, 3, 4, 4, 6]
+
+
+method-2 Inbuilt function
+result=[]
+
+for i in input_list:
+  if isinstance(i,list):
+    result.extend(np.ravel(i))
+  else:
+    result.append(i)
+print(result)
+
+input_list = [[1,2],[3,4], [[4],[6]]]
+
+
+s = 'Hello World'
+s = s.replace(' ', '')  # Remove spaces
+char_count = Counter(s)
+print(dict(char_count))
+
+
+s = 'Hello World'
+
+char_count = {}
+
+for char in s:
+    if char != ' ':  # Skip spaces
+        if char in char_count:
+            char_count[char] += 1
+        else:
+            char_count[char] = 1
+
+print(char_count)
+
+
+find the number of time first_name is present 
+SELECT first_name, COUNT(*) AS name_count
+FROM employees
+GROUP BY first_name
+ORDER BY name_count DESC;
+
+
+MRO stands for Method Resolution Order.
+MRO ensures that the method resolution is consistent and predictable in Python’s multiple inheritance system.
+The C3 Linearization algorithm determines the method resolution order based on the inheritance hierarchy, respecting the relationships between the classes.
+You can always inspect the MRO of a class using mro() or __mro__.
+
+pip install --trusted-host pypi.python.org --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements.txt
+
+
+
+
+
+@smartdiv
+def div(a,b):
+	return a/b
+	
+
+def smartdiv(func):
+ def inner_function(a,b):
+   if b<0:
+     a,b=b,a
+	 
+	 return func(a,b)
+  return inner_function
+  
+ 
+ 
+print(div(5,0))
+
+
+when to use os:
+If you need to work with the file system: creating, deleting, or modifying files and directories.
+If you need to handle environment variables.
+If you need to interact with the operating system, such as executing commands or querying system properties.
+os.mkdir('new_directory') 
+os.getenv('VARIABLE_NAME')
+os.mkdir(), os.remove(), os.rename()
+
+
+
+When to use sys:
+If you need to access or manipulate command-line arguments.
+If you need to interact with the Python interpreter environment, such as checking the Python version, adjusting the module search path,
+ or managing input/output streams.
+If you need to terminate the program or handle exit status codes.
+sys.exit(0)
+sys.stdin, sys.stdout, sys.stderr
+
+
+Global India
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+Example 2:
+
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+Example 3:
+
+Input: nums = [3,3], target = 6
+Output: [0,1]
+
+def two_sum(nums, target):
+    # Create a dictionary to store the number and its index
+    num_dict = {}
+    
+    # Iterate through the list
+    for index, num in enumerate(nums):
+      print(f"index, num,{index},{num}")
+      complement = target - num
+      print(f"complement:{complement}")
+      if complement in num_dict:
+        print(f"num_dict:{num_dict}")
+        return [num_dict[complement], index] 
+      num_dict[num] = index
+    return []
+
+index, num,0,2
+complement:7
+num_dict outside complement:{2: 0}
+index, num,1,7
+complement:2
+num_dict inside the complement:{2: 0}
+[0, 1]
+
+nums1 = [2, 7, 11, 15]
+two_sum(num1,9)
+-------------------------------------------------------
+input = "aa3cd4e2"
+return = "aaaaaacdcdcdcdee"
+res=''
+x=''
+for chr in input:
+   if chr.isalpha():
+       x+=chr
+   else:
+      res=res+x*int(chr)
+      x=''
+
+print(res)
