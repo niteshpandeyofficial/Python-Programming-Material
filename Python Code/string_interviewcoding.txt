@@ -45,22 +45,42 @@ output-pandey nitesh
 input- nitesh sarvesh pandey
 output-hsetin hsevras yednap
 
+Method-1:
 m=input('Enter the string:');
 new1=m.split()
 print(new1)
-
 l1=[]
 print('new list is :',new1)
 for word in new1:
     l1.append(word[::-1])
 print(l1)
 print(' '.join(l1))#convert list to normal string
+-------------------------------------------------
+Method-2:
+for i in inp_val:
+  lengnth_i=len(i)-1
+  while lengnth_i>=0:
+    print(i[lengnth_i],end='')
+    lengnth_i-=1
+  print()
 
+------------------------------------------------
+Method-3:
+inp_val=string.split(' ')
+for i in inp_val:
+  print(''.join(list(reversed(i))))
 
+---------------------------------------------
+Method-4
+for i in inp_val:
+  for word in range(len(i)-1,-1,-1):
+    print(i[word],end='')
+  print(end =" ")
+
+--------------------------------------------
 ####
 input-nitesh sarvesh pandey nit sam 
 output-nitesh hsevras pandey tin  sam
-
 alternate string should be reverse 
 
 a=input('Enter the string:')
@@ -97,9 +117,25 @@ print('The Character at odd index is:')
 while i<len(n):
     print(n[i])
     i=i+2;
-	
-mehod-2
+
 ------------------------------------------
+odd number words from statement
+Method-1
+input_val="nitesh sarvesh pandey nit sam"
+string_val=input_val.split(' ')
+print(string_val)
+for i in range(0,len(string_val)):
+  if i%2==1:
+    print(string_val[i])
+
+Method-2
+input_val="nitesh sarvesh pandey nit sam dsf"
+string_val=input_val.split(' ')
+print(string_val)
+for i in range(1,len(string_val),2):
+  print(string_val[i])
+
+-----------------------------------------
 s='nitesh'
 print('Character present at even index position:',(','.join(s[::2]))) #or s[0::2]
 
@@ -112,6 +148,7 @@ sorted given alphanumerical string
 input-SADB193
 output-ABDS139
 
+Method-1
 s=input('Enter the alphanumerical string:')
 
 alphabetic=[]
@@ -125,6 +162,18 @@ for ch in s:
 output=''.join(sorted(alphabetic)+sorted(numerical))
 print(output)
 
+Method-2
+--------
+alphabet=''
+numeric=''
+for i in val_string:
+  if i.isalpha():
+    alphabet+=i
+  else:
+    numeric+=i
+print(f"alphabet values:{alphabet}")
+print(f"numeric values:{numeric}")
+print(alphabet+numeric)
 ------------------------------------------
 if we used sorted method directly then it return numerical value first and then alphabetic.
 S='NITESH125'
