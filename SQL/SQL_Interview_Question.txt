@@ -35,8 +35,19 @@ Join
 inner join
 Oracle INNER JOINS return all rows from multiple tables where the join condition is met.
 
+SELECT t2.*
+FROM table1 t1
+INNER JOIN table2 t2
+    ON t1.some_column = t2.some_column;
+
+
 left join --(inner join +any additional records in the left table)
 --This type of join returns all rows from the LEFT-hand table specified in the ON condition and only those rows from the other table where the joined fields are equal (join condition is met).
+
+SELECT t2.*
+FROM table1 t1
+FULL OUTER JOIN table2 t2
+    ON t1.some_column = t2.some_column;
 
 --The Oracle LEFT OUTER JOIN would return the all records from table1 and only those records from table2 that intersect with table1.
 
@@ -45,8 +56,19 @@ right join --(inner join + additional records from the right table)
 --This type of join returns all rows from the RIGHT-hand table specified in the ON condition and only those rows from the other table where the joined fields are equal (join condition is met).
 --The Oracle RIGHT OUTER JOIN would return the all records from table2 and only those records from table1 that intersect with table2.
 
+SELECT t2.*
+FROM table1 t1
+RIGHT JOIN table2 t2
+    ON t1.some_column = t2.some_column;
+
+
 Full Outer Join
  A full outer join contains all records of both the left and right tables.
+
+SELECT employee_name, department_name
+FROM Employees
+FULL OUTER JOIN Departments
+ ON Employees.employee_id = Departments.department_id;
 
 Cross Join
 a CROSS JOIN is a type of join that returns the Cartesian product of two tables. This means that every row from the first table is combined with every row from the second table. The result set will contain all possible combinations of rows between the two tables.
