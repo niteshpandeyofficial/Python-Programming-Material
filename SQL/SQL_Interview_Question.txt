@@ -148,6 +148,25 @@ GROUP BY
 ORDER BY
     department DESC;
 
+when employee_name is also required:
+SELECT
+    employee_name,
+    salary,
+    department
+FROM
+    t_employee_det
+WHERE
+    (salary, department) IN (
+        SELECT
+            MAX(salary) AS max_salary,
+            department
+        FROM
+            t_employee_det
+        GROUP BY
+            department
+    )
+ORDER BY
+    department DESC;
 
 ----------Add Two column value row by row--------------
 SELECT
@@ -156,12 +175,17 @@ SELECT
 FROM
     t_employee_det e;
 
+---------------------
+Some of the most commonly used analytical functions are:
+
+ROW_NUMBER(), RANK(), DENSE_RANK() (for ranking)
+LEAD(), LAG() (for comparing rows)
+FIRST_VALUE(), LAST_VALUE() (for retrieving the first and last values in a window)
+SUM(), AVG(), MIN(), MAX() (for aggregate calculations within a window)
+
+----------------------
 
 ALTER TABLE student ADD CHECK (Age>=19);
-
-
-
-select 5th max salary from table using rank function
 select * from (select emp_name,sal, rank() over(order by sal desc)rk from t_emp_det) where rk=5;
 
 first 5 max salary
