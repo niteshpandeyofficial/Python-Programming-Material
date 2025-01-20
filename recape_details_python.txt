@@ -501,6 +501,7 @@ subnets across multiple networks. It also provided better visibility into networ
 
 
 2.We developed an automated data processing pipeline that:
+CLOUD RESOURCE MANAGEMENT SYSTEM
 Monitored Cloud Resources
 Analyzed Usage: 
 Triggered Alerts: 
