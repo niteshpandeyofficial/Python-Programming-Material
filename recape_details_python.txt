@@ -15,6 +15,9 @@ Strings: Strings cannot be changed once they are created (you can create new str
 Tuples: You cannot modify, add, or remove elements from a tuple.
 Frozensets: Like sets, but immutable	.
 
+list vs dictionary which is faster
+Dictionaries are faster for lookups, deletions, and insertions when using keys.
+Lists are generally faster for simple, ordered collections or when appending at the end.
 
 -- memory managemen and garbage collection
 Python memory is managed by Python private heap space. All Python objects and data structures are located in a private heap. 
