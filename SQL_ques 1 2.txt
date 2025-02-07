@@ -1,0 +1,696 @@
+
+Q1- Tell me about your recent Project and your role ?
+We built an IP Address Management (IPAM) system that automates the allocation and tracking of IP addresses in a network. 
+The solution included several key features:
+
+Dynamic IP Allocation: A system that efficiently allocates IP addresses within a given range, ensuring no conflicts and optimal usage.
+Subnet Management: The system could handle multiple subnets, dynamically dividing the network into appropriate subnet sizes based on the requirements (e.g., CIDR calculations).
+IP Address Tracking: It provided real-time tracking of which IP addresses are assigned, available, or in use.
+User Management
+IP Search
+
+
+This IPAM solution streamlined the IP allocation process, reduced conflicts, and saved a significant amount of time in managing 
+subnets across multiple networks. It also provided better visibility into network usage.
+
+
+2.We developed an automated data processing pipeline that:
+CLOUD RESOURCE MANAGEMENT SYSTEM
+Monitored Cloud Resources
+Analyzed Usage: 
+Triggered Alerts: 
+Increased Asset Visibility:
+This automated pipeline helped the infrastructure teams to  monitor cloud resources more effectively, reduced manual effort in tracking 
+usage,It also provided a more transparent view of cloud assets, which was critical for better decision-making and cost optimization.
+
+
+Q2- How many Aggregate functions are available in SQL?
+In SQL, there are several aggregate functions that are commonly used to perform calculations on multiple rows of data. Here are the most widely used aggregate functions:
+
+COUNT(): Returns the number of rows that match a specified condition.
+Example: SELECT COUNT(*) FROM employees;
+
+SUM(): Returns the total sum of a numeric column.
+Example: SELECT SUM(salary) FROM employees;
+
+AVG(): Returns the average value of a numeric column.
+Example: SELECT AVG(salary) FROM employees;
+
+MIN(): Returns the minimum value from a column.
+Example: SELECT MIN(salary) FROM employees;
+
+MAX(): Returns the maximum value from a column.
+Example: SELECT MAX(salary) FROM employees;
+
+Q3- What is the difference between dml and ddl?
+DDL
+--DDL STANDS FOR DATA DEFINITION LAMGUAGE.
+--DDL IS AUTO COMMITTED
+--DDL TRIGGER WILL EXECUTED
+--DDL STATEMENT WORK ON THE WHOLE OBJECT
+--NO WHERE CONDITION CAN BE USED ALONG WITH DDL STATEMENTS.
+--DDL STATMENTS ARE USED FOR DEFINING DATABASE STRUCTURE LIKE TABLE,VIEW,USERS ETC.
+--CREATE,ALTER,DROP,TRUNCATE
+
+
+DML
+--DML STAND FOR DATA MANIPULATION LANGUAGE
+--DML STATEMENTS ARE USED TO MANAGE THE DATA STORED INSIDE THE DATABASE.
+--DML STATEMENTS WORK ON SELECTED DATA OF TABLE.
+--WHERE CONDITION CAN BE USED TO FILTER AND WORK ON SELECTED DATASET.
+--ALL CHANGES DONE BY DML NEED TO BE EXPLICITLY COMMIT OR ROLLBACK TO MAKE CHANGES PERMANENTS OR REVERT BACK 
+--DML TRIGGERS WILL GET INVOKED.
+--INSERT,UPDATE,DELETE,MERGE 
+
+
+Q4- What is a UNIQUE constraint?
+1.It is used for data integrity.
+2.A UNIQUE constraint in SQL is used to ensure that all the values in a column (or a combination of columns) are distinct across all rows in a table. It prevents duplicate values from being inserted into the column(s).
+
+Q5- What is Cursors?
+It acts as a pointer to the current row in the result set, allowing row-by-row processing of the data.
+Types of Cursors:
+Implicit Cursor: Automatically created by the database for SELECT statements that return a single result set. You don't need to explicitly declare them.
+DML STATEMNT LIKE INSERT UPDATE AND DELETE AUTOMATICALLY CREATES AN IMPLICIT CURSOR.
+
+ISOPEN      --RETURNS TRUE IF CURSOR IS OPEN,FALSE OTHERWISE.
+FOUND       --RETURN TRUE IF RECORD WAS FETCHED SUCCESSFULLY ,FALSE OTHERWISE.
+NOTFOUND    --RETURN TRUE IF RECORD WAS NOT FETCHED SUCCESSFULLY ,FALSE OTHERWISE.
+ROWCOUNT    --RETURN NUMBER OF RECORDS FETCHED FROM CURSOR AT THAT POINT IN TIME.
+
+Explicit Cursor: Declared by the programmer to retrieve and process multiple rows. Explicit cursors give more control, allowing for complex operations on the rows.
+
+Explicit Cursors further classified as Named Cursor, Ref Cursor(Strongly typed ref cursor,weakly typed ref cursor), For Cursor
+
+Lifecycle of a Cursor:
+
+Declare: A cursor is declared to define the SQL query for selecting the data.
+Open: The cursor is opened, and the query is executed, resulting in the retrieval of a result set.
+Fetch: The cursor fetches rows one at a time for processing.
+close cursor:
+
+CLEAR SCREEN
+SET SERVEROUTPUT ON;
+DECLARE 
+CURSOR EMP_NAME_CUR_LIST IS
+SELECT EMP_NAME FROM EMP;
+
+    V_NAME VARCHAR2(100);
+
+BEGIN
+    OPEN EMP_NAME_CUR_LIST;
+    LOOP
+        FETCH EMP_NAME_CUR_LIST INTO V_NAME;
+        EXIT WHEN EMP_NAME_CUR_LIST%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE('V_NAME:'||V_NAME);
+    END LOOP;
+    CLOSE EMP_NAME_CUR_LIST;
+END;
+
+
+Q6- What is the difference between delete and truncate?
+
+Delete												Truncate
+1.DML command											1.DDL command
+2.can use where condition with select statement							2.can not use where condition with select statement.
+3.delete specific row based on condition.							3.all row will be removed from table.
+4.slower because it uses undo segment.								4.Faster as compared to delete.
+5.Trigger will get fired(on delete trigger)							5.No trigger will get fired.
+6.won't reclaim the space used by table.							6.reclaim the space used by table.
+7.won't reset the high level watermark.								7.Reset the high level watermark.
+8.on delete cascade from oracle 12c 								8.truncate table <table_name> cascade from oracle 12c
+
+HWM(High Water mark)
+Maximum number of block which have ever contained data.deleting the data from table free up the space but does not move the HWM.
+
+Q7- Can you explain the difference between table , view and materialized view ?
+1.Tables hold actual data, and you can modify them.
+2.Views provide a dynamic way to represent data from tables but don't store the data themselves.
+3.Materialized Views store query results physically and can be refreshed, providing faster access to complex query results at the cost of 
+having potentially stale data.
+
+
+Q8- What is the difference between NOW() and CURRENT_DATE()?
+NOW():The current date and time.
+SELECT NOW(); #2025-02-06 15:30:45
+CURRENT_DATE():The current date only, without the time component.
+SELECT CURRENT_DATE(); 2025-02-06
+
+
+Q9- As far as storage is concerned can you differentiate between view and materialized view ?
+a view(Virtual Table) does not consume much storage beyond its definition, while a materialized view stores actual data and therefore consumes more storage.
+
+
+Q10- What are the differences between primary key and unique key ?
+Primary Key is used to uniquely identify records in a table and cannot have NULL values. There can only be one primary key per table.
+Unique Key ensures that values in a column are unique but allows NULLs. A table can have multiple unique keys.
+
+Q11- How many Primary keys can i define in a table ?
+1.You can define one Primary Key per table.
+2.It can be a single column or a composite key (multiple columns).
+
+Q12- What is the difference between analytical vs aggregate functions?
+Aggregate Functions summarize data, collapsing multiple rows into a single value for each group.
+SUM(), AVG(), COUNT(), MIN(), MAX()
+
+Analytical Functions perform calculations over a set of rows but return a value for each individual row, allowing for more advanced analysis while maintaining row-level detail.
+ROW_NUMBER(), RANK(), LEAD(), LAG(), NTILE()
+
+Q13- How to calculate difference between todays price and last month price same date for a given product? Do you use lead or lag or something else?
+
+Use LAG() if your data is ordered and you just want to refer to the previous row (last month's price).
+Use JOIN if you need more control, especially if the dates are not guaranteed to be ordered or the dates might not match exactly.
+
+LAG(price, 1)(check previous value)means 1 value back
+
+SELECT 
+    product_id,
+    price AS current_price,
+    price_date,
+    LAG(price, 1) OVER (PARTITION BY product_id ORDER BY price_date) AS last_month_price,
+    price - LAG(price, 1) OVER (PARTITION BY product_id ORDER BY price_date) AS price_difference
+FROM 
+    product_prices
+WHERE 
+    price_date = CURRENT_DATE  -- today's date
+    AND EXISTS (
+        SELECT 1 FROM product_prices 
+        WHERE price_date = ADD_MONTHS(CURRENT_DATE, -1) 
+        AND product_id = product_prices.product_id
+    );
+
+
+
+SELECT 
+    p1.product_id,
+    p1.price AS current_price,
+    p1.price_date,
+    p2.price AS last_month_price,
+    p1.price - p2.price AS price_difference
+FROM 
+    product_prices p1
+JOIN 
+    product_prices p2
+    ON p1.product_id = p2.product_id
+    AND p2.price_date = ADD_MONTHS(p1.price_date, -1)
+WHERE 
+    p1.price_date = CURRENT_DATE;  -- today's date
+
+
+
+Q14- What is CTE ?
+A CTE (Common Table Expression) is a temporary result set in SQL,only exists during the execution of a single SQL query.
+Once the query completes, the CTE is discarded.
+A CTE is defined using the WITH keyword, followed by a query that generates a result set, which you can then refer to within the main query.
+
+WITH cte_name AS (
+    -- The query that defines the CTE
+    SELECT column1, column2
+    FROM some_table
+    WHERE condition
+)
+-- Main query that uses the CTE
+SELECT *
+FROM cte_name;
+
+
+Q15- How many types of constraints are there?
+In SQL, constraints are rules or conditions that restrict the types of data that can be stored in a table.
+Primary Key:Uniquely identifies each record in a table.
+Foreign Key:Enforces a relationship between two tables.
+A Foreign Key (FK) is a column or a set of columns in a table that creates a link between data in two tables. It is a constraint that enforces referential integrity between the two tables. Specifically, a Foreign Key in one table refers to the Primary Key (or a Unique Key) of another table.
+
+Unique:Ensures unique values in a column or group of columns.
+Not Null:Ensures a column cannot have a NULL value.
+Check:Ensures values in a column meet a specified condition.
+Default:Provides a default value when no value is specified.
+
+Q17- Did you work on merge statement ?
+The MERGE statement is an efficient way to synchronize data between two tables by combining INSERT, UPDATE, and DELETE operations in a single query. 
+
+MERGE INTO target_table AS target
+USING source_table AS source
+ON (target.column = source.column)
+WHEN MATCHED THEN
+    -- Action to take when a match is found (UPDATE, DELETE)
+    UPDATE SET target.column = source.column
+WHEN NOT MATCHED THEN
+    -- Action to take when no match is found (INSERT)
+    INSERT (column1, column2)
+    VALUES (source.column1, source.column2);
+
+
+Q18- Do you know autonomous transactions/trigger?
+An autonomous transaction is a transaction that is independent of the main transaction
+In Oracle, you can mark a transaction as autonomous by using the PRAGMA AUTONOMOUS_TRANSACTION directive in PL/SQL.
+
+CREATE OR REPLACE PROCEDURE log_action(p_message VARCHAR2) IS
+  PRAGMA AUTONOMOUS_TRANSACTION; -- Mark this procedure as autonomous
+BEGIN
+  -- Log the action in the log table
+  INSERT INTO action_log (log_id, log_message, log_time)
+  VALUES (action_log_seq.NEXTVAL, p_message, SYSTIMESTAMP);
+  
+  -- Commit the changes to the log table (independent of main transaction)
+  COMMIT;
+END;
+/
+
+-- Main procedure to update employee salary and log the action
+CREATE OR REPLACE PROCEDURE update_employee_salary(p_employee_id INT, p_new_salary NUMBER) IS
+BEGIN
+  -- Update the salary in the main transaction
+  UPDATE employees
+  SET salary = p_new_salary
+  WHERE employee_id = p_employee_id;
+  
+  -- Log the action in an autonomous transaction
+  log_action('Updated salary for employee ID ' || p_employee_id || ' to ' || p_new_salary);
+END;
+/
+
+-- Call the procedure to update Alice's salary to 55,000
+EXEC update_employee_salary(1, 55000);
+
+Main Transaction: The employee's salary will be updated in the employees table.
+Autonomous Transaction: The action of logging the update will be committed in the action_log table independently.
+
+
+
+--A TRIGGER IS A PL/SQL BLOCK STRUCTURE WHICH IS AUTOMATICALLY FIRED WHEN AN EVEN OCCURS IN THE DATABASE.
+--THE EVENT CAN BE DDL,DML OR SYSTEM EVENTS
+
+TYPE OF TRIGGER
+--DML TRIGGER-INSERT UPDATE AND DELETE
+--DDL TRIGGER-ALTER DROP TRUNCATE REVOKE RENAME AUDIT
+--SYSTEM TRIGGER-LOGON LOGOFF STARTUP SHUTDOWN
+--INSTEAD OF TRIGGER-TRIGGER ON VIEW
+--COMPOUND TRIGGER-COMBINE DML TRIGGER IN SINGLE BLOCK
+
+
+PURPOSE OF TRIGGER
+--AUDITING
+--ENFORCING COMPLEX REFERENCTIAL INTEGRITY
+--LOGGING
+--ENFORCING SECURITY FOR TRANSACTION
+--DATA REPLICATING TO MULTIPLE TABLES
+--PREVENT INVALID DATA OR TRANSACTION
+
+
+Q19- What is Trigger in database ?
+refer above
+
+Q20- Do you know the types of Triggers ?
+refer above
+
+Q23- How do you resolve the issues if you feel join is taking a lot of time in the execution plan ?
+By understanding the query's execution plan, indexing relevant columns, using appropriate join types, and optimizing the query structure(avoid select * or all,Temporary Tables,Parallel Execution ), you can significantly improve the performance of slow joins. Always ensure that your database is optimized to handle large datasets efficiently.
+
+Q24- What is the cross join ?
+A CROSS JOIN is a type of join that returns the Cartesian product of the two tables being joined.
+It combines each row from the first table with every row from the second table, resulting in a new set of rows.
+SELECT p.product_name, c.color_name
+FROM products p
+CROSS JOIN colors c;
+
+SELECT p.product_name, c.color_name
+FROM products p,colors c; 
+
+
+Q25- If one table has 20 records and other table has 10 records , cross join will result in how many rows?
+Total rows=(Rows in Table 1)×(Rows in Table 2)
+Total rows=20 × 10 = 200
+Total rows=20×10=200
+
+Q26- In the execution plan what kind of joins do you see?
+Nested Loop Join (NLJOIN)
+Merge Join (MJ)
+Hash Join (HJ)
+Self Join:
+CROSS JOIN (Cartesian Product)
+Anti Join-It is similar to a LEFT JOIN but only returns the non-matching rows from the left table.
+Semi Join-A Semi Join returns only the rows from the left table that have matching rows in the right table, but unlike an INNER JOIN, it doesn't return columns from the right table.
+
+Q27- What is an index in database , how does it improve the performance ?
+an index is a database object that improves the speed of data retrieval operations on a table. 
+IT PROVIDE DIRECT,FAST ACCESS TO ROW.ORACLE DATABASE SUPPORT SEVERAL TYPE OF INDEX.
+
+--B-TREE INDEX
+--BITMAP INDEX
+--FUNCTION BASED INDEX
+--REVERSE KEY INDEX
+--COMPOSITE INDEX
+
+
+Faster Query Execution: 
+Efficient Data Retrieval: 
+Optimized Sorting and Grouping:
+
+
+Q28- Do you have any experience with ETL and datawarehouse?
+
+Q29- What is ETL ?
+ETL stands for Extract, Transform, and Load. It is a process used to move and process data from different sources into a data warehouse or 
+other data storage system.
+
+ETL Workflow Overview:
+Extract: Gather raw data from various sources.
+Transform: Clean, filter, and convert the data into the desired format.
+Load: Store the transformed data in the destination system
+
+Pentaho
+Informatica
+Apache Airflow
+apache Nifi
+
+
+Q30- What is the primary difference between data warehousing and OLTP ?
+1.Data Warehousing is designed for large-scale data analysis, focusing on historical data and complex queries to support decision-making.
+2.OLTP(Online Transaction Processing) systems, on the other hand, are designed for real-time transactions and operational efficiency, supporting day-to-day business activities and ensuring data integrity in real-time.
+
+Q31- What is a surrogate key ?
+A surrogate key is a system-generated, unique identifier used in databases, especially in data warehousing.
+Customer_Key: surrogate key (system-generated, unique).
+Customer_ID: natural key (business-defined), but it could change over time.
+
+Q32- If you have duplicates in a table , how do you delete the duplicate records?
+Using ROW_NUMBER() to Identify Duplicates
+WITH CTE AS (
+    SELECT 
+        ID, 
+        Name, 
+        Department, 
+        Salary,
+        ROW_NUMBER() OVER (PARTITION BY ID, Name, Department, Salary ORDER BY ID) AS row_num
+    FROM Employee
+)
+DELETE FROM Employee
+WHERE ID IN (
+    SELECT ID
+    FROM CTE
+    WHERE row_num > 1
+);
+
+
+Using RowID
+DELETE FROM Employee
+WHERE ROWID NOT IN (
+    SELECT MIN(ROWID)
+    FROM Employee
+    GROUP BY Name, Department, Salary
+);
+
+
+Q33- I don't have a primary key, i have 10 records in a table. There are few duplicates, exactly duplicate rows. There are 5 are duplicate rows. How do i remove the other 5 rows? Table has 5 column.
+The approach you can take is using ROWID (in databases like Oracle or SQLite) or using ROW_NUMBER() (in SQL Server, MySQL, PostgreSQL) to identify and delete the duplicates.
+
+
+Q34- In Q33 - Which record you keep and which record you delete ?
+The choice of which record to keep and which to delete depends on your specific business logic. Generally, you either keep the first record (based on ID or creation order) or the most recent one (based on a timestamp).
+You can define this rule using the ROW_NUMBER() window function or ROWID for identifying duplicates and keeping one of them based on the criteria you choose.
+
+
+Q35- What is the bulk loading ?
+Bulk Loading is a powerful technique for loading large datasets into a database efficiently. Depending on the database system you're using, there are specific commands (like SQL*Loader, LOAD DATA INFILE, BULK INSERT, COPY, etc.) to perform bulk loads. 
+
+
+This is the most commonly used tool for bulk loading in Oracle. It allows you to load data from external files (such as CSV or text files) into Oracle tables.
+while loading the data into target table,SQL loader generate below mentioned files
+Log file(Contain information about process log)
+Bad File(Contain information about failed data)
+Discard File(Contain information about rejected data)
+Control file (load_data.ctl):
+
+When to Use Bulk Loading:
+Large Dataset Migration:
+Data Warehousing: 
+ETL Processes: 
+
+Q36- I have 50 records that I need to load in database. What is your approach do you load one by one or you load all at once ?
+Load all at once (batch insert) is the most efficient method for inserting 50 records.
+Loading one by one (single insert) should be avoided unless you have specific requirements for error handling, validation, or logging that necessitate individual insertions.
+INSERT INTO Employees (ID, Name, Department, Salary)
+VALUES
+(1, 'John', 'HR', 50000),
+(2, 'Alice', 'Finance', 60000),
+(3, 'Bob', 'IT', 55000),
+(4, 'Charlie', 'Marketing', 45000),
+-- Add all 50 records here
+(50, 'Zoe', 'Sales', 70000);
+
+
+INSERT INTO Employees (ID, Name, Department, Salary) VALUES (1, 'John', 'HR', 50000);
+INSERT INTO Employees (ID, Name, Department, Salary) VALUES (2, 'Alice', 'Finance', 60000);
+-- And so on, for each record
+
+
+Q37- What is the commit and rollback ?
+both are the part of Transactional Control Language
+They ensure data integrity and consistency in a database by allowing you to control when changes to the database are saved or discarded.
+A commit is an operation that saves all the changes made during a transaction permanently to the database. Once a commit is issued, the changes become permanent and visible to other users or systems interacting with the database.
+COMMIT
+
+A rollback is an operation that undoes all changes made during the current transaction. If something goes wrong during the transaction or if you want to discard the changes for any reason, a rollback is used to revert the database to its state before the transaction began.
+ROLLBACK;
+
+Q38- In SP, i inserted 50 records into the table. I immediately created temp table and then i was doing some operations. Something happens after temp table is created and then exception happened. In the exception block i have a rollback. So in the sceanario , do you think 50 records will make it to the table or not ? Is the temporary table created or not ?
+
+The 50 records will not make it to the main table if an exception happens and the transaction is rolled back. Since the insertion is part of the same transaction and the ROLLBACK undoes the entire transaction, those records will not be saved.
+
+The temporary table will still exist, even though a rollback happened, because the temporary table is a session-level object and not tied to the transaction. It will remain until the session ends (e.g., when the connection is closed) or until explicitly dropped.
+(CREATE TEMPORARY TABLE or CREATE TABLE #temp_table)
+
+
+Q39- What are the syntax and use of the COALESCE function?
+coalesce--take any number of arguments
+return first non null value.
+select coalesce('A','B','C','D','E') from dual;--return A
+select coalesce(null,'B','C','D','E') from dual;--return B
+select coalesce(null,null,'C','D','E') from dual;--return C
+
+
+Q40- What is the main difference between ‘BETWEEN’ and ‘IN’ condition operators?
+The BETWEEN and IN operators in SQL are both used to filter results
+BETWEEN is used to filter values in a range (e.g., numeric or date ranges).
+Checks if a value is between two boundary values (inclusive)
+column BETWEEN value1 AND value2
+Eg:Salary BETWEEN 50000 AND 70000
+
+IN is used to filter based on a list of discrete values.
+Checks if a value is equal to any one of the specified values	
+column IN (value1, value2, value3, ...)
+Eg:Department IN ('HR', 'IT', 'Finance')
+
+
+Q41- Difference between Rank and Dense_Rank?
+They are part of the SQL analytic functions and are used to assign sequential rank values to row
+It assigns a unique rank to each row in the result set, but it leaves gaps in the ranking when there are ties.
+SELECT EmployeeID, Salary, RANK() OVER (ORDER BY Salary DESC) AS Rank
+FROM Employees;
+
+
+It also assigns a rank to each row but does not leave gaps when there are ties.
+SELECT EmployeeID, Salary, DENSE_RANK() OVER (ORDER BY Salary DESC) AS DenseRank
+FROM Employees;
+
+Q42- Union vs UnionAll ? Which one is faster ?
+UNION and UNION ALL are both used to combine the results of two or more SELECT statements in SQL
+Union
+Removes duplicates from the result set.
+Slower, because it performs sorting and removes duplicates
+Use when you want to combine results and remove duplicates
+
+UnionAll
+Includes all duplicates in the result set
+Faster, because it does not perform any duplicate removal or sorting
+Use when you want to combine results and retain duplicates
+
+
+Q43- Getting 1 million records from a table having 1 billion records and deleting the rest ?
+Key Considerations:
+Indexing: Ensure that the table has appropriate indexes, especially on columns that you’ll be using for filtering and sorting, to speed up query execution.
+Transaction Size: Deleting millions of rows at once can put heavy load on the system, so it’s typically recommended to batch the deletion into smaller chunks.
+Locking and Blocking: Large deletes can lock the table and cause blocking, so a well-planned approach is necessary to minimize locking time.
+
+Approach A: 
+Delete the records not part of the selected set using a subquery or a NOT IN clause.
+
+Approach B: Using a Temporary Table
+Create a temporary table to store the 1 million records:
+Delete all records not in the temporary table:
+
+Best Approach: Batch deletion using a temporary table and deleting in smaller chunks (e.g., 100,000 rows per batch) is often the most efficient approach.
+
+Q44- What are Oracle Hints ?
+Hints are used to guide the database optimizer to select a certain execution plan or approach to query execution. 
+It allow how the Oracle database optimizer should execute the query. These hints are provided within the SQL query itself, 
+and they allow you to control the query execution plan.
+
+The hints are enclosed within /*+ ... */
+
+SELECT /*+ PARALLEL(employees 4) */ employee_id, first_name
+FROM employees;
+
+Q45- How can you fetch common records from two tables?
+
+Use INTERSECT when you want to find common rows in two tables based on exact matching columns, and you are looking for a simpler, set-based approach.
+SELECT employee_id, first_name, last_name
+FROM employees
+INTERSECT
+SELECT employee_id, first_name, last_name
+FROM contractors;
+
+
+Use INNER JOIN when you need more control over how the tables are joined (e.g., with multiple columns or complex conditions).
+SELECT e.employee_id, e.first_name, e.last_name
+FROM employees e
+INNER JOIN contractors c
+ON e.employee_id = c.employee_id;
+
+
+Use WHERE EXISTS when you want to check for the existence of matching records in a subquery.
+
+SELECT e.employee_id, e.first_name, e.last_name
+FROM employees e
+WHERE EXISTS (
+    SELECT 1
+    FROM contractors c
+    WHERE e.employee_id = c.employee_id
+);
+
+
+Q46- Table Partitioning
+Table Partitioning is a database technique used to divide large tables into smaller, more manageable pieces, called partitions
+Types of Table Partitioning in Oracle.
+Range Partitioning:Data is partitioned based on a specified range of values from a column, typically a date or numeric column.
+
+CREATE TABLE sales (
+    sale_id INT,
+    sale_date DATE,
+    amount DECIMAL
+)
+PARTITION BY RANGE (sale_date) (
+    PARTITION p1 VALUES LESS THAN (TO_DATE('2021-01-01', 'YYYY-MM-DD')),
+    PARTITION p2 VALUES LESS THAN (TO_DATE('2022-01-01', 'YYYY-MM-DD')),
+    PARTITION p3 VALUES LESS THAN (TO_DATE('2023-01-01', 'YYYY-MM-DD'))
+);
+
+2.List Partitioning:
+Data is partitioned based on a list of values. It is useful when you have discrete, predefined values (e.g., country codes, departments, etc.).
+
+CREATE TABLE employees (
+    emp_id INT,
+    emp_name VARCHAR2(50),
+    department VARCHAR2(50)
+)
+PARTITION BY LIST (department) (
+    PARTITION p_sales VALUES ('Sales'),
+    PARTITION p_hr VALUES ('HR'),
+    PARTITION p_it VALUES ('IT')
+);
+
+
+3.Composite partitioning: combines multiple partitioning strategies.
+
+CREATE TABLE transactions (
+    transaction_id INT,
+    transaction_date DATE,
+    customer_id INT
+)
+PARTITION BY RANGE (transaction_date)
+SUBPARTITION BY HASH (customer_id) 
+PARTITIONS 4
+(
+    PARTITION p1 VALUES LESS THAN (TO_DATE('2022-01-01', 'YYYY-MM-DD')),
+    PARTITION p2 VALUES LESS THAN (TO_DATE('2023-01-01', 'YYYY-MM-DD'))
+);
+
+
+
+4.Hash Partitioning:Data is partitioned based on a hash function applied to the values of one or more columns
+CREATE TABLE orders (
+    order_id INT,
+    customer_id INT,
+    order_date DATE
+)
+PARTITION BY HASH (customer_id) 
+PARTITIONS 4;
+
+
+Add Partition
+ALTER TABLE sales
+ADD PARTITION p4 VALUES LESS THAN (TO_DATE('2024-01-01', 'YYYY-MM-DD'));
+
+Drop Partition
+ALTER TABLE sales
+DROP PARTITION p1;
+
+
+Q47- Set Operators - If you have two sets A and B, how will you get results which are in set A but not in Set B?
+To get the results that are in Set A but not in Set B, you can use the MINUS set operator in SQL.
+Suppose you have two sets represented by two tables, table_a and table_b, and you want to find the rows that are in table_a but not in table_b.
+
+SELECT column_name
+FROM table_a
+MINUS
+SELECT column_name
+FROM table_b;
+
+
+you can also achieve the same result using the NOT EXISTS condition with a subquery:
+SELECT employee_id, name
+FROM employees e
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM contractors c
+    WHERE e.employee_id = c.employee_id
+);
+
+
+Q48- Does a CTE create temp table?
+CTEs are not temporary tables, although they can appear similar because they hold intermediate results during a query execution.
+Temporary tables are physical objects created in the temporary storage (such as tempdb in SQL Server) and are persistent for the duration of a session or until dropped.
+both are used for intermediate storage of data, a CTE does not create a temporary table in the database, and the data is not physically stored on disk.
+
+Q49- What is a sequence?
+Sequences, on the other hand, are separate objects that generate numbers independently of a table. This makes them more flexible and reusable across different tables.
+
+Auto-Increment / Identity columns are specific to a table and automatically generate values for the column when a new row is inserted. However, they cannot be shared across multiple tables and are tied directly to the table.
+
+Q50- Finding Nth highest salary:
+ROW_NUMBER() is best when you want unique ranks and you don’t mind skipping numbers in case of ties.
+RANK() and DENSE_RANK() are useful if you need to handle ties differently. RANK() skips ranks, while DENSE_RANK() does not.
+
+ROW_NUMBER():
+WITH SalaryRank AS (
+    SELECT salary,
+           ROW_NUMBER() OVER (ORDER BY salary DESC) AS rank
+    FROM employees
+)
+SELECT salary
+FROM SalaryRank
+WHERE rank = 3;
+
+
+RANK():
+WITH SalaryRank AS (
+    SELECT salary,
+           RANK() OVER (ORDER BY salary DESC) AS rank
+    FROM employees
+)
+SELECT salary
+FROM SalaryRank
+WHERE rank = 3;
+
+
+DENSE_RANK()
+WITH SalaryRank AS (
+    SELECT salary,
+           DENSE_RANK() OVER (ORDER BY salary DESC) AS rank
+    FROM employees
+)
+SELECT salary
+FROM SalaryRank
+WHERE rank = 3;
+
+
