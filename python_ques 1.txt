@@ -1,0 +1,682 @@
+1.Difference between Python and Java? Which is better ?(pros/cons)
+python and java are both powerful, high-level programing language. The choice between python and java depends on the specific needs
+of a project or application.
+
+Python vs java
+syntax: 
+1.simple, clean readable   
+2.verbose complex
+
+Typing system:
+1.Dynamically typed
+2.Statically typed
+
+Performance:
+1.Slower due to interpretation
+2.Faster due to compilation to bytecode
+
+Concurrency:
+1.Limited due to GIL
+2.Excellent multi-threading support
+
+
+Which is better:
+1.Python is better suited for quick development ,scripting ,data science. Machine learning and smaller project.
+2.Java is better choice for large-scale high-performance application and mobile app development.
+
+
+2.What is a dynamically typed language?
+Dynamically typed language means we don't have to declare the type of variables when we create them.
+The language determines the type during execution, providing more flexibility.
+
+
+3.What is an Interpreted language? How Python is interpreted? What is the difference between .py and .pyc files?
+An interpreted language is a type of programming language where most of the instructions are executed directly, line by line, by an interpreter, rather than being compiled into machine-level code beforehand.
+
+Python is an interpreted language because it does not require a separate compilation step to run the code. Instead, Python code is executed by an interpreter. 
+The source code is parsed.
+It is compiled into bytecode (stored as .pyc or .pyo files).
+The bytecode is executed by the Python Virtual Machine (PVM), which handles the actual execution of the code.
+
+.py files are the source code files that we write.
+.pyc files are the compiled bytecode that Python uses for faster execution in the future.
+
+
+4.What are some of the most commonly used built-in modules in Python?
+Python provide large built-in modules that are incredibly useful for a wide range of tasks, from file handling to working with dates and times. Here are some of the most commonly used built-in modules in Python:
+
+1. os:  Interacting with the operating system (e.g., file and directory manipulation).e.g os.path,os.mkdir(),os.remove()
+2. sys: Provides access to some variables used or maintained by the Python interpreter sys.exit(),sys.version
+3. math:Provides mathematical functions and constants.math.sqrt(), math.pow(), math.factorial().
+4. random : Provides functions for generating random numbers and selecting random items from sequences.random.randint(), random.choice(), random.sample()
+5.Json
+6.collections :Counter,namedtuple,defaultdict
+7.datetime :datetime.datetime.now(), datetime.date.today()
+8.shutils :shutil.copy(), shutil.move()
+9.re
+
+
+
+5.Differentiate between a package and a module in python?
+both modules and packages are ways to organize and structure code, but they have different meanings and uses.
+A module is a single Python file that contains definitions, functions, classes, and variables. It allows you to organize your code into separate files, making it easier to manage, reuse, and maintain.
+A package is a collection of Python modules grouped together in a directory. A package may contain multiple modules (and even sub-packages) to create a hierarchical structure. A package allows you to organize and manage large codebases in a way that keeps related functionality grouped.
+
+6.What are lists and tuples?
+ordered collections(represents a group of objects) of elements(meaning the order of elements in a list is preserved.) enclosed in square brackets [].
+Different datatype collection.
+Lists can grow or shrink in size dynamically.
+List are mutable i.e they can be edited.
+Lists are slower than tuples.
+More functionality as compared to tuple.
+Don't know the exact number of rows
+
+Tuple:
+ Tuples is an ordered sequences of elements enclosed in parentheses()
+ Tuples are immutable (tuples are lists which can’t be edited).
+ Tuples are faster than list.(check below example to prove the same)
+ Less functionality as compared to List
+ know the exact number of rows
+ 
+
+7.What are the common built-in data types in Python?
+Python provides several built-in data types
+Immutable built-in datatypes of Python
+Numbers
+Strings
+frozenset
+Tuples
+
+Mutable built-in datatypes of Python
+List
+Dictionaries
+Sets
+
+8.What are global, protected and private attributes in Python?
+Global attributes have global scope and can be accessed from anywhere within the module.
+
+Protected:
+1.Protected attributes are intended to be accessed only within the class and its subclasses.
+2.protected attributes are indicated by a single underscore (_) at the beginning of the attribute name.
+
+Private:
+1.Private attributes are intended to be used only within the class and not accessible from outside. Python uses name mangling to make private attributes harder (but not impossible) to access outside the class.
+2.Private attributes are indicated by double underscores (__) at the beginning of the attribute name.
+
+9.What are unit tests in Python?
+1.Unit tests in Python allow you to write automated tests to check the correctness of your code.
+2.The unittest module is built into Python and provides the framework for creating and running unit tests.
+3.Using assertions, you can check if your code behaves as expected in various scenarios.
+
+different library:Pytest,unittest
+
+10.Explain how can you make a Python Script executable on Unix? 
+Add the shebang (#!/usr/bin/env python3) to the top of your script.
+Change the script's permissions to make it executable using chmod +x script_name.py.
+Run the script directly using ./script_name.py.
+
+11.How is memory managed in Python? 
+Python memory is managed by Python private heap space. All Python objects and data structures are located in a private heap. 
+The programmer does not have an access to this private heap and interpreter takes care of this Python private heap.The allocation 
+of Python heap space for Python objects is done by Python memory manager.
+
+In Python, garbage collection refers to the process of automatically reclaiming memory occupied by objects that are no longer needed 
+by the program. The goal of garbage collection is to free up memory that is no longer referenced, preventing memory leaks and ensuring 
+that the program uses memory efficiently.
+Python uses a combination of two main techniques to manage memory:
+
+Reference Counting-Python employs a reference counting mechanism to keep track of the number of references to an object.
+When the reference count drops to zero, meaning there are no references pointing to the object, the memory occupied by the object 
+is released.
+
+Cyclic Garbage Collector-Python also includes a cyclic garbage collector to detect and collect objects involved in circular references
+This ensures that even in cases of circular references, memory is properly managed.
+
+
+12.GIL ,Heap and Comparison with Java.
+GIL (Global Interpreter Lock)
+both Java and Python rely on the heap to dynamically allocate memory for objects at runtime. 
+
+Memory Allocation:
+
+Python and Java both allocate memory for objects dynamically in the heap.
+In Python, memory management is done using reference counting and a garbage collector (similar to Java’s GC).
+Java uses a more sophisticated garbage collection process (e.g., mark-and-sweep) to manage memory in the heap. This is done automatically, without requiring direct intervention by the programmer.
+Garbage Collection:
+
+Python’s garbage collector uses reference counting for basic memory management, with periodic generational garbage collection to clean up circular references.
+Java, on the other hand, relies on more complex garbage collection algorithms (like Mark-and-Sweep, Generational GC) to manage heap memory.
+Threading and Memory:
+
+Python's GIL (Global Interpreter Lock) can prevent true parallel execution of Python bytecode, so even though Python uses heap memory, multiple threads cannot fully take advantage of multi-core CPUs for CPU-bound tasks.
+Java can fully utilize multi-core systems for concurrent execution since it does not have a GIL. This means that Java threads can run concurrently and independently on multiple cores, with the heap being accessed by all threads in a thread-safe manner.
+
+13.What are decorators in Python? use Case?
+1.Python decorator gives us the ability to add new behavior to the given objects dynamically.
+2.They are essentially functions that take another function as an argument and return a modified 
+version of that function.
+
+Benefits of using decorators:
+Clean Code
+Maintainability
+Code Reusability
+
+Decorators are commonly used for various purposes, such as:
+
+Logging: Adding logging statements before and after function execution.
+Timing: Measuring the time taken for a function to execute.
+Authorization: Checking if a user has the necessary permissions before allowing access to a function.
+Caching: Storing and reusing the results of expensive function calls.
+Validation: Checking the input parameters or output of a function.
+
+def smartdiv(fun):
+  def inner(a,b):
+    if a<b:
+      a,b=b,a
+    return fun(a,b)
+  return inner
+
+@smartdiv
+def div(a,b):
+  return a/b
+
+
+
+14.How do you copy an object in Python?
+In Python, there are several ways to copy an object, depending on the level of copying you need.
+shallow copies for efficiency when you don’t need independent nested objects, 
+and deep copies when you need full independence between the original and the copy.
+
+
+Shallow copy:
+reference of object is copied in other object.
+it means that any changes made to a copy of object reflect in the original object.
+
+shallow_copy = copy.copy(original_list)
+
+A copy of object in another object
+any changes made to a copy of object do not reflect in the original object.
+deep_copy = copy.deepcopy(original_list)
+
+#deep copy
+a=[1,2,3,4]
+b=a.copy()
+
+#shallow copy
+c=b 
+
+
+15.What are generators in Python?
+Generators are a type of iterator that produce values on demand and do not hold the entire dataset in memory. *only keep track of the current state. When you request the next item, the generator computes it on the fly and yields it, thus using much less memory overall.
+
+def countdown(num):
+  n=1
+  while n<=num:
+    yield n
+    n=n+1
+
+
+for i in countdown(5):
+    print(i)
+     
+
+
+16.What is PYTHONPATH in Python?
+It is an environment variable which is used when a module is imported. 
+Whenever a module is imported, PYTHONPATH is also looked up to check for the presence of the imported modules in various directories. 
+The interpreter uses it to determine which module to load.
+
+17.What is the use of help() and dir() functions?  
+both are used for viewing a consolidated dump of built-in functions. 
+Help() function:The help() function is used to display the documentation string and also facilitates you 
+				to see the help related to modules, keywords, attributes, etc.
+
+Dir() function: The dir() function is used to display the defined symbols or function available ie which is used at that session.
+ if we used any varaible for eg s="nitesh" in our session and when we try to use dir(s) then it provide all the function Name
+ applicable for this variable.  
+
+
+18.How are arguments passed by value or by reference in python?
+In Python, arguments are neither passed strictly by value nor by reference in the same way as in languages like C++ or Java. 
+Python uses a mechanism called pass-by-object-reference or pass-by-assignment.
+Immutable: New object is created when modified (appears like pass-by-value).
+def modify_value(x):
+    x = x + 5  # x is an integer (immutable)
+
+num = 10
+modify_value(num)
+print(num)  # Output: 10 (original 'num' is unchanged)
+
+
+Mutable:The original object can be modified (appears like pass-by-reference).
+
+def modify_list(lst):
+    lst.append(10)  # lst is a list (mutable)
+
+my_list = [1, 2, 3]
+modify_list(my_list)
+print(my_list)  # Output: [1, 2, 3, 10] (original 'my_list' is modified)
+
+
+19.Explain how to delete a file in Python?
+To delete a file in Python, you need to import the OS Module.
+After that, you need to use the os.remove(filename) or os.unlink(filename) function.
+
+
+20.How can you concatenate two tuples?
+In Python, you can concatenate two tuples using the + operator. This creates a new tuple that contains the elements of both tuples.
+tuple1 = (1, 2, 3)
+tuple2 = (4, 5, 6)
+
+# Concatenating two tuples
+result = tuple1 + tuple2
+
+print(result)  # Output: (1, 2, 3, 4, 5, 6)
+
+
+21.Explain split() and join() functions in Python?
+The split() and join() functions are used to manipulate strings.
+The split() function is used to break a string into a list of substrings based on a specified separator.
+text = "Hello world, how are you?"
+result = text.split()
+print(result)# Output: ['Hello', 'world,', 'how', 'are', 'you?']
+
+
+Used to combine elements of an iterable (like a list) into a single string, with a specified separator.
+words = ['Hello', 'world', 'how', 'are', 'you?']
+result = " ".join(words)
+print(result)  # Output: "Hello world how are you?"
+
+
+22.What does *args and **kwargs mean? 
+The names *args and **kwargs are only by convention but there's no hard requirement to use them.
+You would use *args when you're not sure how many arguments might be passed to your function, 
+i.e. it allows you pass an arbitrary number of arguments to your function. 
+
+>>> def print_everything(*args):
+        for count, thing in enumerate(args):
+...         print( '{0}. {1}'.format(count, thing))
+...
+>>> print_everything('apple', 'banana', 'cabbage')
+
+double asterisk form is used to pass a keyworded, variable-length argument list. Here is an example of how to use the non-keyworded form. 
+>>> def table_things(**kwargs):
+...     for name, value in kwargs.items():
+...         print( '{0} = {1}'.format(name, value))
+...
+>>> table_things(apple = 'fruit', cabbage = 'vegetable')
+cabbage = vegetable
+apple = fruit
+
+
+23.How does inheritance work in python? 
+
+24.Custom Exception types?
+In Python, you can define custom exceptions by creating a new class that inherits from the built-in Exception class (or any of its subclasses). 
+By defining custom exceptions, you can create more meaningful error messages and handle specific types of errors in your program.
+
+class ToYoungException(Exception):
+  def __init__(self,msg):
+    self.msg=msg
+
+class ToOldException(Exception):
+  def __init__(self,msg):
+    self.msg=msg
+
+age=int(input('Enter the age:'))
+if age>+60:
+  raise  ToOldException('Your age already crossed marriage age,no chance of getting marriage')
+elif age<18:
+  raise ToYoungException('Please wait some more time,definitely you will get best match')
+else:
+  print('You will get best match soon')
+
+
+25.How do you access parent members in the child class?
+The super() function is typically used to access methods and properties from the parent class
+class A:
+    def m1(self):
+        print('A class Method')
+class B(A):
+    def m1(self):
+        print('B class Method')
+        
+class C(B):
+    def m1(self):
+        print('C class Method')
+        
+class D(C):
+    def m1(self):
+        print('D class Method')
+
+class E(D):
+    def m1(self):
+        pass
+        C.m1(self) #method2 using classname.method() name 
+        #super(D,self).m1()   Method 1 using super(class name,self).method() to access the method of any super class
+      
+e=E()
+e.m1()
+
+o/p-
+C class Method
+
+
+26.Are access specifiers used in python?
+In Python, access specifiers (also known as access modifiers) like public, private, and protected are not enforced strictly like in some other object-oriented languages (e.g., Java or C++). However, Python uses a convention and naming patterns to indicate the intended level of access for attributes and methods.
+
+
+27.Is it possible to call parent class without its instance creation?
+Yes, it is possible to call a parent class method without creating an instance of the class in Python. You can do this by calling the parent class method directly using the class name or by using the super() function in a class method, even without creating an instance of the parent class.
+
+
+28.How is an empty class created in python?
+An empty class in Python is simply created by defining a class with no content, using the pass statement to avoid syntax errors.
+class EmptyClass:
+    pass
+
+29.Differentiate between new and override modifiers.
+In Python, the concepts of new and override modifiers are not applicable in the same way as they are in languages like C# or Java. However, I can explain the relevant concepts in Python that are related to method overriding and method hiding, which you might be referring to with the new and override terminology.
+
+Overriding: The child class method replaces the parent class method, but you can still call the parent method if needed (e.g., via super()).
+Hiding: The child class method completely hides the parent class method, and you do not call the parent method unless explicitly referring to it by the parent class's name.
+
+class Parent:
+    def greet(self):
+        print("Hello from Parent!")
+
+class Child(Parent):
+    def greet(self):
+        print("Hello from Child (method hiding)")
+
+# Create objects
+parent = Parent()
+child = Child()
+
+parent.greet()  # Output: Hello from Parent!
+child.greet()   # Output: Hello from Child (method hiding)
+
+
+30.Why is finalize used?
+Finalize is generally used for cleaning up resources before an object is destroyed, or managing cleanup after the object is no longer needed.
+
+
+31.What is init method in python?
+__init__ is a method or constructor in Python. 
+This method is automatically called to allocate memory when a new object/ instance of a class is created. 
+All classes have the __init__ method.
+the name should be always __init__
+
+main objective is to declare and initialize variable automatically. For every object constructor will be executed only once
+
+
+32.How will you check if a class is a child of another class?  
+We can use the issubclass() function. This function allows you to determine whether a class is a subclass of another class.
+issubclass(child_class, parent_class)
+
+33.How will you combine different pandas dataframes?
+pd.concat(): Use for concatenating DataFrames either row-wise (axis=0) or column-wise (axis=1).
+pd.merge(): Use for SQL-like joins, merging DataFrames based on common columns.
+df.append(): Adds rows of one DataFrame to another (deprecated in favor of pd.concat()).
+df.join(): Joins DataFrames based on the index or a specified column.
+
+
+34.Can you create a series from the dictionary object in pandas?
+Yes, you can create a pandas Series from a dictionary object. 
+import pandas as pd
+
+# Create a dictionary
+data = {'a': 10, 'b': 20, 'c': 30}
+
+# Create a Series from the dictionary
+series = pd.Series(data)
+
+# Display the Series
+print(series)
+
+
+
+35.How will you identify and deal with missing values in a dataframe?
+Identifying Missing Values:
+df.isna() / df.isnull(): Detects missing values.
+df.isna().sum(): Counts the missing values in each column.
+
+
+Dealing with Missing Values:
+df.dropna(): Removes rows or columns with missing values.
+df.fillna(): Fills missing values with a specified value or method (mean, median, forward fill, etc.).
+df.fillna(method='ffill'): Forward fill (propagate last valid observation).
+df.fillna(method='bfill'): Backward fill (propagate next valid observation).
+
+
+
+36.What do you understand by reindexing in pandas?
+Reindexing in pandas refers to the process of altering or changing the index (row labels) of a DataFrame or Series.
+
+DataFrame:
+
+import pandas as pd
+
+# Create a sample DataFrame
+data = {'A': [1, 2, 3, 4],
+        'B': [5, 6, 7, 8]}
+
+df = pd.DataFrame(data, index=['a', 'b', 'c', 'd'])
+print(df)
+
+# Reindex the DataFrame with a new index
+new_index = ['c', 'a', 'e', 'b', 'f']
+df_reindexed = df.reindex(new_index)
+
+print(df_reindexed)
+
+Series
+# Create a Series with custom index
+s = pd.Series([10, 20, 30], index=['a', 'b', 'c'])
+
+# Reindex the Series
+new_index = ['b', 'c', 'd']
+s_reindexed = s.reindex(new_index, fill_value=0)
+
+print(s_reindexed)
+
+37.How to add new column to pandas dataframe?
+import pandas as pd
+
+# Sample DataFrame
+data = {'A': [1, 2, 3], 'B': [4, 5, 6]}
+df = pd.DataFrame(data)
+
+# Add a new column with the same value for all rows
+df['C'] = 10
+
+print(df)
+
+# Add a new column using iloc
+df.iloc[:, 2] = [7, 8, 9]  # This creates a new column at index position 2
+
+print("\nDataFrame after adding column 'C' using iloc:")
+print(df)
+
+38.How to remove duplicate in Pandas DF?
+df.drop_duplicates(subset=['A', 'B'])
+df.drop_duplicates()
+df.drop_duplicates(keep='last')
+subset: Columns to check for duplicates (default is None, meaning all columns).
+keep: Determines which duplicates to keep ('first', 'last', False).
+inplace: If True, modify the original DataFrame. If False (default), return a new DataFrame.
+
+
+39.How will you delete indices, rows and columns from a dataframe?
+In pandas, you can delete indices, rows, and columns from a DataFrame using the drop() method
+
+DataFrame.drop(labels, axis=0, inplace=False)  #axis=0 Drop rows (default).axis=1 Drop columns
+# Deleting a specific row (index 2)
+df_no_row = df.drop(2)
+
+# Deleting a single column 'B'
+df_no_column = df.drop('B', axis=1)
+
+40.Can you get items of series A that are not available in another series B?
+# Items in A that are not in B
+result = A[~A.isin(B)] 
+
+
+# Using difference() method between two Series converted to Indexes
+result = pd.Index(A).difference(B)
+
+41.How will you get the items that are not common to both the given series A and B?
+import pandas as pd
+
+# Sample Series
+A = pd.Series([1, 2, 3, 4, 5, 6])
+B = pd.Series([4, 5, 6, 7, 8])
+
+# Get items in A but not in B and B but not in A (symmetric difference)
+result = A[~A.isin(B)].append(B[~B.isin(A)]).reset_index(drop=True)  #append is derecated
+
+#pd.concat([A[~A.isin(B)], B[~B.isin(A)]]).reset_index(drop=True)
+
+print("Items that are not common to both A and B:")
+print(result)
+
+42.While importing data from different sources, can the pandas library recognize dates?  
+Yes, the pandas library can automatically recognize and parse date columns when importing data from various sources like CSV, Excel, SQL databases, etc. 
+# Reading CSV file and let pandas automatically infer the date format
+df = pd.read_csv('data.csv', infer_datetime_format=True)
+print(df)
+---------------------------
+import pandas as pd
+
+# Reading CSV with date columns
+df = pd.read_csv('data.csv', parse_dates=['date_column'])
+print(df)
+----------------------------
+# Manually converting a column to datetime
+df['date_column'] = pd.to_datetime(df['date_column'])
+print(df)
+
+
+
+43.What are lambda functions?
+Lambda functions are often used in situations where a small, simple function is needed for a short duration.
+An anonymous function is known as a lambda function. 
+It is also called as without name or nameless function.
+
+>>> lambda input:expression
+>>> a = lambda x,y : x+y
+print(a(5, 6))
+
+>>> list(map(lambda x:x**2,range(8))) #[0, 1, 4, 9, 16, 25, 36, 49]
+>>> list(filter(lambda x:x>5,range(8))) #[6, 7]
+
+44.How can you generate random numbers?
+In Python, you can generate random numbers using the random module
+Random Integer	random.randint(a, b)
+Random Float	random.random()
+Random Float in range	random.uniform(a, b)
+Random choice from list	random.choice(list)
+Shuffle list	random.shuffle(list)
+
+45.Can you easily check if all characters in the given string is alphanumeric?
+print(s1.isalnum())
+isalnum()
+isnumeric(): Returns True if the string contains only numeric characters (digits).
+isalpha(): Returns True if the string contains only alphabetic characters (letters).
+
+46.What are the differences between pickling and unpickling? 
+Pickling and unpickling are fundamental concepts in Python for data serialization and deserialization. 
+pickling
+Pickling is the process of converting Python object to a string representation(byte stream) and dumps it into a file by using dump function.
+Pickling is implemented using the pickle module in Python.
+To pickle an object, you use pickle.dump() to write the object to a file or obtain a byte stream.
+
+unpickling
+While the process of retrieving original Python objects from the stored string representation is called unpickling.
+Unpickling is also done using the pickle module.
+To unpickle an object, you use pickle.load() to read the byte stream from a file or other sources.
+
+Used for memory and performance efficiency
+load time is faster then write once again.
+
+Note:-
+#once we open the file we needs to close irespective of any operation otherwise it overwrite the data and get error like EOFError: Ran out of input.
+#it is not compulsion to use the file name with .pkl extension we can write only name also 
+
+import pickle
+output=open('data.pkl','wb')
+data1=pickle.dump([1,2,3,5],output)
+output.close()
+
+output=open('D:\\data','wb')
+data1=pickle.dump('nitesh pandey',output)
+output.close()
+
+#Serialisation
+with open('abc.pkl','wb') as f:
+  pickle.dump([1,2,3,4],f)
+ 
+ #Deserialisation
+ with open('abc.pkl','rb')as f:
+  print(pickle.load(f))
+
+ 
+47.Write a program for counting the number of every character of a given text file.
+from collections import defaultdicts
+
+# Function to count characters in a text file
+def count_characters(file_path):
+    # Create a defaultdict to store character counts
+    char_count = defaultdict(int)
+    
+    try:
+        # Open the file in read mode
+        with open(file_path, 'r') as file:
+            # Read the entire content of the file
+            content = file.read()
+
+            # Iterate over each character in the content
+            for char in content:
+                # Increment the count of each character
+                char_count[char] += 1
+        
+        # Print the result (Character counts)
+        print("Character counts:")
+        for char, count in char_count.items():
+            print(f"'{char}': {count}")
+    
+    except FileNotFoundError:
+        print(f"Error: The file '{file_path}' was not found.")
+
+# Replace with the path to your text file
+file_path = 'example.txt'
+count_characters(file_path)
+
+
+48.How will you access the dataset of a publicly shared spreadsheet in CSV format stored?  
+df = pandas.read_csv()
+response = requests.get(url)
+
+Mention the differences between Django, Pyramid, and Flask.
+Type:
+Django,Flask,Pyramid
+Full-stack web framework	
+Microframework	
+Flexible, scalable framework
+
+Use case:
+Large, complex applications, full websites	
+Small apps, microservices, REST APIs	
+Both small and large applications
+
+Built-in Features	
+ORM, admin panel, authentication, forms
+None (you add what you need)	
+Modular, provides basic functionality
+
+Documentation/Community	
+Extensive and well-established	
+Extensive, but more minimal than Django	
+Smaller but growing
+
+
