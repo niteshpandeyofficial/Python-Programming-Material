@@ -292,6 +292,8 @@ def balance_string(inp_str):
     elif chr in mapped_dict.keys():
       if stack and stack[-1]==mapped_dict[chr]:
         stack.pop()
+      else:
+        return 'Not Balanced'
   if not stack:
     return 'Balanced'
   else:
@@ -679,3 +681,10 @@ for chr in input:
       x=''
 
 print(res)
+
+
+------------
+string_value = " Nitesh Pandey "
+# Strip the string to remove leading/trailing spaces, then join without space
+cleaned_string = string_value[:1] + string_value[1:].replace(" ", "") +s[-1:]
+print(f'"{cleaned_string}"')
